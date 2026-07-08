@@ -1,0 +1,43 @@
+{
+  "version": "1",
+  "skill_name": "kraken-engineer",
+  "defaults": {
+    "timeout_sec": 900,
+    "judge_model": "z-ai/glm-5.2"
+  },
+  "cases": [
+    {
+      "id": "greenfield-tdd",
+      "question": "Write a Python function `find_duplicates(items)` that returns all duplicate elements from a list, preserving their first-seen order. Use the kraken-engineer skill — follow the TDD methodology (write tests first, implement, verify). Include both the implementation and the test file, and clearly show that you wrote and ran the tests.",
+      "ground_truth": "The solution includes a test file, the implementation passes all tests, and duplicates are returned in first-seen order.",
+      "expected_behavior": [
+        "Discovers and reads the kraken-engineer skill (SKILL.md and/or blitzkrieg-tdd reference) before or while implementing",
+        "Writes tests before or with the implementation (TDD / test-plan-first discipline is visible)",
+        "Produces a working find_duplicates implementation that returns duplicates in first-seen order",
+        "Runs the tests (or otherwise executes verification) and shows evidence of the run, not just claimed success"
+      ]
+    },
+    {
+      "id": "architecture-tradeoff",
+      "question": "You need to choose between SQLite and PostgreSQL for a single-user desktop note-taking app that syncs to a cloud server. Using the kraken-engineer skill, analyze the trade-offs and recommend one. Provide a decision matrix with at least 3 criteria rated on a 1-5 scale.",
+      "ground_truth": "The analysis includes a decision matrix with at least 3 criteria (e.g., ease of deployment, concurrency needs, sync complexity), both options are scored, and a justified recommendation is made.",
+      "expected_behavior": [
+        "Discovers and uses the kraken-engineer skill guidance (architecture / decision-matrix methodology)",
+        "Compares SQLite and PostgreSQL against the stated single-user desktop + cloud-sync scenario",
+        "Includes a decision matrix with at least 3 criteria scored on a 1-5 (or equivalent numeric) scale for both options",
+        "Makes a clear recommendation with justification grounded in the matrix/scores"
+      ]
+    },
+    {
+      "id": "plan-qa",
+      "question": "Review this implementation plan and identify at least 3 issues: 'Step 1: Add the new button to the UI. Step 2: Connect it to the backend. Step 3: Test it. Step 4: Deploy.' Using the kraken-engineer skill, audit the plan for completeness, measurability, and safety concerns. Provide actionable improvements.",
+      "ground_truth": "The review identifies at least 3 specific issues with the plan (e.g., no definition of done, no rollback strategy, no error handling, ambiguous scope) and provides actionable improvements.",
+      "expected_behavior": [
+        "Discovers and uses the kraken-engineer skill plan-qa / plan-audit guidance",
+        "Identifies at least 3 concrete issues with the given 4-step plan (not generic advice only)",
+        "Addresses completeness, measurability, and/or safety concerns explicitly",
+        "Provides actionable improvements or a revised plan structure"
+      ]
+    }
+  ]
+}
