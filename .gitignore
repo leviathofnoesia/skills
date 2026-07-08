@@ -1,0 +1,10 @@
+dist/
+*.skill
+__pycache__/
+*.py[cod]
+.Python
+.DS_Store
+.venv/
+venv/
+.env
+*.log
