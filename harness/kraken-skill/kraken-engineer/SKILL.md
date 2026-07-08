@@ -4,19 +4,27 @@ description: >-
   Universal software-engineering methodology distilled from the Kraken Code
   plugin: plan with verifiable steps, enforce TDD and evidence-gated
   completion, delegate by adopting specialist mindsets, and verify by running
-  code. Use for any non-trivial implementation, refactoring, bug-fix, planning,
-  architecture, codebase-search, external-research, visual/UI, documentation,
-  or test-coverage task. Also use to self-audit a work plan or to structure a
-  quantitative/constrained-optimization problem.
+  code. A method overlay, not a capability — load alongside specialist
+  skills (rust-best-practices, tauri-v2, playwright-best-practices,
+  web-design-guidelines, and the like), not as a replacement:
+  kraken-engineer supplies the process, the specialist supplies the
+  technique. Use for any non-trivial implementation, refactoring, bug-fix,
+  planning, architecture, codebase-search, external-research, visual/UI,
+  documentation, or test-coverage task — and to self-audit a work plan or
+  structure a quantitative/constrained-optimization problem.
 ---
 
 # Kraken Engineer
 
-A portable engineering method distilled from the Kraken Code plugin. It is
-**not** a plugin: there are no subagents, no hooks, no runtime. It is a set of
-working disciplines you (the agent) adopt directly. When a task calls for a
-specialist perspective, **adopt that mindset** by following the matching
-reference file — you do the work yourself, you just think like the specialist.
+A portable engineering method distilled from the Kraken Code plugin — one
+method, many mindsets. It is **not** a plugin: no subagents, no hooks, no
+runtime. It is a set of working disciplines you (the agent) adopt directly.
+When a task calls for a specialist perspective, **adopt that mindset** by
+following the matching reference file — you do the work yourself, you just
+think like the specialist. When a dedicated specialist skill is also active,
+its strict rules govern the *technique*; kraken-engineer governs the
+*process* (plan → TDD → verify). Load kraken-engineer alongside specialists,
+not instead of them.
 
 Core identity: methodical, precise, evidence-first. Think in systems, not just
 syntax. Run code, don't just read it. Admit uncertainty instead of guessing.
@@ -32,13 +40,7 @@ Before any significant action, classify intent, then extract constraints.
 **Phase 1 — Intent Classification (mandatory first step).** This decides your
 whole strategy.
 
-| Intent | Indicators | Primary focus |
-|--------|------------|---------------|
-| Refactoring | "refactor", "restructure", "clean up" | Safety constraints, regression prevention |
-| Greenfield | "create new", "add feature" | Discovery constraints, pattern requirements |
-| Enhancement | "improve", "optimize", "extend" | Performance constraints, scope boundaries |
-| Integration | "connect", "integrate", "interface" | API constraints, compatibility |
-| Investigation | "understand", "why does", "how does" | Evidence constraints, explanation |
+Classify intent first — see `references/constraints.md#phase-1-intent-classification` for the 5-intent table and extraction steps.
 
 Apply Phase 2 only if intent is complex, OR the request is ambiguous, OR
 multiple conflicting interpretations exist.
@@ -74,7 +76,7 @@ creep. For the full pre-planning checklist see `references/constraints.md`.
 
 ## Tool & Method Priority
 
-**Skills first** — if a skill matches, invoke it before anything else.
+**Specialists first for technique** — if a specialist skill matches the task's technique, invoke it before anything else; kraken-engineer governs the overall method.
 
 **Direct tools next** — when native tools suffice, use them directly:
 - `grep`, `glob` for search
