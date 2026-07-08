@@ -16,18 +16,21 @@ skill lives at `TOPIC/SKILL-NAME/` and is a self-contained package
 
 ## Install
 
-Copy or symlink a skill directory into your agent skills path, or install the
-packaged `.skill` file if your harness supports it.
+Use the [`skills`](https://www.npmjs.com/package/skills) CLI to install a
+skill straight from this repo:
 
 ```bash
-# Claude Code / compatible harness example
-ln -s "$(pwd)/SEO/HOTE-Play" ~/.claude/skills/HOTE-Play
+# Install one skill by topic/name path
+npx skills add leviathofnoesia/skills/SEO/HOTE-Play
+
+# Or install the whole repo's skills
+npx skills add leviathofnoesia/skills
 ```
 
-## Package a skill
+Manual fallback (symlink into your harness skills path):
 
 ```bash
-python3 path/to/skill-creator/scripts/package_skill.py ./SEO/HOTE-Play ./dist
+ln -s "$(pwd)/SEO/HOTE-Play" ~/.claude/skills/HOTE-Play
 ```
 
 ## License
