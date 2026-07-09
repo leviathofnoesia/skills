@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Components — Navigation" subtitle="v2.1 · Compartmentalized specimens, breathing space, captioned stages" viewport="700x240" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nov Pax · 06c Components · Navigation · v2.4 Edition</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  
+  body { background: var(--bg); margin: 0; color: var(--text-primary); }
+  body::after { content: ""; position: fixed; inset: 0; z-index: 999; pointer-events: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>"); opacity: 0.08; mix-blend-mode: multiply; }
+  .top-strip, .bottom-strip { display: grid; grid-template-columns: auto auto 1fr auto auto; gap: 14px; align-items: center; padding: 12px 32px; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); }
+  .bottom-strip { border-bottom: none; border-top: 1px solid var(--border); }
+  .top-strip .mark, .bottom-strip .mark { width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 40%), radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, var(--c-onyx) 115%); }
+  .top-strip .ver, .bottom-strip .ver { color: var(--c-lilac-deep); }
+  .top-strip .barcode-mini, .bottom-strip .barcode-mini { display: flex; gap: 1px; height: 14px; width: 80px; }
+  .top-strip .barcode-mini i, .bottom-strip .barcode-mini i { background: var(--text-secondary); width: 1.5px; }
+  .top-strip .barcode-mini i:nth-child(2n), .bottom-strip .barcode-mini i:nth-child(2n) { width: 1px; }
+  .top-strip .barcode-mini i:nth-child(3n), .bottom-strip .barcode-mini i:nth-child(3n) { width: 2px; }
+  .center { text-align: center; }
+  .cover { position: relative; background: var(--c-onyx); color: var(--c-porcelain); overflow: hidden; }
+  .cover-inner { max-width: 1440px; margin: 0 auto; padding: 44px 48px 52px; position: relative; min-height: 48vh; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr auto; gap: 20px 32px; }
+  .cover-eclipse { position: absolute; top: 14%; right: 0; width: 34%; height: 60%; background: var(--c-dusk); z-index: 0; }
+  .cover-moon-wrap { position: absolute; top: 50%; left: 60%; transform: translate(-50%, -42%); width: min(36vw, 440px); aspect-ratio: 1; z-index: 1; pointer-events: none; opacity: 0.7; }
+  .cover-moon-wrap .halftone { position: absolute; inset: 0; color: var(--c-lilac); background-size: 7px 7px; }
+  .cover-top { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: start; position: relative; z-index: 2; }
+  .cover-top .l { display: flex; flex-direction: column; gap: 6px; }
+  .cover-top .codes { display: flex; gap: 14px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: oklch(58% 0.03 310); }
+  .cover-top .star-row { display: flex; gap: 6px; color: var(--c-lilac); }
+  .cover-title { grid-column: 1 / -1; align-self: end; font-family: 'Geist', sans-serif; font-weight: 900; font-size: clamp(3rem, 10vw, 9rem); line-height: 1.0; letter-spacing: -0.045em; text-transform: uppercase; padding-bottom: 0.18em; color: var(--c-porcelain); margin: 0; position: relative; z-index: 2; text-shadow: 0 2px 0 oklch(0% 0 0 / 0.25), 0 0 30px oklch(0% 0 0 / 0.4); }
+  .cover-title .pigment { color: var(--c-lilac); }
+  .cover-italic { grid-column: 1; align-self: end; font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: clamp(1.25rem, 2.2vw, 1.75rem); line-height: 1.15; letter-spacing: -0.02em; color: oklch(82% 0.04 310); margin: 0; max-width: 32ch; position: relative; z-index: 2; }
+  .cover-italic .em { background: linear-gradient(135deg, var(--c-lilac), var(--c-dusk-soft)); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: italic; font-weight: 400; }
+  .cover-spec { grid-column: 2; align-self: end; display: flex; flex-direction: column; gap: 5px; align-items: flex-end; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(78% 0.05 310); text-align: right; position: relative; z-index: 2; }
+  .cover-spec b { color: var(--c-porcelain); font-weight: 500; }
+  .cover-spec .barcode-w { display: inline-flex; gap: 1px; height: 14px; width: 90px; margin-top: 6px; }
+  .cover-spec .barcode-w i { background: var(--c-porcelain); width: 2px; }
+  .cover-spec .barcode-w i:nth-child(2n) { width: 1px; }
+  .cover-spec .barcode-w i:nth-child(3n) { width: 3px; }
+  .cover-marquee { color: oklch(78% 0.05 310); border-color: oklch(50% 0.06 290 / 0.4); }
+  main { max-width: 1440px; margin: 0 auto; padding: 40px 32px 56px; display: flex; flex-direction: column; gap: 32px; }
+  .sect-head { display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: end; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+  .sect-head .num { font-family: 'Geist', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 4.5vw, 4rem); line-height: 0.84; letter-spacing: -0.06em; }
+  .sect-head h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.5rem, 2.4vw, 2rem); letter-spacing: -0.025em; line-height: 1.05; margin: 0; }
+  .sect-head h2 .it { font-style: italic; font-weight: 400; }
+  .sect-head .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 6px; }
+  .sect-head .folio { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); text-align: right; line-height: 1.6; }
+  .sect-head.dusk .num, .sect-head.dusk .k { color: var(--c-dusk); }
+  .sect-head.dusk h2 .it { background: linear-gradient(135deg, var(--c-dusk), var(--c-lilac)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sect-head.lilac .num, .sect-head.lilac .k { color: var(--c-lilac-deep); }
+  .sect-head.lilac h2 .it { background: linear-gradient(135deg, var(--c-lilac), var(--c-dusk)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sect-head.teal .num, .sect-head.teal .k { color: var(--c-teal-deep); }
+  .sect-head.teal h2 .it { background: linear-gradient(135deg, var(--c-teal), var(--c-dusk)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .specimen { background: oklch(99% 0.003 90); border: 2px solid var(--c-dusk); position: relative; }
+  .specimen.teal { border-color: var(--c-teal-deep); }
+  .specimen.lilac { border-color: var(--c-lilac-deep); }
+  .specimen.onyx { border-color: var(--c-onyx); }
+  .specimen > .strip { padding: 6px 14px; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; background: var(--c-dusk); color: var(--c-porcelain); }
+  .specimen.teal > .strip { background: var(--c-teal-deep); }
+  .specimen.lilac > .strip { background: var(--c-lilac-deep); }
+  .specimen.onyx > .strip { background: var(--c-onyx); }
+  .specimen > .body { padding: 24px; }
+  .bq { background: var(--c-onyx); color: var(--c-porcelain); overflow: hidden; }
+  .bq > .strip { padding: 6px 14px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; background: var(--c-lilac-deep); color: var(--c-porcelain); }
+  .bq > .body { padding: 36px 40px 32px; font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: clamp(1.5rem, 2.6vw, 2.25rem); line-height: 1.3; letter-spacing: -0.018em; max-width: 36ch; margin: 0; }
+  .bq > .body .em { background: linear-gradient(135deg, var(--c-lilac), var(--c-dusk-soft)); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: italic; font-weight: 400; }
+  .bq > .body cite { display: block; margin-top: 16px; font-style: normal; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(72% 0.04 310); }
+  .foot-marquee { max-width: 1440px; margin: 0 auto; padding: 0 32px 32px; color: var(--text-tertiary); }
+  .foot-marquee .marquee { opacity: 0.55; }
+  @media (max-width: 1024px) {
+    .cover-title { font-size: clamp(2.5rem, 14vw, 6rem); }
+    .cover-inner, main { padding-left: 24px; padding-right: 24px; }
+    .sect-head { grid-template-columns: auto 1fr; }
+    .sect-head .folio { grid-column: 1 / -1; text-align: left; }
+  }
+
+
+  /* RUNNING HEADER (the marketing kit nav) */
+  .nav-run {
+    width: 100%; background: oklch(99% 0.003 80 / 0.92);
+    backdrop-filter: blur(24px) saturate(140%);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    display: grid; grid-template-columns: auto auto 1fr auto auto;
+    align-items: stretch; height: 56px;
+    font-family: var(--font-mono);
+  }
+  .nav-run .codes { display: flex; align-items: center; gap: 14px; padding: 0 20px; border-right: 1px solid var(--border); font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); }
+  .nav-run .codes .ver { color: var(--c-lilac-deep); }
+  .nav-run .codes .reg-mini { width: 10px; height: 10px; border-radius: 50%; border: 1px solid currentColor; position: relative; opacity: 0.55; }
+  .nav-run .codes .reg-mini::before, .nav-run .codes .reg-mini::after { content: ""; position: absolute; background: currentColor; }
+  .nav-run .codes .reg-mini::before { width: 16px; height: 1px; top: 50%; left: -3px; transform: translateY(-0.5px); }
+  .nav-run .codes .reg-mini::after { width: 1px; height: 16px; left: 50%; top: -3px; transform: translateX(-0.5px); }
+  .nav-run .brand { display: flex; align-items: center; gap: 10px; padding: 0 22px; text-decoration: none; border-right: 1px solid var(--border); }
+  .nav-run .brand .mk { width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 40%), radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, var(--c-onyx) 115%); }
+  .nav-run .brand .name { font-family: 'Geist', sans-serif; font-weight: 700; font-size: 14px; text-transform: lowercase; color: var(--text-primary); }
+  .nav-run .links { display: flex; align-items: stretch; justify-content: center; }
+  .nav-run .links a { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-secondary); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; border-right: 1px solid var(--border); }
+  .nav-run .links a .n { color: var(--text-muted); }
+  .nav-run .links a:nth-child(1) .n { color: var(--c-dusk); }
+  .nav-run .links a:nth-child(2) .n { color: var(--c-teal-deep); }
+  .nav-run .links a:nth-child(3) .n { color: var(--c-lilac-deep); }
+  .nav-run .links a:nth-child(4) .n { color: var(--c-dusk); }
+  .nav-run .links a:nth-child(5) .n { color: var(--c-teal-deep); }
+  .nav-run .folio { display: flex; align-items: center; gap: 14px; padding: 0 18px; border-left: 1px solid var(--border); font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); }
+  .nav-run .folio .bc { display: flex; gap: 1px; height: 14px; width: 60px; }
+  .nav-run .folio .bc i { background: var(--text-secondary); width: 1.5px; }
+  .nav-run .folio .bc i:nth-child(2n) { width: 1px; }
+  .nav-run .cta a { height: 56px; padding: 0 22px; font-family: 'Geist', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; background: var(--c-lilac); color: var(--c-onyx); display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+
+  /* MOBILE collapsed variant */
+  .nav-mob {
+    background: oklch(99% 0.003 80 / 0.95);
+    backdrop-filter: blur(24px);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    display: grid; grid-template-columns: auto 1fr auto;
+    align-items: stretch; height: 52px;
+    font-family: var(--font-mono);
+    max-width: 420px;
+  }
+  .nav-mob .brand { display: flex; align-items: center; gap: 10px; padding: 0 16px; text-decoration: none; }
+  .nav-mob .brand .mk { width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 40%), radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, var(--c-onyx) 115%); }
+  .nav-mob .brand .name { font-family: 'Geist', sans-serif; font-weight: 700; font-size: 13px; text-transform: lowercase; color: var(--text-primary); }
+  .nav-mob .cta { display: flex; align-items: stretch; }
+  .nav-mob .cta a { height: 52px; padding: 0 18px; font-family: 'Geist', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; background: var(--c-lilac); color: var(--c-onyx); display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+
+  /* TAB BAR (in-app, soft) */
+  .tabbar { background: oklch(20% 0.02 280); padding: 14px 24px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; border-radius: 18px; max-width: 360px; }
+  .tabbar .tab { padding: 6px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; }
+  .tabbar .tab .icon { width: 22px; height: 22px; background: oklch(70% 0.04 310); border-radius: 4px; }
+  .tabbar .tab.active .icon { background: var(--c-lilac); box-shadow: 0 0 12px var(--c-lilac); }
+  .tabbar .tab .lbl { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(72% 0.04 310); }
+  .tabbar .tab.active .lbl { color: var(--c-lilac); }
+
+  /* BREADCRUMB */
+  .crumb { display: flex; gap: 10px; align-items: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); flex-wrap: wrap; }
+  .crumb a { color: var(--text-tertiary); text-decoration: none; }
+  .crumb a:hover { color: var(--c-dusk); }
+  .crumb .sep { opacity: 0.5; }
+  .crumb .here { color: var(--c-lilac-deep); }
+
+  /* FLOATING MENU */
+  .floatmenu { background: oklch(99% 0.003 90); border: 2px solid var(--c-onyx); padding: 8px; display: flex; flex-direction: column; gap: 2px; max-width: 260px; }
+  .floatmenu a { padding: 10px 14px; font-family: 'Geist', sans-serif; font-size: 13px; color: var(--text-primary); text-decoration: none; display: flex; justify-content: space-between; align-items: center; }
+  .floatmenu a:hover { background: oklch(94% 0.005 80); }
+  .floatmenu a .k { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-tertiary); }
+  .floatmenu .sep { height: 1px; background: var(--border); margin: 4px 0; }
+
+  /* SIDEBAR */
+  .sidebar { background: oklch(96% 0.008 80); border: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; gap: 4px; max-width: 240px; }
+  .sidebar .sec { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); padding: 12px 10px 6px; }
+  .sidebar a { display: grid; grid-template-columns: auto 1fr; gap: 10px; padding: 9px 10px; font-family: 'Geist', sans-serif; font-size: 13px; color: var(--text-primary); text-decoration: none; align-items: baseline; }
+  .sidebar a .n { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-tertiary); }
+  .sidebar a.active { background: var(--c-dusk); color: #fff; }
+  .sidebar a.active .n { color: oklch(99% 0.05 80 / 0.7); }
+
+  /* PAGINATION */
+  .pagi { display: flex; gap: 6px; align-items: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .pagi a { padding: 8px 12px; color: var(--text-secondary); text-decoration: none; border: 1px solid var(--border); }
+  .pagi a.active { background: var(--c-dusk); color: #fff; border-color: var(--c-dusk); }
+  .pagi a:hover:not(.active) { color: var(--c-dusk); }
+
+  .demo-frame { padding: 32px; background: oklch(96% 0.008 80); display: grid; place-items: center; }
+  .demo-frame.dark { background: var(--c-onyx); }
+</style>
+</head>
+<body>
+<div class="top-strip"><span class="mark"></span><span>NOV PAX</span><span class="center">+ 06 COMPONENTS · NAVIGATION · NPX-CP-NV</span><span class="ver">v 2.4 EDITION</span><span class="barcode-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="marquee cover-marquee" style="border-top: none">
+    <div class="marquee-track">
+      <span>NAVIGATION</span><span>HEADER · TAB · CRUMB · MENU</span><span>NPX-CP-NV</span><span>6 PATTERNS</span>
+      <span>NAVIGATION</span><span>HEADER · TAB · CRUMB · MENU</span><span>NPX-CP-NV</span><span>6 PATTERNS</span>
+      <span>NAVIGATION</span><span>HEADER · TAB · CRUMB · MENU</span><span>NPX-CP-NV</span><span>6 PATTERNS</span>
+      <span>NAVIGATION</span><span>HEADER · TAB · CRUMB · MENU</span><span>NPX-CP-NV</span><span>6 PATTERNS</span>
+    </div>
+  </div>
+  <div class="cover-inner">
+    <span class="crop tl" style="color: oklch(72% 0.04 310 / 0.5)"></span>
+    <span class="crop tr" style="color: oklch(72% 0.04 310 / 0.5)"></span>
+    <span class="crop bl" style="color: oklch(72% 0.04 310 / 0.5)"></span>
+    <span class="crop br" style="color: oklch(72% 0.04 310 / 0.5)"></span>
+    <div class="cover-top">
+      <div class="l">
+        <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(72% 0.04 310)">+ COMPONENT SHEET · 06C / 03</div>
+        <div class="codes"><span>NPX-CP-NV</span><span>RUN 11</span><span>MMXXVI</span></div>
+      </div>
+      <div class="star-row">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 0 L8 6 L14 7 L8 8 L7 14 L6 8 L0 7 L6 6 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 0 L8 6 L14 7 L8 8 L7 14 L6 8 L0 7 L6 6 Z"/></svg>
+      </div>
+    </div>
+    <div class="cover-eclipse"></div>
+    <div class="cover-moon-wrap"><div class="halftone cresc coarse" aria-hidden="true"></div></div>
+    <h1 class="cover-title"><span>NAVI-</span><span class="pigment">GATION.</span></h1>
+    <p class="cover-italic">
+      How the room is <span class="em">entered.</span> Marketing yells, the product whispers.
+    </p>
+    <div class="cover-spec">
+      <span><b>+ INVENTORY</b></span>
+      <span>1 RUNNING HEADER</span>
+      <span>1 TAB BAR</span>
+      <span>1 SIDEBAR</span>
+      <span>+ CRUMB · MENU · PAGINATION</span>
+      <span class="barcode-w"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+  </div>
+  <div class="marquee cover-marquee" style="border-bottom: none">
+    <div class="marquee-track">
+      <span>+ RUNNING HEADER</span><span>+ TAB BAR</span><span>+ SIDEBAR</span><span>+ CRUMB</span><span>+ FLOATING MENU</span><span>+ PAGINATION</span>
+      <span>+ RUNNING HEADER</span><span>+ TAB BAR</span><span>+ SIDEBAR</span><span>+ CRUMB</span><span>+ FLOATING MENU</span><span>+ PAGINATION</span>
+      <span>+ RUNNING HEADER</span><span>+ TAB BAR</span><span>+ SIDEBAR</span><span>+ CRUMB</span><span>+ FLOATING MENU</span><span>+ PAGINATION</span>
+      <span>+ RUNNING HEADER</span><span>+ TAB BAR</span><span>+ SIDEBAR</span><span>+ CRUMB</span><span>+ FLOATING MENU</span><span>+ PAGINATION</span>
+    </div>
+  </div>
+</section>
+
+<main>
+  <!-- 01 RUNNING HEADER -->
+  <div>
+    <div class="sect-head lilac">
+      <div class="num">01</div>
+      <div>
+        <div class="k">+ PATTERN 01 / RUNNING HEADER · MARKETING</div>
+        <h2>Hairlines and a <span class="it">moon.</span></h2>
+      </div>
+      <div class="folio">+ PATTERN 01 / 06<br>NPX-NV-A</div>
+    </div>
+    <div class="specimen lilac" style="margin-top: 24px">
+      <div class="strip"><span>+ RUNNING HEADER · DESKTOP · 56PX</span><span>NPX-NV-A1</span></div>
+      <div class="body" style="padding: 0">
+        <nav class="nav-run" aria-label="Sample">
+          <div class="codes"><span class="reg-mini"></span><span>NPX-0224-S</span><span class="ver">v 2.4</span></div>
+          <a class="brand" href="#"><span class="mk"></span><span class="name">nov pax</span></a>
+          <div class="links">
+            <a href="#"><span class="n">+ 01</span> Manifesto</a>
+            <a href="#"><span class="n">+ 02</span> Pillars</a>
+            <a href="#"><span class="n">+ 03</span> Sanctuary</a>
+            <a href="#"><span class="n">+ 04</span> Pricing</a>
+            <a href="#"><span class="n">+ 05</span> FAQ</a>
+          </div>
+          <div class="folio"><span class="bc"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>ED. 02</span></div>
+          <div class="cta"><a href="#">Open Sanctuary →</a></div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="specimen" style="margin-top: 16px">
+      <div class="strip"><span>+ RUNNING HEADER · MOBILE · COLLAPSED · 52PX</span><span>NPX-NV-A2</span></div>
+      <div class="body">
+        <nav class="nav-mob" aria-label="Mobile">
+          <a class="brand" href="#"><span class="mk"></span><span class="name">nov pax</span></a>
+          <div></div>
+          <div class="cta"><a href="#">Open →</a></div>
+        </nav>
+        <p style="margin: 18px 0 0; font-family: var(--font-body); font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6; max-width: 60ch">
+          Full-width sticky header, hairline-divided cells, each link prefixed with a colored "+ 0X" mono code. CTA edge-to-edge in Lilac. Collapses to brand + CTA only on mobile.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 TAB BAR -->
+  <div>
+    <div class="sect-head dusk">
+      <div class="num">02</div>
+      <div>
+        <div class="k">+ PATTERN 02 / IN-APP TAB BAR · SANCTUARY</div>
+        <h2>Calm at the <span class="it">bottom.</span></h2>
+      </div>
+      <div class="folio">+ PATTERN 02 / 06<br>NPX-NV-B</div>
+    </div>
+    <div class="specimen" style="margin-top: 24px">
+      <div class="strip"><span>+ TAB BAR · ROUNDED · ONYX · 4-COL</span><span>NPX-NV-B1</span></div>
+      <div class="body">
+        <div class="demo-frame dark">
+          <div class="tabbar">
+            <a class="tab active" href="#"><div class="icon"></div><span class="lbl">HOME</span></a>
+            <a class="tab" href="#"><div class="icon"></div><span class="lbl">FOCUS</span></a>
+            <a class="tab" href="#"><div class="icon"></div><span class="lbl">REST</span></a>
+            <a class="tab" href="#"><div class="icon"></div><span class="lbl">SETTINGS</span></a>
+          </div>
+        </div>
+        <p style="margin: 18px 0 0; font-family: var(--font-body); font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6; max-width: 60ch">
+          The product app stays soft — rounded bar, Onyx ground, active tab in Lilac with a glow. The bit: brand world brutalist, product quiet.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 SIDEBAR -->
+  <div>
+    <div class="sect-head teal">
+      <div class="num">03</div>
+      <div>
+        <div class="k">+ PATTERN 03 / SIDEBAR · DASHBOARD</div>
+        <h2>The Edition's <span class="it">spine.</span></h2>
+      </div>
+      <div class="folio">+ PATTERN 03 / 06<br>NPX-NV-C</div>
+    </div>
+    <div class="specimen teal" style="margin-top: 24px">
+      <div class="strip"><span>+ SIDEBAR · MONO NUMBERED · DUSK ACTIVE</span><span>NPX-NV-C1</span></div>
+      <div class="body">
+        <div class="demo-frame" style="background: var(--bg)">
+          <nav class="sidebar">
+            <div class="sec">+ SYSTEM</div>
+            <a href="#"><span class="n">01</span>Identity</a>
+            <a href="#"><span class="n">02</span>Type</a>
+            <a href="#"><span class="n">03</span>Color</a>
+            <a href="#"><span class="n">04</span>Spacing</a>
+            <div class="sec">+ COMPONENTS</div>
+            <a href="#" class="active"><span class="n">06A</span>Buttons</a>
+            <a href="#"><span class="n">06B</span>Cards</a>
+            <a href="#"><span class="n">06C</span>Navigation</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRUTAL QUOTE -->
+  <div class="bq">
+    <div class="strip"><span>+ NAVIGATION · FIELD NOTE / 03</span><span>NPX-VC-NV</span></div>
+    <div class="body">
+      Marketing yells "QUIET" so the product can <span class="em">whisper it.</span>
+      <cite>+ NOV PAX · COMPONENT NOTES · MMXXVI</cite>
+    </div>
+  </div>
+
+  <!-- 04 BREADCRUMB -->
+  <div>
+    <div class="sect-head dusk">
+      <div class="num">04</div>
+      <div>
+        <div class="k">+ PATTERN 04 / BREADCRUMB · EDITION TRAIL</div>
+        <h2>Where the room <span class="it">opened.</span></h2>
+      </div>
+      <div class="folio">+ PATTERN 04 / 06<br>NPX-NV-D</div>
+    </div>
+    <div class="specimen" style="margin-top: 24px">
+      <div class="strip"><span>+ BREADCRUMB · MONO · LILAC ACTIVE</span><span>NPX-NV-D1</span></div>
+      <div class="body">
+        <div class="crumb">
+          <a href="#">+ NOV PAX</a><span class="sep">/</span>
+          <a href="#">EDITION 02</a><span class="sep">/</span>
+          <a href="#">SYSTEM</a><span class="sep">/</span>
+          <a href="#">COMPONENTS</a><span class="sep">/</span>
+          <span class="here">NAVIGATION</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 FLOATING MENU -->
+  <div>
+    <div class="sect-head lilac">
+      <div class="num">05</div>
+      <div>
+        <div class="k">+ PATTERN 05 / FLOATING MENU · ⌘ ACTIONS</div>
+        <h2>The room's <span class="it">keyboard.</span></h2>
+      </div>
+      <div class="folio">+ PATTERN 05 / 06<br>NPX-NV-E</div>
+    </div>
+    <div class="specimen lilac" style="margin-top: 24px">
+      <div class="strip"><span>+ FLOATING MENU · KEY HINTS</span><span>NPX-NV-E1</span></div>
+      <div class="body">
+        <div class="demo-frame">
+          <div class="floatmenu">
+            <a href="#"><span>Open Sanctuary</span><span class="k">⌘ K</span></a>
+            <a href="#"><span>Read manifesto</span><span class="k">⌘ M</span></a>
+            <a href="#"><span>Companion guide</span><span class="k">⌘ G</span></a>
+            <div class="sep"></div>
+            <a href="#"><span>Settings</span><span class="k">⌘ ,</span></a>
+            <a href="#" style="color: var(--text-tertiary)"><span>Sign out</span><span class="k">⇧ ⌘ Q</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 PAGINATION -->
+  <div>
+    <div class="sect-head teal">
+      <div class="num">06</div>
+      <div>
+        <div class="k">+ PATTERN 06 / PAGINATION · 08 PLATES</div>
+        <h2>Folio by <span class="it">folio.</span></h2>
+      </div>
+      <div class="folio">+ PATTERN 06 / 06<br>NPX-NV-F</div>
+    </div>
+    <div class="specimen teal" style="margin-top: 24px">
+      <div class="strip"><span>+ PAGINATION · HARD CORNERS · DUSK ACTIVE</span><span>NPX-NV-F1</span></div>
+      <div class="body">
+        <div class="pagi">
+          <a href="#">← PREV</a>
+          <a href="#">01</a>
+          <a href="#" class="active">02</a>
+          <a href="#">03</a>
+          <a href="#">04</a>
+          <span style="color: var(--text-muted); padding: 0 4px">···</span>
+          <a href="#">08</a>
+          <a href="#">NEXT →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="foot-marquee"><div class="marquee"><div class="marquee-track"><span>NOV PAX</span><span>COMPONENTS · NAVIGATION</span><span>NPX-CP-NV</span><span>v 2.4 EDITION</span><span>6 PATTERNS</span><span>NOV PAX</span><span>COMPONENTS · NAVIGATION</span><span>NPX-CP-NV</span><span>v 2.4 EDITION</span><span>6 PATTERNS</span><span>NOV PAX</span><span>COMPONENTS · NAVIGATION</span><span>NPX-CP-NV</span><span>v 2.4 EDITION</span><span>6 PATTERNS</span><span>NOV PAX</span><span>COMPONENTS · NAVIGATION</span><span>NPX-CP-NV</span><span>v 2.4 EDITION</span><span>6 PATTERNS</span></div></div></div>
+<div class="bottom-strip"><span class="mark"></span><span>+ © 2026 NOV PAX</span><span class="center">MADE SLOWLY · ON PURPOSE</span><span class="ver">FOLIO 11 / 11 · NPX-CP-NV</span><span class="barcode-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+
+</body>
+</html>

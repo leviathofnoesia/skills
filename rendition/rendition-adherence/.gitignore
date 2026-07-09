@@ -1,0 +1,4 @@
+# ESLint is installed locally so scripts/check.sh runs offline.
+# If absent, the script falls back to:
+#   npm install --prefix rendition-adherence eslint@^8 eslint-plugin-react eslint-plugin-import
+node_modules/

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nov Pax — Marketing UI Kit · v2</title>
+<link rel="stylesheet" href="../../tokens.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text-primary); overflow-x: hidden; }
+  ::selection { background: oklch(45% 0.12 270 / 0.22); color: var(--text-primary); }
+
+  /* ── Atmosphere field (subtle painterly gradient) ───────────────────── */
+  .atmos {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 50% at 15% 12%, oklch(45% 0.12 270 / 0.16), transparent 60%),
+      radial-gradient(ellipse 50% 50% at 88% 18%, oklch(60% 0.05 168 / 0.14), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 50% 96%, oklch(70% 0.10 310 / 0.10), transparent 60%),
+      var(--bg);
+  }
+
+  /* ── Frame ─────────────────────────────────────────────────────────── */
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+
+  /* ── Reg marks (corner ticks) ───────────────────────────────────────── */
+  .reg {
+    position: fixed; font-family: var(--font-mono); font-size: var(--type-mono-2xs);
+    letter-spacing: var(--tracking-widest); text-transform: uppercase;
+    color: var(--text-muted); pointer-events: none; z-index: 30;
+  }
+  .reg.tl { top: 16px; left: 16px; }
+  .reg.tr { top: 16px; right: 16px; text-align: right; }
+  .reg.bl { bottom: 16px; left: 16px; }
+  .reg.br { bottom: 16px; right: 16px; text-align: right; }
+
+  /* ── NAV ─────────────────────────────────────────────────────────── */
+  .nav {
+    position: sticky; top: 16px; z-index: 50;
+    margin: 16px auto 0; max-width: 1100px;
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px;
+    padding: 12px 14px 12px 22px;
+    background: oklch(99% 0.003 80 / 0.7);
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    border: 1px solid oklch(99% 0.003 80 / 0.65);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-full);
+  }
+  .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-brand .mark {
+    width: 30px; height: 30px; border-radius: 50%;
+    background:
+      radial-gradient(circle at 32% 30%, oklch(96% 0.06 80 / 0.85), transparent 40%),
+      conic-gradient(from 220deg, var(--c-iris), var(--c-sky), var(--c-mint), var(--c-coral), var(--c-iris));
+    box-shadow: 0 0 0 1px oklch(45% 0.12 270 / 0.18), 0 4px 14px oklch(45% 0.12 270 / 0.20);
+  }
+  .nav-brand .name {
+    font-family: var(--font-display); font-weight: 500; font-size: 1.1rem;
+    letter-spacing: -0.015em; color: var(--text-primary);
+  }
+  .nav-links { display: flex; gap: 4px; justify-content: center; }
+  .nav-links a {
+    font-family: var(--font-body); font-size: var(--type-body-sm); font-weight: 500;
+    color: var(--text-secondary); text-decoration: none;
+    padding: 8px 14px; border-radius: var(--radius-full);
+    transition: color .25s var(--ease-cosmic), background .25s var(--ease-cosmic);
+  }
+  .nav-links a:hover { color: var(--c-iris-deep); background: oklch(45% 0.12 270 / 0.06); }
+
+  .btn {
+    font-family: var(--font-body); font-weight: 500; font-size: var(--type-body-sm);
+    letter-spacing: -0.005em; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; border-radius: var(--radius-full);
+    border: 1px solid transparent; cursor: pointer;
+    transition: transform .25s var(--ease-cosmic), box-shadow .25s var(--ease-cosmic), background .25s var(--ease-cosmic);
+  }
+  .btn-primary {
+    background: var(--text-primary); color: var(--text-inverse);
+    box-shadow: var(--shadow-sm);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .btn-aurora {
+    background: var(--grad-iris-sky); color: white;
+    box-shadow: 0 8px 24px oklch(45% 0.12 270 / 0.30);
+  }
+  .btn-aurora:hover { transform: translateY(-1px); box-shadow: 0 14px 32px oklch(45% 0.12 270 / 0.35); }
+  .btn-ghost {
+    color: var(--text-primary); border-color: var(--border); background: oklch(99% 0.003 80 / 0.5);
+  }
+  .btn-ghost:hover { background: var(--surface); border-color: var(--border-strong); }
+  .btn .arrow { display: inline-block; transition: transform .3s var(--ease-cosmic); }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* ── HERO ────────────────────────────────────────────────────────── */
+  .hero {
+    position: relative; padding: 96px 0 64px;
+    text-align: center;
+  }
+  .hero .kicker {
+    font-family: var(--font-mono); font-size: var(--type-mono-xs);
+    letter-spacing: var(--tracking-widest); text-transform: uppercase;
+    color: var(--c-iris-deep); margin-bottom: 24px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .hero .kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c-iris); box-shadow: 0 0 12px var(--c-iris); }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(3rem, 9vw, 7.5rem); line-height: 0.92;
+    letter-spacing: -0.035em; color: var(--text-primary);
+    margin: 0 auto 28px; max-width: 1100px;
+  }
+  .hero h1 .it { font-style: italic; font-weight: 400; background: var(--grad-aurora); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero .lede {
+    font-family: var(--font-body); font-size: var(--type-body-xl); font-weight: 300;
+    color: var(--text-secondary); max-width: 640px; margin: 0 auto 40px;
+    line-height: 1.55;
+  }
+  .hero-cta { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+  /* Hero orb (centered) */
+  .hero-orb {
+    width: clamp(280px, 36vw, 460px); aspect-ratio: 1;
+    margin: 56px auto 0; position: relative;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 32% 28%, oklch(98% 0.04 80 / 0.95), transparent 38%),
+      conic-gradient(from 220deg, var(--c-iris), var(--c-sky), var(--c-mint), var(--c-coral), var(--c-lilac), var(--c-iris));
+    filter: saturate(115%);
+    box-shadow:
+      0 0 0 1px oklch(45% 0.12 270 / 0.12),
+      0 30px 80px oklch(45% 0.12 270 / 0.22),
+      0 60px 140px oklch(60% 0.05 168 / 0.18);
+    animation: breath 7s var(--ease-breath) infinite;
+  }
+  .hero-orb::after {
+    content: ""; position: absolute; inset: -8%;
+    border-radius: 50%; background: var(--grad-spectrum);
+    filter: blur(60px); opacity: 0.35; z-index: -1;
+  }
+  @keyframes breath { 0%,100% { transform: scale(0.96); } 50% { transform: scale(1.02); } }
+
+  .hero-meta {
+    margin-top: 56px; display: flex; justify-content: center; gap: 56px; flex-wrap: wrap;
+  }
+  .hero-meta .item { text-align: center; }
+  .hero-meta .num {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: 2.5rem; line-height: 1;
+    background: var(--grad-aurora); -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-meta .lab {
+    font-family: var(--font-mono); font-size: var(--type-mono-xs);
+    letter-spacing: var(--tracking-widest); text-transform: uppercase;
+    color: var(--text-tertiary); margin-top: 8px;
+  }
+
+  /* ── SECTION SHELL ────────────────────────────────────────────────── */
+  section { padding: 96px 0; position: relative; }
+  .section-head { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: end; margin-bottom: 56px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .section-num { font-family: var(--font-display); font-weight: 300; font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1; background: var(--grad-aurora); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.02em; }
+  .section-meta .label { font-family: var(--font-mono); font-size: var(--type-mono-xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--c-iris-deep); margin-bottom: 10px; }
+  .section-meta h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2.25rem, 4.5vw, 3.5rem); letter-spacing: -0.025em; line-height: 1.05; max-width: 820px; }
+  .section-meta h2 .it { font-style: italic; }
+
+  /* ── MANIFESTO ───────────────────────────────────────────────────── */
+  .manifesto {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.3;
+    letter-spacing: -0.015em; color: var(--text-secondary);
+    max-width: 920px; padding: 32px 0;
+    text-wrap: pretty;
+  }
+  .manifesto strong { font-style: italic; font-weight: 400; color: var(--text-primary); background: linear-gradient(180deg, transparent 60%, oklch(60% 0.05 168 / 0.30) 60%); padding: 0 4px; }
+  .manifesto .punch { font-style: italic; background: var(--grad-aurora); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  /* ── PILLAR CARDS ────────────────────────────────────────────────── */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .pillar {
+    padding: 32px; border-radius: var(--radius-xl);
+    background: var(--surface); border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+    transition: transform .35s var(--ease-cosmic), box-shadow .35s var(--ease-cosmic);
+  }
+  .pillar:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .pillar .glyph {
+    width: 56px; height: 56px; border-radius: var(--radius-md);
+    margin-bottom: 24px; position: relative; overflow: hidden;
+  }
+  .pillar.a .glyph { background: radial-gradient(circle at 35% 30%, oklch(96% 0.04 295 / 0.7), transparent 50%), var(--c-iris); box-shadow: 0 6px 18px oklch(45% 0.12 270 / 0.25); }
+  .pillar.b .glyph { background: radial-gradient(circle at 35% 30%, oklch(96% 0.04 165 / 0.7), transparent 50%), var(--c-mint); box-shadow: 0 6px 18px oklch(60% 0.05 168 / 0.25); }
+  .pillar.c .glyph { background: radial-gradient(circle at 35% 30%, oklch(94% 0.03 310 / 0.7), transparent 50%), var(--c-coral); box-shadow: 0 6px 18px oklch(70% 0.10 310 / 0.25); }
+  .pillar .num { font-family: var(--font-mono); font-size: var(--type-mono-xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 10px; }
+  .pillar h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.875rem; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 14px; }
+  .pillar h3 .it { font-style: italic; }
+  .pillar p { font-family: var(--font-body); font-size: var(--type-body-md); color: var(--text-secondary); line-height: 1.6; }
+
+  /* ── FEATURE SPLIT ────────────────────────────────────────────────── */
+  .feature {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    padding: 48px 0; border-top: 1px solid var(--border-subtle);
+  }
+  .feature:first-child { border-top: none; padding-top: 0; }
+  .feature.reverse > div:first-child { order: 2; }
+  .feature .copy .lab { font-family: var(--font-mono); font-size: var(--type-mono-xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--c-iris-deep); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 8px; }
+  .feature .copy h3 { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 18px; }
+  .feature .copy h3 .it { font-style: italic; background: var(--grad-aurora); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .feature .copy p { font-family: var(--font-body); font-size: var(--type-body-lg); color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; max-width: 480px; }
+  .feature .copy a { font-family: var(--font-body); font-size: var(--type-body-md); font-weight: 500; color: var(--c-iris-deep); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .feature .copy a .arrow { transition: transform .3s var(--ease-cosmic); }
+  .feature .copy a:hover .arrow { transform: translateX(3px); }
+
+  /* Visual blocks for features */
+  .vb {
+    position: relative; aspect-ratio: 5/4; border-radius: var(--radius-2xl);
+    overflow: hidden; box-shadow: var(--shadow-lg);
+    border: 1px solid oklch(99% 0.003 80 / 0.7);
+  }
+  .vb-1 {
+    background:
+      radial-gradient(circle at 30% 30%, oklch(96% 0.06 80 / 0.4), transparent 50%),
+      conic-gradient(from 200deg at 50% 50%, var(--c-iris), var(--c-sky), var(--c-mint), var(--c-coral), var(--c-iris));
+    filter: saturate(120%);
+  }
+  .vb-1::before { content: ""; position: absolute; inset: 12%; border-radius: 50%; background: radial-gradient(circle at 35% 30%, oklch(98% 0.05 80 / 0.95), transparent 40%), conic-gradient(from 220deg, var(--c-iris), var(--c-sky), var(--c-mint), var(--c-coral), var(--c-iris)); box-shadow: 0 30px 80px oklch(45% 0.12 270 / 0.4); animation: breath 8s var(--ease-breath) infinite; }
+  .vb-1::after { content: ""; position: absolute; inset: 0; backdrop-filter: blur(40px); background: oklch(99% 0.003 80 / 0.05); border-radius: inherit; }
+
+  .vb-2 {
+    background:
+      linear-gradient(135deg, oklch(85% 0.10 280 / 0.6), oklch(88% 0.07 240 / 0.6)),
+      var(--bg-cool);
+  }
+  .vb-2 .ring {
+    position: absolute; left: 50%; top: 50%;
+    width: 200%; aspect-ratio: 1; transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid oklch(45% 0.12 270 / 0.18);
+  }
+  .vb-2 .ring:nth-child(1) { width: 60%; }
+  .vb-2 .ring:nth-child(2) { width: 100%; }
+  .vb-2 .ring:nth-child(3) { width: 140%; }
+  .vb-2 .center {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 30%; aspect-ratio: 1; border-radius: 50%;
+    background: var(--grad-aurora);
+    box-shadow: 0 20px 60px oklch(45% 0.12 270 / 0.4);
+    animation: breath 6s var(--ease-breath) infinite;
+  }
+
+  .vb-3 {
+    background: var(--bg-warm);
+    display: grid; place-items: center;
+  }
+  .vb-3 .data-card {
+    width: 78%; aspect-ratio: 4/3;
+    border-radius: var(--radius-xl);
+    background: oklch(99% 0.003 80 / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid oklch(99% 0.003 80 / 0.7);
+    box-shadow: var(--shadow-lg);
+    padding: 28px;
+    position: relative;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .vb-3 .data-head { display: flex; justify-content: space-between; align-items: center; }
+  .vb-3 .data-head .lab { font-family: var(--font-mono); font-size: var(--type-mono-xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--c-iris-deep); }
+  .vb-3 .data-head .v { font-family: var(--font-display); font-weight: 300; font-size: 2.25rem; letter-spacing: -0.02em; }
+  .vb-3 .bars { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; flex: 1; align-items: end; }
+  .vb-3 .bars .bar { background: linear-gradient(0deg, var(--c-iris), var(--c-mint)); border-radius: 4px 4px 0 0; }
+  .vb-3 .bars .bar:nth-child(1) { height: 30%; }
+  .vb-3 .bars .bar:nth-child(2) { height: 55%; }
+  .vb-3 .bars .bar:nth-child(3) { height: 40%; }
+  .vb-3 .bars .bar:nth-child(4) { height: 70%; opacity: 0.7; }
+  .vb-3 .bars .bar:nth-child(5) { height: 85%; }
+  .vb-3 .bars .bar:nth-child(6) { height: 60%; }
+  .vb-3 .bars .bar:nth-child(7) { height: 95%; box-shadow: 0 -2px 14px oklch(45% 0.12 270 / 0.4); }
+
+  /* ── PRICING ─────────────────────────────────────────────────────── */
+  .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .price {
+    padding: 36px 28px; border-radius: var(--radius-xl);
+    background: var(--surface); border: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 24px;
+    transition: transform .3s var(--ease-cosmic);
+  }
+  .price:hover { transform: translateY(-3px); }
+  .price.featured {
+    background: linear-gradient(180deg, oklch(45% 0.12 270 / 0.06), oklch(60% 0.05 168 / 0.06)), var(--surface);
+    border: 1px solid oklch(45% 0.12 270 / 0.30);
+    box-shadow: var(--glow-iris);
+    position: relative;
+  }
+  .price.featured::before {
+    content: "+ Most chosen"; position: absolute; top: 14px; right: 14px;
+    font-family: var(--font-mono); font-size: var(--type-mono-2xs);
+    letter-spacing: var(--tracking-widest); text-transform: uppercase;
+    color: var(--c-iris-deep); padding: 4px 10px; border-radius: var(--radius-full);
+    background: oklch(45% 0.12 270 / 0.10); border: 1px solid oklch(45% 0.12 270 / 0.20);
+  }
+  .price .tier-name { font-family: var(--font-mono); font-size: var(--type-mono-xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--text-tertiary); }
+  .price .tier-display { font-family: var(--font-display); font-weight: 300; font-size: 2rem; letter-spacing: -0.02em; line-height: 1.05; }
+  .price .tier-display .it { font-style: italic; }
+  .price .amount { display: flex; align-items: baseline; gap: 6px; }
+  .price .amount .big { font-family: var(--font-display); font-weight: 300; font-size: 4rem; letter-spacing: -0.03em; line-height: 1; }
+  .price .amount .per { font-family: var(--font-mono); font-size: var(--type-mono-sm); color: var(--text-tertiary); letter-spacing: var(--tracking-wide); }
+  .price ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .price li { font-family: var(--font-body); font-size: var(--type-body-sm); color: var(--text-secondary); display: flex; align-items: start; gap: 10px; line-height: 1.5; }
+  .price li::before { content: ""; flex-shrink: 0; width: 6px; height: 6px; background: var(--c-iris); transform: rotate(45deg); margin-top: 7px; }
+  .price.featured li::before { background: var(--grad-iris-sky); }
+  .price .btn { width: 100%; justify-content: center; }
+
+  /* ── TESTIMONIAL ─────────────────────────────────────────────────── */
+  .testify {
+    margin: 64px 0;
+    padding: 72px 64px;
+    border-radius: var(--radius-2xl);
+    background:
+      radial-gradient(ellipse 70% 60% at 20% 20%, oklch(45% 0.12 270 / 0.10), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, oklch(60% 0.05 168 / 0.10), transparent 60%),
+      var(--surface);
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  .testify .mark-quote { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 6rem; line-height: 0.7; color: var(--c-iris); margin-bottom: 16px; }
+  .testify blockquote {
+    font-family: var(--font-display); font-style: italic; font-weight: 300;
+    font-size: clamp(1.5rem, 2.6vw, 2.25rem); line-height: 1.35; letter-spacing: -0.015em;
+    color: var(--text-primary); max-width: 880px; margin: 0 auto 32px;
+    text-wrap: pretty;
+  }
+  .testify .who { display: inline-flex; align-items: center; gap: 14px; }
+  .testify .who .avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--grad-iris-sky); border: 2px solid var(--surface); }
+  .testify .who .name-block { text-align: left; }
+  .testify .who .nm { font-family: var(--font-body); font-weight: 500; font-size: var(--type-body-sm); }
+  .testify .who .role { font-family: var(--font-mono); font-size: var(--type-mono-xs); color: var(--text-tertiary); letter-spacing: var(--tracking-wide); }
+
+  /* ── PIXEL POSTER ────────────────────────────────────────────────── */
+  .poster {
+    margin: 64px 0;
+    padding: 80px 56px;
+    border-radius: var(--radius-2xl);
+    background:
+      radial-gradient(ellipse 70% 60% at 20% 20%, oklch(45% 0.12 270 / 0.30), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, oklch(70% 0.10 310 / 0.22), transparent 60%),
+      var(--c-charcoal);
+    color: oklch(98% 0.005 80);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .poster .reg-l { position: absolute; top: 18px; left: 22px; font-family: var(--font-mono); font-size: var(--type-mono-2xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: oklch(80% 0.02 80 / 0.55); }
+  .poster .reg-r { position: absolute; top: 18px; right: 22px; font-family: var(--font-mono); font-size: var(--type-mono-2xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: oklch(80% 0.02 80 / 0.55); }
+  .poster .reg-b { position: absolute; bottom: 18px; left: 22px; right: 22px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: var(--type-mono-2xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: oklch(80% 0.02 80 / 0.55); }
+  .poster .pixel-h {
+    font-family: var(--font-pixel);
+    font-size: clamp(3.5rem, 11vw, 8rem);
+    line-height: 0.9; letter-spacing: 0.02em;
+    background: var(--grad-aurora); -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin: 24px 0;
+    text-shadow: 0 0 40px oklch(45% 0.12 270 / 0.4);
+  }
+  .poster .pixel-sub {
+    font-family: var(--font-display); font-style: italic; font-weight: 300;
+    font-size: clamp(1.25rem, 2vw, 1.75rem); color: oklch(85% 0.02 80 / 0.85);
+    max-width: 620px; margin: 0 auto;
+  }
+
+  /* ── FAQ ────────────────────────────────────────────────────────── */
+  .faq { display: flex; flex-direction: column; gap: 0; max-width: 880px; margin: 0 auto; }
+  details { border-bottom: 1px solid var(--border); padding: 24px 0; }
+  details:first-child { border-top: 1px solid var(--border); }
+  summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  summary::-webkit-details-marker { display: none; }
+  summary h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; letter-spacing: -0.015em; color: var(--text-primary); }
+  summary .ic { width: 28px; height: 28px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border); display: grid; place-items: center; font-family: var(--font-mono); font-size: 1rem; color: var(--text-secondary); transition: transform .3s var(--ease-cosmic), background .3s; }
+  details[open] summary .ic { transform: rotate(45deg); background: var(--grad-iris-sky); color: white; border-color: transparent; }
+  details p { font-family: var(--font-body); font-size: var(--type-body-md); color: var(--text-secondary); line-height: 1.65; margin-top: 16px; max-width: 720px; }
+
+  /* ── CTA ────────────────────────────────────────────────────────── */
+  .cta {
+    text-align: center; padding: 96px 32px;
+    border-radius: var(--radius-2xl);
+    background:
+      radial-gradient(ellipse 50% 60% at 50% 0%, oklch(45% 0.12 270 / 0.18), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 50% 100%, oklch(60% 0.05 168 / 0.16), transparent 60%),
+      var(--bg-warm);
+    border: 1px solid var(--border);
+  }
+  .cta .kicker { font-family: var(--font-mono); font-size: var(--type-mono-xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--c-iris-deep); margin-bottom: 20px; }
+  .cta h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.03em; line-height: 1; max-width: 880px; margin: 0 auto 28px; }
+  .cta h2 .it { font-style: italic; background: var(--grad-aurora); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .cta p { font-family: var(--font-body); font-size: var(--type-body-lg); color: var(--text-secondary); max-width: 560px; margin: 0 auto 32px; line-height: 1.55; }
+
+  /* ── FOOTER ─────────────────────────────────────────────────────── */
+  footer { padding: 80px 0 40px; border-top: 1px solid var(--border); margin-top: 96px; }
+  .ftop { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 40px; margin-bottom: 56px; }
+  .fbrand { display: flex; flex-direction: column; gap: 16px; max-width: 320px; }
+  .fbrand .b { display: flex; align-items: center; gap: 10px; }
+  .fbrand .b .mark { width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 32% 30%, oklch(96% 0.06 80 / 0.85), transparent 40%), conic-gradient(from 220deg, var(--c-iris), var(--c-sky), var(--c-mint), var(--c-coral), var(--c-iris)); }
+  .fbrand .b .nm { font-family: var(--font-display); font-weight: 500; font-size: 1rem; letter-spacing: -0.015em; }
+  .fbrand p { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 1.125rem; color: var(--text-secondary); line-height: 1.4; }
+  .fcol h5 { font-family: var(--font-mono); font-size: var(--type-mono-xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--c-iris-deep); margin-bottom: 18px; }
+  .fcol ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .fcol a { font-family: var(--font-body); font-size: var(--type-body-sm); color: var(--text-secondary); text-decoration: none; transition: color .25s; }
+  .fcol a:hover { color: var(--text-primary); }
+  .fbottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: var(--type-mono-xs); letter-spacing: var(--tracking-wide); color: var(--text-tertiary); text-transform: uppercase; }
+
+  @media (max-width: 900px) {
+    .pillars, .pricing, .ftop { grid-template-columns: 1fr; }
+    .feature { grid-template-columns: 1fr; gap: 32px; }
+    .feature.reverse > div:first-child { order: 0; }
+    .nav-links { display: none; }
+    .nav { grid-template-columns: 1fr auto; }
+    .hero-meta { gap: 32px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-orb, .vb-1::before, .vb-2 .center { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="atmos"></div>
+
+  <div class="reg tl">+ NOV PAX<br>MKT_v2.0</div>
+  <div class="reg tr">EST 2025<br>+ ÆTHER &amp; MEASURE</div>
+  <div class="reg bl">LAT 37.7749<br>LON -122.4194</div>
+  <div class="reg br">SYS / OK<br>+ CONNECTED</div>
+
+  <div class="wrap">
+    <!-- NAV -->
+    <nav class="nav">
+      <a class="nav-brand" href="#">
+        <span class="mark"></span>
+        <span class="name">Nov Pax</span>
+      </a>
+      <div class="nav-links">
+        <a href="#pillars">Approach</a>
+        <a href="#sanctuary">Sanctuary</a>
+        <a href="#science">Science</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="btn btn-primary" href="#cta">Begin <span class="arrow">→</span></a>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="kicker"><span class="dot"></span> + Wellness for the digital era</div>
+      <h1>Quiet, by <span class="it">design.</span></h1>
+      <p class="lede">Nov Pax builds gentle, science-rooted tools for the part of you the algorithm forgot. <em>Sanctuary</em> is the first.</p>
+      <div class="hero-cta">
+        <a class="btn btn-aurora" href="#cta">Open Sanctuary <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#pillars">Read the manifesto</a>
+      </div>
+
+      <div class="hero-orb" aria-hidden="true"></div>
+
+      <div class="hero-meta">
+        <div class="item"><div class="num">6.2</div><div class="lab">+ Avg session · min</div></div>
+        <div class="item"><div class="num">94%</div><div class="lab">+ Calmer after 30d</div></div>
+        <div class="item"><div class="num">0</div><div class="lab">+ Notifications, ever</div></div>
+      </div>
+    </header>
+
+    <!-- MANIFESTO -->
+    <section style="padding-top: 32px">
+      <div class="section-head">
+        <div class="section-num">01</div>
+        <div class="section-meta">
+          <div class="label">+ Manifesto</div>
+          <h2>The internet asked for <span class="it">your attention.</span><br>We are giving it <span class="it">back.</span></h2>
+        </div>
+      </div>
+      <p class="manifesto">
+        We believe technology can be <strong>tender</strong>. That a screen can be a place to <span class="punch">arrive,</span> not escape. Nov Pax is a small atelier of designers and clinicians making <strong>quiet software</strong> — products that meter their own use, hold their tongue, and never measure your worth in streaks.
+      </p>
+    </section>
+
+    <!-- PILLARS -->
+    <section id="pillars">
+      <div class="section-head">
+        <div class="section-num">02</div>
+        <div class="section-meta">
+          <div class="label">+ Three commitments</div>
+          <h2>What we will <span class="it">always</span> do.</h2>
+        </div>
+      </div>
+      <div class="pillars">
+        <article class="pillar a">
+          <div class="glyph"></div>
+          <div class="num">+ 01</div>
+          <h3>Hold the <span class="it">space.</span></h3>
+          <p>No ads. No algorithmic feed. No engineered urgency. The product opens in stillness and closes the same way — what happens between is yours.</p>
+        </article>
+        <article class="pillar b">
+          <div class="glyph"></div>
+          <div class="num">+ 02</div>
+          <h3>Earn the <span class="it">trust.</span></h3>
+          <p>Every protocol is co-built with practicing clinicians and meditation teachers. Sources are cited. Claims are modest. We would rather under-promise than over-perform.</p>
+        </article>
+        <article class="pillar c">
+          <div class="glyph"></div>
+          <div class="num">+ 03</div>
+          <h3>End the <span class="it">session.</span></h3>
+          <p>Sanctuary is engineered to make you put down your phone. The best metric of our success is how quickly you forget us — and remember yourself.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FEATURE SECTIONS -->
+    <section id="sanctuary">
+      <div class="section-head">
+        <div class="section-num">03</div>
+        <div class="section-meta">
+          <div class="label">+ Sanctuary, the first product</div>
+          <h2>A guided practice that <span class="it">breathes with you.</span></h2>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="copy">
+          <div class="lab"><span class="diamond"></span> Breath, expressed</div>
+          <h3>One inhale, <span class="it">one exhale,</span> one moment of you.</h3>
+          <p>The breathing core — a six-second sine wave we built ground-up — paces inhale, hold, exhale. It scales with your pulse and softens at night. Sessions begin and end in silence; the orb does the rest.</p>
+          <a href="#">See the science <span class="arrow">→</span></a>
+        </div>
+        <div class="vb vb-1" aria-hidden="true"></div>
+      </div>
+
+      <div class="feature reverse">
+        <div class="copy">
+          <div class="lab"><span class="diamond"></span> Atmosphere, not gamification</div>
+          <h3>Concentric calm. <span class="it">No streaks.</span></h3>
+          <p>Progress isn't a trophy case. Your practice radiates outward as gentle rings — a quiet record you can choose to look at, or not. Nothing here punishes a missed day.</p>
+          <a href="#">Tour the app <span class="arrow">→</span></a>
+        </div>
+        <div class="vb vb-2" aria-hidden="true">
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="center"></div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="copy">
+          <div class="lab"><span class="diamond"></span> Insight, only when asked</div>
+          <h3>Your data, <span class="it">held in confidence.</span></h3>
+          <p>HRV, sleep, mood — when you opt in. Stored encrypted, never sold, never modeled against you. We show you patterns the way a thoughtful friend would: gently, in your own words, only on the days you want them.</p>
+          <a href="#">How privacy works <span class="arrow">→</span></a>
+        </div>
+        <div class="vb vb-3" aria-hidden="true">
+          <div class="data-card">
+            <div class="data-head"><span class="lab">+ This week · HRV</span><span class="v">68<span style="font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-tertiary)">ms</span></span></div>
+            <div class="bars"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+            <div style="font-family: var(--font-mono); font-size: var(--type-mono-2xs); letter-spacing: var(--tracking-wide); color: var(--text-tertiary); display: flex; justify-content: space-between"><span>MON</span><span>WED</span><span>FRI</span><span>SUN</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section id="science">
+      <div class="testify">
+        <div class="mark-quote">"</div>
+        <blockquote>I'd uninstalled every meditation app. Nov Pax is the first one that doesn't seem to want anything from me — and that's exactly when it started working.</blockquote>
+        <div class="who">
+          <div class="avatar"></div>
+          <div class="name-block">
+            <div class="nm">Dr. Maya Bensari</div>
+            <div class="role">Clinical psychologist · Lisbon</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="section-head">
+        <div class="section-num">04</div>
+        <div class="section-meta">
+          <div class="label">+ Plans</div>
+          <h2>Simple, like <span class="it">breathing.</span></h2>
+        </div>
+      </div>
+      <div class="pricing">
+        <article class="price">
+          <div>
+            <div class="tier-name">+ Air</div>
+            <div class="tier-display">For <span class="it">trying.</span></div>
+          </div>
+          <div class="amount"><span class="big">$0</span><span class="per">/ forever</span></div>
+          <ul>
+            <li>3 guided sessions weekly</li>
+            <li>Breath core, no time limit</li>
+            <li>Local-only data</li>
+            <li>No upsells, ever</li>
+          </ul>
+          <a href="#" class="btn btn-ghost">Start free</a>
+        </article>
+        <article class="price featured">
+          <div>
+            <div class="tier-name">+ Light</div>
+            <div class="tier-display">For <span class="it">practicing.</span></div>
+          </div>
+          <div class="amount"><span class="big">$8</span><span class="per">/ month</span></div>
+          <ul>
+            <li>Full library of guided practices</li>
+            <li>HRV &amp; sleep insights, opt-in</li>
+            <li>Custom soundscapes</li>
+            <li>Sanctuary on web, iOS, watch</li>
+            <li>Email support from our team</li>
+          </ul>
+          <a href="#" class="btn btn-aurora">Begin Light <span class="arrow">→</span></a>
+        </article>
+        <article class="price">
+          <div>
+            <div class="tier-name">+ Tide</div>
+            <div class="tier-display">For <span class="it">teams.</span></div>
+          </div>
+          <div class="amount"><span class="big">$24</span><span class="per">/ seat / mo</span></div>
+          <ul>
+            <li>Everything in Light</li>
+            <li>Group breathing rooms</li>
+            <li>Anonymous wellness pulse</li>
+            <li>SSO &amp; admin console</li>
+            <li>Quarterly clinician check-ins</li>
+          </ul>
+          <a href="#" class="btn btn-ghost">Talk to us</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- POSTER -->
+    <section>
+      <div class="poster">
+        <div class="reg-l">+ NOV PAX / SYSTEM</div>
+        <div class="reg-r">v2.0 / 2025</div>
+        <div style="font-family: var(--font-mono); font-size: var(--type-mono-xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: oklch(80% 0.02 80 / 0.7)">+ Field Note</div>
+        <h2 class="pixel-h">RETURN<br>TO BREATH</h2>
+        <p class="pixel-sub">A reminder, scrawled in light, for the next time you remember.</p>
+        <div class="reg-b">
+          <span>+ 06s · INHALE / EXHALE</span>
+          <span>NP-FN-014</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="section-head">
+        <div class="section-num">05</div>
+        <div class="section-meta">
+          <div class="label">+ Questions</div>
+          <h2>Things people <span class="it">ask us.</span></h2>
+        </div>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary><h4>Is this another meditation app?</h4><span class="ic">+</span></summary>
+          <p>Sanctuary is one practice tool inside Nov Pax. The bigger project is more philosophical: a small studio making consumer software that doesn't trade your attention. Meditation is a starting point, not the destination.</p>
+        </details>
+        <details>
+          <summary><h4>Why no streaks or notifications?</h4><span class="ic">+</span></summary>
+          <p>Streaks reframe a contemplative practice as a video game. Notifications interrupt the very thing we are trying to give you back. We measure success by depth of session and time off-screen, not return frequency.</p>
+        </details>
+        <details>
+          <summary><h4>How do you handle health data?</h4><span class="ic">+</span></summary>
+          <p>End-to-end encrypted, stored on-device by default, with opt-in cloud sync that uses zero-knowledge keys we cannot read. We are HIPAA-aligned (not a covered entity), GDPR compliant, and we do not sell, license, or model on your data — period.</p>
+        </details>
+        <details>
+          <summary><h4>Who builds this?</h4><span class="ic">+</span></summary>
+          <p>A team of nine — designers, two clinical psychologists, an ex-Calm engineer, and a Carmelite monk who keeps us honest. Based in San Francisco and Porto.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+      <div class="cta">
+        <div class="kicker">+ One inhale, then begin</div>
+        <h2>Your quiet hour is <span class="it">already here.</span></h2>
+        <p>Try Sanctuary free for thirty days. No card, no pressure, no "discover" feed waiting on the other side.</p>
+        <div class="hero-cta">
+          <a class="btn btn-aurora" href="#">Open Sanctuary <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="#">Watch the 60s film</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="ftop">
+        <div class="fbrand">
+          <div class="b"><span class="mark"></span><span class="nm">Nov Pax</span></div>
+          <p>Wellness for the <em>digital era.</em></p>
+        </div>
+        <div class="fcol">
+          <h5>+ Product</h5>
+          <ul><li><a href="#">Sanctuary</a></li><li><a href="#">Field Notes</a></li><li><a href="#">Watch app</a></li><li><a href="#">For teams</a></li></ul>
+        </div>
+        <div class="fcol">
+          <h5>+ Studio</h5>
+          <ul><li><a href="#">Manifesto</a></li><li><a href="#">Science board</a></li><li><a href="#">Press</a></li><li><a href="#">Careers</a></li></ul>
+        </div>
+        <div class="fcol">
+          <h5>+ Quiet support</h5>
+          <ul><li><a href="#">hello@novpax.co</a></li><li><a href="#">Privacy &amp; data</a></li><li><a href="#">Terms</a></li><li><a href="#">Accessibility</a></li></ul>
+        </div>
+      </div>
+      <div class="fbottom">
+        <span>+ © 2025 Nov Pax · A small atelier</span>
+        <span>+ Made slowly, on purpose</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

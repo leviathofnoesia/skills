@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sanctuary — App UI Kit · v2.4 Edition</title>
+<link rel="stylesheet" href="../../tokens.css">
+<style>
+  body { background: var(--bg); color: var(--text-primary); }
+
+  /* Atmosphere field */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 50% at 12% 8%, oklch(70% 0.10 310 / 0.16), transparent 60%),
+      radial-gradient(ellipse 50% 50% at 90% 92%, oklch(60% 0.05 168 / 0.14), transparent 60%),
+      var(--bg);
+  }
+
+  /* HEADER */
+  .topbar { padding: 32px 48px 24px; border-bottom: 1px solid var(--border); margin: 0 auto 48px; max-width: 1600px; display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: 32px; }
+  .tb-l { display: flex; align-items: end; gap: 32px; }
+  .tb-num {
+    font-family: 'Geist', sans-serif; font-weight: 900;
+    font-size: clamp(4rem, 7vw, 6.5rem); line-height: 0.84; letter-spacing: -0.06em;
+    color: var(--c-lilac-deep);
+  }
+  .tb-meta .lab { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-dusk); margin-bottom: 10px; }
+  .tb-meta h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.025em; line-height: 1.05; max-width: 720px; margin: 0; }
+  .tb-meta h1 .it { font-style: italic; background: linear-gradient(135deg, var(--c-dusk), var(--c-lilac)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .tb-r { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); text-align: right; line-height: 1.75; display: flex; flex-direction: column; gap: 2px; align-items: flex-end; }
+  .tb-r .barcode { width: 80px; height: 16px; color: var(--text-secondary); margin-top: 8px; }
+
+  .canvas { padding: 32px 48px 96px; max-width: 1600px; margin: 0 auto; }
+  .row { display: grid; gap: 32px; align-items: start; margin-bottom: 64px; }
+  .row.r3 { grid-template-columns: repeat(3, 1fr); }
+  .row.r-anchor { grid-template-columns: minmax(280px, 1fr) 1.6fr; gap: 56px; }
+
+  .frame-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); display: flex; justify-content: space-between; padding: 0 4px 14px; align-items: end; }
+  .frame-meta .name { color: var(--c-lilac-deep); }
+
+  .anchor-copy h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 18px; }
+  .anchor-copy h2 .it { font-style: italic; background: linear-gradient(135deg, var(--c-dusk), var(--c-lilac)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .anchor-copy .lab { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-dusk); margin-bottom: 12px; }
+  .anchor-copy p { font-family: var(--font-body); font-size: var(--type-body-md); color: var(--text-secondary); line-height: 1.65; max-width: 480px; margin-bottom: 14px; }
+  .anchor-list { font-family: var(--font-mono); font-size: var(--type-mono-sm); color: var(--text-secondary); list-style: none; padding: 0; margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+  .anchor-list li { display: flex; gap: 12px; align-items: baseline; }
+  .anchor-list li::before { content: ""; width: 6px; height: 6px; background: var(--c-iris); transform: rotate(45deg); flex-shrink: 0; transform: rotate(45deg); }
+
+  /* PHONE FRAME */
+  .phone {
+    width: 100%; max-width: 360px; aspect-ratio: 9/19.5;
+    margin: 0 auto;
+    border-radius: 44px;
+    background: oklch(20% 0.02 280);
+    padding: 9px;
+    box-shadow:
+      0 0 0 1.5px oklch(35% 0.02 280),
+      0 30px 80px oklch(28% 0.02 280 / 0.20),
+      0 60px 140px oklch(28% 0.02 280 / 0.14);
+    position: relative;
+  }
+  .phone-screen {
+    width: 100%; height: 100%; border-radius: 36px;
+    overflow: hidden; position: relative;
+    background: var(--bg);
+  }
+  .notch {
+    position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+    width: 96px; height: 26px; background: oklch(20% 0.02 280);
+    border-radius: 999px; z-index: 20;
+  }
+  .status {
+    position: absolute; top: 14px; left: 0; right: 0;
+    display: flex; justify-content: space-between; padding: 0 28px;
+    font-family: var(--font-body); font-size: 12px; font-weight: 600;
+    color: var(--text-primary); z-index: 21;
+  }
+  .status.dark { color: oklch(96% 0.005 80); }
+  .status .icons { display: flex; gap: 5px; align-items: center; }
+  .status .icons svg { display: block; }
+
+  /* Minimal top-right gear (no nav chrome) */
+  .gear {
+    position: absolute; top: 56px; right: 18px; z-index: 5;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: oklch(99% 0.003 80 / 0.6);
+    border: 1px solid var(--border);
+    display: grid; place-items: center; backdrop-filter: blur(8px);
+    color: var(--text-secondary);
+  }
+  .gear.dark { background: oklch(28% 0.02 280 / 0.6); border-color: oklch(35% 0.02 280); color: oklch(96% 0.005 80); }
+
+  /* ═════════════ SCREEN 1: COZY HOME (ambient idle) ═════════════ */
+  .home-screen {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 30%, oklch(70% 0.10 310 / 0.18), transparent 65%),
+      radial-gradient(ellipse 70% 60% at 50% 90%, oklch(60% 0.05 168 / 0.12), transparent 65%),
+      var(--bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 100px 32px 64px;
+    gap: 0;
+  }
+  .home-screen .greeting {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--c-iris-deep); margin-bottom: 18px; text-align: center;
+  }
+  .home-screen .greeting .dot {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--c-mint); margin-right: 8px;
+    box-shadow: 0 0 8px var(--c-mint);
+    vertical-align: middle;
+  }
+  .home-screen .h-title {
+    font-family: var(--font-display); font-weight: 300; font-size: 32px;
+    letter-spacing: -0.028em; line-height: 1.0; text-align: center; max-width: 260px;
+    margin-bottom: 8px;
+  }
+  .home-screen .h-title .it { font-style: italic; background: var(--grad-aurora); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .home-screen .h-sub {
+    font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 15px;
+    color: var(--text-secondary); text-align: center; margin-bottom: 44px;
+  }
+  .b-orb {
+    width: 200px; aspect-ratio: 1; border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 36%),
+      radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, #221c2c 115%);
+    box-shadow:
+      inset 0 -28px 48px oklch(13% 0.005 295 / 0.50),
+      inset 0 22px 36px oklch(98% 0.02 310 / 0.22),
+      0 22px 70px oklch(45% 0.12 270 / 0.34),
+      0 44px 120px oklch(70% 0.10 310 / 0.22);
+    animation: breath-pulse 6s var(--ease-breath) infinite;
+    margin-bottom: 32px;
+  }
+  @keyframes breath-pulse { 0%,100% { transform: scale(0.92); } 50% { transform: scale(1.04); } }
+
+  /* Routine selector — single active routine, no library */
+  .routine-card {
+    width: 100%;
+    padding: 16px 18px;
+    background: oklch(99% 0.003 80 / 0.7);
+    backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid oklch(99% 0.003 80 / 0.7);
+    border-radius: 18px;
+    display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center;
+    margin-bottom: 14px;
+  }
+  .routine-card .name {
+    font-family: var(--font-display); font-weight: 400; font-size: 17px;
+    letter-spacing: -0.01em; line-height: 1.1;
+  }
+  .routine-card .name .it { font-style: italic; }
+  .routine-card .meta {
+    font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--c-iris-deep); margin-top: 4px;
+  }
+  .routine-card .chev {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: oklch(63% 0.20 295 / 0.10);
+    color: var(--c-iris-deep);
+    display: grid; place-items: center;
+  }
+
+  .b-cta {
+    background: var(--grad-iris-sky); color: white;
+    font-family: -apple-system, 'SF Pro Text', 'Geist', system-ui, sans-serif;
+    font-weight: 600; font-size: 15px; letter-spacing: -0.005em;
+    padding: 14px 28px; border-radius: 999px;
+    box-shadow:
+      0 0 0 1px oklch(63% 0.20 295 / 0.3),
+      0 10px 28px oklch(63% 0.20 295 / 0.4),
+      inset 0 1px 0 oklch(99% 0.05 80 / 0.35);
+    border: none; cursor: pointer; min-height: 44px;
+  }
+
+  /* ═════════════ SCREEN 2: WORKING SILENTLY (focus phase) ═════════════ */
+  .focus-screen {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 80% at 50% 50%, oklch(45% 0.12 270 / 0.09), transparent 65%),
+      var(--bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 100px 32px 64px;
+  }
+  .focus-screen .lab {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--c-iris-deep); margin-bottom: 16px; text-align: center;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .focus-screen .lab .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c-iris); box-shadow: 0 0 8px var(--c-iris); animation: pulse-dot 2.5s ease-in-out infinite; }
+  @keyframes pulse-dot { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+  .focus-screen .h-title {
+    font-family: var(--font-display); font-weight: 300; font-style: italic; font-size: 26px;
+    color: var(--text-secondary); text-align: center; line-height: 1.2; letter-spacing: -0.02em;
+    max-width: 240px; margin-bottom: 32px;
+  }
+  /* Slow growing arc — the only indicator, no numeric timer */
+  .arc-host {
+    width: 220px; height: 220px; position: relative;
+    display: grid; place-items: center;
+  }
+  .arc-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .arc-svg .track { fill: none; stroke: oklch(86% 0.008 80); stroke-width: 1.5; }
+  .arc-svg .fill { fill: none; stroke: url(#arcgrad); stroke-width: 2; stroke-linecap: round; }
+  .arc-host .inner {
+    position: absolute;
+    width: 130px; height: 130px; border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 40%),
+      radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 60%, #221c2c 115%);
+    box-shadow:
+      inset 0 -20px 36px oklch(13% 0.005 295 / 0.45),
+      inset 0 16px 26px oklch(98% 0.02 310 / 0.20);
+    opacity: 0.85;
+    animation: breath-pulse 8s var(--ease-breath) infinite;
+  }
+  .focus-foot {
+    margin-top: 36px; text-align: center;
+    font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 15px;
+    color: var(--text-tertiary); line-height: 1.45; max-width: 280px;
+  }
+  .focus-end {
+    margin-top: 24px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--text-muted); background: transparent; border: none; cursor: pointer;
+  }
+
+  /* ═════════════ SCREEN 3: LOOK AWAY (full-screen prompt) ═════════════ */
+  .look-screen {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 90% 80% at 50% 40%, oklch(36% 0.10 270 / 0.55), transparent 65%),
+      radial-gradient(ellipse 60% 50% at 50% 95%, oklch(35% 0.08 310 / 0.30), transparent 60%),
+      #121113;
+    color: oklch(96% 0.005 80);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 80px 28px 64px;
+    text-align: center;
+  }
+  .look-screen .meta {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: oklch(76% 0.17 240 / 0.9); margin-bottom: 24px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .look-screen .meta .dot { width: 8px; height: 8px; border-radius: 50%; background: oklch(80% 0.14 165); box-shadow: 0 0 12px oklch(80% 0.14 165); animation: pulse-dot 1.8s ease-in-out infinite; }
+  .look-screen .head {
+    font-family: var(--font-display); font-weight: 300; font-size: 44px;
+    line-height: 0.98; letter-spacing: -0.035em; margin-bottom: 16px; max-width: 280px;
+  }
+  .look-screen .head .it { font-style: italic; background: var(--grad-aurora); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .look-screen .sub {
+    font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 19px;
+    color: oklch(82% 0.008 80 / 0.85); line-height: 1.35; max-width: 290px; margin-bottom: 44px;
+    letter-spacing: -0.005em;
+  }
+  /* Audio mark — Siri-style hero orb, the brand object during a rest
+     Concentric resonance rings + conic spectrum core */
+  .audio-mark {
+    width: 132px; height: 132px; border-radius: 50%;
+    position: relative;
+    margin-bottom: 36px;
+    display: grid; place-items: center;
+  }
+  .audio-mark .core {
+    width: 84px; height: 84px; border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 38%),
+      radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, #1a1620 115%);
+    box-shadow:
+      inset 0 -16px 28px oklch(13% 0.005 295 / 0.55),
+      inset 0 14px 22px oklch(98% 0.02 310 / 0.22),
+      0 0 0 1px oklch(45% 0.12 270 / 0.4),
+      0 0 40px oklch(45% 0.12 270 / 0.45),
+      0 0 80px oklch(70% 0.10 310 / 0.30);
+    animation: breath-pulse 5s var(--ease-breath) infinite;
+    z-index: 3;
+  }
+  .audio-mark .ring {
+    position: absolute; border-radius: 50%;
+    border: 1px solid oklch(70% 0.10 310 / 0.45);
+  }
+  .audio-mark .ring.r1 { inset: 12px; animation: resonance 4s ease-in-out infinite; }
+  .audio-mark .ring.r2 { inset: -4px; animation: resonance 4s ease-in-out infinite 1.3s; }
+  .audio-mark .ring.r3 { inset: -20px; animation: resonance 4s ease-in-out infinite 2.6s; }
+  @keyframes resonance {
+    0% { transform: scale(0.85); opacity: 0; border-color: oklch(70% 0.10 310 / 0.7); }
+    25% { opacity: 0.9; }
+    100% { transform: scale(1.35); opacity: 0; border-color: oklch(60% 0.05 168 / 0.4); }
+  }
+
+  .look-line {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: oklch(82% 0.008 80 / 0.6); margin-top: 8px;
+  }
+  .look-foot {
+    margin-top: auto; padding-top: 32px;
+    display: flex; gap: 12px; justify-content: center; align-items: center;
+  }
+  .look-skip {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: oklch(70% 0.008 80 / 0.6); background: transparent; border: none; cursor: pointer;
+    padding: 10px 18px;
+  }
+
+  /* ═════════════ SCREEN 4: SETTINGS (customization seed) ═════════════ */
+  .set-screen {
+    position: absolute; inset: 0; padding: 100px 24px 64px;
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, oklch(70% 0.10 310 / 0.12), transparent 60%),
+      var(--bg);
+    overflow: hidden;
+  }
+  .set-screen .h-mono { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--c-iris-deep); margin-bottom: 6px; }
+  .set-screen h2 { font-family: var(--font-display); font-weight: 300; font-size: 28px; letter-spacing: -0.025em; margin-bottom: 4px; }
+  .set-screen h2 .it { font-style: italic; }
+  .set-screen .sub { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 14px; color: var(--text-secondary); margin-bottom: 22px; }
+
+  /* Settings — HIG grouped inset table in brand */
+  .set-group {
+    background: oklch(99% 0.003 80 / 0.78);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 0.5px solid oklch(86% 0.008 80 / 0.7);
+    border-radius: 14px;
+    padding: 0 16px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .set-group-header {
+    font-family: -apple-system, 'SF Pro Text', 'Geist', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--text-tertiary);
+    padding: 12px 4px 6px;
+  }
+  .set-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 0.5px solid oklch(86% 0.008 80 / 0.55); }
+  .set-row:last-child { border-bottom: none; }
+  .set-row .label { font-family: -apple-system, 'SF Pro Text', 'Geist', system-ui, sans-serif; font-size: 15px; color: var(--text-primary); font-weight: 500; letter-spacing: -0.005em; }
+  .set-row .hint { font-family: -apple-system, 'SF Pro Text', 'Geist', system-ui, sans-serif; font-size: 12px; font-weight: 400; letter-spacing: -0.005em; color: var(--text-tertiary); margin-top: 2px; }
+  .set-row .v { font-family: -apple-system, 'SF Pro Text', 'Geist', system-ui, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: -0.005em; color: var(--c-iris-deep); display: flex; align-items: center; gap: 4px; }
+  .set-row .v .it { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 17px; }
+  .set-row .v svg { width: 11px; height: 11px; opacity: 0.55; color: var(--text-tertiary); }
+  .set-row .switch { width: 51px; height: 31px; border-radius: 999px; background: var(--c-mint); box-shadow: inset 0 0 0 0.5px oklch(80% 0.14 165 / 0.6); position: relative; transition: background .25s var(--ease-cosmic); }
+  .set-row .switch::after { content: ""; position: absolute; top: 2px; left: 22px; width: 27px; height: 27px; border-radius: 50%; background: white; box-shadow: 0 3px 8px oklch(28% 0.02 280 / 0.18), 0 0 0 0.5px oklch(28% 0.02 280 / 0.06); transition: left .25s var(--ease-cosmic); }
+  .set-row .switch.off { background: oklch(85% 0.005 80); }
+  .set-row .switch.off::after { left: 2px; }
+
+  /* Routines drawer placeholder — "future expansions" */
+  .future {
+    margin-top: 8px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, oklch(63% 0.20 295 / 0.08), oklch(80% 0.14 165 / 0.08));
+    border: 1px dashed oklch(63% 0.20 295 / 0.30);
+    border-radius: 16px;
+    text-align: center;
+  }
+  .future .lab { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-iris-deep); margin-bottom: 6px; }
+  .future p { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 15px; color: var(--text-secondary); line-height: 1.3; }
+
+  /* ────────────── COMPONENT TILES ───────────── */
+  .comp-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .comp {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+  .comp .lab { font-family: var(--font-mono); font-size: var(--type-mono-2xs); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--c-iris-deep); margin-bottom: 14px; }
+  .comp h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.125rem; letter-spacing: -0.01em; margin-bottom: 14px; }
+  .comp .demo { padding: 18px; border-radius: var(--radius-md); background: var(--bg-warm); display: flex; align-items: center; justify-content: center; min-height: 80px; }
+
+  /* ───── BUTTON SYSTEM ─────
+     Three tiers, used everywhere:
+     .btn-primary  — Aurora gradient, white text, signature glow (one per screen)
+     .btn-secondary — Charcoal ink, stone text (next-strongest)
+     .btn-tertiary — Plain glass / no fill (escape hatches, skips, ends)
+     SF Pro Text 15pt feel, semibold, HIG min height 44pt. */
+  .btn {
+    -webkit-font-smoothing: antialiased;
+    font-family: -apple-system, 'SF Pro Text', 'Geist', system-ui, sans-serif;
+    font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+    border: none; cursor: pointer; min-height: 44px;
+    padding: 12px 24px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    transition: transform .25s var(--ease-cosmic), box-shadow .25s var(--ease-cosmic), opacity .15s;
+  }
+  .btn:active { transform: scale(0.97); opacity: 0.92; }
+  .btn-primary {
+    background: var(--grad-iris-sky); color: white;
+    box-shadow:
+      0 0 0 1px oklch(63% 0.20 295 / 0.3),
+      0 8px 24px oklch(63% 0.20 295 / 0.35),
+      inset 0 1px 0 oklch(99% 0.05 80 / 0.35);
+  }
+  .btn-secondary {
+    background: var(--text-primary); color: var(--text-inverse);
+    box-shadow: 0 2px 8px oklch(28% 0.02 280 / 0.18);
+  }
+  .btn-tertiary {
+    background: oklch(99% 0.003 80 / 0.7);
+    border: 1px solid oklch(99% 0.003 80 / 0.85);
+    color: var(--text-primary);
+    backdrop-filter: blur(20px) saturate(140%);
+  }
+  .btn .arrow { display: inline-block; transition: transform .25s var(--ease-cosmic); }
+  .btn:hover .arrow { transform: translateX(2px); }
+
+  .focus-end, .look-skip {
+    background: transparent; border: none; cursor: pointer;
+    font-family: -apple-system, 'SF Pro Text', 'Geist', system-ui, sans-serif;
+    font-size: 13px; font-weight: 500; letter-spacing: -0.005em;
+    padding: 12px 16px; border-radius: 999px;
+    color: var(--text-tertiary);
+  }
+  .focus-end:hover, .look-skip:hover { color: var(--c-iris-deep); }
+  .look-skip { color: oklch(70% 0.008 80 / 0.65); }
+
+  .toggle { display: flex; gap: 6px; padding: 4px; background: var(--surface-deep); border-radius: 999px; }
+  .toggle .seg { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; color: var(--text-tertiary); }
+  .toggle .seg.on { background: var(--text-primary); color: var(--text-inverse); }
+
+  /* spec hairlines */
+  .spec { position: relative; }
+  .spec::before, .spec::after { content: ""; position: absolute; pointer-events: none; }
+  .spec::before { top: -8px; left: -8px; width: 6px; height: 6px; border-top: 1px solid var(--c-iris-deep); border-left: 1px solid var(--c-iris-deep); }
+  .spec::after { bottom: -8px; right: -8px; width: 6px; height: 6px; border-bottom: 1px solid var(--c-iris-deep); border-right: 1px solid var(--c-iris-deep); }
+
+  .phone.dark { background: oklch(8% 0.005 280); }
+
+  @media (max-width: 1100px) {
+    .row.r3 { grid-template-columns: repeat(2, 1fr); }
+    .row.r-anchor { grid-template-columns: 1fr; }
+    .comp-row { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 700px) {
+    .row.r3 { grid-template-columns: 1fr; }
+    .comp-row { grid-template-columns: 1fr; }
+    .topbar { padding: 24px 20px; flex-direction: column; align-items: start; gap: 18px; }
+    .canvas { padding: 24px 20px 64px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .b-orb, .arc-host .inner, .audio-mark::before, .audio-mark::after, .look-screen .meta .dot, .focus-screen .lab .dot { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- A quiet brutalist edge — frames the soft canvas inside as part of the Edition system -->
+  <div style="max-width: 1600px; margin: 0 auto; padding: 24px 48px 0">
+    <div class="section-strip" style="margin-bottom: 0">
+      <span class="l">+ CHAPTER 06 / PRODUCT · SANCTUARY · THE EYE OF THE STORM</span>
+      <span class="code">NPX-PD-CANVAS</span>
+      <span class="barcode"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="tb-l">
+      <div class="tb-num">06</div>
+      <div class="tb-meta">
+        <div class="lab">+ PRODUCT · SANCTUARY · v 2.4 EDITION</div>
+        <h1>One <span class="it">quiet</span> companion. The dusk palette.</h1>
+      </div>
+    </div>
+    <div></div>
+    <div class="tb-r">
+      <span>NPX-PD-001</span>
+      <span>iOS · 360 × 780</span>
+      <span>EDITION 02 / MMXXVI</span>
+      <span class="barcode"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+  </header>
+
+  <div class="canvas">
+
+    <!-- ROW 1 — HOME (anchor) -->
+    <div class="row r-anchor">
+      <div class="anchor-copy">
+        <div class="lab">+ 01 / Home · The cozy space</div>
+        <h2>A single, <span class="it">consistent</span> room.</h2>
+        <p>Sanctuary is not a library of practices to choose from. It is one persistent companion — a soft, ambient surface you can open at any moment and feel held.</p>
+        <p>On the home view: the breathing orb, the current routine (the 20-minute screen-rest cycle), and a quiet status of where you are inside it. Everything else lives in Settings, out of the way.</p>
+        <ul class="anchor-list">
+          <li>One orb. One routine. One tap to begin.</li>
+          <li>Soft mint dot = a session is running silently in the background</li>
+          <li>No tabs, no library, no leaderboards</li>
+          <li>Customization tucked behind a single gear</li>
+        </ul>
+      </div>
+      <div>
+        <div class="frame-meta"><span class="name">+ SCREEN-01</span><span>HOME · LIGHT · IDLE</span></div>
+        <div class="phone spec">
+          <div class="phone-screen">
+            <div class="status">
+              <span>9:41</span>
+              <span class="icons">
+                <svg width="16" height="10" viewBox="0 0 16 10"><path d="M1 8.5h2v1H1zM4 7h2v2.5H4zM7 5.5h2v4H7zM10 4h2v5.5h-2zM13 2h2v7.5h-2z" fill="currentColor"/></svg>
+                <svg width="22" height="10" viewBox="0 0 22 10"><rect x="1" y="1" width="18" height="8" rx="2" stroke="currentColor" fill="none"/><rect x="2" y="2" width="14" height="6" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="notch"></div>
+            <div class="gear">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg>
+            </div>
+            <div class="home-screen">
+              <div class="greeting"><span class="dot"></span> Resting</div>
+              <div class="h-title">Welcome <span class="it">back.</span></div>
+              <div class="h-sub">Your sanctuary is ready.</div>
+              <div class="b-orb"></div>
+              <div class="routine-card">
+                <div>
+                  <div class="name">Screen <span class="it">rest.</span></div>
+                  <div class="meta">+ Every 20 min · audio guided</div>
+                </div>
+                <div class="chev">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
+                </div>
+              </div>
+              <button class="b-cta">Begin →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 2 — three states of the routine -->
+    <div class="row r3">
+
+      <!-- FOCUS (running silently) -->
+      <div>
+        <div class="frame-meta"><span class="name">+ SCREEN-02</span><span>FOCUS · RUNNING SILENTLY</span></div>
+        <div class="phone spec">
+          <div class="phone-screen">
+            <div class="status">
+              <span>9:42</span>
+              <span class="icons">
+                <svg width="16" height="10" viewBox="0 0 16 10"><path d="M1 8.5h2v1H1zM4 7h2v2.5H4zM7 5.5h2v4H7zM10 4h2v5.5h-2zM13 2h2v7.5h-2z" fill="currentColor"/></svg>
+                <svg width="22" height="10" viewBox="0 0 22 10"><rect x="1" y="1" width="18" height="8" rx="2" stroke="currentColor" fill="none"/><rect x="2" y="2" width="14" height="6" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="notch"></div>
+            <div class="focus-screen">
+              <div class="lab"><span class="dot"></span> Sanctuary is keeping watch</div>
+              <div class="h-title">Use your screen.<br>We'll let you know.</div>
+              <div class="arc-host">
+                <svg class="arc-svg" viewBox="0 0 220 220">
+                  <defs>
+                    <linearGradient id="arcgrad" x1="0" x2="1" y1="0" y2="1">
+                      <stop offset="0" stop-color="#485696"/>
+                      <stop offset="1" stop-color="#be95c4"/>
+                    </linearGradient>
+                  </defs>
+                  <circle class="track" cx="110" cy="110" r="100"/>
+                  <circle class="fill" cx="110" cy="110" r="100" stroke-dasharray="628" stroke-dashoffset="250" transform="rotate(90 110 110)"/>
+                </svg>
+                <div class="inner"></div>
+              </div>
+              <div class="focus-foot">A soft chime will arrive when it's time to rest your eyes.</div>
+              <button class="focus-end">+ End the session</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOOK AWAY (the alert / take-over) -->
+      <div>
+        <div class="frame-meta"><span class="name">+ SCREEN-03</span><span>LOOK AWAY · DARK</span></div>
+        <div class="phone dark spec">
+          <div class="phone-screen" style="background: oklch(15% 0.015 275)">
+            <div class="status dark">
+              <span>10:02</span>
+              <span class="icons" style="color: oklch(96% 0.005 80)">
+                <svg width="16" height="10" viewBox="0 0 16 10"><path d="M1 8.5h2v1H1zM4 7h2v2.5H4zM7 5.5h2v4H7zM10 4h2v5.5h-2zM13 2h2v7.5h-2z" fill="currentColor"/></svg>
+                <svg width="22" height="10" viewBox="0 0 22 10"><rect x="1" y="1" width="18" height="8" rx="2" stroke="currentColor" fill="none"/><rect x="2" y="2" width="14" height="6" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="notch"></div>
+            <div class="look-screen">
+              <div class="meta"><span class="dot"></span> Twenty minutes passed</div>
+              <div class="head">Close your <span class="it">eyes.</span></div>
+              <div class="sub">A short rest. We'll guide you with our voice — the screen can stay dark.</div>
+              <div class="audio-mark">
+                <div class="ring r3"></div>
+                <div class="ring r2"></div>
+                <div class="ring r1"></div>
+                <div class="core"></div>
+              </div>
+              <div class="look-line">+ Audio guidance · 2 min</div>
+              <div class="look-foot">
+                <button class="look-skip">+ Skip this rest</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div>
+        <div class="frame-meta"><span class="name">+ SCREEN-04</span><span>SETTINGS · LIGHT</span></div>
+        <div class="phone spec">
+          <div class="phone-screen">
+            <div class="status">
+              <span>9:41</span>
+              <span class="icons">
+                <svg width="16" height="10" viewBox="0 0 16 10"><path d="M1 8.5h2v1H1zM4 7h2v2.5H4zM7 5.5h2v4H7zM10 4h2v5.5h-2zM13 2h2v7.5h-2z" fill="currentColor"/></svg>
+                <svg width="22" height="10" viewBox="0 0 22 10"><rect x="1" y="1" width="18" height="8" rx="2" stroke="currentColor" fill="none"/><rect x="2" y="2" width="14" height="6" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="notch"></div>
+            <div class="set-screen">
+              <div class="h-mono">+ Adjust</div>
+              <h2 style="font-family: -apple-system, 'SF Pro Display', system-ui, sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.022em; line-height: 1.05; margin-bottom: 4px; color: var(--text-primary)">Make it <span style="font-family: var(--font-display); font-weight: 400; font-style: italic; background: var(--grad-aurora); -webkit-background-clip: text; background-clip: text; color: transparent">yours.</span></h2>
+              <p class="sub">Quiet defaults. Soft customization.</p>
+
+              <div class="set-group-header">Routine</div>
+              <div class="set-group">
+                <div class="set-row">
+                  <div>
+                    <div class="label">Focus interval</div>
+                    <div class="hint">Between rests</div>
+                  </div>
+                  <div class="v">20 min <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+                </div>
+                <div class="set-row">
+                  <div>
+                    <div class="label">Guide voice</div>
+                    <div class="hint">Audio narration</div>
+                  </div>
+                  <div class="v"><span class="it">Maren</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+                </div>
+                <div class="set-row">
+                  <div>
+                    <div class="label">Soundscape</div>
+                    <div class="hint">During focus</div>
+                  </div>
+                  <div class="v">Brook <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+                </div>
+              </div>
+
+              <div class="set-group-header">Behavior</div>
+              <div class="set-group">
+                <div class="set-row">
+                  <div>
+                    <div class="label">Run in background</div>
+                    <div class="hint">Across any app</div>
+                  </div>
+                  <div class="switch"></div>
+                </div>
+                <div class="set-row">
+                  <div>
+                    <div class="label">Reduce motion</div>
+                    <div class="hint">Still orb</div>
+                  </div>
+                  <div class="switch off"></div>
+                </div>
+              </div>
+
+              <div class="future">
+                <div class="lab">+ Coming routines</div>
+                <p>Evening wind-down, posture nudges, walking rests — when they're ready.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ROW 3 — COMPONENTS -->
+    <div style="margin-top: 32px">
+      <div class="tb-meta" style="margin-bottom: 24px">
+        <div class="lab">+ 02 / Primitives</div>
+        <h1 style="font-size: 2rem">Small <span class="it">moving parts.</span></h1>
+      </div>
+      <div class="comp-row">
+        <div class="comp">
+          <div class="lab">+ Buttons</div>
+          <div class="demo" style="flex-direction: column; gap: 10px; align-items: stretch">
+            <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap">
+              <button class="btn btn-primary">Begin <span class="arrow">→</span></button>
+              <button class="btn btn-secondary">Pause</button>
+            </div>
+            <div style="display: flex; gap: 8px; justify-content: center">
+              <button class="btn btn-tertiary">End early</button>
+              <button class="btn btn-tertiary">Skip rest</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp">
+          <div class="lab">+ Routine card</div>
+          <div class="demo" style="padding: 0">
+            <div style="width: 100%; padding: 12px 14px; background: oklch(99% 0.003 80 / 0.85); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 14px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center">
+              <div>
+                <div style="font-family: var(--font-display); font-weight: 400; font-size: 14px; letter-spacing: -0.01em">Screen <em>rest.</em></div>
+                <div style="font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-iris-deep); margin-top: 3px">+ Every 20 min</div>
+              </div>
+              <div style="width: 22px; height: 22px; border-radius: 50%; background: oklch(63% 0.20 295 / 0.10); display: grid; place-items: center; color: var(--c-iris-deep)">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp">
+          <div class="lab">+ Status dot</div>
+          <div class="demo">
+            <div style="display: flex; gap: 14px; align-items: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase">
+              <span style="display: inline-flex; align-items: center; gap: 8px; color: var(--c-mint-deep)"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--c-mint); box-shadow: 0 0 8px var(--c-mint)"></span>Resting</span>
+              <span style="display: inline-flex; align-items: center; gap: 8px; color: var(--c-iris-deep)"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--c-iris); box-shadow: 0 0 8px var(--c-iris)"></span>Focus</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp">
+          <div class="lab">+ Settings row</div>
+          <div class="demo" style="padding: 12px">
+            <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 8px 0">
+              <div>
+                <div style="font-family: var(--font-body); font-size: 13px; font-weight: 500">Focus interval</div>
+                <div style="font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-tertiary); margin-top: 2px">+ Between rests</div>
+              </div>
+              <div style="font-family: var(--font-display); font-size: 14px; color: var(--c-iris-deep); display: flex; gap: 4px; align-items: center">20 min <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp">
+          <div class="lab">+ Switch</div>
+          <div class="demo" style="gap: 12px">
+            <div style="width: 42px; height: 25px; background: var(--c-mint); border-radius: 999px; position: relative"><span style="position: absolute; top: 2px; left: 19px; width: 21px; height: 21px; border-radius: 50%; background: white; box-shadow: var(--shadow-sm)"></span></div>
+            <div style="width: 42px; height: 25px; background: oklch(82% 0.010 80); border-radius: 999px; position: relative"><span style="position: absolute; top: 2px; left: 2px; width: 21px; height: 21px; border-radius: 50%; background: white; box-shadow: var(--shadow-sm)"></span></div>
+          </div>
+        </div>
+
+        <div class="comp">
+          <div class="lab">+ Audio mark</div>
+          <div class="demo">
+            <div style="width: 80px; height: 80px; position: relative; display: grid; place-items: center">
+              <div style="position: absolute; inset: -4px; border: 1px solid oklch(70% 0.10 310 / 0.35); border-radius: 50%"></div>
+              <div style="position: absolute; inset: 8px; border: 1px solid oklch(70% 0.10 310 / 0.55); border-radius: 50%"></div>
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 40%), radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, #1a1620 115%); box-shadow: inset 0 -10px 18px oklch(13% 0.005 295 / 0.55), inset 0 8px 14px oklch(98% 0.02 310 / 0.22), 0 0 0 1px oklch(45% 0.12 270 / 0.3), 0 0 22px oklch(45% 0.12 270 / 0.4)"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp">
+          <div class="lab">+ Future routine</div>
+          <div class="demo" style="padding: 0">
+            <div style="width: 100%; padding: 14px; background: linear-gradient(135deg, oklch(63% 0.20 295 / 0.08), oklch(80% 0.14 165 / 0.08)); border: 1px dashed oklch(63% 0.20 295 / 0.30); border-radius: 12px; text-align: center">
+              <div style="font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-iris-deep); margin-bottom: 4px">+ Coming soon</div>
+              <div style="font-family: var(--font-display); font-style: italic; font-size: 13px; color: var(--text-secondary)">Evening wind-down</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp">
+          <div class="lab">+ Progress arc</div>
+          <div class="demo">
+            <svg width="64" height="64" viewBox="0 0 64 64">
+              <circle cx="32" cy="32" r="28" fill="none" stroke="oklch(86% 0.008 80)" stroke-width="1.5"/>
+              <defs>
+                <linearGradient id="mini-arc" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#485696"/>
+                  <stop offset="1" stop-color="#be95c4"/>
+                </linearGradient>
+              </defs>
+              <circle cx="32" cy="32" r="28" fill="none" stroke="url(#mini-arc)" stroke-width="2" stroke-linecap="round" stroke-dasharray="176" stroke-dashoffset="70" transform="rotate(-90 32 32)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Quiet marquee at the foot — ties this kit to the Edition system without intruding on the product canvas above -->
+  <div style="max-width: 1600px; margin: 0 auto; padding: 0 48px 48px; color: var(--text-tertiary)">
+    <div class="marquee" style="opacity: 0.45">
+      <div class="marquee-track">
+        <span>NOV PAX · SANCTUARY</span><span>v 2.4 · EDITION</span><span>NPX-PD-CANVAS</span><span>ONE ROOM · ONE ROUTINE</span>
+        <span>NOV PAX · SANCTUARY</span><span>v 2.4 · EDITION</span><span>NPX-PD-CANVAS</span><span>ONE ROOM · ONE ROUTINE</span>
+        <span>NOV PAX · SANCTUARY</span><span>v 2.4 · EDITION</span><span>NPX-PD-CANVAS</span><span>ONE ROOM · ONE ROUTINE</span>
+        <span>NOV PAX · SANCTUARY</span><span>v 2.4 · EDITION</span><span>NPX-PD-CANVAS</span><span>ONE ROOM · ONE ROUTINE</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

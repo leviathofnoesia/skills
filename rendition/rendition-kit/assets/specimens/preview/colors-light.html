@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Colors" name="Colors — Light Mode" subtitle="v2.2 · Dusk · Porcelain · Teal · Lilac" viewport="700x340" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nov Pax · 02a Colors · Light · v2.4</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  
+  body { background: var(--bg); margin: 0; min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; color: var(--text-primary); }
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: 999; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+    opacity: 0.08; mix-blend-mode: multiply;
+  }
+  .head, .foot {
+    display: grid; grid-template-columns: auto auto 1fr auto auto;
+    align-items: center; gap: 14px;
+    padding: 12px 28px;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .foot { border-bottom: none; border-top: 1px solid var(--border); }
+  .head .mark, .foot .mark {
+    width: 14px; height: 14px; border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 40%),
+      radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, var(--c-onyx) 115%);
+  }
+  .head .ver, .foot .ver { color: var(--c-lilac-deep); }
+  .head .barcode-mini, .foot .barcode-mini { display: flex; gap: 1px; height: 14px; width: 80px; }
+  .head .barcode-mini i, .foot .barcode-mini i { background: var(--text-secondary); width: 1.5px; }
+  .head .barcode-mini i:nth-child(2n), .foot .barcode-mini i:nth-child(2n) { width: 1px; }
+  .head .barcode-mini i:nth-child(3n), .foot .barcode-mini i:nth-child(3n) { width: 2px; }
+  .center { text-align: center; }
+
+  /* shared specimen + section heads */
+  .specimen { background: oklch(99% 0.003 90); border: 2px solid var(--c-dusk); }
+  .specimen.teal { border-color: var(--c-teal-deep); }
+  .specimen.lilac { border-color: var(--c-lilac-deep); }
+  .specimen > .strip {
+    background: var(--c-dusk); color: var(--c-porcelain);
+    padding: 6px 14px;
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .specimen.teal > .strip { background: var(--c-teal-deep); }
+  .specimen.lilac > .strip { background: var(--c-lilac-deep); }
+  .specimen > .body { padding: 22px; }
+
+  .pg-head {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: end;
+    padding: 32px 32px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pg-head .num {
+    font-family: 'Geist', sans-serif; font-weight: 900;
+    font-size: clamp(3rem, 6vw, 5rem); line-height: 0.84; letter-spacing: -0.06em;
+  }
+  .pg-head h1 {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(1.625rem, 3vw, 2.5rem); letter-spacing: -0.025em; line-height: 1.05;
+    margin: 0;
+  }
+  .pg-head h1 .it { font-style: italic; font-weight: 400; }
+  .pg-head .k {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .pg-head .folio { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); }
+  main { padding: 28px 32px 40px; display: flex; flex-direction: column; gap: 20px; }
+
+  .pg-head .num { color: var(--c-dusk); }
+  .pg-head .k { color: var(--c-dusk); }
+
+  /* Five pigments as full chunks */
+  .palette { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 6px; height: 380px; }
+  .sw { padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; position: relative; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; }
+  .sw .lbl { display: flex; justify-content: space-between; }
+  .sw .nm { font-family: 'Geist', sans-serif; font-weight: 900; font-size: clamp(1.5rem, 2.4vw, 2.25rem); letter-spacing: -0.04em; line-height: 0.9; text-transform: uppercase; }
+  .sw .vals { display: flex; flex-direction: column; gap: 2px; }
+  .sw.dusk { background: #485696; color: #f7f7f2; }
+  .sw.teal { background: #689689; color: #f7f7f2; }
+  .sw.lilac { background: #be95c4; color: #1b1a1d; }
+  .sw.porcelain { background: #f7f7f2; color: #1b1a1d; border: 1px solid var(--border); }
+  .sw.onyx { background: #121113; color: #f7f7f2; }
+
+  /* Tokens table */
+  table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 11px; }
+  th { text-align: left; padding: 10px 12px; background: var(--c-dusk); color: var(--c-porcelain); letter-spacing: 0.18em; text-transform: uppercase; font-size: 9.5px; font-weight: 500; }
+  td { padding: 10px 12px; border-bottom: 0.5px solid var(--border-subtle); }
+  td.sw-cell { width: 60px; }
+  td.sw-cell div { width: 36px; height: 36px; border: 1px solid var(--border); }
+  td .token { font-weight: 500; color: var(--c-dusk); }
+  td .hex { color: var(--text-secondary); }
+  td .role { color: var(--text-tertiary); font-family: var(--font-body); }
+
+  /* Gradient row */
+  .grad-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; height: 100px; }
+  .grad { padding: 12px 16px; display: flex; flex-direction: column; justify-content: space-between; color: #f7f7f2; font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .grad .nm { font-family: 'Geist', sans-serif; font-weight: 900; font-size: 1.125rem; letter-spacing: -0.03em; }
+  .grad.a { background: linear-gradient(135deg, var(--c-dusk), var(--c-lilac)); }
+  .grad.b { background: linear-gradient(135deg, var(--c-teal), var(--c-lilac)); }
+  .grad.c { background: linear-gradient(135deg, var(--c-dusk), var(--c-teal)); }
+
+  /* Neutrals strip */
+  .neutrals { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; height: 56px; }
+  .neutrals div { border: 0.5px solid var(--border-subtle); }
+</style>
+</head>
+<body>
+
+  <div class="head">
+    <span class="mark"></span>
+    <span>NOV PAX</span>
+    <span class="center">+ 02a COLORS · LIGHT · NPX-CL-LT</span>
+    <span class="ver">v 2.4 EDITION</span>
+    <span class="barcode-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+  </div>
+
+<div class="pg-head">
+  <div class="num">02a</div>
+  <div>
+    <div class="k">+ COLORS / LIGHT MODE · DUSK PALETTE</div>
+    <h1>Five pigments, <span class="it">one chord.</span></h1>
+  </div>
+  <div class="folio">P. 02 / 11</div>
+</div>
+
+<main>
+  <!-- Plate row of swatches -->
+  <div class="palette">
+    <div class="sw dusk">
+      <div class="lbl"><span>+ 01 PRIMARY</span><span>NPX-01</span></div>
+      <div class="nm">DUSK</div>
+      <div class="vals"><span>#485696</span><span>RGB 72 · 86 · 150</span><span>OKLCH 45% · 0.12 · 270</span></div>
+    </div>
+    <div class="sw teal">
+      <div class="lbl"><span>+ 02 CALM</span><span>NPX-02</span></div>
+      <div class="nm">TEAL</div>
+      <div class="vals"><span>#689689</span><span>RGB 104 · 150 · 137</span><span>OKLCH 60% · 0.05 · 168</span></div>
+    </div>
+    <div class="sw lilac">
+      <div class="lbl"><span>+ 03 WARMTH</span><span>NPX-03</span></div>
+      <div class="nm">LILAC</div>
+      <div class="vals"><span>#BE95C4</span><span>RGB 190 · 149 · 196</span><span>OKLCH 70% · 0.10 · 310</span></div>
+    </div>
+    <div class="sw porcelain">
+      <div class="lbl"><span>+ 04 LIGHT</span><span>NPX-04</span></div>
+      <div class="nm">PORCEL.</div>
+      <div class="vals"><span>#F7F7F2</span><span>RGB 247·247·242</span><span>OKLCH 99% · 0.003 · 90</span></div>
+    </div>
+    <div class="sw onyx">
+      <div class="lbl"><span>+ 05 DARK</span><span>NPX-05</span></div>
+      <div class="nm">ONYX</div>
+      <div class="vals"><span>#121113</span><span>RGB 18 · 17 · 19</span><span>OKLCH 16% · 0.01 · 290</span></div>
+    </div>
+  </div>
+
+  <!-- Tokens table -->
+  <div class="specimen">
+    <div class="strip"><span>+ TOKENS · BRAND PIGMENTS</span><span>NPX-CL-TBL</span></div>
+    <div class="body" style="padding: 0">
+      <table>
+        <thead><tr><th></th><th>TOKEN</th><th>HEX</th><th>OKLCH</th><th>ROLE</th></tr></thead>
+        <tbody>
+          <tr><td class="sw-cell"><div style="background:#485696"></div></td><td><span class="token">--c-dusk</span></td><td class="hex">#485696</td><td class="hex">oklch(45% 0.12 270)</td><td class="role">Primary identity · links · CTAs</td></tr>
+          <tr><td class="sw-cell"><div style="background:#6C7CC0"></div></td><td><span class="token">--c-dusk-soft</span></td><td class="hex">#6C7CC0</td><td class="hex">oklch(70% 0.07 268)</td><td class="role">Soft variant for dark grounds</td></tr>
+          <tr><td class="sw-cell"><div style="background:#2F3873"></div></td><td><span class="token">--c-dusk-deep</span></td><td class="hex">#2F3873</td><td class="hex">oklch(34% 0.10 268)</td><td class="role">Pressed states · depth</td></tr>
+          <tr><td class="sw-cell"><div style="background:#689689"></div></td><td><span class="token">--c-teal</span></td><td class="hex">#689689</td><td class="hex">oklch(60% 0.05 168)</td><td class="role">Calm · secondary · success</td></tr>
+          <tr><td class="sw-cell"><div style="background:#BE95C4"></div></td><td><span class="token">--c-lilac</span></td><td class="hex">#BE95C4</td><td class="hex">oklch(70% 0.10 310)</td><td class="role">Warmth · italic accents · orb bloom</td></tr>
+          <tr><td class="sw-cell"><div style="background:#F7F7F2"></div></td><td><span class="token">--c-porcelain</span></td><td class="hex">#F7F7F2</td><td class="hex">oklch(99% 0.003 90)</td><td class="role">Light ground (paper)</td></tr>
+          <tr><td class="sw-cell"><div style="background:#121113"></div></td><td><span class="token">--c-onyx</span></td><td class="hex">#121113</td><td class="hex">oklch(16% 0.01 290)</td><td class="role">Dark ground (room at rest)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Signature gradients -->
+  <div class="specimen lilac">
+    <div class="strip"><span>+ SIGNATURE GRADIENTS · 2-STOP CHORDS</span><span>NPX-CL-GR</span></div>
+    <div class="body">
+      <div class="grad-row">
+        <div class="grad a"><span>+ SIGNATURE</span><span class="nm">DUSK → LILAC</span><span>grad-aurora</span></div>
+        <div class="grad b"><span>+ WARMTH</span><span class="nm">TEAL → LILAC</span><span>custom</span></div>
+        <div class="grad c"><span>+ CALM</span><span class="nm">DUSK → TEAL</span><span>grad-sky-mint</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Neutrals -->
+  <div class="specimen teal">
+    <div class="strip"><span>+ NEUTRAL RAMP · TEXT &amp; SURFACE</span><span>NPX-CL-NT</span></div>
+    <div class="body">
+      <div class="neutrals">
+        <div style="background: #FFFFFF"></div>
+        <div style="background: oklch(99% 0.003 90)"></div>
+        <div style="background: oklch(96% 0.005 80)"></div>
+        <div style="background: oklch(92% 0.006 80)"></div>
+        <div style="background: oklch(86% 0.008 80)"></div>
+        <div style="background: oklch(70% 0.010 80)"></div>
+        <div style="background: oklch(55% 0.008 280)"></div>
+        <div style="background: oklch(38% 0.010 280)"></div>
+        <div style="background: oklch(28% 0.014 290)"></div>
+        <div style="background: #121113"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+  <div class="foot">
+    <span class="mark"></span>
+    <span>+ © 2026 NOV PAX</span>
+    <span class="center">MADE SLOWLY · ON PURPOSE</span>
+    <span class="ver">FOLIO 02 / 11</span>
+    <span class="barcode-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+  </div>
+</body>
+</html>

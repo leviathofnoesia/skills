@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Components — Cards & Badges" subtitle="v2 · Solid, image, glass, quote, stat" viewport="700x240" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nov Pax · 06b Components · Cards · v2.4 Edition</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  
+  body { background: var(--bg); margin: 0; color: var(--text-primary); }
+  body::after { content: ""; position: fixed; inset: 0; z-index: 999; pointer-events: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>"); opacity: 0.08; mix-blend-mode: multiply; }
+  .top-strip, .bottom-strip { display: grid; grid-template-columns: auto auto 1fr auto auto; gap: 14px; align-items: center; padding: 12px 32px; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); }
+  .bottom-strip { border-bottom: none; border-top: 1px solid var(--border); }
+  .top-strip .mark, .bottom-strip .mark { width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 40%), radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, var(--c-onyx) 115%); }
+  .top-strip .ver, .bottom-strip .ver { color: var(--c-lilac-deep); }
+  .top-strip .barcode-mini, .bottom-strip .barcode-mini { display: flex; gap: 1px; height: 14px; width: 80px; }
+  .top-strip .barcode-mini i, .bottom-strip .barcode-mini i { background: var(--text-secondary); width: 1.5px; }
+  .top-strip .barcode-mini i:nth-child(2n), .bottom-strip .barcode-mini i:nth-child(2n) { width: 1px; }
+  .top-strip .barcode-mini i:nth-child(3n), .bottom-strip .barcode-mini i:nth-child(3n) { width: 2px; }
+  .center { text-align: center; }
+  .cover { position: relative; background: var(--c-onyx); color: var(--c-porcelain); overflow: hidden; }
+  .cover-inner { max-width: 1440px; margin: 0 auto; padding: 44px 48px 52px; position: relative; min-height: 48vh; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr auto; gap: 20px 32px; }
+  .cover-eclipse { position: absolute; top: 14%; right: 0; width: 34%; height: 60%; background: var(--c-dusk); z-index: 0; }
+  .cover-moon-wrap { position: absolute; top: 50%; left: 60%; transform: translate(-50%, -42%); width: min(36vw, 440px); aspect-ratio: 1; z-index: 1; pointer-events: none; opacity: 0.7; }
+  .cover-moon-wrap .halftone { position: absolute; inset: 0; color: var(--c-lilac); background-size: 7px 7px; }
+  .cover-top { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: start; position: relative; z-index: 2; }
+  .cover-top .l { display: flex; flex-direction: column; gap: 6px; }
+  .cover-top .codes { display: flex; gap: 14px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: oklch(58% 0.03 310); }
+  .cover-top .star-row { display: flex; gap: 6px; color: var(--c-lilac); }
+  .cover-title { grid-column: 1 / -1; align-self: end; font-family: 'Geist', sans-serif; font-weight: 900; font-size: clamp(3.5rem, 11vw, 10rem); line-height: 1.0; letter-spacing: -0.045em; text-transform: uppercase; padding-bottom: 0.18em; color: var(--c-porcelain); margin: 0; position: relative; z-index: 2; text-shadow: 0 2px 0 oklch(0% 0 0 / 0.25), 0 0 30px oklch(0% 0 0 / 0.4); }
+  .cover-title .pigment { color: var(--c-lilac); }
+  .cover-italic { grid-column: 1; align-self: end; font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: clamp(1.25rem, 2.2vw, 1.75rem); line-height: 1.15; letter-spacing: -0.02em; color: oklch(82% 0.04 310); margin: 0; max-width: 32ch; position: relative; z-index: 2; }
+  .cover-italic .em { background: linear-gradient(135deg, var(--c-lilac), var(--c-dusk-soft)); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: italic; font-weight: 400; }
+  .cover-spec { grid-column: 2; align-self: end; display: flex; flex-direction: column; gap: 5px; align-items: flex-end; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(78% 0.05 310); text-align: right; position: relative; z-index: 2; }
+  .cover-spec b { color: var(--c-porcelain); font-weight: 500; }
+  .cover-spec .barcode-w { display: inline-flex; gap: 1px; height: 14px; width: 90px; margin-top: 6px; }
+  .cover-spec .barcode-w i { background: var(--c-porcelain); width: 2px; }
+  .cover-spec .barcode-w i:nth-child(2n) { width: 1px; }
+  .cover-spec .barcode-w i:nth-child(3n) { width: 3px; }
+  .cover-marquee { color: oklch(78% 0.05 310); border-color: oklch(50% 0.06 290 / 0.4); }
+  main { max-width: 1440px; margin: 0 auto; padding: 40px 32px 56px; display: flex; flex-direction: column; gap: 32px; }
+  .sect-head { display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: end; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+  .sect-head .num { font-family: 'Geist', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 4.5vw, 4rem); line-height: 0.84; letter-spacing: -0.06em; }
+  .sect-head h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.5rem, 2.4vw, 2rem); letter-spacing: -0.025em; line-height: 1.05; margin: 0; }
+  .sect-head h2 .it { font-style: italic; font-weight: 400; }
+  .sect-head .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 6px; }
+  .sect-head .folio { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); text-align: right; line-height: 1.6; }
+  .sect-head.dusk .num, .sect-head.dusk .k { color: var(--c-dusk); }
+  .sect-head.dusk h2 .it { background: linear-gradient(135deg, var(--c-dusk), var(--c-lilac)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sect-head.lilac .num, .sect-head.lilac .k { color: var(--c-lilac-deep); }
+  .sect-head.lilac h2 .it { background: linear-gradient(135deg, var(--c-lilac), var(--c-dusk)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sect-head.teal .num, .sect-head.teal .k { color: var(--c-teal-deep); }
+  .sect-head.teal h2 .it { background: linear-gradient(135deg, var(--c-teal), var(--c-dusk)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .specimen { background: oklch(99% 0.003 90); border: 2px solid var(--c-dusk); position: relative; }
+  .specimen.teal { border-color: var(--c-teal-deep); }
+  .specimen.lilac { border-color: var(--c-lilac-deep); }
+  .specimen.onyx { border-color: var(--c-onyx); }
+  .specimen > .strip { padding: 6px 14px; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; background: var(--c-dusk); color: var(--c-porcelain); }
+  .specimen.teal > .strip { background: var(--c-teal-deep); }
+  .specimen.lilac > .strip { background: var(--c-lilac-deep); }
+  .specimen.onyx > .strip { background: var(--c-onyx); }
+  .specimen > .body { padding: 24px; }
+  .bq { background: var(--c-onyx); color: var(--c-porcelain); overflow: hidden; }
+  .bq > .strip { padding: 6px 14px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; background: var(--c-lilac-deep); color: var(--c-porcelain); }
+  .bq > .body { padding: 36px 40px 32px; font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: clamp(1.5rem, 2.6vw, 2.25rem); line-height: 1.3; letter-spacing: -0.018em; max-width: 36ch; margin: 0; }
+  .bq > .body .em { background: linear-gradient(135deg, var(--c-lilac), var(--c-dusk-soft)); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: italic; font-weight: 400; }
+  .bq > .body cite { display: block; margin-top: 16px; font-style: normal; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(72% 0.04 310); }
+  .foot-marquee { max-width: 1440px; margin: 0 auto; padding: 0 32px 32px; color: var(--text-tertiary); }
+  .foot-marquee .marquee { opacity: 0.55; }
+  @media (max-width: 1024px) {
+    .cover-title { font-size: clamp(2.5rem, 14vw, 6rem); }
+    .cover-inner, main { padding-left: 24px; padding-right: 24px; }
+    .sect-head { grid-template-columns: auto 1fr; }
+    .sect-head .folio { grid-column: 1 / -1; text-align: left; }
+  }
+
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+  /* GLASS CARD on atmosphere */
+  .atmos { background: radial-gradient(ellipse 60% 60% at 25% 30%, oklch(45% 0.12 270 / 0.15), transparent 65%), radial-gradient(ellipse 60% 60% at 80% 75%, oklch(70% 0.10 310 / 0.16), transparent 65%), oklch(94% 0.005 80); padding: 36px; }
+  .glass-card { background: oklch(99% 0.003 90 / 0.7); backdrop-filter: blur(24px) saturate(140%); border: 1px solid oklch(99% 0.003 90 / 0.6); border-radius: 18px; box-shadow: 0 20px 50px oklch(28% 0.02 280 / 0.12); padding: 28px; }
+  .glass-card .kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-lilac-deep); margin-bottom: 8px; }
+  .glass-card h3 { font-family: var(--font-display); font-weight: 300; font-size: 1.625rem; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 8px; }
+  .glass-card h3 .it { font-style: italic; }
+  .glass-card .sub { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 1.0625rem; line-height: 1.35; color: var(--text-secondary); margin: 0; max-width: 36ch; }
+  .glass-card .moon { width: 56px; height: 56px; border-radius: 50%; margin-bottom: 18px; background: radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 38%), radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, var(--c-onyx) 118%); box-shadow: inset 0 -8px 16px oklch(13% 0.005 295 / 0.5), 0 6px 22px oklch(45% 0.12 270 / 0.3); }
+
+  /* SPECIMEN CARD (sample) */
+  .sp-card { background: oklch(99% 0.003 90); border: 2px solid var(--c-dusk); }
+  .sp-card .strip { background: var(--c-dusk); color: var(--c-porcelain); padding: 6px 14px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .sp-card.teal { border-color: var(--c-teal-deep); }
+  .sp-card.teal .strip { background: var(--c-teal-deep); }
+  .sp-card.lilac { border-color: var(--c-lilac-deep); }
+  .sp-card.lilac .strip { background: var(--c-lilac-deep); }
+  .sp-card .body { padding: 22px 20px; }
+  .sp-card h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; letter-spacing: -0.015em; margin: 0 0 10px; line-height: 1.1; }
+  .sp-card h4 .it { font-style: italic; }
+  .sp-card p { font-family: var(--font-body); font-size: 0.875rem; color: var(--text-secondary); line-height: 1.55; margin: 0; }
+
+  /* BRUTAL QUOTE card sample */
+  .bq-card { background: var(--c-onyx); color: var(--c-porcelain); overflow: hidden; }
+  .bq-card > .strip { background: var(--c-lilac-deep); color: var(--c-porcelain); padding: 6px 14px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .bq-card > .body { padding: 28px; font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 1.5rem; line-height: 1.3; letter-spacing: -0.015em; }
+  .bq-card > .body .em { background: linear-gradient(135deg, var(--c-lilac), var(--c-dusk-soft)); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: italic; font-weight: 400; }
+  .bq-card cite { display: block; margin-top: 16px; font-style: normal; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(72% 0.04 310); }
+
+  /* COMPANION CARD */
+  .comp-card { aspect-ratio: 5/3; background: radial-gradient(ellipse 60% 60% at 25% 30%, oklch(45% 0.12 270 / 0.12), transparent 65%), radial-gradient(ellipse 60% 60% at 80% 75%, oklch(70% 0.10 310 / 0.14), transparent 65%), oklch(99% 0.003 90); border: 1px solid var(--border); padding: 24px; display: flex; gap: 22px; align-items: center; }
+  .comp-card .moon-sm { width: 92px; height: 92px; border-radius: 50%; flex-shrink: 0; background: radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 38%), radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, var(--c-onyx) 118%); box-shadow: inset 0 -10px 18px oklch(13% 0.005 295 / 0.55), 0 10px 28px oklch(45% 0.12 270 / 0.3); }
+  .comp-card .body { flex: 1; }
+  .comp-card .l { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-lilac-deep); margin-bottom: 6px; }
+  .comp-card .t { font-family: var(--font-display); font-weight: 300; font-size: 1.625rem; letter-spacing: -0.02em; line-height: 1.1; }
+  .comp-card .t .it { font-style: italic; }
+  .comp-card .sub { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 1rem; color: var(--text-secondary); margin-top: 6px; }
+
+  /* BADGES */
+  .badges { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge { font-family: var(--font-mono); font-size: 9.5px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; padding: 5px 10px; border-radius: 2px; display: inline-flex; align-items: center; gap: 6px; }
+  .badge::before { content: "+"; opacity: 0.7; }
+  .badge.dusk { background: var(--c-dusk); color: #fff; }
+  .badge.teal { background: var(--c-teal-deep); color: #fff; }
+  .badge.lilac { background: var(--c-lilac-deep); color: #fff; }
+  .badge.onyx { background: var(--c-onyx); color: var(--c-porcelain); }
+  .badge.outline { background: transparent; border: 1px solid var(--border); color: var(--text-primary); }
+  .badge.dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .badge.live { color: var(--c-teal-deep); background: oklch(80% 0.04 168 / 0.15); }
+  .badge.live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--c-teal-deep); box-shadow: 0 0 8px var(--c-teal-deep); }
+
+  /* ANATOMY */
+  .anatomy { display: grid; grid-template-columns: 1fr 1.2fr; gap: 18px; align-items: center; }
+  .anatomy .demo-host { padding: 24px; background: oklch(96% 0.008 80); display: grid; place-items: center; }
+  .anatomy ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .anatomy ul li { display: grid; grid-template-columns: 90px 1fr; gap: 12px; align-items: baseline; padding: 6px 0; border-bottom: 0.5px solid var(--border-subtle); color: var(--text-secondary); }
+  .anatomy ul li b { font-weight: 500; }
+  .anatomy ul li:nth-child(1) b { color: var(--c-dusk); }
+  .anatomy ul li:nth-child(2) b { color: var(--c-teal-deep); }
+  .anatomy ul li:nth-child(3) b { color: var(--c-lilac-deep); }
+  .anatomy ul li:nth-child(4) b { color: var(--c-dusk); }
+  .anatomy ul li:nth-child(5) b { color: var(--c-teal-deep); }
+</style>
+</head>
+<body>
+<div class="top-strip"><span class="mark"></span><span>NOV PAX</span><span class="center">+ 06 COMPONENTS · CARDS &amp; BADGES · NPX-CP-CD</span><span class="ver">v 2.4 EDITION</span><span class="barcode-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="marquee cover-marquee" style="border-top: none">
+    <div class="marquee-track">
+      <span>CARDS</span><span>GLASS · SPECIMEN · BRUTAL-QUOTE</span><span>BADGES</span><span>NPX-CP-CD</span>
+      <span>CARDS</span><span>GLASS · SPECIMEN · BRUTAL-QUOTE</span><span>BADGES</span><span>NPX-CP-CD</span>
+      <span>CARDS</span><span>GLASS · SPECIMEN · BRUTAL-QUOTE</span><span>BADGES</span><span>NPX-CP-CD</span>
+      <span>CARDS</span><span>GLASS · SPECIMEN · BRUTAL-QUOTE</span><span>BADGES</span><span>NPX-CP-CD</span>
+    </div>
+  </div>
+  <div class="cover-inner">
+    <span class="crop tl" style="color: oklch(72% 0.04 310 / 0.5)"></span>
+    <span class="crop tr" style="color: oklch(72% 0.04 310 / 0.5)"></span>
+    <span class="crop bl" style="color: oklch(72% 0.04 310 / 0.5)"></span>
+    <span class="crop br" style="color: oklch(72% 0.04 310 / 0.5)"></span>
+    <div class="cover-top">
+      <div class="l">
+        <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(72% 0.04 310)">+ COMPONENT SHEET · 06B / 03</div>
+        <div class="codes"><span>NPX-CP-CD</span><span>RUN 10</span><span>MMXXVI</span></div>
+      </div>
+      <div class="star-row">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 0 L8 6 L14 7 L8 8 L7 14 L6 8 L0 7 L6 6 Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 0 L8 6 L14 7 L8 8 L7 14 L6 8 L0 7 L6 6 Z"/></svg>
+      </div>
+    </div>
+    <div class="cover-eclipse"></div>
+    <div class="cover-moon-wrap"><div class="halftone cresc coarse" aria-hidden="true"></div></div>
+    <h1 class="cover-title"><span>CARDS</span><span class="pigment">+ BADGES.</span></h1>
+    <p class="cover-italic">
+      Glass holds atmosphere. Specimens hold structure. <span class="em">Both belong.</span>
+    </p>
+    <div class="cover-spec">
+      <span><b>+ INVENTORY</b></span>
+      <span>4 CARD TYPES</span>
+      <span>6 BADGE VARIANTS</span>
+      <span>1 COMPANION CARD</span>
+      <span class="barcode-w"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+  </div>
+  <div class="marquee cover-marquee" style="border-bottom: none">
+    <div class="marquee-track">
+      <span>+ GLASS</span><span>+ SPECIMEN</span><span>+ BRUTAL-QUOTE</span><span>+ COMPANION</span><span>+ BADGES</span>
+      <span>+ GLASS</span><span>+ SPECIMEN</span><span>+ BRUTAL-QUOTE</span><span>+ COMPANION</span><span>+ BADGES</span>
+      <span>+ GLASS</span><span>+ SPECIMEN</span><span>+ BRUTAL-QUOTE</span><span>+ COMPANION</span><span>+ BADGES</span>
+      <span>+ GLASS</span><span>+ SPECIMEN</span><span>+ BRUTAL-QUOTE</span><span>+ COMPANION</span><span>+ BADGES</span>
+    </div>
+  </div>
+</section>
+
+<main>
+  <!-- 01 GLASS -->
+  <div>
+    <div class="sect-head lilac">
+      <div class="num">01</div>
+      <div>
+        <div class="k">+ TYPE 01 / GLASS CARD · ATMOSPHERE</div>
+        <h2>Soft cards for <span class="it">soft surfaces.</span></h2>
+      </div>
+      <div class="folio">+ TYPE 01 / 04<br>NPX-CD-A</div>
+    </div>
+    <div class="specimen lilac" style="margin-top: 24px">
+      <div class="strip"><span>+ GLASS · BACKDROP-BLUR ON RADIAL ATMOSPHERE</span><span>NPX-CD-A1</span></div>
+      <div class="body" style="padding: 0">
+        <div class="atmos">
+          <div class="grid-2">
+            <div class="glass-card">
+              <div class="moon"></div>
+              <div class="kicker">+ RESTING · IDLE</div>
+              <h3>Welcome <span class="it">back.</span></h3>
+              <p class="sub">Your sanctuary is ready. The room is held open.</p>
+            </div>
+            <div class="glass-card">
+              <div class="kicker">+ SETTINGS · ROUTINE</div>
+              <h3>Focus <span class="it">interval.</span></h3>
+              <p class="sub">A soft chime arrives every twenty minutes. The screen takes itself away.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 SPECIMEN -->
+  <div>
+    <div class="sect-head dusk">
+      <div class="num">02</div>
+      <div>
+        <div class="k">+ TYPE 02 / SPECIMEN CARD · STRUCTURE</div>
+        <h2>Hard cards for <span class="it">data.</span></h2>
+      </div>
+      <div class="folio">+ TYPE 02 / 04<br>NPX-CD-B</div>
+    </div>
+    <div class="specimen" style="margin-top: 24px">
+      <div class="strip"><span>+ SPECIMEN · PIGMENT BORDER · MONO HEADER STRIP</span><span>NPX-CD-B1</span></div>
+      <div class="body">
+        <div class="grid-3">
+          <div class="sp-card">
+            <div class="strip"><span>+ 01 · FELT</span><span>NPX-PL-A</span></div>
+            <div class="body">
+              <h4>Body, not <span class="it">brand mark.</span></h4>
+              <p>The companion is the room's center of gravity, never a static logo glyph.</p>
+            </div>
+          </div>
+          <div class="sp-card teal">
+            <div class="strip"><span>+ 02 · ONE</span><span>NPX-PL-B</span></div>
+            <div class="body">
+              <h4>One presence, <span class="it">always.</span></h4>
+              <p>No alternate logos. The moon and the Dusk → Lilac chord are the entire identity.</p>
+            </div>
+          </div>
+          <div class="sp-card lilac">
+            <div class="strip"><span>+ 03 · BREATHING</span><span>NPX-PL-C</span></div>
+            <div class="body">
+              <h4>Alive at a <span class="it">slow rate.</span></h4>
+              <p>Six-second breath cycle on every surface. Reduced motion respected.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 BRUTAL QUOTE -->
+  <div>
+    <div class="sect-head teal">
+      <div class="num">03</div>
+      <div>
+        <div class="k">+ TYPE 03 / BRUTAL-QUOTE · VOICE</div>
+        <h2>Voice as a <span class="it">card.</span></h2>
+      </div>
+      <div class="folio">+ TYPE 03 / 04<br>NPX-CD-C</div>
+    </div>
+    <div class="specimen teal" style="margin-top: 24px">
+      <div class="strip"><span>+ BRUTAL-QUOTE · ONYX GROUND · CORMORANT ITALIC</span><span>NPX-CD-C1</span></div>
+      <div class="body">
+        <div class="grid-2">
+          <div class="bq-card">
+            <div class="strip"><span>+ MANIFESTO / 01</span><span>NPX-VC-A</span></div>
+            <div class="body">
+              The internet asked for your attention. <span class="em">We are giving it back.</span>
+              <cite>— NOV PAX · MANIFESTO / 01 · MMXXVI</cite>
+            </div>
+          </div>
+          <div class="bq-card">
+            <div class="strip" style="background: var(--c-teal-deep)"><span>+ FIELD NOTE / 04</span><span>NPX-VC-B</span></div>
+            <div class="body">
+              We measure success by how quickly you <span class="em">forget us.</span>
+              <cite>— NOV PAX · FIELD NOTE / 04 · MMXXVI</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 COMPANION CARD -->
+  <div>
+    <div class="sect-head lilac">
+      <div class="num">04</div>
+      <div>
+        <div class="k">+ TYPE 04 / COMPANION CARD · BODY + MESSAGE</div>
+        <h2>The moon, <span class="it">beside the word.</span></h2>
+      </div>
+      <div class="folio">+ TYPE 04 / 04<br>NPX-CD-D</div>
+    </div>
+    <div class="specimen" style="margin-top: 24px">
+      <div class="strip"><span>+ COMPANION · ATMOSPHERE BACKING · ORB BESIDE COPY</span><span>NPX-CD-D1</span></div>
+      <div class="body">
+        <div class="comp-card">
+          <div class="moon-sm"></div>
+          <div class="body" style="padding: 0">
+            <div class="l">+ RESTING · IDLE</div>
+            <div class="t">Welcome <span class="it">back.</span></div>
+            <div class="sub">Your sanctuary is ready.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRUTAL QUOTE callout -->
+  <div class="bq">
+    <div class="strip"><span>+ FIELD NOTE / CARD DOCTRINE</span><span>NPX-VC-CD</span></div>
+    <div class="body">
+      Glass holds atmosphere. Specimens hold <span class="em">structure.</span> Use both.
+      <cite>+ NOV PAX · COMPONENT NOTES · MMXXVI</cite>
+    </div>
+  </div>
+
+  <!-- 05 BADGES -->
+  <div>
+    <div class="sect-head dusk">
+      <div class="num">05</div>
+      <div>
+        <div class="k">+ BADGES / SIX VARIANTS</div>
+        <h2>Tiny <span class="it">tags.</span></h2>
+      </div>
+      <div class="folio">+ BADGES<br>NPX-CD-BG</div>
+    </div>
+    <div class="specimen" style="margin-top: 24px">
+      <div class="strip"><span>+ BADGES · MONO TAG · 10PX · 0.22EM</span><span>NPX-CD-BG1</span></div>
+      <div class="body">
+        <div class="badges">
+          <span class="badge dusk">DUSK</span>
+          <span class="badge teal">TEAL</span>
+          <span class="badge lilac">LILAC</span>
+          <span class="badge onyx">ONYX</span>
+          <span class="badge outline">OUTLINE</span>
+          <span class="badge live">LIVE</span>
+          <span class="badge dot dusk">RESTING</span>
+          <span class="badge dot teal">FOCUS</span>
+          <span class="badge dot lilac">LOOK AWAY</span>
+        </div>
+        <p style="margin: 18px 0 0; font-family: var(--font-body); font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6; max-width: 60ch">
+          Badges are micro-objects. IBM Plex Mono 10px, 0.22em tracked. Solid pigment, outlined, or with a status dot. The LIVE variant glows.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 ANATOMY -->
+  <div>
+    <div class="sect-head teal">
+      <div class="num">06</div>
+      <div>
+        <div class="k">+ ANATOMY · SPECIMEN CARD</div>
+        <h2>How a specimen <span class="it">holds itself.</span></h2>
+      </div>
+      <div class="folio">+ SPEC SHEET<br>NPX-CD-AN</div>
+    </div>
+    <div class="specimen teal" style="margin-top: 24px">
+      <div class="strip"><span>+ ANATOMY · SPECIMEN CARD</span><span>NPX-CD-AN1</span></div>
+      <div class="body">
+        <div class="anatomy">
+          <div class="demo-host">
+            <div class="sp-card">
+              <div class="strip"><span>+ 01 · LABEL</span><span>NPX-XX-A</span></div>
+              <div class="body">
+                <h4>Title in <span class="it">Cormorant.</span></h4>
+                <p>Body in Geist 14px, Dusk-ish secondary text.</p>
+              </div>
+            </div>
+          </div>
+          <ul>
+            <li><b>BORDER</b><span>2PX SOLID PIGMENT</span></li>
+            <li><b>RADIUS</b><span>0PX · HARD CORNERS</span></li>
+            <li><b>STRIP</b><span>MONO 10PX · 0.22EM · 6×14PX PAD</span></li>
+            <li><b>TITLE</b><span>CORMORANT 400 · 1.25REM · ITALIC ACCENT</span></li>
+            <li><b>BODY</b><span>GEIST 14PX · LINE 1.55 · 22PX PAD</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="foot-marquee"><div class="marquee"><div class="marquee-track"><span>NOV PAX</span><span>COMPONENTS · CARDS</span><span>NPX-CP-CD</span><span>v 2.4 EDITION</span><span>GLASS · SPECIMEN · BRUTAL</span><span>NOV PAX</span><span>COMPONENTS · CARDS</span><span>NPX-CP-CD</span><span>v 2.4 EDITION</span><span>GLASS · SPECIMEN · BRUTAL</span><span>NOV PAX</span><span>COMPONENTS · CARDS</span><span>NPX-CP-CD</span><span>v 2.4 EDITION</span><span>GLASS · SPECIMEN · BRUTAL</span><span>NOV PAX</span><span>COMPONENTS · CARDS</span><span>NPX-CP-CD</span><span>v 2.4 EDITION</span><span>GLASS · SPECIMEN · BRUTAL</span></div></div></div>
+<div class="bottom-strip"><span class="mark"></span><span>+ © 2026 NOV PAX</span><span class="center">MADE SLOWLY · ON PURPOSE</span><span class="ver">FOLIO 10 / 11 · NPX-CP-CD</span><span class="barcode-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+
+</body>
+</html>

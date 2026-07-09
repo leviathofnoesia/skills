@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Spacing — Radii & Scale" subtitle="v2 · 4px base + 12 col grid" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nov Pax · 04 Spacing &amp; Radii · v2.4</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  
+  body { background: var(--bg); margin: 0; min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; color: var(--text-primary); }
+  body::after { content: ""; position: fixed; inset: 0; z-index: 999; pointer-events: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>"); opacity: 0.08; mix-blend-mode: multiply; }
+  .head, .foot { display: grid; grid-template-columns: auto auto 1fr auto auto; align-items: center; gap: 14px; padding: 12px 28px; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); }
+  .foot { border-bottom: none; border-top: 1px solid var(--border); }
+  .head .mark, .foot .mark { width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 40%), radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, var(--c-onyx) 115%); }
+  .head .ver, .foot .ver { color: var(--c-lilac-deep); }
+  .head .barcode-mini, .foot .barcode-mini { display: flex; gap: 1px; height: 14px; width: 80px; }
+  .head .barcode-mini i, .foot .barcode-mini i { background: var(--text-secondary); width: 1.5px; }
+  .head .barcode-mini i:nth-child(2n), .foot .barcode-mini i:nth-child(2n) { width: 1px; }
+  .head .barcode-mini i:nth-child(3n), .foot .barcode-mini i:nth-child(3n) { width: 2px; }
+  .center { text-align: center; }
+  .specimen { background: oklch(99% 0.003 90); border: 2px solid var(--c-dusk); }
+  .specimen.teal { border-color: var(--c-teal-deep); }
+  .specimen.lilac { border-color: var(--c-lilac-deep); }
+  .specimen > .strip { background: var(--c-dusk); color: var(--c-porcelain); padding: 6px 14px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .specimen.teal > .strip { background: var(--c-teal-deep); }
+  .specimen.lilac > .strip { background: var(--c-lilac-deep); }
+  .specimen > .body { padding: 24px; }
+  .pg-head { display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: end; padding: 32px 32px 24px; border-bottom: 1px solid var(--border); }
+  .pg-head .num { font-family: 'Geist', sans-serif; font-weight: 900; font-size: clamp(3rem, 6vw, 5rem); line-height: 0.84; letter-spacing: -0.06em; }
+  .pg-head h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.625rem, 3vw, 2.5rem); letter-spacing: -0.025em; line-height: 1.05; margin: 0; }
+  .pg-head h1 .it { font-style: italic; font-weight: 400; }
+  .pg-head .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 6px; }
+  .pg-head .folio { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); }
+  main { padding: 28px 32px 40px; display: flex; flex-direction: column; gap: 20px; }
+
+  .pg-head .num { color: var(--c-teal-deep); }
+  .pg-head .k { color: var(--c-teal-deep); }
+  .pg-head h1 .it { background: linear-gradient(135deg, var(--c-teal), var(--c-dusk)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  /* Spacing stack */
+  .spacing-grid { display: flex; flex-direction: column; gap: 10px; }
+  .sp-row { display: grid; grid-template-columns: 100px 1fr 200px; gap: 18px; align-items: center; padding: 6px 0; }
+  .sp-row .token { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-dusk); }
+  .sp-row .bar { height: 18px; background: linear-gradient(90deg, var(--c-dusk), var(--c-lilac)); border-radius: 0; }
+  .sp-row:nth-child(2) .bar { background: linear-gradient(90deg, var(--c-teal), var(--c-lilac)); }
+  .sp-row:nth-child(3) .bar { background: linear-gradient(90deg, var(--c-lilac), var(--c-dusk)); }
+  .sp-row:nth-child(4) .bar { background: linear-gradient(90deg, var(--c-dusk), var(--c-teal)); }
+  .sp-row:nth-child(5) .bar { background: linear-gradient(90deg, var(--c-teal), var(--c-lilac)); }
+  .sp-row:nth-child(6) .bar { background: linear-gradient(90deg, var(--c-lilac), var(--c-dusk)); }
+  .sp-row:nth-child(7) .bar { background: linear-gradient(90deg, var(--c-dusk), var(--c-teal)); }
+  .sp-row:nth-child(8) .bar { background: linear-gradient(90deg, var(--c-teal), var(--c-lilac)); }
+  .sp-row:nth-child(9) .bar { background: linear-gradient(90deg, var(--c-lilac), var(--c-dusk)); }
+  .sp-row:nth-child(10) .bar { background: linear-gradient(90deg, var(--c-dusk), var(--c-teal)); }
+  .sp-row .meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-tertiary); text-align: right; }
+  .sp-row .meta b { color: var(--text-primary); font-weight: 500; }
+
+  /* Radii row */
+  .rad-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; }
+  .rad-cell { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .rad-cell .demo { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, var(--c-dusk), var(--c-lilac)); }
+  .rad-cell:nth-child(1) .demo { border-radius: 0; }
+  .rad-cell:nth-child(2) .demo { border-radius: 2px; }
+  .rad-cell:nth-child(3) .demo { border-radius: 6px; }
+  .rad-cell:nth-child(4) .demo { border-radius: 10px; }
+  .rad-cell:nth-child(5) .demo { border-radius: 16px; }
+  .rad-cell:nth-child(6) .demo { border-radius: 24px; }
+  .rad-cell:nth-child(7) .demo { border-radius: 50%; }
+  .rad-cell .nm { font-family: 'Geist', sans-serif; font-weight: 900; font-size: 0.8125rem; letter-spacing: -0.03em; text-transform: uppercase; }
+  .rad-cell .v { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-tertiary); }
+
+  /* Layout demo (8-col grid) */
+  .grid-demo { background: oklch(94% 0.005 80); padding: 16px; display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; }
+  .grid-demo div { background: var(--c-dusk); color: var(--c-porcelain); padding: 14px 8px; text-align: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .grid-demo div:nth-child(2n) { background: var(--c-teal-deep); }
+  .grid-demo div:nth-child(3n) { background: var(--c-lilac-deep); }
+</style>
+</head>
+<body>
+<div class="head"><span class="mark"></span><span>NOV PAX</span><span class="center">+ 04 SPACING + RADII · NPX-SP</span><span class="ver">v 2.4 EDITION</span><span class="barcode-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+
+<div class="pg-head">
+  <div class="num">04</div>
+  <div>
+    <div class="k">+ SPACING / RADII / GRID</div>
+    <h1>A ladder of <span class="it">whitespace.</span></h1>
+  </div>
+  <div class="folio">P. 07 / 11</div>
+</div>
+
+<main>
+  <div class="specimen">
+    <div class="strip"><span>+ SPACING SCALE · 4PX BASE</span><span>NPX-SP-A</span></div>
+    <div class="body">
+      <div class="spacing-grid">
+        <div class="sp-row"><span class="token">--space-1</span><div class="bar" style="width: 4px"></div><span class="meta"><b>4PX</b> · TIGHT GAPS</span></div>
+        <div class="sp-row"><span class="token">--space-2</span><div class="bar" style="width: 8px"></div><span class="meta"><b>8PX</b> · CHIP GAPS</span></div>
+        <div class="sp-row"><span class="token">--space-3</span><div class="bar" style="width: 12px"></div><span class="meta"><b>12PX</b> · INLINE</span></div>
+        <div class="sp-row"><span class="token">--space-4</span><div class="bar" style="width: 16px"></div><span class="meta"><b>16PX</b> · DEFAULT</span></div>
+        <div class="sp-row"><span class="token">--space-5</span><div class="bar" style="width: 24px"></div><span class="meta"><b>24PX</b> · PADDING</span></div>
+        <div class="sp-row"><span class="token">--space-6</span><div class="bar" style="width: 32px"></div><span class="meta"><b>32PX</b> · CARD PADDING</span></div>
+        <div class="sp-row"><span class="token">--space-7</span><div class="bar" style="width: 48px"></div><span class="meta"><b>48PX</b> · SECTION GAPS</span></div>
+        <div class="sp-row"><span class="token">--space-8</span><div class="bar" style="width: 64px"></div><span class="meta"><b>64PX</b> · SECTION HEAD</span></div>
+        <div class="sp-row"><span class="token">--space-9</span><div class="bar" style="width: 96px"></div><span class="meta"><b>96PX</b> · PAGE GUTTER</span></div>
+        <div class="sp-row"><span class="token">--space-10</span><div class="bar" style="width: 128px"></div><span class="meta"><b>128PX</b> · PLATE PADDING</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="specimen lilac">
+    <div class="strip lilac"><span>+ RADII · CORNER LANGUAGE</span><span>NPX-SP-B</span></div>
+    <div class="body">
+      <div class="rad-grid">
+        <div class="rad-cell"><div class="demo"></div><span class="nm">NONE</span><span class="v">0PX · BRUTALIST</span></div>
+        <div class="rad-cell"><div class="demo"></div><span class="nm">XS</span><span class="v">2PX · CTAS</span></div>
+        <div class="rad-cell"><div class="demo"></div><span class="nm">SM</span><span class="v">6PX · CHIPS</span></div>
+        <div class="rad-cell"><div class="demo"></div><span class="nm">MD</span><span class="v">10PX · INPUTS</span></div>
+        <div class="rad-cell"><div class="demo"></div><span class="nm">LG</span><span class="v">16PX · CARDS</span></div>
+        <div class="rad-cell"><div class="demo"></div><span class="nm">XL</span><span class="v">24PX · MODALS</span></div>
+        <div class="rad-cell"><div class="demo"></div><span class="nm">FULL</span><span class="v">9999PX · PILLS</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="specimen teal">
+    <div class="strip teal"><span>+ GRID · 8-COL EDITION RHYTHM</span><span>NPX-SP-C</span></div>
+    <div class="body">
+      <div class="grid-demo">
+        <div>01</div><div>02</div><div>03</div><div>04</div>
+        <div>05</div><div>06</div><div>07</div><div>08</div>
+      </div>
+      <div style="margin-top: 16px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary)">
+        + 8-COL GRID · 16PX GUTTER · 1320PX MAX · 32PX SAFE PADDING
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="foot"><span class="mark"></span><span>+ © 2026 NOV PAX</span><span class="center">MADE SLOWLY · ON PURPOSE</span><span class="ver">FOLIO 07 / 11</span><span class="barcode-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+</body>
+</html>

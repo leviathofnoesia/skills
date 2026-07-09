@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Spacing" name="Shadows & Inputs" subtitle="Shadow system, biolum glow, neobrutalist offset, form input states" viewport="700x320" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nov Pax · 05 Shadows &amp; Motion · v2.4</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  
+  body { background: var(--bg); margin: 0; min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; color: var(--text-primary); }
+  body::after { content: ""; position: fixed; inset: 0; z-index: 999; pointer-events: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>"); opacity: 0.08; mix-blend-mode: multiply; }
+  .head, .foot { display: grid; grid-template-columns: auto auto 1fr auto auto; align-items: center; gap: 14px; padding: 12px 28px; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); }
+  .foot { border-bottom: none; border-top: 1px solid var(--border); }
+  .head .mark, .foot .mark { width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 30% 26%, #f0d8f0 0%, transparent 40%), radial-gradient(circle at 48% 52%, var(--c-lilac) 0%, var(--c-dusk) 58%, var(--c-onyx) 115%); }
+  .head .ver, .foot .ver { color: var(--c-lilac-deep); }
+  .head .barcode-mini, .foot .barcode-mini { display: flex; gap: 1px; height: 14px; width: 80px; }
+  .head .barcode-mini i, .foot .barcode-mini i { background: var(--text-secondary); width: 1.5px; }
+  .head .barcode-mini i:nth-child(2n), .foot .barcode-mini i:nth-child(2n) { width: 1px; }
+  .head .barcode-mini i:nth-child(3n), .foot .barcode-mini i:nth-child(3n) { width: 2px; }
+  .center { text-align: center; }
+  .specimen { background: oklch(99% 0.003 90); border: 2px solid var(--c-dusk); }
+  .specimen.teal { border-color: var(--c-teal-deep); }
+  .specimen.lilac { border-color: var(--c-lilac-deep); }
+  .specimen > .strip { background: var(--c-dusk); color: var(--c-porcelain); padding: 6px 14px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .specimen.teal > .strip { background: var(--c-teal-deep); }
+  .specimen.lilac > .strip { background: var(--c-lilac-deep); }
+  .specimen > .body { padding: 24px; }
+  .pg-head { display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: end; padding: 32px 32px 24px; border-bottom: 1px solid var(--border); }
+  .pg-head .num { font-family: 'Geist', sans-serif; font-weight: 900; font-size: clamp(3rem, 6vw, 5rem); line-height: 0.84; letter-spacing: -0.06em; }
+  .pg-head h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.625rem, 3vw, 2.5rem); letter-spacing: -0.025em; line-height: 1.05; margin: 0; }
+  .pg-head h1 .it { font-style: italic; font-weight: 400; }
+  .pg-head .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 6px; }
+  .pg-head .folio { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-tertiary); }
+  main { padding: 28px 32px 40px; display: flex; flex-direction: column; gap: 20px; }
+
+  .pg-head .num { color: var(--c-lilac-deep); }
+  .pg-head .k { color: var(--c-lilac-deep); }
+  .pg-head h1 .it { background: linear-gradient(135deg, var(--c-lilac), var(--c-teal)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  .shadow-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .sh-cell { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 32px 8px 8px; }
+  .sh-cell .demo { width: 100%; aspect-ratio: 1.4/1; background: oklch(99% 0.003 90); border-radius: 8px; }
+  .sh-cell.s1 .demo { box-shadow: 0 1px 2px oklch(28% 0.02 280 / 0.06); }
+  .sh-cell.s2 .demo { box-shadow: 0 2px 6px oklch(28% 0.02 280 / 0.06); }
+  .sh-cell.s3 .demo { box-shadow: 0 8px 24px oklch(28% 0.02 280 / 0.08); }
+  .sh-cell.s4 .demo { box-shadow: 0 24px 60px oklch(28% 0.02 280 / 0.10); }
+  .sh-cell.s5 .demo { box-shadow: 0 40px 100px oklch(28% 0.02 280 / 0.14); }
+  .sh-cell .nm { font-family: 'Geist', sans-serif; font-weight: 900; font-size: 0.875rem; letter-spacing: -0.03em; text-transform: uppercase; }
+  .sh-cell .v { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-tertiary); text-align: center; }
+
+  .glow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .gl-cell { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 36px 16px 12px; }
+  .gl-cell .orb { width: 80px; height: 80px; border-radius: 50%; }
+  .gl-cell.iris .orb { background: var(--c-dusk); box-shadow: 0 0 0 1px oklch(63% 0.20 295 / 0.18), 0 12px 40px oklch(45% 0.12 270 / 0.4); }
+  .gl-cell.mint .orb { background: var(--c-teal); box-shadow: 0 0 0 1px oklch(80% 0.14 165 / 0.22), 0 12px 40px oklch(45% 0.06 168 / 0.4); }
+  .gl-cell.aurora .orb { background: linear-gradient(135deg, var(--c-dusk), var(--c-lilac)); box-shadow: 0 0 0 1px oklch(63% 0.20 295 / 0.10), 0 16px 60px oklch(70% 0.10 310 / 0.4); }
+  .gl-cell .nm { font-family: 'Geist', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: -0.03em; text-transform: uppercase; }
+  .gl-cell.iris .nm { color: var(--c-dusk); }
+  .gl-cell.mint .nm { color: var(--c-teal-deep); }
+  .gl-cell.aurora .nm { color: var(--c-lilac-deep); }
+  .gl-cell .v { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-tertiary); text-align: center; }
+
+  .ease-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .ease { background: oklch(99% 0.003 90); border: 1.5px solid var(--border); padding: 18px; }
+  .ease .l { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 6px; }
+  .ease h4 { font-family: 'Geist', sans-serif; font-weight: 900; font-size: 1.375rem; letter-spacing: -0.035em; text-transform: uppercase; margin: 0 0 6px; }
+  .ease .desc { font-family: var(--font-body); font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; }
+  .ease .css { margin-top: 12px; font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); padding: 8px 12px; background: oklch(94% 0.005 80); }
+  .ease .track { margin-top: 14px; height: 40px; background: var(--bg); border: 0.5px solid var(--border); position: relative; overflow: hidden; }
+  .ease .ball { position: absolute; top: 50%; left: 8px; transform: translateY(-50%); width: 22px; height: 22px; border-radius: 50%; }
+  .ease-grid .ease:nth-child(1) .l { color: var(--c-dusk); }
+  .ease-grid .ease:nth-child(1) .ball { background: linear-gradient(135deg, var(--c-dusk), var(--c-lilac)); }
+  .ease-grid .ease:nth-child(2) .l { color: var(--c-lilac-deep); }
+  .ease-grid .ease:nth-child(2) .ball { background: linear-gradient(135deg, var(--c-lilac), var(--c-teal)); }
+  .ease-grid .ease:nth-child(3) .l { color: var(--c-teal-deep); }
+  .ease-grid .ease:nth-child(3) .ball { background: linear-gradient(135deg, var(--c-teal), var(--c-dusk)); }
+  .ease-grid .ease:nth-child(4) .l { color: var(--c-teal-deep); }
+  .ease-grid .ease:nth-child(4) .ball { background: linear-gradient(135deg, var(--c-teal), var(--c-lilac)); }
+  .ease .ball.cosmic { animation: slide 2.6s var(--ease-cosmic) infinite; }
+  .ease .ball.breath { animation: pulse 3s var(--ease-breath) infinite; }
+  .ease .ball.spring { animation: slide 2s var(--ease-spring) infinite; }
+  .ease .ball.smooth { animation: slide 2s var(--ease-smooth) infinite; }
+  @keyframes slide { 0%, 100% { left: 8px; } 50% { left: calc(100% - 30px); } }
+  @keyframes pulse { 0%, 100% { transform: translateY(-50%) scale(0.7); } 50% { transform: translateY(-50%) scale(1.1); } }
+</style>
+</head>
+<body>
+<div class="head"><span class="mark"></span><span>NOV PAX</span><span class="center">+ 05 SHADOWS + MOTION · NPX-MO</span><span class="ver">v 2.4 EDITION</span><span class="barcode-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+
+<div class="pg-head">
+  <div class="num">05</div>
+  <div>
+    <div class="k">+ SHADOWS / GLOWS / EASING</div>
+    <h1>Held by <span class="it">breath.</span></h1>
+  </div>
+  <div class="folio">P. 08 / 11</div>
+</div>
+
+<main>
+  <div class="specimen">
+    <div class="strip"><span>+ SHADOWS · 5-STEP ELEVATION</span><span>NPX-SH</span></div>
+    <div class="body">
+      <div class="shadow-grid">
+        <div class="sh-cell s1"><div class="demo"></div><span class="nm">XS</span><span class="v">0 1 2 · 6%</span></div>
+        <div class="sh-cell s2"><div class="demo"></div><span class="nm">SM</span><span class="v">0 2 6 · 6%</span></div>
+        <div class="sh-cell s3"><div class="demo"></div><span class="nm">MD</span><span class="v">0 8 24 · 8%</span></div>
+        <div class="sh-cell s4"><div class="demo"></div><span class="nm">LG</span><span class="v">0 24 60 · 10%</span></div>
+        <div class="sh-cell s5"><div class="demo"></div><span class="nm">XL</span><span class="v">0 40 100 · 14%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="specimen lilac">
+    <div class="strip lilac"><span>+ GLOWS · PIGMENT BLOOMS</span><span>NPX-GL</span></div>
+    <div class="body">
+      <div class="glow-grid">
+        <div class="gl-cell iris"><div class="orb"></div><span class="nm">GLOW · DUSK</span><span class="v">40PX · 270 HUE</span></div>
+        <div class="gl-cell mint"><div class="orb"></div><span class="nm">GLOW · TEAL</span><span class="v">40PX · 168 HUE</span></div>
+        <div class="gl-cell aurora"><div class="orb"></div><span class="nm">GLOW · AURORA</span><span class="v">60PX · DUSK→LILAC</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="specimen teal">
+    <div class="strip teal"><span>+ EASINGS · FOUR CURVES</span><span>NPX-EA</span></div>
+    <div class="body">
+      <div class="ease-grid">
+        <div class="ease">
+          <div class="l">+ 01 · COSMIC</div>
+          <h4>ease-cosmic</h4>
+          <div class="desc">Expo out. The default — hovers, transitions, expansions.</div>
+          <div class="css">cubic-bezier(0.22, 1, 0.36, 1)</div>
+          <div class="track"><div class="ball cosmic"></div></div>
+        </div>
+        <div class="ease">
+          <div class="l">+ 02 · BREATH</div>
+          <h4>ease-breath</h4>
+          <div class="desc">Sin in/out · 6s cycle. The companion's heartbeat.</div>
+          <div class="css">cubic-bezier(0.45, 0, 0.55, 1)</div>
+          <div class="track"><div class="ball breath"></div></div>
+        </div>
+        <div class="ease">
+          <div class="l">+ 03 · SPRING</div>
+          <h4>ease-spring</h4>
+          <div class="desc">Small overshoot. Completed moments only.</div>
+          <div class="css">cubic-bezier(0.34, 1.56, 0.64, 1)</div>
+          <div class="track"><div class="ball spring"></div></div>
+        </div>
+        <div class="ease">
+          <div class="l">+ 04 · SMOOTH</div>
+          <h4>ease-smooth</h4>
+          <div class="desc">Even and calm. Theme shifts, ambient drift.</div>
+          <div class="css">cubic-bezier(0.4, 0, 0.2, 1)</div>
+          <div class="track"><div class="ball smooth"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="foot"><span class="mark"></span><span>+ © 2026 NOV PAX</span><span class="center">MADE SLOWLY · ON PURPOSE</span><span class="ver">FOLIO 08 / 11</span><span class="barcode-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+</body>
+</html>
