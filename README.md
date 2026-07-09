@@ -13,6 +13,8 @@ skill lives at `TOPIC/SKILL-NAME/` and is a self-contained package
 | Topic | Skill | Description |
 |-------|-------|-------------|
 | SEO | [HOTE-Play](./SEO/HOTE-Play/) | **Home of the Entity Play** — multi-surface SEO: classic ranking, AEO, GEO (`llms.txt`), schema entity graphs, E-E-A-T, freshness, authority triangles, and adversarial nemesis probes |
+| meta | [lean-turns](./meta/lean-turns/) | **Token-optimized conversational turns** — write intermediate turns lean, reserve full prose for the final deliverable turn |
+| meta | [lean-turns-strict](./meta/lean-turns/lean-turns-strict/) | **Token-suppressed intermediate turns** — one status token per intermediate turn, full prose reserved for the final deliverable; agent understanding unchanged |
 
 ## Install
 
