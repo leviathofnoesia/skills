@@ -12,7 +12,6 @@ skill lives at `TOPIC/SKILL-NAME/` and is a self-contained package
 
 | Topic | Skill | Description |
 |-------|-------|-------------|
-| SEO | [HOTE-Play](./SEO/HOTE-Play/) | **Home of the Entity Play** — multi-surface SEO: classic ranking, AEO, GEO (`llms.txt`), schema entity graphs, E-E-A-T, freshness, authority triangles, and adversarial nemesis probes |
 | meta | [lean-turns](./meta/lean-turns/) | **Token-optimized conversational turns** — write intermediate turns lean, reserve full prose for the final deliverable turn |
 | meta | [lean-turns-strict](./meta/lean-turns/lean-turns-strict/) | **Token-suppressed intermediate turns** — one status token per intermediate turn, full prose reserved for the final deliverable; agent understanding unchanged |
 | rendition | [rendition-tokens](./rendition/rendition-tokens/) | Rendition design-language token reference for Nov Pax / Sanctuary — exact color, type, spacing, radius, shadow, gradient, motion tokens, OKLCH/hex literals, Onyx dark overrides, and v2.0→v2.4 legacy aliases. Ships tokens.css as source of truth |
@@ -35,7 +34,7 @@ skill straight from this repo:
 
 ```bash
 # Install one skill by topic/name path
-npx skills add leviathofnoesia/skills/SEO/HOTE-Play
+npx skills add leviathofnoesia/skills/meta/lean-turns
 
 # Or install the whole repo's skills
 npx skills add leviathofnoesia/skills
@@ -44,7 +43,7 @@ npx skills add leviathofnoesia/skills
 Manual fallback (symlink into your harness skills path):
 
 ```bash
-ln -s "$(pwd)/SEO/HOTE-Play" ~/.claude/skills/HOTE-Play
+ln -s "$(pwd)/meta/lean-turns" ~/.claude/skills/lean-turns
 ```
 
 ## License
