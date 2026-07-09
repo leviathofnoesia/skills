@@ -92,6 +92,31 @@ Manual fallback (symlink into your harness skills path):
 ln -s "$PWD/rendition/rendition-tokens" ~/.claude/skills/rendition-tokens
 ```
 
+## Generated index
+
+[`index.md`](./index.md) is the compact, generated catalog of every `SKILL.md` in
+this repository. It gives agents a fast overview of each skill and keeps the
+full source path available for retrieval; the index is a map, not a replacement
+for reading the linked skill.
+
+The index is produced by
+[`skill-compiler`](https://github.com/leviathofnoesia/skill-compiler)'s
+`marketplace` command:
+
+```bash
+npx --yes github:leviathofnoesia/skill-compiler marketplace --dir . --out index.md
+```
+
+The repository's GitHub Actions workflow regenerates `index.md` on pushes that
+change a `SKILL.md`, then commits the generated result when it changes. To
+preview or verify locally:
+
+```bash
+npx --yes github:leviathofnoesia/skill-compiler marketplace --dir . --dry-run
+npx --yes github:leviathofnoesia/skill-compiler marketplace --dir . --check
+```
+
+
 ## License
 
 Unless noted otherwise in a skill folder, content is available for use with AI

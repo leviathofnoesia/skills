@@ -174,9 +174,3 @@
 |FULL: ./rendition/rendition-voice/SKILL.md
 
 <!-- END SKILL-COMPILER MANAGED SECTION -->
-
-
-
-
-
-
