@@ -47,18 +47,6 @@ long prompts onto cheaper transports.
 | [prompt2image](./meta/prompt2image/) | Render a text prompt as a compact monospace PNG a vision model can OCR for fewer tokens (lossy; for exact bytes use prompt2qr). |
 | [prompt2qr](./meta/prompt2qr/) | Gzip-compress a prompt into a sequence of lossless binary QR codes (PNG); exact byte-for-byte reconstruction on decode. |
 
-## Private collections
-
-The Rendition / Nov Pax / Sanctuary design-system skills are maintained in the
-private [`privateskills`](https://github.com/leviathofnoesia/privateskills)
-repository and are not part of this public catalog.
-
-Rendition skills can be installed from that private repository when its access
-is available:
-
-```bash
-npx skills add leviathofnoesia/privateskills --skill rendition-tokens
-```
 
 ## Install
 
