@@ -1,15 +1,17 @@
-# skills
+# Skills
 
-[![skills.sh](https://skills.sh/b/leviathofnoesia/skills)](https://skills.sh/leviathofnoesia/skills)
+Reusable agent skills for engineering, planning, research, design, documentation,
+and prompt tooling.
 
-Agent skills by [leviathofnoesia](https://github.com/leviathofnoesia).
+[![skills.sh](https://skills.sh/b/leviathofnoesia/skills)](https://skills.sh/b/leviathofnoesia/skills)
+
+Maintained by [leviathofnoesia](https://github.com/leviathofnoesia).
 
 ## Skills
 
 Skills are grouped by topic to avoid collisions as the collection grows. Each
 skill lives at `TOPIC/SKILL-NAME/` and is a self-contained package
 (`SKILL.md` + optional `scripts/`, `references/`, `assets/`).
-
 
 ### Kraken
 
@@ -57,7 +59,6 @@ is available:
 ```bash
 npx skills add leviathofnoesia/privateskills --skill rendition-tokens
 ```
-
 
 ## Install
 
@@ -109,7 +110,6 @@ preview or verify locally:
 npx --yes github:leviathofnoesia/skill-compiler marketplace --dir . --dry-run
 npx --yes github:leviathofnoesia/skill-compiler marketplace --dir . --check
 ```
-
 
 ## License
 
