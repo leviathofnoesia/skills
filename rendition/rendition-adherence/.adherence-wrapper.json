@@ -1,9 +1,0 @@
-{
-  "root": true,
-  "extends": ["/home/leviath/Experiments/skills/rendition/rendition-adherence/assets/_adherence.oxlintrc.json"],
-  "parserOptions": {
-    "ecmaVersion": 2022,
-    "sourceType": "module",
-    "ecmaFeatures": { "jsx": true }
-  }
-}

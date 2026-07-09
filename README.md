@@ -10,26 +10,6 @@ Skills are grouped by topic to avoid collisions as the collection grows. Each
 skill lives at `TOPIC/SKILL-NAME/` and is a self-contained package
 (`SKILL.md` + optional `scripts/`, `references/`, `assets/`).
 
-### Rendition
-
-The Nov Pax / Sanctuary design system — tokens, components, motion, voice,
-brand, and accessibility. Load any subset that applies to a UI or brand task;
-the kit ships working HTML and the `tokens.css` source of truth.
-
-| Skill | Description |
-|-------|-------------|
-| [rendition-tokens](./rendition/rendition-tokens/) | Design-language tokens — color, type, spacing, radius, shadow, motion; ships `tokens.css` as source of truth. |
-| [rendition-color](./rendition/rendition-color/) | Dusk palette (Dusk/Teal/Lilac on Porcelain/Onyx), OKLCH variants, aurora gradient, per-plate duotones, AA contrast. |
-| [rendition-type](./rendition/rendition-type/) | Typography — Cormorant Garamond, Geist Black 900 anchor, IBM Plex Mono; v2.4 display scale and tracking rules. |
-| [rendition-edition](./rendition/rendition-edition/) | v2.4 brutalist layer — plates, halftone moons, Geist Black slabs, marquee borders, crop marks, specimen cards. |
-| [rendition-components](./rendition/rendition-components/) | Component vocabulary — pill buttons, glass/specimen/brutal-quote cards, floating nav, token-driven interaction states. |
-| [rendition-motion](./rendition/rendition-motion/) | Motion — cosmic/breath/spring easings, 6s orb breath, 60s marquee, mandatory `prefers-reduced-motion` handling. |
-| [rendition-voice](./rendition/rendition-voice/) | Voice & copy — calm, second-person, present-tense; no exclamations; em-dash breath; one italic word per heading. |
-| [rendition-product](./rendition/rendition-product/) | Sanctuary app — 20-min screen-rest cycle, four screens, one-room model, no visible countdown, audio-first PWA. |
-| [rendition-kit](./rendition/rendition-kit/) | UI-kit specimens & scaffolds — marketing + Sanctuary HTML, brand-identity and component preview pages. |
-| [rendition-adherence](./rendition/rendition-adherence/) | ESLint enforcement of token-only colors/spacing/fonts; warns on raw hex, raw px, non-DS fonts in authored CSS/JSX. |
-| [rendition-brand](./rendition/rendition-brand/) | Nov Pax brand identity — logo marks, wordmark, aurora gradients, philosophy, 28-image brand kit. |
-| [rendition-a11y](./rendition/rendition-a11y/) | Accessibility contract — AA contrast on Porcelain/Onyx, first-class reduced-motion, focus-visible rings, HIG-calm interaction. |
 
 ### Kraken
 
@@ -65,6 +45,20 @@ long prompts onto cheaper transports.
 | [prompt2image](./meta/prompt2image/) | Render a text prompt as a compact monospace PNG a vision model can OCR for fewer tokens (lossy; for exact bytes use prompt2qr). |
 | [prompt2qr](./meta/prompt2qr/) | Gzip-compress a prompt into a sequence of lossless binary QR codes (PNG); exact byte-for-byte reconstruction on decode. |
 
+## Private collections
+
+The Rendition / Nov Pax / Sanctuary design-system skills are maintained in the
+private [`privateskills`](https://github.com/leviathofnoesia/privateskills)
+repository and are not part of this public catalog.
+
+Rendition skills can be installed from that private repository when its access
+is available:
+
+```bash
+npx skills add leviathofnoesia/privateskills --skill rendition-tokens
+```
+
+
 ## Install
 
 Use the [`skills`](https://www.npmjs.com/package/skills) CLI to install from
@@ -78,8 +72,8 @@ npx skills add leviathofnoesia/skills
 npx skills add https://github.com/leviathofnoesia/skills --skill <slug>
 ```
 
-`<slug>` is the skill's `name:` from its `SKILL.md` (e.g. `rendition-tokens`,
-`kraken-engineer`, `lean-turns`, `prompt2qr`).
+`<slug>` is the skill's `name:` from its `SKILL.md` (e.g. `kraken-engineer`,
+`lean-turns`, `prompt2qr`).
 
 Flags:
 
@@ -89,7 +83,7 @@ Flags:
 Manual fallback (symlink into your harness skills path):
 
 ```bash
-ln -s "$PWD/rendition/rendition-tokens" ~/.claude/skills/rendition-tokens
+ln -s "$PWD/harness/kraken-skill/kraken-engineer" ~/.claude/skills/kraken-engineer
 ```
 
 ## Generated index
