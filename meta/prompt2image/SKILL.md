@@ -1,6 +1,7 @@
 ---
 name: prompt2image
-description: Render a text prompt as a compact monospace PNG image that a vision-capable agent can read for far fewer tokens than the raw text. Use when the user says "prompt to image", "turn this prompt into an image", "make this prompt token-cheap", "compress this prompt visually", or wants to send a long prompt to a vision model without paying full text-token cost. Differentiator: lossless visual encoding via OCR-readable monospace render — no QR decoder needed on the receiving side.
+description: >-
+  Render a text prompt as a compact monospace PNG image that a vision-capable agent can read for far fewer tokens than the raw text. Use when the user says "prompt to image", "turn this prompt into an image", "make this prompt token-cheap", "compress this prompt visually", or wants to send a long prompt to a vision model without paying full text-token cost. Differentiator: lossless visual encoding via OCR-readable monospace render — no QR decoder needed on the receiving side.
 ---
 
 # Prompt to Image

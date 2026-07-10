@@ -1,6 +1,7 @@
 ---
 name: prompt2qr
-description: Compress a text prompt with gzip and encode it as a sequence of lossless binary QR codes (PNG). Use when the user says "prompt to QR", "encode this prompt as QR", "make a QR sequence", "lossless prompt compression", or wants to transmit a prompt via QR codes without any token cost. Differentiator: lossless gzip+binary-QR — exact byte-for-byte reconstruction, unlike the OCR-based prompt2image. Encode-only on this side; decoding documented in references/decoding.md.
+description: >-
+  Compress a text prompt with gzip and encode it as a sequence of lossless binary QR codes (PNG). Use when the user says "prompt to QR", "encode this prompt as QR", "make a QR sequence", "lossless prompt compression", or wants to transmit a prompt via QR codes without any token cost. Differentiator: lossless gzip+binary-QR — exact byte-for-byte reconstruction, unlike the OCR-based prompt2image. Encode-only on this side; decoding documented in references/decoding.md.
 ---
 
 # Prompt to QR

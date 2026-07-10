@@ -147,6 +147,7 @@
 
 [prompt2image Skill]|source:leviathofnoesia/skills
 |path:meta/prompt2image
+|Render a text prompt as a compact monospace PNG image that a vision-capable agent can read for far fewer tokens than the raw text. Use when the user says "prompt to image", "turn this prompt into an image", "make this prompt token-cheap", "compress this prompt visually", or wants to send a long prompt to a vision model without paying full text-token cost. Differentiator: lossless visual encoding via OCR-readable monospace render — no QR decoder needed on the receiving side.
 |Prerequisites: Pillow must be installed. Check first, install only if missing:
 |Quick start: The script is at `scripts/prompt2image.py` inside this skill's folder.
 |Deliverable (required in your final response): Do NOT just print the path and stop. Surface the i...
@@ -156,6 +157,7 @@
 
 [prompt2qr Skill]|source:leviathofnoesia/skills
 |path:meta/prompt2qr
+|Compress a text prompt with gzip and encode it as a sequence of lossless binary QR codes (PNG). Use when the user says "prompt to QR", "encode this prompt as QR", "make a QR sequence", "lossless prompt compression", or wants to transmit a prompt via QR codes without any token cost. Differentiator: lossless gzip+binary-QR — exact byte-for-byte reconstruction, unlike the OCR-based prompt2image. Encode-only on this side; decoding documented in references/decoding.md.
 |Prerequisites: segno must be installed. Check first, install only if missing:
 |Quick start: The script is at `scripts/prompt2qr.py` inside this skill's folder.
 |Deliverable (required in your final response): Do NOT just print the directory and stop. Surface ...
