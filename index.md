@@ -165,4 +165,14 @@
 |Decode (receiving side): Read `references/decoding.md` for the full decode procedure. Requires py...
 |FULL: ./meta/prompt2qr/SKILL.md
 
+[ste-writing Skill]|source:leviathofnoesia/skills
+|path:meta/ste-writing
+|Rewrite and check technical text against ASD-STE100 rules.
+|When to Use: - "Write this in STE" / "make this ASD-STE100 compliant"
+|Prerequisites: - Python 3 (for the optional structural linter). No pip installs — stdlib only.
+|How to Run: When writing or revising, apply the rules in the Procedure section directly.
+|Quick Reference: **The two parts of ASD-STE100**
+|Procedure: 1. **Identify text type.** Mark each block as a *procedure* (instruction/step)
+|FULL: ./meta/ste-writing/SKILL.md
+
 <!-- END SKILL-COMPILER MANAGED SECTION -->
