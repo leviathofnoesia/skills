@@ -46,6 +46,7 @@ long prompts onto cheaper transports.
 | [lean-turns-strict](./meta/lean-turns/lean-turns-strict/) | Token-suppressed intermediate turns — one status token per turn (P:/E:/V:/F:), all detail held until the final deliverable. |
 | [prompt2image](./meta/prompt2image/) | Render a text prompt as a compact monospace PNG a vision model can OCR for fewer tokens (lossy; for exact bytes use prompt2qr). |
 | [prompt2qr](./meta/prompt2qr/) | Gzip-compress a prompt into a sequence of lossless binary QR codes (PNG); exact byte-for-byte reconstruction on decode. |
+| [ste-writing](./meta/ste-writing/) | Apply ASD-STE100 Simplified Technical English writing rules to technical docs; stdlib linter flags long sentences, passive/continuous verbs, and multi-word nouns over three words. |
 
 
 ## Install
