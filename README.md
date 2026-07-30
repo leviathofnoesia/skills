@@ -50,11 +50,12 @@ long prompts onto cheaper transports.
 
 ### Security
 
-Deepsec scanning constraints — pin model choice for AI investigation stages.
+Deepsec and Codex Security scanning — Luna pins and dual-scan workflows.
 
 | Skill | Description |
 |-------|-------------|
 | [deepsec-luna](./security/deepsec-luna/) | Pin deepsec AI stages (`process` / `revalidate` / `triage`) to `gpt-5.6-luna` on the default agent backend. |
+| [deepsec-codex-luna](./security/deepsec-codex-luna/) | Dual-scan a target with deepsec and the open-source Codex Security CLI, both on `gpt-5.6-luna`, then cross-read findings. |
 
 
 ## Install
