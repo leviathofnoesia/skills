@@ -48,6 +48,14 @@ long prompts onto cheaper transports.
 | [prompt2qr](./meta/prompt2qr/) | Gzip-compress a prompt into a sequence of lossless binary QR codes (PNG); exact byte-for-byte reconstruction on decode. |
 | [ste-writing](./meta/ste-writing/) | Apply ASD-STE100 Simplified Technical English writing rules to technical docs; stdlib linter flags long sentences, passive/continuous verbs, and multi-word nouns over three words. |
 
+### Security
+
+Deepsec scanning constraints — pin model choice for AI investigation stages.
+
+| Skill | Description |
+|-------|-------------|
+| [deepsec-luna](./security/deepsec-luna/) | Pin deepsec AI stages (`process` / `revalidate` / `triage`) to `gpt-5.6-luna` on the default agent backend. |
+
 
 ## Install
 
