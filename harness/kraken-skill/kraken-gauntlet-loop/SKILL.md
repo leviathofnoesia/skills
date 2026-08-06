@@ -5,189 +5,171 @@ description: >-
   kraken-engineer's PDSA: build→critic→rebuild against a concrete, inspectable
   quality bar until the agent's real output wins or ties the bar in blind A/B,
   never settling for "improved". The bar is chosen first (a real shipped
-  comparable, spec, or benchmark — or a measurable property if none exists),
-  then the goal is decomposed into the smallest independently-judgeable pieces,
-  each fanning out a builder and a separate harsh critic. Part of the
-  kraken-engineer mindset family — adopt directly; compose with kraken-engineer
-  for process, kraken-scylla for the critic's measurable-criteria gates, and
-  kraken-architect for choosing the bar when the reference is a design/trade-off
-  decision.
+  comparable, spec, or benchmark — or a measurable property if none exists), then
+  the goal is decomposed into the smallest independently-judgeable pieces, each
+  fanning out a builder and a separate harsh critic. Part of the kraken-engineer
+  mindset family — adopt directly; compose with kraken-engineer for process,
+  kraken-scylla for the critic's measurable-criteria gates, and kraken-architect
+  for choosing the bar when the reference is a design/trade-off decision.
 ---
 
-# Gauntlet Loop
+# kraken-gauntlet-loop
 
-Iterative quality-improvement loop. Use when a task needs to get *good*, not
-just done — "complete" is insufficient and the goal is a quality target judged
-against a real reference. This is the **quality** loop that runs *inside*
-`kraken-engineer`'s PDSA cycle (Adopt → Plan → Do → Study → Act): the
-decomposition, tool selection, and delegation all follow kraken-engineer; the
-gauntlet loop governs the inner build→critique→rebuild rhythm and the bar that
-stops it.
+Gauntlet Loop composed into the kraken-engineer method family. The quality
+loop itself is **inherited verbatim** from [`gauntlet-loop`](../../meta/gauntlet-loop/SKILL.md)
+(standalone meta skill) — its [references/bar.md](../../meta/gauntlet-loop/references/bar.md)
+and [references/prompt.md](../../meta/gauntlet-loop/references/prompt.md) are shared. This
+skill adds only the disciplinary wrapper: how the loop sits inside kraken-engineer's
+PDSA cycle and how the kraken family's specialist gates strengthen each phase.
 
-## Adoption (compose with the family)
+Use this variant when you also want kraken-engineer's process rigor (planning,
+evidence-gated completion, cross-validation) applied around the loop. For a lean
+standalone run with no process overhead, use `gauntlet-loop` directly.
 
-- **kraken-engineer first** — this skill supplies the *quality protocol*;
-  kraken-engineer supplies the *process* (pre-planning, phase discipline,
-  evidence-gated completion). When you reach for the gauntlet loop, adopt
-  kraken-engineer's `references/constraints.md` pre-planning as your Phase 0.
-- **kraken-architect** — adopt when choosing the bar if the reference is a
-  design/trade-off decision rather than a shipped artifact.
-- **kraken-scylla** — adopt for the critic's gates: a verdict must carry
-  measurable criteria, not a vibe.
+## How it sits inside kraken-engineer's PDSA
 
-## Built-in Pre-Planning — pick the bar before the builders fire
+kraken-engineer runs four phases. The Gauntlet Loop is not a phase replacement —
+it is the **Study → Act** engine that lives inside the iterative PDSA cycle,
+governing how each iteration is judged and what the next iteration attacks.
 
-The bar is the **single concrete, inspectable, comparable** artifact a critic
-judges the agent's real output against. It is chosen **before round 1**, not
-rationalized after the first draft. Without a real bar, every critic is just
-the agent evaluating its own work.
+| PDSA phase | gauntlet role | kraken-family composition |
+|---|---|---|
+| **Plan** | Choose the bar and the axes of comparison. | `kraken-architect` for bar selection (design/trade-off refs), `kraken-scylla` for measurable acceptance criteria on the bar. |
+| **Do** | BUILD — produce real, runnable output per piece. | `kraken-architect` for structural design, `kraken-blitzkrieg-tdd` for test-first within each piece. |
+| **Study** | CRITIQUE + COMPARE — blind side-by-side against the bar. | `kraken-nautilus` for systematic evidence gathering, `kraken-pearl` for visual/multimodal bar inspection, `kraken-scylla` for measurable-criteria gates. |
+| **Act** | LOOP or escalate — decide win/tie/lose and next gap. | `kraken-scylla` stalemate escalation, `kraken-architect` bar-widening if the gap hasn't moved across rounds. |
 
-See [references/bar.md](references/bar.md) for the bar template, the canonical
-comparison sentence, and the fallback rule. The Claude-of-Duty precedent:
-Matt Shuer's prompt names real Call of Duty screenshots as the bar — a real,
-shipped, inspectable AAA artifact any fresh critic can open and judge blind.
+## Pre-Planning (kraken-engineer, before the loop fires)
 
-**The bar for this task:**
+1. **Intent classification** — is this a quality target needing the loop, or just
+   correctness against a spec you can TDD? (Wrong choice → use `kraken-blitzkrieg-tdd` alone.)
+2. **Bar selection** — a real, inspectable, comparable artifact (shipped
+   comparable, published spec/RFC, public benchmark). If none exists, fall back to
+   a measurable property per `gauntlet-loop`. When the reference is a
+   design/trade-off decision rather than a shipped artifact, adopt
+   `kraken-architect` to turn it into an inspectable design reference.
+3. **Decomposition** — slice the goal into the smallest pieces that can be
+   improved and judged independently. Each piece gets its own builder + critic
+   subagent pair with fresh context.
 
-> The bar is a real, in-production reference artifact — a shipped comparable
-> product for functional quality, a published spec/RFC for correctness, or a
-> public benchmark leaderboard for performance — that the critic inspects
-> side-by-side with the agent's real output, blind, and judges on the same axes
-> until the agent's output wins or ties, or the run is stopped.
+## The loop (inherited from `gauntlet-loop` — no changes to the protocol)
 
-If no comparable real artifact exists, **the bar is wrong** — fall back to a
-measurable property (file size, frame budget, error bound, test pass rate,
-round-trip fidelity against spec example vectors) any critic can check without
-judgment. A measurable bar is still a bar; a hand-wave is not.
-
-## Do — the loop
-
-One bar, one lead agent, N independent pieces. The lead agent decomposes the
-goal into the smallest pieces that can be improved and judged independently,
-then for each important piece fans out **a builder** and **a separate critic**
-with fresh context.
+> The protocol below is **identical** to `gauntlet-loop`. This skill does not
+> re-author it; it composes it with kraken-family gates. Read
+> [`gauntlet-loop`'s SKILL.md](../../meta/gauntlet-loop/SKILL.md) for the
+> canonical round protocol, critic constraints, and the lead-agent duties.
 
 ### Round protocol (per piece)
 
-1. **BUILD** — the builder produces **real, runnable, inspectable** output for
-   the piece. Not a plan, not a summary — the actual artifact (code that
-   compiles/runs, a rendered file on disk, a test result, a measurement). This
-   is kraken-engineer's "Do": run it, don't just read it.
-2. **CRITIQUE** — the critic opens the bar AND the real output, **side by side,
-   blind** (it does not know which is which on each side when possible). It
-   identifies the **single biggest remaining gap** on the axes and hands it back
-   verbatim as the next build brief — no re-interpretation.
-3. **COMPARE** — the critic states, explicitly, whether the new output **wins,
-   ties, or still loses** on each axis. **Tie = win** — indistinguishable on
-   the axes is indistinguishable. "Improved" is not a verdict; only win/tie/
-   lose is.
+1. **BUILD** — `kraken-blitzkrieg-tdd` enforces test-first; the builder ships real
+   runnable output, not a summary.
+2. **CRITIQUE** — `kraken-pearl` (visual/multimodal bar) or `kraken-nautilus`
+   (codebase evidence) gives the critic real material to compare. Blind
+   side-by-side; one biggest gap only.
+3. **COMPARE** — verdict is **win / tie / lose** per axis. "Improved" is a
+   non-verdict — send back and re-run the round. This is where
+   `kraken-scylla`'s measurable-criteria gates bite hardest.
 4. **LOOP** — until wins/ties on every axis, or stopped.
 
-### The critic
+### The critic (kraken-hardened)
 
-- **Harsh.** The default assumption is that the latest output still loses.
-- **Blind.** When the bar supports it (visual, UI, audio), lay the two side by
-  side without labels so authorship doesn't bias the call.
-- **Gap-focused.** Name the biggest gap only — not a laundry list. The builder
-  fixes that one gap; a new critic round judges only whether it closed it.
-- **Real-output only.** The critic never compares two drafts of the agent's work
-  against each other; it compares the agent's real output **to the bar**.
-- **Measurable gates (adopt kraken-scylla).** Every verdict carries a
-  measurable claim ("Coherence score 4.2/5 vs the reference's 4.8" or "3
-  failing spec vectors, was 17") — not "looks better".
+- **Harsh.** Default assumption: the latest output still loses.
+- **Blind.** Strip labels when the bar supports it (`kraken-pearl` for visuals).
+- **Gap-focused.** One gap per round; the builder attacks only that.
+- **Measurable.** Where the bar is quantitative, the verdict must cite a number —
+  the bar's real figure vs the agent's measured figure (`kraken-nautilus`,
+  `kraken-scylla`).
 
-### The lead agent
+### The lead agent (kraken composition)
 
-- Chooses the bar (if none supplied) and the axes of comparison, using
-  `kraken-architect` for design references.
-- Decomposes the goal into independently-judgeable pieces — smallest possible
-  slices so each has a tight, local loop.
-- Maintains a **live progress page** (a single file, e.g. `gauntlet-progress.md`
-  or an HTML dashboard) updated each round. Columns: piece · bar side · agent
-  output side · axis · verdict (win/tie/lose) · biggest gap · round · who.
-  The page is the record; no hidden state between rounds.
-- Does **not** prescribe the architecture or a fixed round count. It constrains
-  only the bar and the protocol; the builder and critic decide the approach
-  within each piece.
-- Uses subagents for the per-piece builder/critic fan-out. Where the goal needs
-  a real environment (a browser, a GPU, a running server), drives that through
-  ultracode rather than describing it.
+- Chooses the bar (with `kraken-architect` when it's a design/trade-off ref).
+- Decomposes into independently-judgeable pieces — smallest slices so each has a
+  tight loop.
+- Maintains the **live progress page** (`gauntlet-progress.md`), updated each
+  round with piece | bar | output | axis | verdict | gap | round.
+- Does **not** prescribe architecture or a fixed round count — constrains only the
+  bar and the protocol; the builder/critic decide within each piece.
+- Fans out per-piece builder + critic via subagents; drives real environments
+  (browser, GPU, server) through ultracode.
 
-## Study (validate — inspect, don't affirm)
+## Study phase: kraken validation (the crux)
 
-Adopt kraken-engineer's Study phase on every round:
+This is where the kraken wrapper earns its keep. After the critic names the gap,
+kraken-engineer's Study phase adds:
 
-- **Cross-validate.** The critic's verdict rests on at least two independent
-  signals — the blind A/B judgment *and* a measurable check (a metric, a spec
-  vector, a benchmark run). Two signals, not one.
-- **Real-output proof.** The builder proves the output runs/renders where the
-  bar is a live artifact (a shipped game's frame, a spec's example vector, a
-  benchmark's reported score) — it doesn't describe it.
-- **No self-judgment.** The builder does not critique its own work in the same
-  round — the critic is separate context, fresh to the bar.
+- **Cross-validation** — the verdict is not accepted until two independent
+  signals agree (e.g. a `kraken-nautilus` evidence sweep + a `kraken-pearl`
+  visual inspection, or a code result + a `kraken-blitzkrieg-tdd` test result).
+- **Measurable-criteria gates** (`kraken-scylla`) — reference completeness,
+  acceptance clarity, ambiguity index, dependency clarity, testability, scope
+  boundedness. The critic's verdict must pass these before the loop proceeds.
 
-## Act — stop, ship, or escalate
+## Act phase: kraken escalation (the stalemate handler)
 
-For each piece, the loop ends only on:
+The standalone `gauntlet-loop` says "loop until win or stop." The kraken version
+adds a real stop condition the bare loop lacks:
 
-- **win or tie** on every axis → the piece is done; move on.
-- **explicit stop** → ship what exists, flagged as unfinished, with the last
-  critic's gap named as the reason.
-- **stalemate** (the gap hasn't moved across rounds) → escalate to an
-  architect-level call (adopt `kraken-architect`) or widen the bar — the loop
-  is thrashing, not converging.
+- If the critic's "biggest gap" has not changed across **two consecutive rounds**
+  on the same piece, the loop is **stalemated** — escalate:
+  1. `kraken-scylla` audits the bar + axes (the bar may be wrong, or the axes
+     don't isolate the real difference).
+  2. `kraken-architect` widens or reframes the bar (a shipped comparable may be
+     too high a bar for a local variant; widen to the right tier of reference).
+  3. `kraken-engineer` re-plans — the piece may split into sub-pieces or merge with
+     a neighbor.
+
+The run stops only on: a win/tie on every axis, an explicit stop, or a stalemate
+escalation that cannot produce a winnable bar (at which point the bar itself is
+wrong and the loop should not continue).
 
 ## Quality gates (before declaring a piece done)
 
-- [ ] The critic compared the **real, runnable** output against the **real
-      reference bar** (not a description of either) — and showed it (screenshots,
-      traces, measurements).
+- [ ] The critic compared **real, runnable** output against a **real** reference
+  bar (`kraken-pearl`/`kraken-nautilus` material), not a description of either.
 - [ ] The comparison was **blind** where the bar supports it (labels stripped).
 - [ ] The critic named **one** biggest remaining gap per round, not a list.
-- [ ] The verdict on each axis is **win / tie / lose** — "improved" is a
-      non-verdict and sends it back for re-judgment.
-- [ ] Each verdict carries a **measurable** claim (a number, a vector count, a
-      pass/fail count) — not "looks better".
-- [ ] The live progress page reflects the latest verdict for every piece, with
-      the round number and the critic's identity.
-- [ ] The run stops only on a win/tie, an explicit stop, or a flagged stalemate
-      — not on a timer.
+- [ ] The verdict on each axis is **win / tie / lose**, with a number where the
+  bar is quantitative (`kraken-scylla` measurable-criteria gate).
+- [ ] Verdict was **cross-validated** by two independent signals.
+- [ ] The live progress page reflects the latest verdict for every piece.
+- [ ] Stop only on win/tie, explicit stop, or a stalemate escalation — never a
+  timer.
 
-## Constraint enforcement (hard — never violate)
+## Constraint enforcement
 
-- **No hallucinated bars.** The bar must be a real artifact you can point a
-  fresh critic at. "As good as a real CoD game" without showing the screenshots
-  is not a bar; neither is "high quality".
-- **No self-judgment loops.** The builder does not also critique its own work
-  in the same round — the critic is separate context.
+- **No hallucinated bars.** The bar must be a real artifact a fresh critic can
+  open. `kraken-architect` converts design/trade-off references into inspectable
+  form before they're named as a bar.
+- **No self-judgment loops.** The builder does not also critique its own work in
+  the same round — the critic is separate context.
 - **No scope creep per round.** Each round attacks exactly the gap the previous
   critic named.
 - **No fake outputs.** The builder ships real, runnable output; the critic
-  inspects real output. Mock summaries, prose descriptions, or "imagine it looks
-  like…" are not artifacts.
-- **No non-verdicts.** "Improved", "close", "almost there" are not allowed as
-  loop terminators — only win/tie/lose stops the round.
+  inspects real output. Mock summaries are not artifacts — `kraken-blitzkrieg-tdd`
+  enforces real test evidence.
+- **No stalemate spinning.** If the gap hasn't moved in two rounds, the kraken
+  stalemate handler fires before another blind rebuild.
 
 ## When not to use
 
-- When the goal is correctness against a spec the agent fully understands and
-  can assert — use TDD (`kraken-blitzkrieg-tdd`) instead; the spec's example
-  vectors *are* the bar and a test is the critic.
-- When there is no real, inspectable bar and none can be proposed (no shipped
-  comparable, no spec, no benchmark) — the loop has nothing to converge on.
-- When "done" already means "good enough" (the standard task) — the overhead
-  only pays off for quality targets.
+- When the goal is correctness against a spec the agent fully understands and can
+  assert — use `kraken-blitzkrieg-tdd` alone (the loop's overhead only pays off
+  for quality targets).
+- When there is no real, inspectable bar and none can be proposed — the loop has
+  nothing to converge on.
+- When "done" already means "good enough" (the standard task).
+- When the standalone loop is sufficient and process overhead is unwanted — use
+  `gauntlet-loop` directly.
 
 ## See also
 
-- [references/bar.md](references/bar.md) — bar template + Claude-of-Duty
-  comparison sentence + fallback rule.
-- [references/prompt.md](references/prompt.md) — the copy-pasteable agent prompt.
-- [`kraken-engineer`](../kraken-engineer/SKILL.md) — the process overlay; the
-  gauntlet loop is the quality loop inside its PDSA cycle.
-- [`kraken-scylla`](../kraken-scylla/SKILL.md) — adopt for the critic's
-  measurable-criteria gates.
-- [`kraken-architect`](../kraken-architect/SKILL.md) — adopt when choosing the
-  bar against a design/trade-off reference.
-- [`kraken-pearl`](../kraken-pearl/SKILL.md) — adopt when the bar is a visual
-  or multimedia artifact that needs evidence-bound inspection.
+- [`gauntlet-loop`](../../meta/gauntlet-loop/SKILL.md) — the standalone loop
+  (shared [references/bar.md](../../meta/gauntlet-loop/references/bar.md) and
+  [references/prompt.md](../../meta/gauntlet-loop/references/prompt.md)).
+- `kraken-engineer` — the PDSA process this composes with.
+- `kraken-scylla` — the critic's measurable-criteria gates and stalemate
+  escalation.
+- `kraken-architect` — bar selection for design/trade-off references.
+- `kraken-nautilus` — systematic evidence for the critic's Study phase.
+- `kraken-pearl` — visual/multimodal bar inspection.
+- `kraken-blitzkrieg-tdd` — test-first BUILD within each piece.

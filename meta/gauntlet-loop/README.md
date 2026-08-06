@@ -1,43 +1,62 @@
 # gauntlet-loop
 
 The original Gauntlet Loop — a self-contained build→critic→rebuild loop that
-drives an artifact toward a concrete, inspectable quality bar until the agent's
-real output wins or ties the bar in blind A/B comparison.
+drives an artifact toward a concrete, inspectable quality bar until the
+agent's real output wins or ties the bar in blind A/B comparison. Pick the
+bar first; decompose into smallest judgeable pieces; per piece fan out a
+builder and a separate harsh critic; critic inspects real output vs bar blind,
+names the single biggest remaining gap, verdict win/tie/lose; loop until win or
+stop. Lead agent keeps a live progress page. Use when a task needs to get good,
+not just done.
 
-## What it does
+## What it is
 
-A quality-improvement discipline for when "complete" is not good enough. The
-loop has three moving parts:
+A lean, standalone quality-improvement protocol. No process scaffolding — just
+the loop and its constraints. The lead agent chooses a real, inspectable bar
+(shipped comparable, spec, or benchmark — or a measurable property if none
+exists), decomposes the goal into the smallest independently-judgeable pieces,
+and for each piece fans out a builder + a separate harsh critic. The critic
+inspects real output vs the real bar blind, names the single biggest gap, and
+verdicts win/tie/lose. Loop until win/tie or stop.
 
-- **A quality bar, chosen first** — a real, shipped, inspectable artifact (a
-  competitor's shipped UI, a published spec, a public benchmark leaderboard)
-  that a fresh critic can compare the agent's real output against. If no
-  shipped comparable exists, fall back to a measurable property (file size,
-  frame budget, error bound, pass rate). No real bar → no loop.
-- **A build→critique→compare round** — the builder produces real, runnable
-  output; a separate critic inspects it side-by-side with the bar **blind** and
-  names the **single biggest remaining gap**; the verdict is win/tie/lose on
-  each axis (tie = win; "improved" is not a verdict).
-- **A live progress page** — one file updated each round (piece · bar side ·
-  output side · axis · verdict · gap · round) so no state is hidden between
-  rounds.
+## What it adds compared to kraken-gauntlet-loop
 
-It is a **behavior overlay, not a capability** — it composes with the
-kraken-engineer family and never overrides their hard constraints.
+Nothing — it is the *base* protocol. `kraken-gauntlet-loop` is this loop plus the
+kraken-engineer PDSA wrapper (pre-planning bar selection via `kraken-architect`,
+Study-phase cross-validation via `kraken-nautilus`/`kraken-pearl`, measurable
+gates via `kraken-scylla`, stalemate escalation, and `kraken-blitzkrieg-tdd`
+test-first BUILD). Use the standalone version when you want the loop with no
+process overhead; use the kraken version when you also want process rigor and
+cross-validation.
 
-## Usage
+## When to use which
 
-Type `/gauntlet-loop` (or have a lead agent invoke it for autonomous
-quality-improvement runs). The skill hands the lead agent a short prompt
-([references/prompt.md](references/prompt.md)) and the bar template
-([references/bar.md](references/bar.md)); the lead agent decides the
-decomposition, axes, and number of rounds.
+| Use | Skill |
+|---|---|
+| Quality target judged vs a real reference, no process overhead | `gauntlet-loop` (this skill) |
+| Same loop + kraken-engineer PDSA process, cross-validation, stalemate escalation | `kraken-gauntlet-loop` |
+| Correctness against a spec you can assert → TDD | `kraken-blitzkrieg-tdd` |
 
-## Relationship to kraken-gauntlet-loop
+## Files
 
-[`kraken-gauntlet-loop`](../harness/kraken-skill/kraken-gauntlet-loop/) is the
-Kraken-family version: same inner loop, but composed with `kraken-engineer`'s
-PDSA process, `kraken-scylla`'s measurable-criteria gates on the critic's
-verdicts, and `kraken-architect` for bar selection against design references.
-This meta version is the lean, standalone loop for runs that want the loop
-without adopting the whole family.
+- [SKILL.md](./SKILL.md) — method: bar-first rule, round protocol, critic constraints, lead-agent duties, quality gates, constraint enforcement.
+- [references/bar.md](./references/bar.md) — bar template + the Claude-of-Duty comparison sentence + how to choose when no shipped product exists.
+- [references/prompt.md](./references/prompt.md) — copy-pasteable agent prompt (Claude Code / Codex / Ultraviolet style).
+
+## Related
+
+- [`kraken-gauntlet-loop`](../harness/kraken-skill/kraken-gauntlet-loop/SKILL.md) — the kraken-family version with full process composition.
+- `kraken-engineer` — the PDSA process.
+- `kraken-scylla` — measurable-criteria gates + stalemate audit.
+- `kraken-architect` — bar selection for design references.
+- `kraken-nautilus` — evidence gathering.
+- `kraken-pearl` — multimodal bar inspection.
+- `kraken-blitzkrieg-tdd` — test-first BUILD.
+
+The bar sentence (canonical):
+
+> The bar is a real, in-production reference artifact — a shipped comparable
+> product for functional quality, a published spec/RFC for correctness, or a
+> public benchmark leaderboard for performance — that the critic inspects
+> side-by-side with the agent's real output, blind, and judges on the same axes
+> until the agent wins or ties, or the run is stopped.

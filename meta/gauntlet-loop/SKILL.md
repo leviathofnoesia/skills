@@ -72,7 +72,7 @@ with fresh context.
 - **Gap-focused.** Name the biggest gap only — not a laundry list. The builder
    fixes that one gap; a new critic round judges only whether it closed it.
 - **Real-output only.** The critic never compares two drafts of the agent's
-   work against each other; it compares the agent's real output **to the bar**.
+work against each other; it compares the agent's real output **to the bar**.
 
 ### The lead agent
 

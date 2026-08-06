@@ -1,74 +1,57 @@
 # The Quality Bar
 
-The bar is the single concrete, inspectable thing an agent can compare its work
-against. It exists so the loop has a north star that is **not** the agent's own
-opinion of its work. Without one, every round just shuffles the same judgment.
+The bar is the single concrete, inspectable, comparable artifact a critic judges
+the agent's real output against. It is chosen **before round 1**, not rationalized
+after the first draft. Without a real bar, every critic is just the agent
+evaluating its own work.
 
-## How to choose
+## The canonical comparison sentence (Claude-of-Duty precedent)
 
-A good bar is:
+> The bar is a real, in-production reference artifact — a shipped comparable
+> product for functional quality, a published spec/RFC for correctness, or a
+> public benchmark leaderboard for performance — that the critic inspects
+> side-by-side with the agent's real output, blind, and judges on the same axes
+> until the agent wins or ties, or the run is stopped.
 
-1. **Concrete** — it names a specific, observable artifact or measurable.
-2. **Inspectable** — a fresh critic can open it and form an opinion in one
-   read, with no inference.
-3. **Comparable** — the agent's output and the bar can be put side by side and
-   judged on the same axes.
+This mirrors how Matt Shumer's Claude-of-Duty prompt names real Call of Duty
+screenshots as the bar: a shipped, inspectable AAA artifact any fresh critic can
+open and judge blind. The bar must be something a completely fresh set of eyes
+(or a fresh critic agent with clean context) can open and call a winner on.
 
-## Template (fill before round 1)
+## How to choose the bar
 
-```
-## Bar
-<one sentence naming the artifact + the comparison frame>
+1. **Look for a real shipped comparable first.** A product, design, spec, or
+   benchmark that already exists in production and that the critic can open and
+   look at directly (a live URL, a real screenshot, a published document, a
+   public leaderboard row).
+2. **Define the axes of comparison up front.** Functional parity? Visual
+   fidelity? Output size? Latency? Correctness vs spec? Name 1–3 axes and lock
+   them — the critic judges only on these.
+3. **If no comparable real artifact exists, the bar is wrong.** Fall back to a
+   **measurable property** any critic can check without judgment:
+   - File size, line count, token count.
+   - Frame budget / render time / memory.
+   - Error bound, tolerance, accuracy threshold.
+   - Test pass rate against spec example vectors.
+   - Round-trip fidelity (encode → decode → diff against original).
+4. **When the reference is a design/trade-off decision** (vs a shipped product),
+   it is not yet an inspectable bar — adopt `kraken-architect` to turn it into one
+   (a design doc, a reference implementation, a benchmark) before naming it the
+   bar.
 
-## Axes of comparison
-- <observable axis 1>
-- <observable axis 2>
-- <observable axis 3>
+## What the critic does with the bar
 
-## Pass criterion
-<precise condition that counts as "won">
-```
+- Opens the bar AND the agent's real output, side by side, blind (strips labels
+  where the bar supports it).
+- Names the single biggest remaining gap on the locked axes.
+- States the verdict on each axis as win / tie / lose (tie = win).
+- "Improved" is a non-verdict — send back and re-run the round.
 
-## Example: a ThreeJS FPS (mirrors Claude-of-Duty)
+## Anti-patterns
 
-> Build a first-person shooter at the level of the most recent Call of Duty
-> games — visually beautiful, every system at AAA quality — and fan out
-> sub-agents with a separate harsh critic per system, comparing each directly
-> against real current Call of Duty screenshots in a blind A/B until the
-> agent's version wins or is indistinguishable.
-
-**Bar sentence:** The bar is a real, in-production AAA reference artifact —
-current Call of Duty screenshots for visual fidelity, or a shipped comparable
-product for functional quality — that the critic inspects side-by-side with the
-agent's real output, blind, and judges on the same axes until the agent wins or
-you stop the run.
-
-**Why this bar works:** current CoD is not aspirational — it is a real,
-shipped, inspectable artifact any fresh critic can open and judge. The agent
-cannot argue with it; it can only close the gap. The bar is therefore
-*comparative* (A/B), *blind* (no bias toward authorship), and *converging*
-(loop until the agent wins, not just until it "looks good").
-
-## When the goal has no shipped product to compare against
-
-Pick the **closest real reference** and state the gap explicitly:
-
-- A shipped competitor's UI → visual/interaction bar.
-- A published API spec / RFC → correctness bar (the output must round-trip
-  the spec's example vectors).
-- A benchmark suite with a public leaderboard → performance/size bar.
-- A human-produced exemplar → quality/fidelity bar.
-
-**If no comparable real artifact exists, the bar is wrong.** Fall back to a
-measurable property (file size, frame budget, error bound, test pass rate)
-that any critic can check without judgment.
-
-## Pass / no-pass
-
-The run ends when **either**:
-
-- the critic declares the agent's real output **wins or ties** the bar on every
-  axis (blind A/B), or
-- you stop the run.
-
-A "tie" is a win: indistinguishable-on-the-axes is indistinguishable-on-the-axes.
+- ❌ Naming "as good as [product]" without pointing at a real, openable artifact.
+- ❌ Judging the agent's output against a *description* of the bar instead of the
+  bar itself.
+- ❌ Comparing two drafts of the agent's own work against each other (that is not
+  a bar comparison).
+- ❌ Changing the axes mid-run to suit the latest output.
