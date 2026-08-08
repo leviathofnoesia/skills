@@ -1,0 +1,3 @@
+interface:
+  display_name: "Gauntlet Loop"
+  short_description: "Iterative improvement loop against a quality bar"

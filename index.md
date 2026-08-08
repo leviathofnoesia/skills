@@ -66,6 +66,13 @@
 |Plan: 1. Identify subtasks and dependencies.
 |FULL: ./harness/kraken-skill/kraken-engineer/SKILL.md
 
+[kraken-gauntlet-loop Skill]|source:leviathofnoesia/skills
+|path:harness/kraken-skill/kraken-gauntlet-loop
+|Quality-improvement loop — build→critic→rebuild against a concrete, inspectable bar (a real shipped comparable, spec, or benchmark) until the agent's output wins blind A/B. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and kraken-scylla for the critic's gates.
+|Core rule: pick the bar before the builders fire
+|The loop protocol: build → critique (blind A/B) → compare (win/tie/lose) → loop
+|FULL: ./harness/kraken-skill/kraken-gauntlet-loop/SKILL.md
+
 [kraken-learning Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-learning
 |Kraken learning-memory habit — persist and compound what you learn after non-trivial tasks. Use after finishing meaningful work: record decisions/outcomes (experience store), link related decisions into a knowledge graph, detect recurring patterns with confidence, and schedule spaced repetition. Portable habit, no runtime/database required — a notes file or memory tool suffices. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process.
@@ -147,6 +154,13 @@
 |Quick start: The script is at `scripts/prompt2qr.py` inside this skill's folder.
 |Deliverable (required in your final response): Do NOT just print the directory and stop. Surface ...
 |FULL: ./meta/prompt2qr/SKILL.md
+
+[gauntlet-loop Skill]|source:leviathofnoesia/skills
+|path:meta/gauntlet-loop
+|The original Gauntlet Loop — a self-contained build→critic→rebuild loop that drives an artifact toward a concrete, inspectable quality bar until the agent's real output wins or ties the bar in blind A/B comparison. Pick the bar first; fan out a builder + separate harsh critic per piece; critic inspects real output vs bar blind, names the single biggest gap, verdict win/tie/lose; loop until win or stop. Use when a task needs to get good, not just done.
+|Core rule: pick the bar before the builders fire
+|The loop protocol: build → critique (blind A/B) → compare (win/tie/lose) → loop
+|FULL: ./meta/gauntlet-loop/SKILL.md
 
 [ste-writing Skill]|source:leviathofnoesia/skills
 |path:meta/ste-writing

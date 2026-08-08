@@ -27,6 +27,7 @@ constraints, audit, TDD, multimedia analysis, learning-memory).
 | [kraken-cartographer](./harness/kraken-skill/kraken-cartographer/) | Planning method — correct, complete, verifiable plans; think before formatting, prove before claiming. |
 | [kraken-nautilus](./harness/kraken-skill/kraken-nautilus/) | Codebase-search method — systematic cross-validated exploration; picks the right tool per intent, runs parallel, cross-validates. |
 | [kraken-abyssal](./harness/kraken-skill/kraken-abyssal/) | External-research method — evidence-based answers about external libraries/frameworks, every claim version-pinned and cited. |
+| [kraken-gauntlet-loop](./harness/kraken-skill/kraken-gauntlet-loop/) | Quality-improvement loop — build→critic→rebuild against a concrete, inspectable bar until the real output wins blind A/B, composed with kraken-engineer's PDSA. |
 | [kraken-coral](./harness/kraken-skill/kraken-coral/) | Visual/UI-design method — requirements to accessible, design-system-compliant interfaces; AA/AAA contrast, 60fps motion. |
 | [kraken-siren](./harness/kraken-skill/kraken-siren/) | Documentation method — clear, comprehensive, actionable docs; content mapping, audience assessment, quality checklist. |
 | [kraken-poseidon](./harness/kraken-skill/kraken-poseidon/) | Pre-planning constraint method — constraint satisfaction before planning to surface requirements, boundaries, hidden ambiguities. |
@@ -47,6 +48,7 @@ long prompts onto cheaper transports.
 | [prompt2image](./meta/prompt2image/) | Render a text prompt as a compact monospace PNG a vision model can OCR for fewer tokens (lossy; for exact bytes use prompt2qr). |
 | [prompt2qr](./meta/prompt2qr/) | Gzip-compress a prompt into a sequence of lossless binary QR codes (PNG); exact byte-for-byte reconstruction on decode. |
 | [ste-writing](./meta/ste-writing/) | Apply ASD-STE100 Simplified Technical English writing rules to technical docs; stdlib linter flags long sentences, passive/continuous verbs, and multi-word nouns over three words. |
+| [gauntlet-loop](./meta/gauntlet-loop/) | Quality-improvement loop — build→critic→rebuild against a concrete inspectable bar (shipped comparable, spec, or benchmark) until the real output wins blind A/B. The lean standalone version; use kraken-gauntlet-loop to compose it with the full Kraken process family. |
 
 ### Security
 
