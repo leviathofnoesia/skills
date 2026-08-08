@@ -54,13 +54,16 @@ playbook.
    source file or route is known. Keep cwd at the user's project. Follow its
    directives (`MODE`, `PLATFORM`, `NO_PRODUCT_MD`, `CONTEXT_STALE`) — report
    stale findings, never repair drift as a side effect.
-3. If `context.mjs` reports `NO_PRODUCT_MD`, the tour starts at `init` (Phase 1).
+3. If `context.mjs` reports `NO_PRODUCT_MD`, route per Phase 1: `init` first
+   only for new-surface or replacement-world builds; scoped refinements proceed
+   on the incumbent implementation and offer `init` afterward.
 
 ## The Full Command List (the tour's repertoire)
 
 All 23 commands, grouped by category. The tour runs each **as needed** — the
 state machine in the next section decides when. Entry references live in
-impeccable's `references/` (e.g. `<imp>/references/critique.md`).
+impeccable's `reference/` directory (e.g. `<imp>/reference/critique.md`; some
+harness installs rename it `references/`).
 
 | Command | Category | Purpose | Tour runs it when |
 |---|---|---|---|
@@ -86,7 +89,7 @@ impeccable's `references/` (e.g. `<imp>/references/critique.md`).
 | `clarify` | Fix | UX copy, labels, error messages | Jargon, confusing copy, bad error text |
 | `adapt` | Fix | Responsive/devices/screen sizes | Breakpoint/mobile/touch-target issues |
 | `optimize` | Fix | UI performance: load, render, animation | Slow, janky, bundle-size findings |
-| `live` | Iterate | In-browser visual variants (HMR) | Dev server running AND user wants visual exploration |
+| `live` | Iterate | In-browser visual variants (HMR) | Dev server with HMR running OR a browser-accessible static HTML target, AND user wants visual exploration. Web-only — skip on `ios`/`android`/`adaptive` |
 
 ## The Algorithm — start-to-finish loop
 
@@ -97,11 +100,19 @@ everything in one batch, confirm with at most one more round, then stop.
 
 ### Phase 0 — Boot & Orient
 Run Setup. Resolve the target to a concrete file path or route. Determine the
-mode (Persuade / Operate / Read / Experience) from the surface. **Completion:
-`context.mjs` directives known; target resolved; mode named.**
+mode (Persuade / Operate / Read / Experience) from the surface. **Reject a
+null-slug target now**: if the target stays vague or root-level (so
+`critique-storage.mjs slug` would fail), either resolve it to a concrete path
+or record that persistence will be skipped and the critique will run with an
+in-memory report. **Completion: `context.mjs` directives known; target
+resolved (or skip-persistence reason recorded); mode named.**
 
 ### Phase 1 — Foundation (Build)
-- `NO_PRODUCT_MD` → `init` first (multi-round discovery, one per project).
+- `NO_PRODUCT_MD`: run `init` before implementation **only** for new-surface
+  or replacement-world builds (multi-round discovery, one per project). A
+  scoped refinement of existing code proceeds on the incumbent implementation
+  as `context.mjs` directs and offers `init` afterward rather than blocking on
+  it.
 - Code exists, no DESIGN.md → `document`.
 - New feature/surface → `shape` before any code.
 - Known token/component drift → `extract`.
@@ -114,12 +125,23 @@ visual world is committed.**
   unavailable, run sequentially and emit the `⚠️ DEGRADED` banner. Record the
   heuristic score (e.g. 24/40) and P0/P1 counts.
 - `audit <target>` — a11y, perf, responsive, theming, anti-patterns.
-**Completion: baseline critique snapshot persisted (`.impeccable/critique/`),
-audit scored, and the priority-issue list exists.**
+**Completion: baseline critique delivered as a report — snapshot persisted
+(`.impeccable/critique/`) when the target slug is non-null, otherwise the
+skip-persistence reason is recorded and the in-memory report stands; audit
+scored; priority-issue list exists.**
 
 ### Phase 3 — Refine Loop (bounded, the core)
 Each round: **fix the single biggest remaining gap**, then re-evaluate.
 
+0. **Capture the critique's decision gate first** (impeccable's critique
+   "Ask the User" step): present the priority issues and ask for priority
+   direction, scope (top-3 vs all), and off-limits areas — 2-4 targeted
+   questions tied to actual findings. **Auto-execute only objective P0/P1
+   fixes** (broken paths, a11y, misleading state, missing error/empty states)
+   when no direction is captured. Tonal or enhancement commands (`bolder`,
+   `quieter`, `distill`, `overdrive`, `delight`, `colorize`, `animate`) run
+   **only** with the user's consent and within the captured scope; otherwise
+   list them as recommendations and let the user pick.
 1. **Rank the backlog** from critique priority issues + audit findings:
    - Fix first: P0/P1 functional, accessibility, broken paths, misleading
      state → `clarify` (copy) / `adapt` (responsive) / `optimize` (perf) /
@@ -131,12 +153,22 @@ Each round: **fix the single biggest remaining gap**, then re-evaluate.
 2. **Run the top command** per impeccable's reference. Load `craft-floor.md`
    before editing UI; act on detector findings instead of re-auditing rules.
 3. **Re-evaluate**: re-run `critique` (and `audit` if the change was
-   technical). Read the trend via `critique-storage.mjs trend <target> 5`.
-   - Score improved → continue the loop with the next gap.
+   technical). Read the trend via
+   `node <imp>/scripts/critique-storage.mjs trend "<resolved target>" 5`. A
+   non-zero helper exit (e.g. no snapshot yet) must not stop the workflow —
+   print the error and continue with the in-memory report.
+   - **Compare normalized scores**: divide each score by its snapshot's
+     applicable maximum (`max_score`, default 40 when missing) and compare
+     percentages — never raw totals. Raw 24 vs 30 would look like an
+     improvement, but 24/32 and 30/40 are both 75% — a tie; and a newly
+     applicable heuristic that raises the maximum must not look like a
+     regression.
+   - Score improved (normalized) → continue the loop with the next gap.
    - Score flat or worse for two consecutive rounds → stop refining; the
      remaining issues are direction, not polish — report and ask the user
      (tonal direction, scope, off-limits areas).
-   - P0/P1s all cleared and score ≥ 32/40 (or user's stated bar) → exit loop.
+   - P0/P1s all cleared and normalized score ≥ 80% (e.g. 32/40, 26/32) or the
+     user's stated bar → exit loop.
 4. **Budget**: no more than 3 full refine rounds per tour unless the user
    extends. The critique→fix→critique cadence is the loop; it is never
    open-ended self-QA.
@@ -151,9 +183,11 @@ together), confirm with at most one more round, then stop. Finish with a
 source diff — no accidental churn, no orphaned code.
 
 ### Phase 5 — Iterate (optional)
-Only if the dev server is running AND the user wants visual variants: `live`
-for in-browser alternatives. Web-only — skip on `ios`/`android`/`adaptive`
-platforms. **Completion: user accepted or discarded variants; tour ends.**
+Only if the dev server with HMR is running — or the target is a
+browser-accessible static HTML file — AND the user wants visual variants:
+`live` for in-browser alternatives. Web-only — skip on
+`ios`/`android`/`adaptive` platforms. **Completion: user accepted or
+discarded variants; tour ends.**
 
 ## Decision Rules (finding → command)
 
@@ -175,7 +209,7 @@ platforms. **Completion: user accepted or discarded variants; tour ends.**
 | System drift, repeated patterns | `extract` |
 | Onboarding/empty-state/activation gaps | `onboard` |
 | Final pass / pre-ship | `polish` |
-| Visual alternatives in browser | `live` (web + dev server only) |
+| Visual alternatives in browser | `live` (dev server with HMR or static HTML target; web-only) |
 
 ## Common Pitfalls
 
@@ -203,7 +237,7 @@ platforms. **Completion: user accepted or discarded variants; tour ends.**
 
 - [ ] `context.mjs` ran once; `MODE`/`PLATFORM`/`NO_PRODUCT_MD` directives followed
 - [ ] Phase 1 artifacts present: PRODUCT.md, DESIGN.md (or user declined)
-- [ ] Baseline critique ran dual-agent (A: design review · B: detector), snapshot persisted, trend readable
+- [ ] Baseline critique ran dual-agent (A: design review · B: detector); snapshot persisted, or skip-persistence reason recorded for a null-slug target; trend readable when persisted
 - [ ] Each Phase 3 command followed its impeccable reference and loaded `craft-floor.md` before UI edits
 - [ ] Refine loop exited on a real condition: bar met, flat-for-2, budget spent, or user direction
 - [ ] Final `polish` done with one batched verification round; source diff clean
