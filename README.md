@@ -59,6 +59,15 @@ Deepsec and Codex Security scanning — Luna pins and dual-scan workflows.
 | [deepsec-luna](./security/deepsec-luna/) | Pin deepsec AI stages (`process` / `revalidate` / `triage`) to `gpt-5.6-luna` on the default agent backend. |
 | [deepsec-codex-luna](./security/deepsec-codex-luna/) | Dual-scan a target with deepsec and the open-source Codex Security CLI, both on `gpt-5.6-luna`, then cross-read findings. |
 
+### Creative
+
+Design and UI quality workflows — guided tours and loops that drive a surface
+toward a committed visual bar.
+
+| Skill | Description |
+|-------|-------------|
+| [auto-impeccable](./creative/auto-impeccable/) | Start-to-finish loop over the full impeccable command list (23 commands, 6 categories) — boot context, run Build/Evaluate, loop Refine/Enhance/Fix by project-state signals until the critique score stops improving, finish with polish, and report the score trend. Requires the sibling [impeccable](https://github.com/pbakaus/impeccable) skill. |
+
 
 ## Install
 
