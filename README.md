@@ -8,7 +8,6 @@ Reusable agent skills for engineering, planning, research, design, documentation
 and prompt tooling.
 
 [![skills.sh](https://skills.sh/b/leviathofnoesia/skills)](https://skills.sh/b/leviathofnoesia/skills)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Maintained by [leviathofnoesia](https://github.com/leviathofnoesia).
 
