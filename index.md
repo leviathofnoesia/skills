@@ -7,134 +7,228 @@
 |path:creative/auto-impeccable
 |Use when running an auto-impeccable tour of a UI project.
 |When to Use: - User asks to "run the full impeccable tour", "auto-impeccable", "guided tour
+|Setup: 1. **Resolve impeccable's base dir once** and reuse the resolved path (below,
+|The Full Command List (the tour's repertoire): All 23 commands, grouped by category. The tour run...
+|The Algorithm — start-to-finish loop: A bounded state machine. **Phases 0-2 run once; Phase 3 loo...
+|Phase 0 — Boot & Orient: Run Setup. Resolve the target to a concrete file path or route. Determin...
 |FULL: ./creative/auto-impeccable/SKILL.md
+
+[clean-code-series Skill]|source:leviathofnoesia/skills
+|path:software-development/clean-code-series
+|Use when writing clean code or designing architecture.
+|When to Use: - Reviewing or writing code and need the Clean Code rules (naming,
+|Process
+|1. Scope the need: Ask which of the four books the question belongs to before loading anything.
+|2. Load the one reference that matters: Use `skill_view` with the exact file path — cost is zero ...
+|3. Apply with the book's own vocabulary: Use the series' exact terms — SOLID, the Dependency Rule...
+|FULL: ./software-development/clean-code-series/SKILL.md
 
 [deepsec-codex-luna Skill]|source:leviathofnoesia/skills
 |path:security/deepsec-codex-luna
-|Dual-scan with deepsec and Codex Security on Luna. Use when combining deepsec with the open-source Codex Security CLI/plugin, running both scanners together, or asking for a Luna dual security scan.
+|Dual-scan with deepsec and Codex Security on Luna.
+|When to Use: - Dual-scan with deepsec and Codex Security on Luna. Use when combining deepsec with...
 |Luna pin: | Tool | Flag |
+|Steps
+|1. Resolve target: Pick one absolute path: the codebase under review (deepsec project `root`, or ...
+|2. Deepsec pass: From the deepsec workspace (`.deepsec/`):
 |FULL: ./security/deepsec-codex-luna/SKILL.md
 
 [deepsec-luna Skill]|source:leviathofnoesia/skills
 |path:security/deepsec-luna
-|Pin deepsec AI runs to Luna. Use when running deepsec process, revalidate, triage, or sandbox AI commands, or when the user mentions Luna, 5.6-luna, or gpt-5.6-luna for a scan.
+|Pin deepsec AI runs to Luna for scanning and triage.
+|When to Use: - Pin deepsec AI runs to Luna. Use when running deepsec process, revalidate, triage,...
 |Pin: On `process`, `revalidate`, and `triage` (including under `sandbox`), always pass:
+|Done when: Every AI deepsec command in the turn includes `--model gpt-5.6-luna` and no `--agent` ...
 |FULL: ./security/deepsec-luna/SKILL.md
 
 [gauntlet-loop Skill]|source:leviathofnoesia/skills
 |path:meta/gauntlet-loop
-|The original Gauntlet Loop — a self-contained build→critic→rebuild loop that drives an artifact toward a concrete, inspectable quality bar until the agent's real output wins or ties the bar in blind A/B comparison. Pick the bar first; decompose into smallest judgeable pieces; per piece fan out a builder and a separate harsh critic; critic inspects real output vs bar blind, names the single biggest remaining gap, verdict win/tie/lose; loop until win or stop. Lead agent keeps a live progress page. Use when a task needs to get good, not just done.
+|Build, blind-critic, rebuild until the output wins or ties.
+|When to Use: - The original Gauntlet Loop — a self-contained build→critic→rebuild loop that drive...
 |Core rule: pick the bar before the builders fire
+|The loop: One bar, one lead agent, N independent pieces. The lead agent decomposes the
+|Round protocol (per piece): 1. **BUILD** — the builder produces real, runnable, inspectable outpu...
+|The critic: - **Harsh.** The default assumption is that the latest output still loses.
 |FULL: ./meta/gauntlet-loop/SKILL.md
 
 [kraken-abyssal Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-abyssal
-|Abyssal external-research method — evidence-based answers about external libraries, frameworks, and docs, every claim citing a permanent version-pinned source. Use for questions about libraries/frameworks outside this repo: 'how do I use X', 'how does X implement Y', 'X vs Y', troubleshooting, or version history. Clone repos, extract commit SHAs for permalinks, synthesize with mandatory citations. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+|External research with every claim version-pinned and cited.
+|When to Use: - Abyssal external-research method — evidence-based answers about external libraries...
 |Research Framework
+|Phase 1: Request Classification
+|Phase 2: Information Gathering
+|Phase 3: Evidence Synthesis
 |FULL: ./harness/kraken-skill/kraken-abyssal/SKILL.md
 
 [kraken-architect Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-architect
-|Atlas/Maelstrom/Leviathan architecture method — strategic first-principles analysis and structural codebase audit for design decisions and trade-offs. Use for 'architecture', 'design', 'structure', 'pattern', 'trade-off', 'decision', 'approach', 'vs' (Mode 1) and 'review', 'audit', 'analyze code', 'assess', 'evaluate' (Mode 2). Every claim backed by code evidence (file:line) or first-principles derivation. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+|Architecture: first-principles analysis, evidence audits.
+|When to Use: - Atlas/Maelstrom/Leviathan architecture method — strategic first-principles analysi...
 |Mode 1: Strategic Analysis (first-principles)
+|Phase 1: Problem Decomposition
+|Phase 2: Hypothesis Generation
+|Phase 3: Evidence Evaluation
 |FULL: ./harness/kraken-skill/kraken-architect/SKILL.md
 
 [kraken-blitzkrieg-tdd Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-blitzkrieg-tdd
-|Blitzkrieg TDD & evidence-gated-completion discipline — self-enforced engineering rigor for implementation work. Use on any implementation task: test plan before code, red to green to refactor, and evidence-gated completion (green build + executed tests + coverage >= 80% + edge cases + presented evidence). Includes planner constraints (atomic verifiable steps, complexity caps) and a pre-completion violation checklist. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+|TDD with evidence-gated completion and red-green-refactor.
+|When to Use: - Blitzkrieg TDD & evidence-gated-completion discipline — self-enforced engineering ...
 |1. Test plan before implementation: Before writing implementation code, write a test plan:
+|2. TDD: red → green → refactor
+|3. Evidence-gated completion: Before you claim a task is done, require ALL of:
+|4. Planner constraints: Break work into atomic, verifiable steps. Recommended defaults:
 |FULL: ./harness/kraken-skill/kraken-blitzkrieg-tdd/SKILL.md
 
 [kraken-cartographer Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-cartographer
-|Cartographer planning method — produce plans that are correct, complete, and verifiable; think before formatting, prove before claiming. Use for any non-trivial planning task: new features, refactors, bug fixes, investigations, migrations, or budget/time/resource-constrained optimization (activates the Quantitative Rigor module: multi-seed greedy search + ledger CHECK assertion). Part of the kraken-engineer mindset family — a single portable discipline to adopt directly; compose with kraken-engineer for process and with specialist skills for technique.
+|Planning with correct, complete, verifiable steps.
+|When to Use: - Cartographer planning method — produce plans that are correct, complete, and verif...
 |Planning Methodology (four phases — do not skip, do not reorder)
+|Phase 1: Understand
+|Phase 2: Gather
+|Phase 3: Synthesize
 |FULL: ./harness/kraken-skill/kraken-cartographer/SKILL.md
 
 [kraken-coral Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-coral
-|Coral visual/UI-design method — transform functional requirements into accessible, design-system-compliant interfaces. Visual focus only — never touch business logic, data fetching, or state. Use for colors, spacing, layout, animation, responsive behavior, or any UI/visual change. Enforces convention-first design, accessibility (AA/AAA contrast), and 60fps animation performance. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+|UI design: accessible, design-system-compliant.
+|When to Use: - Coral visual/UI-design method — transform functional requirements into accessible,...
 |Design Framework
+|Phase 1: Design Analysis
+|Phase 2: Implementation Strategy
+|Phase 3: Polish & Refinement
 |FULL: ./harness/kraken-skill/kraken-coral/SKILL.md
 
 [kraken-engineer Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-engineer
-|Universal software-engineering methodology distilled from the Kraken Code plugin: plan with verifiable steps, enforce TDD and evidence-gated completion, delegate by adopting specialist mindsets, and verify by running code. A method overlay, not a capability — load alongside specialist skills (rust-best-practices, tauri-v2, playwright-best-practices, web-design-guidelines, and the like), not as a replacement: kraken-engineer supplies the process, the specialist supplies the technique. Use for any non-trivial implementation, refactoring, bug-fix, planning, architecture, codebase-search, external-research, visual/UI, documentation, or test-coverage task — and to self-audit a work plan or structure a quantitative/constrained-optimization problem.
+|Engineering: verifiable steps, TDD, evidence gates.
+|When to Use: - Universal software-engineering methodology distilled from the Kraken Code plugin: ...
 |Orchestration Framework (PDSA): Iterate in four phases. Do not skip phases on non-trivial work.
+|Built-in Pre-Planning (constraint analysis): Before any significant action, classify intent, then...
+|Plan: 1. Identify subtasks and dependencies.
+|Do: - Give yourself complete context before acting.
 |FULL: ./harness/kraken-skill/kraken-engineer/SKILL.md
 
 [kraken-gauntlet-loop Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-gauntlet-loop
-|Gauntlet Loop method — the quality-iteration loop that runs inside kraken-engineer's PDSA: build→critic→rebuild against a concrete, inspectable quality bar until the agent's real output wins or ties the bar in blind A/B, never settling for "improved". The bar is chosen first (a real shipped comparable, spec, or benchmark — or a measurable property if none exists), then the goal is decomposed into the smallest independently-judgeable pieces, each fanning out a builder and a separate harsh critic. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process, kraken-scylla for the critic's measurable-criteria gates, and kraken-architect for choosing the bar when the reference is a design/trade-off decision.
+|Quality loop: build, blind-critic, rebuild until it wins.
+|When to Use: - Gauntlet Loop method — the quality-iteration loop that runs inside kraken-engineer...
 |How it sits inside kraken-engineer's PDSA: kraken-engineer runs four phases. The Gauntlet Loop is...
+|Pre-Planning (kraken-engineer, before the loop fires): 1. **Intent classification** — is this a q...
+|The loop (inherited from `gauntlet-loop` — no changes to the protocol): > The protocol below is *...
+|Round protocol (per piece): 1. **BUILD** — `kraken-blitzkrieg-tdd` enforces test-first; the build...
 |FULL: ./harness/kraken-skill/kraken-gauntlet-loop/SKILL.md
 
 [kraken-learning Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-learning
-|Kraken learning-memory habit — persist and compound what you learn after non-trivial tasks. Use after finishing meaningful work: record decisions/outcomes (experience store), link related decisions into a knowledge graph, detect recurring patterns with confidence, and schedule spaced repetition. Portable habit, no runtime/database required — a notes file or memory tool suffices. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process.
+|Persist and compound learnings after meaningful work.
+|When to Use: - Kraken learning-memory habit — persist and compound what you learn after non-trivi...
 |1. Experience store: Record: the decision you made, its outcome, and any reusable pattern. One or...
+|2. Knowledge graph: Link related decisions into a lightweight graph: nodes (decisions/facts) +
+|3. Pattern detection: When the same signal recurs across tasks (a recurring bug class, a library
+|4. Spaced repetition: Schedule periodic review of high-value nodes (e.g. decisions that changed your
 |FULL: ./harness/kraken-skill/kraken-learning/SKILL.md
 
 [kraken-nautilus Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-nautilus
-|Nautilus codebase-search method — systematic, cross-validated codebase exploration with structured results. Use for multi-module or multi-angle search: 'where is X defined', 'who calls X', pattern matching, navigation, or history. Picks the right tool per intent (LSP definitions/references, ast_grep, grep, glob, git log/blame), runs independent searches in parallel, and cross-validates. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+|Codebase search: systematic, cross-validated exploration.
+|When to Use: - Nautilus codebase-search method — systematic, cross-validated codebase exploration...
 |Search Strategy Framework
+|Phase 1: Intent Classification
+|Phase 2: Tool Selection Matrix
+|Phase 3: Parallel Execution
 |FULL: ./harness/kraken-skill/kraken-nautilus/SKILL.md
 
 [kraken-pearl Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-pearl
-|Pearl multimedia-analysis method — extract structured, evidence-bound information from visual and document formats. Use for PDF, image, diagram, screenshot, presentation, or chart/graph analysis. Describes what is seen, never speculates beyond evidence; preserves context for partial/unclear content and outputs a structured analysis. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+|Multimedia analysis: structured evidence-bound extraction.
+|When to Use: - Pearl multimedia-analysis method — extract structured, evidence-bound information ...
 |Analysis Framework
+|Phase 1: Format Classification
+|Phase 2: Extraction Strategy
+|Phase 3: Structured Output
 |FULL: ./harness/kraken-skill/kraken-pearl/SKILL.md
 
 [kraken-poseidon Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-poseidon
-|Poseidon pre-planning constraint method — apply formal constraint satisfaction before planning to surface requirements, boundaries, and hidden ambiguities. Use when a request is ambiguous, complex, or multi-faceted: classify intent (refactoring/greenfield/enhancement/integration/investigation), extract functional/non-functional/boundary/resource constraints, detect ambiguity, and emit a structured specification. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+|Pre-planning constraints: surface requirements, boundaries.
+|When to Use: - Poseidon pre-planning constraint method — apply formal constraint satisfaction bef...
 |Constraint Satisfaction Framework
+|Phase 1: Intent Classification (mandatory first step)
+|Phase 2: Constraint Extraction
+|Phase 3: Ambiguity Detection
 |FULL: ./harness/kraken-skill/kraken-poseidon/SKILL.md
 
 [kraken-scylla Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-scylla
-|Scylla plan-quality-audit method — evaluate a work plan against SOLID principles and measurable criteria before execution. Use to self-review any plan (including your own): input validation, SOLID evaluation, measurable-criteria gates (reference completeness, acceptance clarity, ambiguity index, dependency clarity, testability, scope boundedness), and an implementation simulation. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+|Plan audit: SOLID and measurable gates before execution.
+|When to Use: - Scylla plan-quality-audit method — evaluate a work plan against SOLID principles a...
 |Quality Assurance Framework
+|Phase 1: Input Validation
+|Phase 2: SOLID Evaluation
+|Phase 3: Measurable Criteria (default gates — tunable)
 |FULL: ./harness/kraken-skill/kraken-scylla/SKILL.md
 
 [kraken-siren Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-siren
-|Siren documentation method — clear, comprehensive, actionable docs via information-architecture principles. Use when writing or rewriting documentation: READMEs, API references, tutorials, guides. Covers content mapping, audience assessment, format selection, runnable code examples, and a pre-completion quality checklist. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+|Documentation: clear, actionable, quality-checked.
+|When to Use: - Siren documentation method — clear, comprehensive, actionable docs via information...
 |Documentation Framework
+|Phase 1: Documentation Analysis
+|Phase 2: Content Development
+|Phase 3: Quality Verification
 |FULL: ./harness/kraken-skill/kraken-siren/SKILL.md
 
 [lean-turns Skill]|source:leviathofnoesia/skills
 |path:meta/lean-turns
-|Token-optimized conversational turns for multi-step prompt runs — write every intermediate assistant turn in lean, telegraphic language and reserve full prose for the final deliverable turn; most intermediate turns aren't read and everything gets summarized at the end anyway. Use on long tool-heavy runs or when asked to save tokens, cut the play-by-play, be concise in progress, "I don't read the intermediate turns", or "just give me the summary". Compresses connective filler only — never code, identifiers, paths, errors, diffs, commands, or load-bearing facts; never trims safety rules or a specialist skill's mandated output structure. A behavior overlay, not a capability — load alongside specialist skills, not as a replacement.
-
+|Lean turns: summary-only intermediates, final full prose.
+|When to Use: - Token-optimized conversational turns for multi-step prompt runs — write every inte...
 |When this skill fires: - Multi-step prompt runs (more than one tool call / multi-turn work).
+|Operating principles: 1. **Lean ≠ less structure** — fewer connective words, never less structure.
+|How to tell intermediate from final: You can't see the future, so decide per turn:
+|Compressed dialect (intermediate turns): Apply to your own prose only. Stack as applicable; skip ...
 |FULL: ./meta/lean-turns/SKILL.md
 
 [lean-turns-strict Skill]|source:leviathofnoesia/skills
 |path:meta/lean-turns/lean-turns-strict
-|Token-suppressed intermediate turns for multi-step prompt runs — an ultra-lean overlay that shows the user ONE status token per intermediate turn (P:/E:/V:/F:) and holds all detail, paths, errors, decisions, and reasoning internally until the final deliverable turn, which is full prose; the agent's own understanding is never reduced. Use on explicit asks: "strict mode", "ultra lean", "one token per turn", "suppress the play-by-play", "I only want the final answer". Compresses visible output only — the agent still reasons fully and never drops a load-bearing fact, a hard constraint, or a specialist skill's mandated output; everything surfaces in the final turn. A behavior overlay, not a capability — load alongside lean-turns and specialist skills, not as a replacement.
-
+|Ultra-lean turns: summary-only until the final deliverable.
+|When to Use: - Token-suppressed intermediate turns for multi-step prompt runs — an ultra-lean ove...
 |When this skill fires: - Explicit asks: "strict mode", "ultra lean", "one token per turn",
+|Operating principles: 1. **One token visible** — an intermediate turn emits exactly one status
+|Visible dialect (intermediate turns): Only one of these reaches the user, per turn:
+|Final turn (full prose): Write the closing/deliverable turn in normal, readable prose:
 |FULL: ./meta/lean-turns/lean-turns-strict/SKILL.md
 
 [prompt2image Skill]|source:leviathofnoesia/skills
 |path:meta/prompt2image
-|Render a text prompt as a compact monospace PNG image that a vision-capable agent can read for far fewer tokens than the raw text. Use when the user says "prompt to image", "turn this prompt into an image", "make this prompt token-cheap", "compress this prompt visually", or wants to send a long prompt to a vision model without paying full text-token cost. Differentiator: lossless visual encoding via OCR-readable monospace render — no QR decoder needed on the receiving side.
+|Render a text prompt as a compact monospace PNG image.
+|When to Use: - Render a text prompt as a compact monospace PNG image that a vision-capable agent ...
 |Prerequisites: Pillow must be installed. Check first, install only if missing:
+|Quick start: The script is at `scripts/prompt2image.py` inside this skill's folder.
+|Deliverable (required in your final response): Do NOT just print the path and stop. Surface the i...
+|Workflow: 1. Write the prompt to a file or pipe via stdin.
 |FULL: ./meta/prompt2image/SKILL.md
 
 [prompt2qr Skill]|source:leviathofnoesia/skills
 |path:meta/prompt2qr
-|Compress a text prompt with gzip and encode it as a sequence of lossless binary QR codes (PNG). Use when the user says "prompt to QR", "encode this prompt as QR", "make a QR sequence", "lossless prompt compression", or wants to transmit a prompt via QR codes without any token cost. Differentiator: lossless gzip+binary-QR — exact byte-for-byte reconstruction, unlike the OCR-based prompt2image. Encode-only on this side; decoding documented in references/decoding.md.
+|Compress a prompt and encode it as binary QR PNGs.
+|When to Use: - Compress a text prompt with gzip and encode it as a sequence of lossless binary QR...
 |Prerequisites: segno must be installed. Check first, install only if missing:
+|Quick start: The script is at `scripts/prompt2qr.py` inside this skill's folder.
+|Deliverable (required in your final response): Do NOT just print the directory and stop. Surface ...
+|Workflow: 1. Write the prompt to a file or pipe via stdin.
 |FULL: ./meta/prompt2qr/SKILL.md
 
 [ste-writing Skill]|source:leviathofnoesia/skills
 |path:meta/ste-writing
 |Rewrite and check technical text against ASD-STE100 rules.
 |When to Use: - "Write this in STE" / "make this ASD-STE100 compliant"
+|Prerequisites: - Python 3 (for the optional structural linter). No pip installs — stdlib only.
+|How to Run: When writing or revising, apply the rules in the Procedure section directly.
+|Quick Reference: **The two parts of ASD-STE100**
+|Procedure: 1. **Identify text type.** Mark each block as a *procedure* (instruction/step)
 |FULL: ./meta/ste-writing/SKILL.md
 
 <!-- END SKILL-COMPILER MANAGED SECTION -->
