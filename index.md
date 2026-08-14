@@ -121,6 +121,16 @@
 |Round protocol (per piece): 1. **BUILD** — `kraken-blitzkrieg-tdd` enforces test-first; the build...
 |FULL: ./harness/kraken-skill/kraken-gauntlet-loop/SKILL.md
 
+[kraken-git-verify Skill]|source:leviathofnoesia/skills
+|path:harness/kraken-skill/kraken-git-verify
+|Verify repo, branch, remote before any git write.
+|When this skill fires: - A `git checkout`/`git push` created a branch on the wrong remote.
+|The rule: **Always confirm the repo → branch → remote → file path chain before acting,
+|Checklist (run verbatim): ```bash
+|The pitfall this prevents: A common failure mode: the terminal's cwd defaults to repo A
+|How to disambiguate (ordered, most reliable first): 1. **Explicit `cd` at the start of every comm...
+|FULL: ./harness/kraken-skill/kraken-git-verify/SKILL.md
+
 [kraken-learning Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-learning
 |Persist and compound learnings after meaningful work.
