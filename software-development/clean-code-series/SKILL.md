@@ -1,6 +1,6 @@
 ---
 name: clean-code-series
-description: Clean Code, Coder, Architecture, Agile knowledge base.
+description: Use when writing clean code or designing architecture.
 version: 0.1.0
 author: Hermes
 license: MIT
@@ -65,20 +65,13 @@ the situation.
 
 ### 4. Verify against the checklist
 
-Every reference ends in decision rules/checklists. Before claiming "this is
-clean", run the relevant checklist (e.g. functions: small, one thing, one
-level of abstraction; no side effects; command-query separation). Report
-violations as findings, not opinions. If a recommendation is speculative
-under the book's own guidance, mark it as such.
-
-## Quick Reference
-
-| Need | Load |
-|---|---|
-| Naming, functions, comments, formatting, classes, smells | `references/clean-code.md` |
-| Professionalism, TDD laws, PERT estimates, pressure | `references/clean-coder.md` |
-| SOLID, component principles, boundaries, dependency rule | `references/clean-architecture.md` |
-| Agile history, iron cross, iterations, bills of rights | `references/clean-agile.md` |
+Every reference ends in decision rules/checklists. A step is done only when
+**every rule on the relevant checklist is applied or explicitly waived with a
+reason** — apply the checklist (e.g. functions: small, one thing, one level
+of abstraction; no side effects; command-query separation) before claiming
+"this is clean". Report violations as findings, not opinions. If a
+recommendation is speculative under the book's own guidance, mark it as
+such.
 
 ## The series throughline
 
@@ -125,12 +118,13 @@ Load a chapter with: `skill_view` (name="clean-code-series", file_path="referenc
 
 ## Pitfalls
 
-- Don't load all references at once — they cost nothing until needed.
-- Don't apply 2018 architecture rules as if they overrode a project's own
-  ADRs; surface the conflict instead.
-- The books are opinionated and occasionally dated (e.g. OOP-centric
-  framing); use them as the craftsman baseline, not the last word on
-  modern language features.
+- Load one reference per question — the others stay cheap until a branch
+  needs them.
+- Surface conflicts with a project's own ADRs and modern practice openly;
+  the books are the craftsman baseline, and the baseline yields where the
+  situation demands.
+- Treat the series' framing (OOP-centric, opinionated) as the starting
+  vocabulary, extended by the language or framework in use.
 - These are distilled notes with chapter refs — when a judgment call turns
   on exact wording, the book (or the official ebooks) is the authority.
 
