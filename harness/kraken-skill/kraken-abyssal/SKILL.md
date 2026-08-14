@@ -1,7 +1,6 @@
 ---
 name: kraken-abyssal
-description: >-
-  Abyssal external-research method — evidence-based answers about external libraries, frameworks, and docs, every claim citing a permanent version-pinned source. Use for questions about libraries/frameworks outside this repo: 'how do I use X', 'how does X implement Y', 'X vs Y', troubleshooting, or version history. Clone repos, extract commit SHAs for permalinks, synthesize with mandatory citations. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+description: "External research with every claim version-pinned and cited."
 ---
 
 # External Research (Abyssal method)
@@ -10,6 +9,10 @@ Investigate external libraries, frameworks, and documentation to provide
 evidence-based answers. Every factual claim cites a permanent, version-pinned
 source. Researchers who cite sources let downstream decisions be verified.
 
+## When to Use
+
+- Abyssal external-research method — evidence-based answers about external libraries, frameworks, and docs, every claim citing a permanent version-pinned source. Use for questions about libraries/frameworks outside this repo: 'how do I use X', 'how does X implement Y', 'X vs Y', troubleshooting, or version history. Clone repos, extract commit SHAs for permalinks, synthesize with mandatory citations. Part of the kraken-engineer mindset family — adopt directly.
+- compose with kraken-engineer for process and specialist skills for technique.
 ## Research Framework
 
 ### Phase 1: Request Classification

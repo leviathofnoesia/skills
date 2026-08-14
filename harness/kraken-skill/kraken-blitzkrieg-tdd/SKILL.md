@@ -1,7 +1,6 @@
 ---
 name: kraken-blitzkrieg-tdd
-description: >-
-  Blitzkrieg TDD & evidence-gated-completion discipline — self-enforced engineering rigor for implementation work. Use on any implementation task: test plan before code, red to green to refactor, and evidence-gated completion (green build + executed tests + coverage >= 80% + edge cases + presented evidence). Includes planner constraints (atomic verifiable steps, complexity caps) and a pre-completion violation checklist. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+description: "TDD with evidence-gated completion and red-green-refactor."
 ---
 
 # TDD & Evidence-Gated Completion (Blitzkrieg discipline)
@@ -10,6 +9,10 @@ In Kraken these were enforced by OpenCode lifecycle hooks that intercepted tool 
 them as **self-enforced discipline**. The thresholds below are the recommended
 defaults Kraken shipped with; treat them as tunable per project.
 
+## When to Use
+
+- Blitzkrieg TDD & evidence-gated-completion discipline — self-enforced engineering rigor for implementation work. Use on any implementation task: test plan before code, red to green to refactor, and evidence-gated completion (green build + executed tests + coverage >= 80% + edge cases + presented evidence). Includes planner constraints (atomic verifiable steps, complexity caps) and a pre-completion violation checklist. Part of the kraken-engineer mindset family — adopt directly.
+- compose with kraken-engineer for process and specialist skills for technique.
 ## 1. Test plan before implementation
 
 Before writing implementation code, write a test plan:

@@ -1,14 +1,6 @@
 ---
 name: gauntlet-loop
-description: >-
-  The original Gauntlet Loop — a self-contained build→critic→rebuild loop that
-  drives an artifact toward a concrete, inspectable quality bar until the
-  agent's real output wins or ties the bar in blind A/B comparison. Pick the
-  bar first; decompose into smallest judgeable pieces; per piece fan out a
-  builder and a separate harsh critic; critic inspects real output vs bar blind,
-  names the single biggest remaining gap, verdict win/tie/lose; loop until win
-  or stop. Lead agent keeps a live progress page. Use when a task needs to get
-  good, not just done.
+description: "Build, blind-critic, rebuild until the output wins or ties."
 ---
 
 # Gauntlet Loop
@@ -17,6 +9,13 @@ Iterative quality-improvement loop. Use when a task needs to get *good*, not
 just done — "complete" is insufficient and the goal is a quality target judged
 against a real reference.
 
+## When to Use
+
+- The original Gauntlet Loop — a self-contained build→critic→rebuild loop that drives an artifact toward a concrete, inspectable quality bar until the agent's real output wins or ties the bar in blind A/B comparison. Pick the bar first.
+- decompose into smallest judgeable pieces.
+- per piece fan out a builder and a separate harsh critic.
+- critic inspects real output vs bar blind, names the single biggest remaining gap, verdict win/tie/lose.
+- loop until win or stop. Lead agent keeps a live progress page. Use when a task needs to get good, not just done.
 ## Core rule: pick the bar before the builders fire
 
 The bar is the **single concrete, inspectable, comparable** artifact a critic

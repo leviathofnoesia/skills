@@ -1,16 +1,6 @@
 ---
 name: kraken-gauntlet-loop
-description: >-
-  Gauntlet Loop method — the quality-iteration loop that runs inside
-  kraken-engineer's PDSA: build→critic→rebuild against a concrete, inspectable
-  quality bar until the agent's real output wins or ties the bar in blind A/B,
-  never settling for "improved". The bar is chosen first (a real shipped
-  comparable, spec, or benchmark — or a measurable property if none exists), then
-  the goal is decomposed into the smallest independently-judgeable pieces, each
-  fanning out a builder and a separate harsh critic. Part of the kraken-engineer
-  mindset family — adopt directly; compose with kraken-engineer for process,
-  kraken-scylla for the critic's measurable-criteria gates, and kraken-architect
-  for choosing the bar when the reference is a design/trade-off decision.
+description: "Quality loop: build, blind-critic, rebuild until it wins."
 ---
 
 # kraken-gauntlet-loop
@@ -26,6 +16,10 @@ Use this variant when you also want kraken-engineer's process rigor (planning,
 evidence-gated completion, cross-validation) applied around the loop. For a lean
 standalone run with no process overhead, use `gauntlet-loop` directly.
 
+## When to Use
+
+- Gauntlet Loop method — the quality-iteration loop that runs inside kraken-engineer's PDSA: build→critic→rebuild against a concrete, inspectable quality bar until the agent's real output wins or ties the bar in blind A/B, never settling for "improved". The bar is chosen first (a real shipped comparable, spec, or benchmark — or a measurable property if none exists), then the goal is decomposed into the smallest independently-judgeable pieces, each fanning out a builder and a separate harsh critic. Part of the kraken-engineer mindset family — adopt directly.
+- compose with kraken-engineer for process, kraken-scylla for the critic's measurable-criteria gates, and kraken-architect for choosing the bar when the reference is a design/trade-off decision.
 ## How it sits inside kraken-engineer's PDSA
 
 kraken-engineer runs four phases. The Gauntlet Loop is not a phase replacement —

@@ -1,17 +1,6 @@
 ---
 name: kraken-engineer
-description: >-
-  Universal software-engineering methodology distilled from the Kraken Code
-  plugin: plan with verifiable steps, enforce TDD and evidence-gated
-  completion, delegate by adopting specialist mindsets, and verify by running
-  code. A method overlay, not a capability — load alongside specialist
-  skills (rust-best-practices, tauri-v2, playwright-best-practices,
-  web-design-guidelines, and the like), not as a replacement:
-  kraken-engineer supplies the process, the specialist supplies the
-  technique. Use for any non-trivial implementation, refactoring, bug-fix,
-  planning, architecture, codebase-search, external-research, visual/UI,
-  documentation, or test-coverage task — and to self-audit a work plan or
-  structure a quantitative/constrained-optimization problem.
+description: "Engineering: verifiable steps, TDD, evidence gates."
 ---
 
 # Kraken Engineer
@@ -29,6 +18,9 @@ not instead of them.
 Core identity: methodical, precise, evidence-first. Think in systems, not just
 syntax. Run code, don't just read it. Admit uncertainty instead of guessing.
 
+## When to Use
+
+- Universal software-engineering methodology distilled from the Kraken Code plugin: plan with verifiable steps, enforce TDD and evidence-gated completion, delegate by adopting specialist mindsets, and verify by running code. A method overlay, not a capability — load alongside specialist skills (rust-best-practices, tauri-v2, playwright-best-practices, web-design-guidelines, and the like), not as a replacement: kraken-engineer supplies the process, the specialist supplies the technique. Use for any non-trivial implementation, refactoring, bug-fix, planning, architecture, codebase-search, external-research, visual/UI, documentation, or test-coverage task — and to self-audit a work plan or structure a quantitative/constrained-optimization problem.
 ## Orchestration Framework (PDSA)
 
 Iterate in four phases. Do not skip phases on non-trivial work.

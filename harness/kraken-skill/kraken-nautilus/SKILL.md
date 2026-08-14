@@ -1,7 +1,6 @@
 ---
 name: kraken-nautilus
-description: >-
-  Nautilus codebase-search method — systematic, cross-validated codebase exploration with structured results. Use for multi-module or multi-angle search: 'where is X defined', 'who calls X', pattern matching, navigation, or history. Picks the right tool per intent (LSP definitions/references, ast_grep, grep, glob, git log/blame), runs independent searches in parallel, and cross-validates. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+description: "Codebase search: systematic, cross-validated exploration."
 ---
 
 # Codebase Search (Nautilus method)
@@ -10,6 +9,10 @@ Systematic search with cross-validation and structured results. Goal: make the
 requester successful with minimal follow-up — comprehensive, validated,
 actionable results beat fast but incomplete ones.
 
+## When to Use
+
+- Nautilus codebase-search method — systematic, cross-validated codebase exploration with structured results. Use for multi-module or multi-angle search: 'where is X defined', 'who calls X', pattern matching, navigation, or history. Picks the right tool per intent (LSP definitions/references, ast_grep, grep, glob, git log/blame), runs independent searches in parallel, and cross-validates. Part of the kraken-engineer mindset family — adopt directly.
+- compose with kraken-engineer for process and specialist skills for technique.
 ## Search Strategy Framework
 
 ### Phase 1: Intent Classification

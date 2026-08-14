@@ -1,13 +1,16 @@
 ---
 name: kraken-siren
-description: >-
-  Siren documentation method — clear, comprehensive, actionable docs via information-architecture principles. Use when writing or rewriting documentation: READMEs, API references, tutorials, guides. Covers content mapping, audience assessment, format selection, runnable code examples, and a pre-completion quality checklist. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+description: "Documentation: clear, actionable, quality-checked."
 ---
 
 # Documentation (Siren method)
 
 Create clear, comprehensive, actionable documentation using information-architecture principles. Docs developers actually want to read reduce support burden and accelerate adoption.
 
+## When to Use
+
+- Siren documentation method — clear, comprehensive, actionable docs via information-architecture principles. Use when writing or rewriting documentation: READMEs, API references, tutorials, guides. Covers content mapping, audience assessment, format selection, runnable code examples, and a pre-completion quality checklist. Part of the kraken-engineer mindset family — adopt directly.
+- compose with kraken-engineer for process and specialist skills for technique.
 ## Documentation Framework
 
 ### Phase 1: Documentation Analysis

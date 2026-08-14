@@ -1,17 +1,6 @@
 ---
 name: lean-turns-strict
-description: >
-  Token-suppressed intermediate turns for multi-step prompt runs — an
-  ultra-lean overlay that shows the user ONE status token per intermediate
-  turn (P:/E:/V:/F:) and holds all detail, paths, errors, decisions, and
-  reasoning internally until the final deliverable turn, which is full prose;
-  the agent's own understanding is never reduced. Use on explicit asks:
-  "strict mode", "ultra lean", "one token per turn", "suppress the
-  play-by-play", "I only want the final answer". Compresses visible output
-  only — the agent still reasons fully and never drops a load-bearing fact, a
-  hard constraint, or a specialist skill's mandated output; everything
-  surfaces in the final turn. A behavior overlay, not a capability — load
-  alongside lean-turns and specialist skills, not as a replacement.
+description: "Ultra-lean turns: summary-only until the final deliverable."
 ---
 
 # Lean Turns — Strict
@@ -30,6 +19,11 @@ token. Nothing is lost — it is deferred.
 **Rule:** every intermediate turn emits exactly one status token; the closing
 turn is full prose.
 
+## When to Use
+
+- Token-suppressed intermediate turns for multi-step prompt runs — an ultra-lean overlay that shows the user ONE status token per intermediate turn (P:/E:/V:/F:) and holds all detail, paths, errors, decisions, and reasoning internally until the final deliverable turn, which is full prose.
+- the agent's own understanding is never reduced. Use on explicit asks: "strict mode", "ultra lean", "one token per turn", "suppress the play-by-play", "I only want the final answer". Compresses visible output only — the agent still reasons fully and never drops a load-bearing fact, a hard constraint, or a specialist skill's mandated output.
+- everything surfaces in the final turn. A behavior overlay, not a capability — load alongside lean-turns and specialist skills, not as a replacement.
 ## When this skill fires
 
 - Explicit asks: "strict mode", "ultra lean", "one token per turn",

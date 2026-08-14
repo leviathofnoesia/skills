@@ -1,7 +1,6 @@
 ---
 name: kraken-learning
-description: >-
-  Kraken learning-memory habit — persist and compound what you learn after non-trivial tasks. Use after finishing meaningful work: record decisions/outcomes (experience store), link related decisions into a knowledge graph, detect recurring patterns with confidence, and schedule spaced repetition. Portable habit, no runtime/database required — a notes file or memory tool suffices. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process.
+description: "Persist and compound learnings after meaningful work."
 ---
 
 # Learning Habit (collapsed from Kraken's learning-memory)
@@ -11,6 +10,10 @@ knowledge graph, pattern detection, spaced repetition). That implementation is
 runtime-bound and not portable — but the **habit** is. After finishing a
 non-trivial task, spend a moment on these four practices. They compound.
 
+## When to Use
+
+- Kraken learning-memory habit — persist and compound what you learn after non-trivial tasks. Use after finishing meaningful work: record decisions/outcomes (experience store), link related decisions into a knowledge graph, detect recurring patterns with confidence, and schedule spaced repetition. Portable habit, no runtime/database required — a notes file or memory tool suffices. Part of the kraken-engineer mindset family — adopt directly.
+- compose with kraken-engineer for process.
 ## 1. Experience store
 Record: the decision you made, its outcome, and any reusable pattern. One or two
 sentences each. Keep it searchable (a short summary + tags).

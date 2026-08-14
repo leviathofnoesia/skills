@@ -1,7 +1,6 @@
 ---
 name: kraken-scylla
-description: >-
-  Scylla plan-quality-audit method — evaluate a work plan against SOLID principles and measurable criteria before execution. Use to self-review any plan (including your own): input validation, SOLID evaluation, measurable-criteria gates (reference completeness, acceptance clarity, ambiguity index, dependency clarity, testability, scope boundedness), and an implementation simulation. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+description: "Plan audit: SOLID and measurable gates before execution."
 ---
 
 # Plan Quality Audit (Scylla method)
@@ -11,6 +10,10 @@ execution. Catching deficiencies early prevents wasted effort, scope creep, and
 implementation failures. Adopt this method to self-review a plan (including your
 own) before you execute it.
 
+## When to Use
+
+- Scylla plan-quality-audit method — evaluate a work plan against SOLID principles and measurable criteria before execution. Use to self-review any plan (including your own): input validation, SOLID evaluation, measurable-criteria gates (reference completeness, acceptance clarity, ambiguity index, dependency clarity, testability, scope boundedness), and an implementation simulation. Part of the kraken-engineer mindset family — adopt directly.
+- compose with kraken-engineer for process and specialist skills for technique.
 ## Quality Assurance Framework
 
 ### Phase 1: Input Validation

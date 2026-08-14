@@ -1,13 +1,16 @@
 ---
 name: prompt2qr
-description: >-
-  Compress a text prompt with gzip and encode it as a sequence of lossless binary QR codes (PNG). Use when the user says "prompt to QR", "encode this prompt as QR", "make a QR sequence", "lossless prompt compression", or wants to transmit a prompt via QR codes without any token cost. Differentiator: lossless gzip+binary-QR — exact byte-for-byte reconstruction, unlike the OCR-based prompt2image. Encode-only on this side; decoding documented in references/decoding.md.
+description: "Compress a prompt and encode it as binary QR PNGs."
 ---
 
 # Prompt to QR
 
 Gzip-compresses text and splits it across a sequence of QR codes (PNG). Lossless: the receiving agent decodes and gunzips to recover the exact original text. For long prompts — compare the zero text-token cost (QR images are scanned by the receiving agent) versus raw text-token count.
 
+## When to Use
+
+- Compress a text prompt with gzip and encode it as a sequence of lossless binary QR codes (PNG). Use when the user says "prompt to QR", "encode this prompt as QR", "make a QR sequence", "lossless prompt compression", or wants to transmit a prompt via QR codes without any token cost. Differentiator: lossless gzip+binary-QR — exact byte-for-byte reconstruction, unlike the OCR-based prompt2image. Encode-only on this side.
+- decoding documented in references/decoding.md.
 ## Prerequisites
 
 segno must be installed. Check first, install only if missing:

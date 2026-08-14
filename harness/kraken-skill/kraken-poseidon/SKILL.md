@@ -1,7 +1,6 @@
 ---
 name: kraken-poseidon
-description: >-
-  Poseidon pre-planning constraint method — apply formal constraint satisfaction before planning to surface requirements, boundaries, and hidden ambiguities. Use when a request is ambiguous, complex, or multi-faceted: classify intent (refactoring/greenfield/enhancement/integration/investigation), extract functional/non-functional/boundary/resource constraints, detect ambiguity, and emit a structured specification. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+description: "Pre-planning constraints: surface requirements, boundaries."
 ---
 
 # Pre-Planning Constraints (Poseidon method)
@@ -10,6 +9,10 @@ Before you plan, analyze the request with formal constraint satisfaction to
 surface requirements, boundaries, and hidden ambiguities. Complete understanding
 here prevents planning failures, scope creep, and implementation surprises.
 
+## When to Use
+
+- Poseidon pre-planning constraint method — apply formal constraint satisfaction before planning to surface requirements, boundaries, and hidden ambiguities. Use when a request is ambiguous, complex, or multi-faceted: classify intent (refactoring/greenfield/enhancement/integration/investigation), extract functional/non-functional/boundary/resource constraints, detect ambiguity, and emit a structured specification. Part of the kraken-engineer mindset family — adopt directly.
+- compose with kraken-engineer for process and specialist skills for technique.
 ## Constraint Satisfaction Framework
 
 ### Phase 1: Intent Classification (mandatory first step)
