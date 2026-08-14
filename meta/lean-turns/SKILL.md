@@ -1,16 +1,6 @@
 ---
 name: lean-turns
-description: >
-  Token-optimized conversational turns for multi-step prompt runs — write every
-  intermediate assistant turn in lean, telegraphic language and reserve full
-  prose for the final deliverable turn; most intermediate turns aren't read and
-  everything gets summarized at the end anyway. Use on long tool-heavy runs or
-  when asked to save tokens, cut the play-by-play, be concise in progress,
-  "I don't read the intermediate turns", or "just give me the summary".
-  Compresses connective filler only — never code, identifiers, paths, errors,
-  diffs, commands, or load-bearing facts; never trims safety rules or a
-  specialist skill's mandated output structure. A behavior overlay, not a
-  capability — load alongside specialist skills, not as a replacement.
+description: "Lean turns: summary-only intermediates, final full prose."
 ---
 
 # Lean Turns
@@ -24,6 +14,11 @@ the final turn like prose.
 **Rule:** every assistant turn before the closing deliverable is written lean;
 the closing turn is full prose.
 
+## When to Use
+
+- Token-optimized conversational turns for multi-step prompt runs — write every intermediate assistant turn in lean, telegraphic language and reserve full prose for the final deliverable turn.
+- most intermediate turns aren't read and everything gets summarized at the end anyway. Use on long tool-heavy runs or when asked to save tokens, cut the play-by-play, be concise in progress, "I don't read the intermediate turns", or "just give me the summary". Compresses connective filler only — never code, identifiers, paths, errors, diffs, commands, or load-bearing facts.
+- never trims safety rules or a specialist skill's mandated output structure. A behavior overlay, not a capability — load alongside specialist skills, not as a replacement.
 ## When this skill fires
 
 - Multi-step prompt runs (more than one tool call / multi-turn work).

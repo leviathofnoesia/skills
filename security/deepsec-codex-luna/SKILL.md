@@ -1,15 +1,15 @@
 ---
 name: deepsec-codex-luna
-description: >-
-  Dual-scan with deepsec and Codex Security on Luna. Use when combining
-  deepsec with the open-source Codex Security CLI/plugin, running both
-  scanners together, or asking for a Luna dual security scan.
+description: "Dual-scan with deepsec and Codex Security on Luna."
 ---
 
 # Deepsec + Codex Security on Luna
 
 Run **both** scanners on the same target, both pinned to **Luna**.
 
+## When to Use
+
+- Dual-scan with deepsec and Codex Security on Luna. Use when combining deepsec with the open-source Codex Security CLI/plugin, running both scanners together, or asking for a Luna dual security scan.
 ## Luna pin
 
 | Tool | Flag |

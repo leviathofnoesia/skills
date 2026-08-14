@@ -1,7 +1,6 @@
 ---
 name: ste-writing
-description: >-
-  Rewrite and check technical text against ASD-STE100 rules.
+description: "Rewrite and check technical text against ASD-STE100 rules."
 version: 0.1.0
 author: Hermes
 metadata:

@@ -1,6 +1,6 @@
 ---
 name: auto-impeccable
-description: Use when running an auto-impeccable tour of a UI project.
+description: "Use when running an auto-impeccable tour of a UI project."
 version: 1.0.0
 author: Kraken
 license: MIT

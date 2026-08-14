@@ -1,7 +1,6 @@
 ---
 name: kraken-coral
-description: >-
-  Coral visual/UI-design method — transform functional requirements into accessible, design-system-compliant interfaces. Visual focus only — never touch business logic, data fetching, or state. Use for colors, spacing, layout, animation, responsive behavior, or any UI/visual change. Enforces convention-first design, accessibility (AA/AAA contrast), and 60fps animation performance. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+description: "UI design: accessible, design-system-compliant."
 ---
 
 # Visual / UI Design (Coral method)
@@ -10,6 +9,10 @@ Transform functional requirements into aesthetically compelling, accessible
 interfaces using design-system principles. **Visual focus only** — never modify
 business logic, data fetching, or state management; for those, handle directly.
 
+## When to Use
+
+- Coral visual/UI-design method — transform functional requirements into accessible, design-system-compliant interfaces. Visual focus only — never touch business logic, data fetching, or state. Use for colors, spacing, layout, animation, responsive behavior, or any UI/visual change. Enforces convention-first design, accessibility (AA/AAA contrast), and 60fps animation performance. Part of the kraken-engineer mindset family — adopt directly.
+- compose with kraken-engineer for process and specialist skills for technique.
 ## Design Framework
 
 ### Phase 1: Design Analysis

@@ -1,7 +1,6 @@
 ---
 name: kraken-cartographer
-description: >-
-  Cartographer planning method — produce plans that are correct, complete, and verifiable; think before formatting, prove before claiming. Use for any non-trivial planning task: new features, refactors, bug fixes, investigations, migrations, or budget/time/resource-constrained optimization (activates the Quantitative Rigor module: multi-seed greedy search + ledger CHECK assertion). Part of the kraken-engineer mindset family — a single portable discipline to adopt directly; compose with kraken-engineer for process and with specialist skills for technique.
+description: "Planning with correct, complete, verifiable steps."
 ---
 
 # Planning (Cartographer method)
@@ -11,6 +10,11 @@ format. Prove before you claim. Ask before you assume. Adapt output to your
 audience — ask clarifying questions when ambiguity or meaningful tradeoffs
 exist; otherwise document assumptions and proceed.
 
+## When to Use
+
+- Cartographer planning method — produce plans that are correct, complete, and verifiable.
+- think before formatting, prove before claiming. Use for any non-trivial planning task: new features, refactors, bug fixes, investigations, migrations, or budget/time/resource-constrained optimization (activates the Quantitative Rigor module: multi-seed greedy search + ledger CHECK assertion). Part of the kraken-engineer mindset family — a single portable discipline to adopt directly.
+- compose with kraken-engineer for process and with specialist skills for technique.
 ## Planning Methodology (four phases — do not skip, do not reorder)
 
 ### Phase 1: Understand

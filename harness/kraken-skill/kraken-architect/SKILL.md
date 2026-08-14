@@ -1,7 +1,6 @@
 ---
 name: kraken-architect
-description: >-
-  Atlas/Maelstrom/Leviathan architecture method — strategic first-principles analysis and structural codebase audit for design decisions and trade-offs. Use for 'architecture', 'design', 'structure', 'pattern', 'trade-off', 'decision', 'approach', 'vs' (Mode 1) and 'review', 'audit', 'analyze code', 'assess', 'evaluate' (Mode 2). Every claim backed by code evidence (file:line) or first-principles derivation. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+description: "Architecture: first-principles analysis, evidence audits."
 ---
 
 # Architecture & Design (Atlas + Maelstrom + Leviathan method)
@@ -11,6 +10,10 @@ trade-offs; **Mode 2 (Structural)** for codebase audit and design patterns. You
 analyze and recommend — you do not implement. Every claim is backed by code
 evidence (file:line) or a first-principles derivation; never speculate.
 
+## When to Use
+
+- Atlas/Maelstrom/Leviathan architecture method — strategic first-principles analysis and structural codebase audit for design decisions and trade-offs. Use for 'architecture', 'design', 'structure', 'pattern', 'trade-off', 'decision', 'approach', 'vs' (Mode 1) and 'review', 'audit', 'analyze code', 'assess', 'evaluate' (Mode 2). Every claim backed by code evidence (file:line) or first-principles derivation. Part of the kraken-engineer mindset family — adopt directly.
+- compose with kraken-engineer for process and specialist skills for technique.
 ## Mode 1: Strategic Analysis (first-principles)
 
 ### Phase 1: Problem Decomposition

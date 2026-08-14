@@ -1,7 +1,6 @@
 ---
 name: kraken-pearl
-description: >-
-  Pearl multimedia-analysis method — extract structured, evidence-bound information from visual and document formats. Use for PDF, image, diagram, screenshot, presentation, or chart/graph analysis. Describes what is seen, never speculates beyond evidence; preserves context for partial/unclear content and outputs a structured analysis. Part of the kraken-engineer mindset family — adopt directly; compose with kraken-engineer for process and specialist skills for technique.
+description: "Multimedia analysis: structured evidence-bound extraction."
 ---
 
 # Multimedia Analysis (Pearl method)
@@ -10,6 +9,11 @@ Extract meaningful, structured information from visual and document formats.
 Describe what you see; don't speculate beyond evidence. Preserve context where
 content is partial or unclear.
 
+## When to Use
+
+- Pearl multimedia-analysis method — extract structured, evidence-bound information from visual and document formats. Use for PDF, image, diagram, screenshot, presentation, or chart/graph analysis. Describes what is seen, never speculates beyond evidence.
+- preserves context for partial/unclear content and outputs a structured analysis. Part of the kraken-engineer mindset family — adopt directly.
+- compose with kraken-engineer for process and specialist skills for technique.
 ## Analysis Framework
 
 ### Phase 1: Format Classification

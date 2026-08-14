@@ -1,15 +1,15 @@
 ---
 name: deepsec-luna
-description: >-
-  Pin deepsec AI runs to Luna. Use when running deepsec process, revalidate,
-  triage, or sandbox AI commands, or when the user mentions Luna, 5.6-luna,
-  or gpt-5.6-luna for a scan.
+description: "Pin deepsec AI runs to Luna for scanning and triage."
 ---
 
 # Deepsec Luna
 
 Every deepsec AI invocation runs on **Luna**.
 
+## When to Use
+
+- Pin deepsec AI runs to Luna. Use when running deepsec process, revalidate, triage, or sandbox AI commands, or when the user mentions Luna, 5.6-luna, or gpt-5.6-luna for a scan.
 ## Pin
 
 On `process`, `revalidate`, and `triage` (including under `sandbox`), always pass:
