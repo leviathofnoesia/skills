@@ -22,19 +22,19 @@ constraints, audit, TDD, multimedia analysis, learning-memory).
 
 | Skill | Description |
 |-------|-------------|
-| [kraken-engineer](./harness/kraken-skill/kraken-engineer/) | Universal engineering method — plan with verifiable steps, TDD, evidence-gated completion. The process overlay for the whole family. |
-| [kraken-architect](./harness/kraken-skill/kraken-architect/) | Architecture method — first-principles analysis (Mode 1) and structural codebase audit (Mode 2); every claim backed by code evidence. |
-| [kraken-cartographer](./harness/kraken-skill/kraken-cartographer/) | Planning method — correct, complete, verifiable plans; think before formatting, prove before claiming. |
-| [kraken-nautilus](./harness/kraken-skill/kraken-nautilus/) | Codebase-search method — systematic cross-validated exploration; picks the right tool per intent, runs parallel, cross-validates. |
-| [kraken-abyssal](./harness/kraken-skill/kraken-abyssal/) | External-research method — evidence-based answers about external libraries/frameworks, every claim version-pinned and cited. |
-| [kraken-gauntlet-loop](./harness/kraken-skill/kraken-gauntlet-loop/) | Quality-improvement loop — build→critic→rebuild against a concrete, inspectable bar until the real output wins blind A/B, composed with kraken-engineer's PDSA. |
-| [kraken-coral](./harness/kraken-skill/kraken-coral/) | Visual/UI-design method — requirements to accessible, design-system-compliant interfaces; AA/AAA contrast, 60fps motion. |
-| [kraken-siren](./harness/kraken-skill/kraken-siren/) | Documentation method — clear, comprehensive, actionable docs; content mapping, audience assessment, quality checklist. |
-| [kraken-poseidon](./harness/kraken-skill/kraken-poseidon/) | Pre-planning constraint method — constraint satisfaction before planning to surface requirements, boundaries, hidden ambiguities. |
-| [kraken-scylla](./harness/kraken-skill/kraken-scylla/) | Plan-quality-audit method — evaluate plans against SOLID and measurable gates before execution. |
-| [kraken-blitzkrieg-tdd](./harness/kraken-skill/kraken-blitzkrieg-tdd/) | TDD & evidence-gated completion — test plan before code, red→green→refactor, ≥80% coverage, violation checklist. |
-| [kraken-pearl](./harness/kraken-skill/kraken-pearl/) | Multimedia-analysis method — structured evidence-bound extraction from PDF, image, diagram, screenshot, presentation, chart. |
-| [kraken-learning](./harness/kraken-skill/kraken-learning/) | Learning-memory habit — persist and compound decisions/outcomes after meaningful work; experience store, knowledge graph, spaced repetition. |
+| [kraken-engineer](./harness/kraken-skill/kraken-engineer/) | Engineering: verifiable steps, TDD, evidence gates. |
+| [kraken-architect](./harness/kraken-skill/kraken-architect/) | Architecture: first-principles analysis, evidence audits. |
+| [kraken-cartographer](./harness/kraken-skill/kraken-cartographer/) | Planning with correct, complete, verifiable steps. |
+| [kraken-nautilus](./harness/kraken-skill/kraken-nautilus/) | Codebase search: systematic, cross-validated exploration. |
+| [kraken-abyssal](./harness/kraken-skill/kraken-abyssal/) | External research with every claim version-pinned and cited. |
+| [kraken-gauntlet-loop](./harness/kraken-skill/kraken-gauntlet-loop/) | Quality loop: build, blind-critic, rebuild until it wins. |
+| [kraken-coral](./harness/kraken-skill/kraken-coral/) | UI design: accessible, design-system-compliant. |
+| [kraken-siren](./harness/kraken-skill/kraken-siren/) | Documentation: clear, actionable, quality-checked. |
+| [kraken-poseidon](./harness/kraken-skill/kraken-poseidon/) | Pre-planning constraints: surface requirements, boundaries. |
+| [kraken-scylla](./harness/kraken-skill/kraken-scylla/) | Plan audit: SOLID and measurable gates before execution. |
+| [kraken-blitzkrieg-tdd](./harness/kraken-skill/kraken-blitzkrieg-tdd/) | TDD with evidence-gated completion and red-green-refactor. |
+| [kraken-pearl](./harness/kraken-skill/kraken-pearl/) | Multimedia analysis: structured evidence-bound extraction. |
+| [kraken-learning](./harness/kraken-skill/kraken-learning/) | Persist and compound learnings after meaningful work. |
 
 ### Meta
 
@@ -43,12 +43,12 @@ long prompts onto cheaper transports.
 
 | Skill | Description |
 |-------|-------------|
-| [lean-turns](./meta/lean-turns/) | Token-optimized conversational turns — lean intermediate turns, full prose reserved for the final deliverable. |
-| [lean-turns-strict](./meta/lean-turns/lean-turns-strict/) | Token-suppressed intermediate turns — one status token per turn (P:/E:/V:/F:), all detail held until the final deliverable. |
-| [prompt2image](./meta/prompt2image/) | Render a text prompt as a compact monospace PNG a vision model can OCR for fewer tokens (lossy; for exact bytes use prompt2qr). |
-| [prompt2qr](./meta/prompt2qr/) | Gzip-compress a prompt into a sequence of lossless binary QR codes (PNG); exact byte-for-byte reconstruction on decode. |
-| [ste-writing](./meta/ste-writing/) | Apply ASD-STE100 Simplified Technical English writing rules to technical docs; stdlib linter flags long sentences, passive/continuous verbs, and multi-word nouns over three words. |
-| [gauntlet-loop](./meta/gauntlet-loop/) | Quality-improvement loop — build→critic→rebuild against a concrete inspectable bar (shipped comparable, spec, or benchmark) until the real output wins blind A/B. The lean standalone version; use kraken-gauntlet-loop to compose it with the full Kraken process family. |
+| [lean-turns](./meta/lean-turns/) | Lean turns: summary-only intermediates, final full prose. |
+| [lean-turns-strict](./meta/lean-turns/lean-turns-strict/) | Ultra-lean turns: summary-only until the final deliverable. |
+| [prompt2image](./meta/prompt2image/) | Render a text prompt as a compact monospace PNG image. |
+| [prompt2qr](./meta/prompt2qr/) | Compress a prompt and encode it as binary QR PNGs. |
+| [ste-writing](./meta/ste-writing/) | Rewrite and check technical text against ASD-STE100 rules. |
+| [gauntlet-loop](./meta/gauntlet-loop/) | Build, blind-critic, rebuild until the output wins or ties. |
 
 ### Security
 
@@ -56,8 +56,8 @@ Deepsec and Codex Security scanning — Luna pins and dual-scan workflows.
 
 | Skill | Description |
 |-------|-------------|
-| [deepsec-luna](./security/deepsec-luna/) | Pin deepsec AI stages (`process` / `revalidate` / `triage`) to `gpt-5.6-luna` on the default agent backend. |
-| [deepsec-codex-luna](./security/deepsec-codex-luna/) | Dual-scan a target with deepsec and the open-source Codex Security CLI, both on `gpt-5.6-luna`, then cross-read findings. |
+| [deepsec-luna](./security/deepsec-luna/) | Pin deepsec AI runs to Luna for scanning and triage. |
+| [deepsec-codex-luna](./security/deepsec-codex-luna/) | Dual-scan with deepsec and Codex Security on Luna. |
 
 ### Creative
 
@@ -66,7 +66,7 @@ toward a committed visual bar.
 
 | Skill | Description |
 |-------|-------------|
-| [auto-impeccable](./creative/auto-impeccable/) | Start-to-finish loop over the full impeccable command list (23 commands, 6 categories) — boot context, run Build/Evaluate, loop Refine/Enhance/Fix by project-state signals until the critique score stops improving, finish with polish, and report the score trend. Requires the sibling [impeccable](https://github.com/pbakaus/impeccable) skill. |
+| [auto-impeccable](./creative/auto-impeccable/) | Use when running an auto-impeccable tour of a UI project. |
 
 
 ## Install
@@ -129,4 +129,4 @@ coding agents. Attribution appreciated.
 
 | Skill | Description |
 |-------|-------------|
-| [clean-code-series](./software-development/clean-code-series/) | Uncle Bob's Clean series knowledge base — Clean Code, Clean Coder, Clean Architecture, Clean Agile; per-book references with chapter maps and decision rules. |
+| [clean-code-series](./software-development/clean-code-series/) | Use when writing clean code or designing architecture. |
