@@ -124,3 +124,9 @@ npx --yes github:leviathofnoesia/skill-compiler marketplace --dir . --check
 
 Unless noted otherwise in a skill folder, content is available for use with AI
 coding agents. Attribution appreciated.
+
+### Software Development
+
+| Skill | Description |
+|-------|-------------|
+| [clean-code-series](./software-development/clean-code-series/) | Uncle Bob's Clean series knowledge base — Clean Code, Clean Coder, Clean Architecture, Clean Agile; per-book references with chapter maps and decision rules. |
