@@ -1,11 +1,34 @@
-# Skills
+<p align="center">
+  <img src="./assets/banner.png" alt="Leviathofnoesia Skills" width="100%">
+</p>
+
+# Leviath Skills
 
 Reusable agent skills for engineering, planning, research, design, documentation,
 and prompt tooling.
 
 [![skills.sh](https://skills.sh/b/leviathofnoesia/skills)](https://skills.sh/b/leviathofnoesia/skills)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Maintained by [leviathofnoesia](https://github.com/leviathofnoesia).
+
+---
+
+## 📚 Featured — Clean Code Series
+
+<p align="center">
+  <img src="./assets/clean-code-series.png" alt="clean-code-series knowledge base" width="70%">
+</p>
+
+The four Clean books distilled into a load-on-demand knowledge base — the
+methodology, not the text. Per-book references with chapter maps and decision
+rules.
+
+| Skill | Description |
+|-------|-------------|
+| [clean-code-series](./software-development/clean-code-series/) | Use when writing clean code or designing architecture. |
+
+---
 
 ## Skills
 
@@ -13,7 +36,7 @@ Skills are grouped by topic to avoid collisions as the collection grows. Each
 skill lives at `TOPIC/SKILL-NAME/` and is a self-contained package
 (`SKILL.md` + optional `scripts/`, `references/`, `assets/`).
 
-### Kraken
+### ⚙️ Kraken
 
 Engineering methodology family. A process overlay — load alongside
 specialists, not instead. `kraken-engineer` is the universal method; the rest
@@ -36,7 +59,7 @@ constraints, audit, TDD, multimedia analysis, learning-memory).
 | [kraken-pearl](./harness/kraken-skill/kraken-pearl/) | Multimedia analysis: structured evidence-bound extraction. |
 | [kraken-learning](./harness/kraken-skill/kraken-learning/) | Persist and compound learnings after meaningful work. |
 
-### Meta
+### 🧭 Meta
 
 Prompt utilities and token economy — keep intermediate turns cheap and move
 long prompts onto cheaper transports.
@@ -50,7 +73,7 @@ long prompts onto cheaper transports.
 | [ste-writing](./meta/ste-writing/) | Rewrite and check technical text against ASD-STE100 rules. |
 | [gauntlet-loop](./meta/gauntlet-loop/) | Build, blind-critic, rebuild until the output wins or ties. |
 
-### Security
+### 🔐 Security
 
 Deepsec and Codex Security scanning — Luna pins and dual-scan workflows.
 
@@ -59,7 +82,7 @@ Deepsec and Codex Security scanning — Luna pins and dual-scan workflows.
 | [deepsec-luna](./security/deepsec-luna/) | Pin deepsec AI runs to Luna for scanning and triage. |
 | [deepsec-codex-luna](./security/deepsec-codex-luna/) | Dual-scan with deepsec and Codex Security on Luna. |
 
-### Creative
+### 🎨 Creative
 
 Design and UI quality workflows — guided tours and loops that drive a surface
 toward a committed visual bar.
@@ -68,6 +91,15 @@ toward a committed visual bar.
 |-------|-------------|
 | [auto-impeccable](./creative/auto-impeccable/) | Use when running an auto-impeccable tour of a UI project. |
 
+### 📚 Software Development
+
+Knowledge bases and methodology references for working software engineers.
+
+| Skill | Description |
+|-------|-------------|
+| [clean-code-series](./software-development/clean-code-series/) | Use when writing clean code or designing architecture. |
+
+---
 
 ## Install
 
@@ -124,9 +156,3 @@ npx --yes github:leviathofnoesia/skill-compiler marketplace --dir . --check
 
 Unless noted otherwise in a skill folder, content is available for use with AI
 coding agents. Attribution appreciated.
-
-### Software Development
-
-| Skill | Description |
-|-------|-------------|
-| [clean-code-series](./software-development/clean-code-series/) | Use when writing clean code or designing architecture. |
