@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Verify"
+  short_description: "Repo/branch/remote disambiguation checklist for agent sessions"

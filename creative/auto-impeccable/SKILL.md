@@ -1,13 +1,13 @@
 ---
 name: auto-impeccable
-description: "Use when running an auto-impeccable tour of a UI project."
-version: 1.0.0
+description: Use when running an auto-impeccable tour of a UI project.
+version: 1.1.0
 author: Kraken
 license: MIT
 metadata:
   hermes:
     tags: [design, impeccable, tour, loop, refine, ui, quality-bar]
-    related_skills: [impeccable, kraken-engineer, kraken-gauntlet-loop]
+    related_skills: [impeccable, kraken-engineer, kraken-gauntlet-loop, command-code-cli]
 ---
 
 # Auto-Impeccable — Guided Skill Tour / Refine Loop
@@ -23,6 +23,11 @@ This is a method overlay, not a replacement. **The impeccable skill does the
 work; this skill sequences it.** Load both. Every command executed here must
 follow its own impeccable reference — this skill never skips a command's
 playbook.
+
+It also embeds the **tell sweep** (Command Code's `/design` doctrine, adapted
+from `references/tell-sweep.md`): a ten-pattern detector for the AI-generated
+look that runs at baseline, names generic tells with file:line evidence, and
+feeds the decision rules with concrete signals instead of vibes.
 
 ## When to Use
 
@@ -114,7 +119,12 @@ resolved (or skip-persistence reason recorded); mode named.**
   as `context.mjs` directs and offers `init` afterward rather than blocking on
   it.
 - Code exists, no DESIGN.md → `document`.
-- New feature/surface → `shape` before any code.
+- New feature/surface → `shape` before any code. `shape` names the job first:
+  pick one of the **seven work patterns** (Monitor / Operate / Compare /
+  Configure / Learn / Decide / Explore) and a **register** (`voice` — the
+  interface is the experience, for landing/portfolio/editorial · `surface` —
+  the interface is the instrument, for dashboards/admin/tools) before any
+  composition. Pattern first, pixels second (`references/tell-sweep.md`).
 - Known token/component drift → `extract`.
 **Completion: PRODUCT.md and DESIGN.md present (or user declined), and the
 visual world is committed.**
@@ -125,10 +135,16 @@ visual world is committed.**
   unavailable, run sequentially and emit the `⚠️ DEGRADED` banner. Record the
   heuristic score (e.g. 24/40) and P0/P1 counts.
 - `audit <target>` — a11y, perf, responsive, theming, anti-patterns.
+- **Tell sweep** — the smell check (`references/tell-sweep.md`): score the
+  target's ten tells backward (0 tells = 10/10 CLEAN … 7+ = 0–2/10 FAILURE),
+  each finding with file:line evidence. Record the tell score in the critique
+  report. Isolation rule: 1–2 scattered tells are cleanup; **3+ tells
+  clustered in one viewport is an identity failure** (a direction problem, not
+  a polish backlog) — flag it for the Phase 3 decision gate.
 **Completion: baseline critique delivered as a report — snapshot persisted
-(`.impeccable/critique/`) when the target slug is non-null, otherwise the
+(.impeccable/critique/) when the target slug is non-null, otherwise the
 skip-persistence reason is recorded and the in-memory report stands; audit
-scored; priority-issue list exists.**
+scored; tell sweep scored; priority-issue list exists.**
 
 ### Phase 3 — Refine Loop (bounded, the core)
 Each round: **fix the single biggest remaining gap**, then re-evaluate.
@@ -143,6 +159,10 @@ Each round: **fix the single biggest remaining gap**, then re-evaluate.
    **only** with the user's consent and within the captured scope; otherwise
    list them as recommendations and let the user pick.
 1. **Rank the backlog** from critique priority issues + audit findings:
+   - **Identity first**: if the tell sweep scored STRONG/FAILURE, or 3+ tells
+     cluster in the first viewport, rank composition/identity fixes
+     (`layout` / `distill` / `bolder` after naming the job) above tonal or
+     enhancement work. A new palette on a broken layout is still broken.
    - Fix first: P0/P1 functional, accessibility, broken paths, misleading
      state → `clarify` (copy) / `adapt` (responsive) / `optimize` (perf) /
      `harden` (states/edge cases/i18n).
@@ -157,6 +177,11 @@ Each round: **fix the single biggest remaining gap**, then re-evaluate.
    `node <imp>/scripts/critique-storage.mjs trend "<resolved target>" 5`. A
    non-zero helper exit (e.g. no snapshot yet) must not stop the workflow —
    print the error and continue with the in-memory report.
+   Re-run the tell sweep when the change was visual: a tell counts as fixed
+   only when the old pattern is gone from the surface, the replacement is
+   specific rather than a different default, and no new tell appeared in its
+   place. If the heuristic score moved but the tell score didn't, the fix
+   traded one default for another — treat as flat.
    - **Compare normalized scores**: divide each score by its snapshot's
      applicable maximum (`max_score`, default 40 when missing) and compare
      percentages — never raw totals. Raw 24 vs 30 would look like an
@@ -181,6 +206,14 @@ triage functional → states → flow/hierarchy → visual → cleanup, fix in o
 batch, verify with **one** batched inspection round (desktop + mobile
 together), confirm with at most one more round, then stop. Finish with a
 source diff — no accidental churn, no orphaned code.
+
+Enforce the **core-rules floor** during the final pass
+(`references/tell-sweep.md`): OKLCH color with a 60-30-10 split · body copy at
+60–76ch with ≥1.3 hierarchy ratio · 1-4-9 spacing rhythm via `gap`, never
+sibling margins · motion on transform+opacity, ease-out, exits ~70%, honoring
+`prefers-reduced-motion` · nine interaction states per control with ≥44×44 hit
+targets · base-first responsive, never gating functionality behind hover ·
+one verb per button, sentence case, no exclamation points.
 
 ### Phase 5 — Iterate (optional)
 Only if the dev server with HMR is running — or the target is a
@@ -210,6 +243,14 @@ discarded variants; tour ends.**
 | Onboarding/empty-state/activation gaps | `onboard` |
 | Final pass / pre-ship | `polish` |
 | Visual alternatives in browser | `live` (dev server with HMR or static HTML target; web-only) |
+| Tell: tech gradient / generic tech hue (`#6366F1`) | `colorize` (OKLCH-first, 60-30-10, never default indigo) |
+| Tell: feature tile grid / center stack | `layout` (name the job first; one focal point leads) |
+| Tell: icon topper / stat monument | `distill` / `polish` |
+| Tell: unearned blur | `distill` (depth only where an elevation system earns it) |
+| Tell: bounce everywhere | `animate` (transform + opacity, ease-out, exits ~70%) |
+| Tell: default type (Inter, no scale) | `typeset` (hook/bridge/detail steps, 60–76ch) |
+| Tell: accent rail | `extract` / `polish` |
+| Tell clustering (3+ in one viewport) | direction question → `layout` / `distill` / `bolder` |
 
 ## Common Pitfalls
 
@@ -232,12 +273,17 @@ discarded variants; tour ends.**
    keep polishing the wrong world.
 8. **Forgetting the tour is a loop, not a checklist.** Only run commands the
    signals justify; never run all 23 for the sake of completeness.
+9. **Treating a clustered-tell identity failure as a polish backlog.** 3+ tells
+   in one viewport (gradient hero + three equal tiles + centered stack) is a
+   direction problem, not a patch queue — run `layout` / `distill` / `bolder`
+   after naming the job and surface the direction question to the user.
 
 ## Verification Checklist
 
 - [ ] `context.mjs` ran once; `MODE`/`PLATFORM`/`NO_PRODUCT_MD` directives followed
 - [ ] Phase 1 artifacts present: PRODUCT.md, DESIGN.md (or user declined)
 - [ ] Baseline critique ran dual-agent (A: design review · B: detector); snapshot persisted, or skip-persistence reason recorded for a null-slug target; trend readable when persisted
+- [ ] Tell sweep scored at baseline (backward: 10/10 = clean) with file:line evidence recorded in the report
 - [ ] Each Phase 3 command followed its impeccable reference and loaded `craft-floor.md` before UI edits
 - [ ] Refine loop exited on a real condition: bar met, flat-for-2, budget spent, or user direction
 - [ ] Final `polish` done with one batched verification round; source diff clean
