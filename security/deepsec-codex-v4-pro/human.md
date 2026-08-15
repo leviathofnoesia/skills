@@ -19,6 +19,11 @@ values for you.
 Use this skill when you want two careful, independent views of one codebase.
 The two scanners find different issues. The cross-read joins their results.
 
+## When not to use
+
+Do not use this skill for one scanner only. Use `deepsec-v4-pro` for that. Do
+not use it for the full auto-apply loop. Use `deepsec-orchestrator` for that.
+
 ## How the skill works
 
 ```mermaid

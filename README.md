@@ -109,6 +109,21 @@ flowchart TD
 Each security skill also ships a `human.md` guide for people. The guide uses
 plain language and diagrams.
 
+### Which skill?
+
+| You want to… | Use |
+|---|---|
+| Scan one codebase with deepsec on DeepSeek V4 Flash | [deepsec-v4-flash](./security/deepsec-v4-flash/) |
+| Scan one codebase with deepsec on DeepSeek V4 Pro | [deepsec-v4-pro](./security/deepsec-v4-pro/) |
+| Scan with deepsec **and** Codex Security on V4 Flash | [deepsec-codex-v4-flash](./security/deepsec-codex-v4-flash/) |
+| Scan with deepsec **and** Codex Security on V4 Pro | [deepsec-codex-v4-pro](./security/deepsec-codex-v4-pro/) |
+| Automate the whole loop — scan → judge → fix → repeat | [deepsec-orchestrator](./security/deepsec-orchestrator/) |
+| Run deepsec pinned to the Luna model (gpt-5.6-luna) | [deepsec-luna](./security/deepsec-luna/) / [deepsec-codex-luna](./security/deepsec-codex-luna/) |
+
+The four DeepSeek skills share one rule: they never hardcode a harness or API —
+they ask you first. The orchestrator wraps the scanners in a loop with an
+advisor agent that consolidates and auto-applies findings.
+
 ### 🎨 Creative
 
 Design and UI quality workflows — guided tours and loops that drive a surface

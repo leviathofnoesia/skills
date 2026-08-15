@@ -17,6 +17,12 @@ or an API for you.
 Use this skill for advanced security work. Use it when you want to try many
 models in one run. Use it when you want the fixes applied for you.
 
+## When not to use
+
+Do not use this skill for one manual scan. Use a scanner skill for that. Do
+not use it when you want a report with no fixes. Set the apply policy to
+manual instead.
+
 ## The graph
 
 ```mermaid

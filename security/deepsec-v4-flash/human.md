@@ -18,6 +18,12 @@ these values for you.
 Use this skill when you want a fast, low-cost security scan. Use it when your
 DeepSeek V4 Flash endpoint is ready.
 
+## When not to use
+
+Do not use this skill for a scan with Codex Security. Use
+`deepsec-codex-v4-flash` for that. Do not use it for the Pro model. Use
+`deepsec-v4-pro` for that.
+
 ## How the skill works
 
 ```mermaid
