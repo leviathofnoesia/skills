@@ -84,9 +84,68 @@ Deepsec and Codex Security scanning — Luna pins, DeepSeek V4 model variants, a
 | [deepsec-codex-luna](./security/deepsec-codex-luna/) | Dual-scan with deepsec and Codex Security on Luna. |
 | [deepsec-v4-flash](./security/deepsec-v4-flash/) | Scan with deepsec on DeepSeek V4 Flash; ask harness/api. |
 | [deepsec-v4-pro](./security/deepsec-v4-pro/) | Scan with deepsec on DeepSeek V4 Pro; ask harness/api. |
-| [deepsec-codex-v4-flash](./security/deepsec-codex-v4-flash/) | Dual-scan deepsec+Codex on V4 Flash; ask harness/api. |
-| [deepsec-codex-v4-pro](./security/deepsec-codex-v4-pro/) | Dual-scan deepsec+Codex on V4 Pro; ask harness/api. |
-| [deepsec-orchestrator](./security/deepsec-orchestrator/) | Loop deepsec+Codex via judge; consolidate and auto-apply. |
+| [deepsec-codex-v4-flash](./security/deepsec-codex-v4-flash/) | Dual-scan with deepsec + Codex Security on V4 Flash; ask harness/api. |
+| [deepsec-codex-v4-pro](./security/deepsec-codex-v4-pro/) | Dual-scan with deepsec + Codex Security on V4 Pro; ask harness/api. |
+| [deepsec-orchestrator](./security/deepsec-orchestrator/) | Loop deepsec + Codex Security via judge; consolidate and auto-apply. |
+
+The `deepsec-orchestrator` runs both scanners through an advisor agent in a
+looping graph:
+
+```mermaid
+flowchart TD
+    CFG[CONFIG: sets, judge, policy] --> SD[deepsec scan]
+    CFG --> SC[Codex Security scan]
+    SD --> CON[CONSOLIDATE]
+    SC --> CON
+    CON --> J[JUDGE advisor]
+    J -->|approved| A[APPLY fixes]
+    A --> V[VERIFY]
+    V -->|regression| J
+    J -->|next set| SD
+    J -->|next set| SC
+    J -->|converge| R[REPORT]
+```
+
+Each security skill also ships a `human.md` guide for people. The guide uses
+plain language and diagrams.
+
+### Which skill?
+
+| You want to… | Use |
+|---|---|
+| Scan one codebase with deepsec on DeepSeek V4 Flash | [deepsec-v4-flash](./security/deepsec-v4-flash/) |
+| Scan one codebase with deepsec on DeepSeek V4 Pro | [deepsec-v4-pro](./security/deepsec-v4-pro/) |
+| Scan with deepsec **and** Codex Security on V4 Flash | [deepsec-codex-v4-flash](./security/deepsec-codex-v4-flash/) |
+| Scan with deepsec **and** Codex Security on V4 Pro | [deepsec-codex-v4-pro](./security/deepsec-codex-v4-pro/) |
+| Automate the whole loop — scan → judge → fix → repeat | [deepsec-orchestrator](./security/deepsec-orchestrator/) |
+| Run deepsec pinned to the Luna model (gpt-5.6-luna) | [deepsec-luna](./security/deepsec-luna/) / [deepsec-codex-luna](./security/deepsec-codex-luna/) |
+
+The four DeepSeek skills share one rule: they never hardcode a harness or API —
+they ask you first. The orchestrator wraps the scanners in a loop with an
+advisor agent that consolidates and auto-applies findings.
+
+### Measured impact
+
+Each skill was benchmarked with/without on a clean base agent (no skills,
+base tools; deterministic rubric: correct commands, ask-first protocol,
+safety rails; n=3 per arm). Full per-skill charts live in each skill's
+`human.md`.
+
+![Security skills benchmark](./assets/security-skills-bench.svg)
+
+| Skill | Without | With | Δ |
+|---|---|---|---|
+| deepsec-v4-flash | 0.64 | 0.94 | +0.30 |
+| deepsec-v4-pro | 0.70 | 0.94 | +0.24 |
+| deepsec-codex-v4-flash | 0.27 | 0.87 | +0.60 |
+| deepsec-codex-v4-pro | 0.67 | 0.90 | +0.23 |
+| deepsec-orchestrator | 0.61 | 0.98 | +0.37 |
+
+Benchmarks run with internal tooling; the methodology (SkillsBench-style
+with/without A/B, deterministic rubric grading) is described in each
+`human.md`. One caveat: deepsec is installed on the benchmark machine, so the
+baseline agent could sometimes discover it on disk — true cold-machine
+baselines would be lower, making the deltas conservative.
 
 ### 🎨 Creative
 

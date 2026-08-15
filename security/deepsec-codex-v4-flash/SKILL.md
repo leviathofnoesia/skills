@@ -14,6 +14,17 @@ each tool.
 - Dual-scan with deepsec and Codex Security on DeepSeek V4 Flash.
 - The user wants both scanners on a v4-flash endpoint, or a combined flash scan.
 
+```mermaid
+flowchart TD
+    A[Ask: target, model id, harness, api] --> B[deepsec scan]
+    A --> C[Codex Security scan]
+    B --> D[Cross-read]
+    C --> D
+    D --> E[Done: both, deepsec-only, Codex-only]
+```
+
+> **For humans:** read `human.md` for a full guide with diagrams.
+
 ## 1. Ask the user (MANDATORY)
 
 Collect, in this shape:
