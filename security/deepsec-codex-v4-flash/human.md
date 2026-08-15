@@ -126,10 +126,11 @@ Name the empty buckets too. An empty bucket is a result.
 
 ## Measured impact
 
-We ran this skill through a with/without benchmark: the same task asked to a
-clean base agent (no skills, base tools) versus the same agent with this
-skill's documentation supplied. Answers were scored against a deterministic
-rubric (correct commands, ask-first protocol, safety rails). 3 runs per arm.
+We ran a with/without benchmark. A clean base agent got the task. The base
+agent has no skills and only base tools. The same agent then got the task
+with this skill's documentation. A deterministic rubric scored each answer.
+The rubric checks correct commands, the ask-first protocol, and the safety
+rails. We ran each arm three times.
 
 | Arm | Score |
 |---|---|
@@ -138,10 +139,10 @@ rubric (correct commands, ask-first protocol, safety rails). 3 runs per arm.
 
 ![Benchmark: with vs without skill](./assets/bench.svg)
 
-Method: SkillsBench-style with/without A/B, deterministic rubric grading,
-n=3 per arm, base agent = clean profile (no skills/plugins). The rubric and
-runner are internal tooling; results are reproducible with any clean base
-agent and the same task prompts.
+Method: SkillsBench-style A/B. A deterministic rubric scores each answer.
+n=3 per arm. The base agent is a clean profile. The rubric and the runner
+stay internal. Any clean base agent with the same prompts can reproduce
+these results.
 
 ## See also
 
