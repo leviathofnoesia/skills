@@ -15,6 +15,16 @@ Flash** model. The harness (`--agent` backend) and API (endpoint + key) are
 - The user says "scan with v4 flash", "deepsec flash", or names a DeepSeek V4
   Flash endpoint or gateway.
 
+```mermaid
+flowchart LR
+    A[Ask: target, model id, harness, api] --> B[Run process]
+    B --> C[Revalidate and triage]
+    C --> D[Export findings]
+    D --> E[Done]
+```
+
+> **For humans:** read `human.md` for a full guide with diagrams.
+
 ## 1. Ask the user (MANDATORY — stop and ask before any command)
 
 DeepSeek is not a first-class deepsec backend, and model ids differ by

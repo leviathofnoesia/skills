@@ -88,6 +88,27 @@ Deepsec and Codex Security scanning — Luna pins, DeepSeek V4 model variants, a
 | [deepsec-codex-v4-pro](./security/deepsec-codex-v4-pro/) | Dual-scan deepsec+Codex on V4 Pro; ask harness/api. |
 | [deepsec-orchestrator](./security/deepsec-orchestrator/) | Loop deepsec+Codex via judge; consolidate and auto-apply. |
 
+The `deepsec-orchestrator` runs both scanners through an advisor agent in a
+looping graph:
+
+```mermaid
+flowchart TD
+    CFG[CONFIG: sets, judge, policy] --> SD[deepsec scan]
+    CFG --> SC[Codex Security scan]
+    SD --> CON[CONSOLIDATE]
+    SC --> CON
+    CON --> J[JUDGE advisor]
+    J -->|approved| A[APPLY fixes]
+    A --> V[VERIFY]
+    V -->|regression| J
+    J -->|next set| SD
+    J -->|next set| SC
+    J -->|converge| R[REPORT]
+```
+
+Each security skill also ships a `human.md` guide for people. The guide uses
+plain language and diagrams.
+
 ### 🎨 Creative
 
 Design and UI quality workflows — guided tours and loops that drive a surface

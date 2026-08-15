@@ -18,6 +18,9 @@ nodes for the next model/harness/API set.
 - The user wants multiple model/harness/API sets tried in sequence, findings auto-applied.
 - The user says "orchestrate deepsec + codex security", "chain loop", "judge-advised scan".
 
+> **For humans:** read `human.md` for a full guide with diagrams. The full node
+> and edge reference, with a mermaid diagram, is in `references/graph.md`.
+
 ## 1. Configure (MANDATORY — collect the full set list before anything runs)
 
 Refuse to start until the user provides **all** of:
