@@ -1,6 +1,6 @@
 ---
 name: deepsec-codex-v4-flash
-description: "Dual-scan deepsec+Codex on V4 Flash; ask harness/api."
+description: "Scan deepsec+Codex Security on V4 Flash; ask harness/api."
 ---
 
 # DeepSec + Codex Security — DeepSeek V4 Flash

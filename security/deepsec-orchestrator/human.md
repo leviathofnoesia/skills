@@ -118,7 +118,7 @@ The loop stops on these events:
 You control these knobs:
 
 - The model, harness, and API for each set.
-- The per-set scope: deepsec only, Codex only, or both.
+- The per-set scope: deepsec only, Codex Security only, or both.
 - The judge model and harness.
 - The apply policy.
 - The deepsec thinking level and re-scan waves.

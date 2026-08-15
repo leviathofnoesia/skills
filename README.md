@@ -84,9 +84,9 @@ Deepsec and Codex Security scanning — Luna pins, DeepSeek V4 model variants, a
 | [deepsec-codex-luna](./security/deepsec-codex-luna/) | Dual-scan with deepsec and Codex Security on Luna. |
 | [deepsec-v4-flash](./security/deepsec-v4-flash/) | Scan with deepsec on DeepSeek V4 Flash; ask harness/api. |
 | [deepsec-v4-pro](./security/deepsec-v4-pro/) | Scan with deepsec on DeepSeek V4 Pro; ask harness/api. |
-| [deepsec-codex-v4-flash](./security/deepsec-codex-v4-flash/) | Dual-scan deepsec+Codex on V4 Flash; ask harness/api. |
-| [deepsec-codex-v4-pro](./security/deepsec-codex-v4-pro/) | Dual-scan deepsec+Codex on V4 Pro; ask harness/api. |
-| [deepsec-orchestrator](./security/deepsec-orchestrator/) | Loop deepsec+Codex via judge; consolidate and auto-apply. |
+| [deepsec-codex-v4-flash](./security/deepsec-codex-v4-flash/) | Scan deepsec+Codex Security on V4 Flash; ask harness/api. |
+| [deepsec-codex-v4-pro](./security/deepsec-codex-v4-pro/) | Scan deepsec+Codex Security on V4 Pro; ask harness/api. |
+| [deepsec-orchestrator](./security/deepsec-orchestrator/) | Loop deepsec+Codex Security via judge; merge, auto-apply. |
 
 The `deepsec-orchestrator` runs both scanners through an advisor agent in a
 looping graph:
