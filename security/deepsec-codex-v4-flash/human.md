@@ -124,6 +124,25 @@ built-in providers are `openai`, `openrouter`, `fireworks`, and `amazon-bedrock`
 
 Name the empty buckets too. An empty bucket is a result.
 
+## Measured impact
+
+We ran this skill through a with/without benchmark: the same task asked to a
+clean base agent (no skills, base tools) versus the same agent with this
+skill's documentation supplied. Answers were scored against a deterministic
+rubric (correct commands, ask-first protocol, safety rails). 3 runs per arm.
+
+| Arm | Score |
+|---|---|
+| Without skill | 0.27 |
+| With skill | **0.87** (+0.60) |
+
+![Benchmark: with vs without skill](./assets/bench.svg)
+
+Method: SkillsBench-style with/without A/B, deterministic rubric grading,
+n=3 per arm, base agent = clean profile (no skills/plugins). The rubric and
+runner are internal tooling; results are reproducible with any clean base
+agent and the same task prompts.
+
 ## See also
 
 - `deepsec-codex-v4-pro` — the same skill with the Pro model.

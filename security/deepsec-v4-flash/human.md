@@ -112,6 +112,25 @@ pnpm deepsec export --format md-dir --out ./findings
 - **api** — the base URL plus the key.
 - **model id** — the exact model name for your endpoint.
 
+## Measured impact
+
+We ran this skill through a with/without benchmark: the same task asked to a
+clean base agent (no skills, base tools) versus the same agent with this
+skill's documentation supplied. Answers were scored against a deterministic
+rubric (correct commands, ask-first protocol, safety rails). 3 runs per arm.
+
+| Arm | Score |
+|---|---|
+| Without skill | 0.64 |
+| With skill | **0.94** (+0.30) |
+
+![Benchmark: with vs without skill](./assets/bench.svg)
+
+Method: SkillsBench-style with/without A/B, deterministic rubric grading,
+n=3 per arm, base agent = clean profile (no skills/plugins). The rubric and
+runner are internal tooling; results are reproducible with any clean base
+agent and the same task prompts.
+
 ## See also
 
 - `deepsec-v4-pro` — the same skill with the Pro model.

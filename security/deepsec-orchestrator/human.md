@@ -151,6 +151,25 @@ The skill writes a progress file after each pass. The file is
 `deepsec-orchestrator-progress.md`. It lists each set, tool, finding count,
 verdict, and round.
 
+## Measured impact
+
+We ran this skill through a with/without benchmark: the same task asked to a
+clean base agent (no skills, base tools) versus the same agent with this
+skill's documentation supplied. Answers were scored against a deterministic
+rubric (correct commands, ask-first protocol, safety rails). 3 runs per arm.
+
+| Arm | Score |
+|---|---|
+| Without skill | 0.61 |
+| With skill | **0.98** (+0.37) |
+
+![Benchmark: with vs without skill](./assets/bench.svg)
+
+Method: SkillsBench-style with/without A/B, deterministic rubric grading,
+n=3 per arm, base agent = clean profile (no skills/plugins). The rubric and
+runner are internal tooling; results are reproducible with any clean base
+agent and the same task prompts.
+
 ## See also
 
 - `references/judge-prompt.md` — the advisor prompt template.

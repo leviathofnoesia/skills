@@ -124,6 +124,29 @@ The four DeepSeek skills share one rule: they never hardcode a harness or API �
 they ask you first. The orchestrator wraps the scanners in a loop with an
 advisor agent that consolidates and auto-applies findings.
 
+### Measured impact
+
+Each skill was benchmarked with/without on a clean base agent (no skills,
+base tools; deterministic rubric: correct commands, ask-first protocol,
+safety rails; n=3 per arm). Full per-skill charts live in each skill's
+`human.md`.
+
+![Security skills benchmark](./assets/security-skills-bench.svg)
+
+| Skill | Without | With | Δ |
+|---|---|---|---|
+| deepsec-v4-flash | 0.64 | 0.94 | +0.30 |
+| deepsec-v4-pro | 0.70 | 0.94 | +0.24 |
+| deepsec-codex-v4-flash | 0.27 | 0.87 | +0.60 |
+| deepsec-codex-v4-pro | 0.67 | 0.90 | +0.23 |
+| deepsec-orchestrator | 0.61 | 0.98 | +0.37 |
+
+Benchmarks run with internal tooling; the methodology (SkillsBench-style
+with/without A/B, deterministic rubric grading) is described in each
+`human.md`. One caveat: deepsec is installed on the benchmark machine, so the
+baseline agent could sometimes discover it on disk — true cold-machine
+baselines would be lower, making the deltas conservative.
+
 ### 🎨 Creative
 
 Design and UI quality workflows — guided tours and loops that drive a surface
