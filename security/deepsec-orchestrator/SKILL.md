@@ -1,6 +1,6 @@
 ---
 name: deepsec-orchestrator
-description: "Loop deepsec+Codex Security via judge; merge, auto-apply."
+description: "Loop deepsec + Codex Security via judge; consolidate and auto-apply."
 ---
 
 # DeepSec Orchestrator — chain-shaped looping graph
