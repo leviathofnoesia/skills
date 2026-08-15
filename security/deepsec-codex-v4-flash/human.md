@@ -27,7 +27,7 @@ flowchart TD
     A --> C[Codex Security scan]
     B --> D[Cross-read]
     C --> D
-    D --> E[Done: both, deepsec-only, Codex-only]
+    D --> E[Done: both, deepsec-only, Codex Security-only]
 ```
 
 ## Before you start
@@ -115,7 +115,7 @@ built-in providers are `openai`, `openrouter`, `fireworks`, and `amazon-bedrock`
 |---|---|
 | both | Both scanners found the issue. |
 | deepsec-only | Only deepsec found it. |
-| Codex-only | Only Codex Security found it. |
+| Codex Security-only | Only Codex Security found it. |
 
 Name the empty buckets too. An empty bucket is a result.
 
