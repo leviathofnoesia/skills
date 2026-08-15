@@ -1,6 +1,6 @@
 ---
 name: deepsec-codex-v4-pro
-description: "Dual-scan with deepsec + Codex Security on V4 Pro; ask harness/api."
+description: "Dual-scan deepsec+Codex on V4 Pro; ask harness/api."
 ---
 
 # DeepSec + Codex Security — DeepSeek V4 Pro

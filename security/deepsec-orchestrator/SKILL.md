@@ -1,6 +1,6 @@
 ---
 name: deepsec-orchestrator
-description: "Loop deepsec + Codex Security via judge; consolidate and auto-apply."
+description: "Loop deepsec+Codex via judge; consolidate and auto-apply."
 ---
 
 # DeepSec Orchestrator — chain-shaped looping graph
@@ -70,7 +70,7 @@ The judge is a **separate subagent** (fresh context; must not also be a scanner
 in the same pass). It:
 
 - Dedupes across tools and sets (deepsec dedupes across its own agents; the
-  judge dedupes deepsec vs Codex Security and set-vs-set).
+  judge dedupes deepsec-vs-codex and set-vs-set).
 - Assigns severity and marks each finding **auto-apply-safe** only when it is a
   confirmed true-positive with a low-risk, mechanical fix (typo'd sink, missing
   validation, hardcoded secret).
@@ -100,7 +100,7 @@ Use the prompt template in `references/judge-prompt.md`.
 ## 6. Fine control knobs (surfaced at config time)
 
 - N sets, each with its own model/harness/api.
-- Per-set scope: `deepsec-only`, `codex-security-only`, or `both`.
+- Per-set scope: `deepsec-only`, `codex-only`, or `both`.
 - Separate judge model/harness (single or list).
 - `auto` / `hybrid` / `manual` apply policy.
 - deepsec `--thinking-level`, `--reinvestigate <N>`, `--batch-size`.
