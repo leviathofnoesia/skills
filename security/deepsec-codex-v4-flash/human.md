@@ -127,22 +127,20 @@ Name the empty buckets too. An empty bucket is a result.
 ## Measured impact
 
 We ran a with/without benchmark. A clean base agent got the task. The base
-agent has no skills and only base tools. The same agent then got the task
-with this skill's documentation. A deterministic rubric scored each answer.
-The rubric checks correct commands, the ask-first protocol, and the safety
-rails. We ran each arm three times.
+agent has no skills and no tools. The same agent then got the task with this
+skill's documentation. A deterministic rubric scored each answer. We ran each
+arm three times.
 
 | Arm | Score |
 |---|---|
 | Without skill | 0.27 |
-| With skill | **0.87** (+0.60) |
+| With skill | **0.60** (+0.33) |
 
 ![Benchmark: with vs without skill](./assets/bench.svg)
 
-Method: SkillsBench-style A/B. A deterministic rubric scores each answer.
-n=3 per arm. The base agent is a clean profile. The rubric and the runner
-stay internal. Any clean base agent with the same prompts can reproduce
-these results.
+Method: SkillsBench-style A/B. The model is upstage/solar-pro4:free. The rubric and the
+runner stay internal. Any clean base agent with the same prompts can
+reproduce these results.
 
 ## See also
 

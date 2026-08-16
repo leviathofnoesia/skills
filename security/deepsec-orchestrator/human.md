@@ -154,22 +154,20 @@ verdict, and round.
 ## Measured impact
 
 We ran a with/without benchmark. A clean base agent got the task. The base
-agent has no skills and only base tools. The same agent then got the task
-with this skill's documentation. A deterministic rubric scored each answer.
-The rubric checks correct commands, the ask-first protocol, and the safety
-rails. We ran each arm three times.
+agent has no skills and no tools. The same agent then got the task with this
+skill's documentation. A deterministic rubric scored each answer. We ran each
+arm three times.
 
 | Arm | Score |
 |---|---|
-| Without skill | 0.61 |
-| With skill | **0.98** (+0.37) |
+| Without skill | 0.41 |
+| With skill | **0.98** (+0.57) |
 
 ![Benchmark: with vs without skill](./assets/bench.svg)
 
-Method: SkillsBench-style A/B. A deterministic rubric scores each answer.
-n=3 per arm. The base agent is a clean profile. The rubric and the runner
-stay internal. Any clean base agent with the same prompts can reproduce
-these results.
+Method: SkillsBench-style A/B. The model is upstage/solar-pro4:free. The rubric and the
+runner stay internal. Any clean base agent with the same prompts can
+reproduce these results.
 
 ## See also
 

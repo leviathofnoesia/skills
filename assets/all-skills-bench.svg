@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4496" height="336" font-family="Segoe UI, Arial, sans-serif">
+<rect width="100%" height="100%" fill="#0f172a"/>
+<text x="24" y="30" fill="#e2e8f0" font-size="17" font-weight="bold">Skill benchmark — mean rubric score (n=3 reps)</text>
+<rect x="4166" y="16" width="12" height="12" rx="2" fill="#64748b"/>
+<text x="4184" y="26" fill="#94a3b8" font-size="12">without skill</text>
+<rect x="4286" y="16" width="12" height="12" rx="2" fill="#22c55e"/>
+<text x="4304" y="26" fill="#94a3b8" font-size="12">with skill</text>
+<text x="24" y="164" fill="#cbd5e1" font-size="13" font-weight="600">upstage/solar-pro4:free</text>
+<line x1="110" y1="264.0" x2="4456" y2="264.0" stroke="#1e293b" stroke-width="1"/>
+<text x="100" y="268.0" fill="#64748b" font-size="11" text-anchor="end">0</text>
+<line x1="110" y1="214.0" x2="4456" y2="214.0" stroke="#1e293b" stroke-width="1"/>
+<text x="100" y="218.0" fill="#64748b" font-size="11" text-anchor="end">0.25</text>
+<line x1="110" y1="164.0" x2="4456" y2="164.0" stroke="#1e293b" stroke-width="1"/>
+<text x="100" y="168.0" fill="#64748b" font-size="11" text-anchor="end">0.50</text>
+<line x1="110" y1="114.0" x2="4456" y2="114.0" stroke="#1e293b" stroke-width="1"/>
+<text x="100" y="118.0" fill="#64748b" font-size="11" text-anchor="end">0.75</text>
+<line x1="110" y1="64.0" x2="4456" y2="64.0" stroke="#1e293b" stroke-width="1"/>
+<text x="100" y="68.0" fill="#64748b" font-size="11" text-anchor="end">1.00</text>
+<line x1="110" y1="264" x2="4456" y2="264" stroke="#475569" stroke-width="1.5"/>
+<rect x="110" y="149.7" width="52" height="114.3" rx="3" fill="#64748b"/>
+<text x="136.0" y="143.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.57</text>
+<rect x="170" y="64.0" width="52" height="200.0" rx="3" fill="#22c55e"/>
+<text x="196.0" y="58.0" fill="#e2e8f0" font-size="12" text-anchor="middle">1.00</text>
+<text x="166.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.43</text>
+<text x="166.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-scylla</text>
+<rect x="256" y="164.0" width="52" height="100.0" rx="3" fill="#64748b"/>
+<text x="282.0" y="158.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.50</text>
+<rect x="316" y="175.1" width="52" height="88.9" rx="3" fill="#22c55e"/>
+<text x="342.0" y="169.1" fill="#e2e8f0" font-size="12" text-anchor="middle">0.44</text>
+<text x="312.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+-0.06</text>
+<text x="312.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-siren</text>
+<rect x="402" y="208.4" width="52" height="55.6" rx="3" fill="#64748b"/>
+<text x="428.0" y="202.4" fill="#e2e8f0" font-size="12" text-anchor="middle">0.28</text>
+<rect x="462" y="141.8" width="52" height="122.2" rx="3" fill="#22c55e"/>
+<text x="488.0" y="135.8" fill="#e2e8f0" font-size="12" text-anchor="middle">0.61</text>
+<text x="458.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.33</text>
+<text x="458.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">gauntlet-loop</text>
+<rect x="548" y="264.0" width="52" height="0.0" rx="3" fill="#64748b"/>
+<text x="574.0" y="258.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.00</text>
+<rect x="608" y="197.3" width="52" height="66.7" rx="3" fill="#22c55e"/>
+<text x="634.0" y="191.3" fill="#e2e8f0" font-size="12" text-anchor="middle">0.33</text>
+<text x="604.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.33</text>
+<text x="604.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">lean-turns</text>
+<rect x="694" y="164.0" width="52" height="100.0" rx="3" fill="#64748b"/>
+<text x="720.0" y="158.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.50</text>
+<rect x="754" y="180.7" width="52" height="83.3" rx="3" fill="#22c55e"/>
+<text x="780.0" y="174.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.42</text>
+<text x="750.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+-0.08</text>
+<text x="750.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">lean-turns-strict</text>
+<rect x="840" y="219.6" width="52" height="44.4" rx="3" fill="#64748b"/>
+<text x="866.0" y="213.6" fill="#e2e8f0" font-size="12" text-anchor="middle">0.22</text>
+<rect x="900" y="119.6" width="52" height="144.4" rx="3" fill="#22c55e"/>
+<text x="926.0" y="113.6" fill="#e2e8f0" font-size="12" text-anchor="middle">0.72</text>
+<text x="896.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.50</text>
+<text x="896.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">prompt2image</text>
+<rect x="986" y="130.7" width="52" height="133.3" rx="3" fill="#64748b"/>
+<text x="1012.0" y="124.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.67</text>
+<rect x="1046" y="77.3" width="52" height="186.7" rx="3" fill="#22c55e"/>
+<text x="1072.0" y="71.3" fill="#e2e8f0" font-size="12" text-anchor="middle">0.93</text>
+<text x="1042.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.27</text>
+<text x="1042.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">prompt2qr</text>
+<rect x="1132" y="149.7" width="52" height="114.3" rx="3" fill="#64748b"/>
+<text x="1158.0" y="143.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.57</text>
+<rect x="1192" y="92.6" width="52" height="171.4" rx="3" fill="#22c55e"/>
+<text x="1218.0" y="86.6" fill="#e2e8f0" font-size="12" text-anchor="middle">0.86</text>
+<text x="1188.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.29</text>
+<text x="1188.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">ste-writing</text>
+<rect x="1278" y="230.7" width="52" height="33.3" rx="3" fill="#64748b"/>
+<text x="1304.0" y="224.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.17</text>
+<rect x="1338" y="117.3" width="52" height="146.7" rx="3" fill="#22c55e"/>
+<text x="1364.0" y="111.3" fill="#e2e8f0" font-size="12" text-anchor="middle">0.73</text>
+<text x="1334.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.57</text>
+<text x="1334.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">auto-impeccable</text>
+<rect x="1424" y="170.7" width="52" height="93.3" rx="3" fill="#64748b"/>
+<text x="1450.0" y="164.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.47</text>
+<rect x="1484" y="104.0" width="52" height="160.0" rx="3" fill="#22c55e"/>
+<text x="1510.0" y="98.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.80</text>
+<text x="1480.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.33</text>
+<text x="1480.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">clean-code-series</text>
+<rect x="1570" y="152.9" width="52" height="111.1" rx="3" fill="#64748b"/>
+<text x="1596.0" y="146.9" fill="#e2e8f0" font-size="12" text-anchor="middle">0.56</text>
+<rect x="1630" y="130.7" width="52" height="133.3" rx="3" fill="#22c55e"/>
+<text x="1656.0" y="124.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.67</text>
+<text x="1626.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.11</text>
+<text x="1626.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-cartographer</text>
+<rect x="1716" y="114.0" width="52" height="150.0" rx="3" fill="#64748b"/>
+<text x="1742.0" y="108.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.75</text>
+<rect x="1776" y="80.7" width="52" height="183.3" rx="3" fill="#22c55e"/>
+<text x="1802.0" y="74.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.92</text>
+<text x="1772.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.17</text>
+<text x="1772.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-coral</text>
+<rect x="1862" y="186.2" width="52" height="77.8" rx="3" fill="#64748b"/>
+<text x="1888.0" y="180.2" fill="#e2e8f0" font-size="12" text-anchor="middle">0.39</text>
+<rect x="1922" y="119.6" width="52" height="144.4" rx="3" fill="#22c55e"/>
+<text x="1948.0" y="113.6" fill="#e2e8f0" font-size="12" text-anchor="middle">0.72</text>
+<text x="1918.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.33</text>
+<text x="1918.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-engineer</text>
+<rect x="2008" y="178.3" width="52" height="85.7" rx="3" fill="#64748b"/>
+<text x="2034.0" y="172.3" fill="#e2e8f0" font-size="12" text-anchor="middle">0.43</text>
+<rect x="2068" y="83.0" width="52" height="181.0" rx="3" fill="#22c55e"/>
+<text x="2094.0" y="77.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.90</text>
+<text x="2064.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.48</text>
+<text x="2064.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-gauntlet-loop</text>
+<rect x="2154" y="210.7" width="52" height="53.3" rx="3" fill="#64748b"/>
+<text x="2180.0" y="204.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.27</text>
+<rect x="2214" y="170.7" width="52" height="93.3" rx="3" fill="#22c55e"/>
+<text x="2240.0" y="164.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.47</text>
+<text x="2210.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.20</text>
+<text x="2210.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-git-verify</text>
+<rect x="2300" y="130.7" width="52" height="133.3" rx="3" fill="#64748b"/>
+<text x="2326.0" y="124.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.67</text>
+<rect x="2360" y="64.0" width="52" height="200.0" rx="3" fill="#22c55e"/>
+<text x="2386.0" y="58.0" fill="#e2e8f0" font-size="12" text-anchor="middle">1.00</text>
+<text x="2356.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.33</text>
+<text x="2356.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-learning</text>
+<rect x="2446" y="90.7" width="52" height="173.3" rx="3" fill="#64748b"/>
+<text x="2472.0" y="84.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.87</text>
+<rect x="2506" y="90.7" width="52" height="173.3" rx="3" fill="#22c55e"/>
+<text x="2532.0" y="84.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.87</text>
+<text x="2502.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.00</text>
+<text x="2502.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-nautilus</text>
+<rect x="2592" y="152.9" width="52" height="111.1" rx="3" fill="#64748b"/>
+<text x="2618.0" y="146.9" fill="#e2e8f0" font-size="12" text-anchor="middle">0.56</text>
+<rect x="2652" y="75.1" width="52" height="188.9" rx="3" fill="#22c55e"/>
+<text x="2678.0" y="69.1" fill="#e2e8f0" font-size="12" text-anchor="middle">0.94</text>
+<text x="2648.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.39</text>
+<text x="2648.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-pearl</text>
+<rect x="2738" y="225.9" width="52" height="38.1" rx="3" fill="#64748b"/>
+<text x="2764.0" y="219.9" fill="#e2e8f0" font-size="12" text-anchor="middle">0.19</text>
+<rect x="2798" y="102.1" width="52" height="161.9" rx="3" fill="#22c55e"/>
+<text x="2824.0" y="96.1" fill="#e2e8f0" font-size="12" text-anchor="middle">0.81</text>
+<text x="2794.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.62</text>
+<text x="2794.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-poseidon</text>
+<rect x="2884" y="119.6" width="52" height="144.4" rx="3" fill="#64748b"/>
+<text x="2910.0" y="113.6" fill="#e2e8f0" font-size="12" text-anchor="middle">0.72</text>
+<rect x="2944" y="86.2" width="52" height="177.8" rx="3" fill="#22c55e"/>
+<text x="2970.0" y="80.2" fill="#e2e8f0" font-size="12" text-anchor="middle">0.89</text>
+<text x="2940.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.17</text>
+<text x="2940.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-prompt-gauntlet</text>
+<rect x="3030" y="239.8" width="52" height="24.2" rx="3" fill="#64748b"/>
+<text x="3056.0" y="233.8" fill="#e2e8f0" font-size="12" text-anchor="middle">0.12</text>
+<rect x="3090" y="106.4" width="52" height="157.6" rx="3" fill="#22c55e"/>
+<text x="3116.0" y="100.4" fill="#e2e8f0" font-size="12" text-anchor="middle">0.79</text>
+<text x="3086.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.67</text>
+<text x="3086.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">v4-flash</text>
+<rect x="3176" y="221.6" width="52" height="42.4" rx="3" fill="#64748b"/>
+<text x="3202.0" y="215.6" fill="#e2e8f0" font-size="12" text-anchor="middle">0.21</text>
+<rect x="3236" y="148.8" width="52" height="115.2" rx="3" fill="#22c55e"/>
+<text x="3262.0" y="142.8" fill="#e2e8f0" font-size="12" text-anchor="middle">0.58</text>
+<text x="3232.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.36</text>
+<text x="3232.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">v4-pro</text>
+<rect x="3322" y="210.7" width="52" height="53.3" rx="3" fill="#64748b"/>
+<text x="3348.0" y="204.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.27</text>
+<rect x="3382" y="144.0" width="52" height="120.0" rx="3" fill="#22c55e"/>
+<text x="3408.0" y="138.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.60</text>
+<text x="3378.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.33</text>
+<text x="3378.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">dc-v4-flash</text>
+<rect x="3468" y="210.7" width="52" height="53.3" rx="3" fill="#64748b"/>
+<text x="3494.0" y="204.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.27</text>
+<rect x="3528" y="150.7" width="52" height="113.3" rx="3" fill="#22c55e"/>
+<text x="3554.0" y="144.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.57</text>
+<text x="3524.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.30</text>
+<text x="3524.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">dc-v4-pro</text>
+<rect x="3614" y="181.6" width="52" height="82.4" rx="3" fill="#64748b"/>
+<text x="3640.0" y="175.6" fill="#e2e8f0" font-size="12" text-anchor="middle">0.41</text>
+<rect x="3674" y="67.9" width="52" height="196.1" rx="3" fill="#22c55e"/>
+<text x="3700.0" y="61.9" fill="#e2e8f0" font-size="12" text-anchor="middle">0.98</text>
+<text x="3670.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.57</text>
+<text x="3670.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">orchestrator</text>
+<rect x="3760" y="216.4" width="52" height="47.6" rx="3" fill="#64748b"/>
+<text x="3786.0" y="210.4" fill="#e2e8f0" font-size="12" text-anchor="middle">0.24</text>
+<rect x="3820" y="92.6" width="52" height="171.4" rx="3" fill="#22c55e"/>
+<text x="3846.0" y="86.6" fill="#e2e8f0" font-size="12" text-anchor="middle">0.86</text>
+<text x="3816.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.62</text>
+<text x="3816.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">luna</text>
+<rect x="3906" y="157.3" width="52" height="106.7" rx="3" fill="#64748b"/>
+<text x="3932.0" y="151.3" fill="#e2e8f0" font-size="12" text-anchor="middle">0.53</text>
+<rect x="3966" y="104.0" width="52" height="160.0" rx="3" fill="#22c55e"/>
+<text x="3992.0" y="98.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.80</text>
+<text x="3962.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.27</text>
+<text x="3962.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">dc-luna</text>
+<rect x="4052" y="147.3" width="52" height="116.7" rx="3" fill="#64748b"/>
+<text x="4078.0" y="141.3" fill="#e2e8f0" font-size="12" text-anchor="middle">0.58</text>
+<rect x="4112" y="114.0" width="52" height="150.0" rx="3" fill="#22c55e"/>
+<text x="4138.0" y="108.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.75</text>
+<text x="4108.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.17</text>
+<text x="4108.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-abyssal</text>
+<rect x="4198" y="197.3" width="52" height="66.7" rx="3" fill="#64748b"/>
+<text x="4224.0" y="191.3" fill="#e2e8f0" font-size="12" text-anchor="middle">0.33</text>
+<rect x="4258" y="130.7" width="52" height="133.3" rx="3" fill="#22c55e"/>
+<text x="4284.0" y="124.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.67</text>
+<text x="4254.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.33</text>
+<text x="4254.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-architect</text>
+<rect x="4344" y="230.7" width="52" height="33.3" rx="3" fill="#64748b"/>
+<text x="4370.0" y="224.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.17</text>
+<rect x="4404" y="89.0" width="52" height="175.0" rx="3" fill="#22c55e"/>
+<text x="4430.0" y="83.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.88</text>
+<text x="4400.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.71</text>
+<text x="4400.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-blitzkrieg-tdd</text>
+</svg>
