@@ -1,4 +1,4 @@
-# kraken-cartographer — Human Guide
+# kraken-cartographer: Human Guide
 
 This skill produces work plans. A good plan is correct, complete, and
 verifiable. The skill forces four phases before any plan is output.
@@ -27,8 +27,8 @@ process control.
 ## When not to use
 
 Do not use this skill for trivial tasks that need one step. Do not use it when
-you need code, not a plan — use `kraken-blitzkrieg-tdd`. Do not use it for
-architecture trade-off decisions — use `kraken-architect`.
+you need code, not a plan: use `kraken-blitzkrieg-tdd`. Do not use it for
+architecture trade-off decisions: use `kraken-architect`.
 
 ## How the skill works
 

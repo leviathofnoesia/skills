@@ -1,4 +1,4 @@
-# lean-turns-strict — Human Guide
+# lean-turns-strict: Human Guide
 
 This skill is the strict variant of lean-turns. The user sees exactly one
 status token per intermediate turn. All other content waits for the final
@@ -8,8 +8,8 @@ deliverable turn.
 
 The skill collapses every intermediate turn to a single status token. The
 agent still reasons, explores, calls tools, and verifies as normal. Strict
-mode changes what is visible, not what the agent understands. All detail —
-paths, errors, decisions, risks, findings — is held internally and surfaced
+mode changes what is visible, not what the agent understands. All detail:
+paths, errors, decisions, risks, findings: is held internally and surfaced
 in the final turn.
 
 ## Why use this skill
@@ -53,7 +53,7 @@ that matches the current step.
 The final turn is full, readable prose. It surfaces everything deferred
 during the run: what was done, the result, verification evidence, decisions,
 and risks. Paths, errors, and identifiers appear verbatim. Written artifacts
-— PR descriptions, commit messages, docs — are full prose, never compressed.
+:PR descriptions, commit messages, docs: are full prose, never compressed.
 
 ## What strict mode never does
 
@@ -75,11 +75,11 @@ and risks. Paths, errors, and identifiers appear verbatim. Written artifacts
 
 ## Words used
 
-- **status token** — one of `P:`, `E:`, `V:`, `F:`. The only visible
+- **status token**: one of `P:`, `E:`, `V:`, `F:`. The only visible
   content of an intermediate turn.
-- **deferred disclosure** — detail held internally and emitted in the final
+- **deferred disclosure**: detail held internally and emitted in the final
   turn, verbatim where required.
-- **suppression** — collapsing visible output, not understanding.
+- **suppression**: collapsing visible output, not understanding.
 
 ## Measured impact
 
@@ -96,7 +96,7 @@ arm three times.
 ![Benchmark: with vs without skill](./assets/bench.svg)
 
 This result is negative, and that is honest. The benchmark task did not bind
-to the skill's specific rules — the rubric rewarded detail the strict mode
+to the skill's specific rules: the rubric rewarded detail the strict mode
 defers by design, so the with-skill arm scored lower on that task. The
 token saving is the point of the skill; the rubric did not measure it.
 
@@ -106,4 +106,4 @@ reproduce these results.
 
 ## See also
 
-- `lean-turns` — the base skill: lean intermediate turns, full final turn.
+- `lean-turns`: the base skill: lean intermediate turns, full final turn.

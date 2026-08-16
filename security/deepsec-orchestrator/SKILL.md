@@ -3,10 +3,10 @@ name: deepsec-orchestrator
 description: "Loop deepsec+Codex via judge; consolidate and auto-apply."
 ---
 
-# DeepSec Orchestrator — chain-shaped looping graph
+# DeepSec Orchestrator: chain-shaped looping graph
 
 Run **Codex Security and deepsec side by side**, consolidate their findings,
-and **apply the fixes automatically** — with an **advisor/judge agent in the
+and **apply the fixes automatically**: with an **advisor/judge agent in the
 middle** that decides what to trust, what to apply, and whether to loop again.
 The workflow is a **chain** (scan → consolidate → judge → apply → verify) shaped
 into a **looping graph**: the verify/judge edges route back to the scanner
@@ -21,21 +21,21 @@ nodes for the next model/harness/API set.
 > **For humans:** read `human.md` for a full guide with diagrams. The full node
 > and edge reference, with a mermaid diagram, is in `references/graph.md`.
 
-## 1. Configure (MANDATORY — collect the full set list before anything runs)
+## 1. Configure (MANDATORY: collect the full set list before anything runs)
 
 Refuse to start until the user provides **all** of:
 
-- **target** — one absolute path.
-- **sets** — a list of ≥1 scanner configurations. Each set = `{model id,
+- **target**: one absolute path.
+- **sets**: a list of ≥1 scanner configurations. Each set = `{model id,
   deepsec harness (--agent pi|codex), deepsec api (base URL + key env),
   codex-security provider + api (--provider / --codex + key env)}`. *Multiple
-  sets are the point* — e.g. set 1 = v4-flash via gateway A, set 2 = v4-pro via
+  sets are the point*: e.g. set 1 = v4-flash via gateway A, set 2 = v4-pro via
   gateway B.
-- **judge config** — the advisor/judge's own `{model, harness/api}` (may differ
+- **judge config**: the advisor/judge's own `{model, harness/api}` (may differ
   from the scanner sets; may itself be a list to judge in multiple passes).
-- **apply policy** — `auto` (apply every judge-approved fix), `hybrid`
+- **apply policy**: `auto` (apply every judge-approved fix), `hybrid`
   (auto-apply low-risk, prompt for high-risk), or `manual` (report only).
-- **stop criteria** — `max_loops` (default = number of sets), the convergence
+- **stop criteria**: `max_loops` (default = number of sets), the convergence
   rule (default: a full pass with **no new P0/P1 true-positives**), and whether
   deepsec `--reinvestigate <N>` re-scan waves are allowed.
 
@@ -48,7 +48,7 @@ Missing any field → ask. Never assume a model id, endpoint, provider, or key e
 | **SCAN·deepsec** | subagent (leaf) | target + set_k | `findings` (md-dir export) |
 | **SCAN·codex-security** | subagent (leaf), parallel to the above | target + set_k | `codex-security-results/` (report + json) |
 | **CONSOLIDATE** | orchestrator (this agent) | both scanner outputs | one normalized `findings.jsonl`: id, tool, file:line, severity, CWE, evidence, source-set |
-| **JUDGE** | subagent (leaf, fresh context — *never* the same context as a scanner) | consolidated list + judge config | per-finding verdict + a pass verdict (`converge` / `continue` / `escalate`) |
+| **JUDGE** | subagent (leaf, fresh context: *never* the same context as a scanner) | consolidated list + judge config | per-finding verdict + a pass verdict (`converge` / `continue` / `escalate`) |
 | **APPLY** | subagent (leaf, coding agent) | judge-approved findings | fixes on a git branch, one commit per finding, finding→commit map |
 | **VERIFY** | orchestrator | applied diffs | re-run affected tests + re-scan changed files; before/after evidence |
 | **REPORT** | orchestrator | everything | final consolidated report + applied diff + per-set table |
@@ -79,7 +79,7 @@ in the same pass). It:
 
 Use the prompt template in `references/judge-prompt.md`.
 
-## 4. Apply (auto) — safety rails
+## 4. Apply (auto): safety rails
 
 - All fixes land on a **dedicated git branch**; one commit per finding; never on `main`.
 - Every change is a **revertable diff**, recorded in the finding→commit map.

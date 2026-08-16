@@ -1,4 +1,4 @@
-# kraken-pearl — Human Guide
+# kraken-pearl: Human Guide
 
 This skill extracts structured information from media files. It works on
 PDFs, images, diagrams, screenshots, presentations, and charts. It reports

@@ -1,4 +1,4 @@
-# kraken-gauntlet-loop — Human Guide
+# kraken-gauntlet-loop: Human Guide
 
 This skill runs a quality loop. The agent builds a piece, a separate critic
 compares it against a real reference blind, and the builder attacks the one
@@ -12,7 +12,7 @@ be judged on its own. Each piece runs its own loop.
 
 Each round has four steps. Build: make real, runnable output. Critique: a
 separate agent compares the output against the bar, blind. Compare: the
-verdict is win, tie, or lose per axis — "improved" does not count. Loop:
+verdict is win, tie, or lose per axis: "improved" does not count. Loop:
 repeat until every axis wins or ties.
 
 The kraken version adds two rules. The verdict needs two independent signals
@@ -29,7 +29,7 @@ evidence-gated completion around the loop.
 ## When not to use
 
 Do not use this skill when the spec is fully known and a test can assert
-correctness — use `kraken-blitzkrieg-tdd` alone. Do not use it when no real
+correctness: use `kraken-blitzkrieg-tdd` alone. Do not use it when no real
 bar exists. Do not use it when "good enough" is the goal. Use the standalone
 `gauntlet-loop` when you want the loop without process overhead.
 

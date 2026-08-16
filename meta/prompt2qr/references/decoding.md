@@ -18,8 +18,8 @@ A QR decoder is needed on the receiving machine. Options:
    ```
    Or via CLI: `zbarimg --raw qr_000.png`
 3. For each decoded bytes blob, parse the 6-byte header:
-   - Bytes 0-2: magic `b'P2Q'` — assert matches.
-   - Byte 3: version — assert `== 1`.
+   - Bytes 0-2: magic `b'P2Q'`: assert matches.
+   - Byte 3: version: assert `== 1`.
    - Byte 4: position (0-indexed).
    - Byte 5: total count.
    - Bytes 6+: compressed chunk data.
@@ -63,8 +63,8 @@ that artifact.
 Arch Linux with the distro `zbar` package) decode **byte-mode** QR through a
 Latin-1 → UTF-8 path. The effect: each original byte `0x00–0xFF` is read as a
 Latin-1 code point and re-encoded as UTF-8, so e.g. the gzip magic `\x1f\x8b`
-comes back as `\x1f\xc2\x8b`. The QR carries the correct bytes — the encoder is
-lossless — but the decode layer mangles them on the way out.
+comes back as `\x1f\xc2\x8b`. The QR carries the correct bytes: the encoder is
+lossless: but the decode layer mangles them on the way out.
 
 This is a bijection over all 256 byte values, so it is fully recoverable:
 
@@ -79,7 +79,7 @@ def recover(raw: bytes) -> bytes:
 ```
 
 Apply `recover()` to `raw` before parsing the header. The gzip/QR encoder side
-is unchanged — this is a receive-side artifact only. (If you instead use the
+is unchanged: this is a receive-side artifact only. (If you instead use the
 `zbarimg --raw` CLI with a non-quirked build, `raw` is already correct and
 `recover()` harmlessly returns it unchanged.)
 

@@ -1,4 +1,4 @@
-# kraken-abyssal — Human Guide
+# kraken-abyssal: Human Guide
 
 This skill answers questions about external libraries and frameworks with cited evidence. Every claim links to a permanent, version-pinned source.
 

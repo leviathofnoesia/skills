@@ -3,10 +3,10 @@ name: lean-turns-strict
 description: "Ultra-lean turns: summary-only until the final deliverable."
 ---
 
-# Lean Turns — Strict
+# Lean Turns: Strict
 
-The strict variant of lean-turns. Same goal — spend intermediate turns like
-tokens, the final turn like prose — but taken to its limit: **the user sees
+The strict variant of lean-turns. Same goal: spend intermediate turns like
+tokens, the final turn like prose: but taken to its limit: **the user sees
 exactly one token per intermediate turn.** All substance (paths, errors,
 decisions, risks, findings, and the agent's full reasoning) is retained
 internally and emitted only in the final deliverable turn.
@@ -14,16 +14,16 @@ internally and emitted only in the final deliverable turn.
 Crucially, strict mode changes **output**, not **understanding**. The agent
 reasons, explores, calls tools, and verifies exactly as it otherwise would;
 only the *visible* intermediate surface is collapsed to a single status
-token. Nothing is lost — it is deferred.
+token. Nothing is lost: it is deferred.
 
 **Rule:** every intermediate turn emits exactly one status token; the closing
 turn is full prose.
 
 ## When to Use
 
-- Token-suppressed intermediate turns for multi-step prompt runs — an ultra-lean overlay that shows the user ONE status token per intermediate turn (P:/E:/V:/F:) and holds all detail, paths, errors, decisions, and reasoning internally until the final deliverable turn, which is full prose.
-- the agent's own understanding is never reduced. Use on explicit asks: "strict mode", "ultra lean", "one token per turn", "suppress the play-by-play", "I only want the final answer". Compresses visible output only — the agent still reasons fully and never drops a load-bearing fact, a hard constraint, or a specialist skill's mandated output.
-- everything surfaces in the final turn. A behavior overlay, not a capability — load alongside lean-turns and specialist skills, not as a replacement.
+- Token-suppressed intermediate turns for multi-step prompt runs: an ultra-lean overlay that shows the user ONE status token per intermediate turn (P:/E:/V:/F:) and holds all detail, paths, errors, decisions, and reasoning internally until the final deliverable turn, which is full prose.
+- the agent's own understanding is never reduced. Use on explicit asks: "strict mode", "ultra lean", "one token per turn", "suppress the play-by-play", "I only want the final answer". Compresses visible output only: the agent still reasons fully and never drops a load-bearing fact, a hard constraint, or a specialist skill's mandated output.
+- everything surfaces in the final turn. A behavior overlay, not a capability: load alongside lean-turns and specialist skills, not as a replacement.
 ## When this skill fires
 
 - Explicit asks: "strict mode", "ultra lean", "one token per turn",
@@ -32,23 +32,23 @@ turn is full prose.
 
 Skip suppression (emit a full turn) when:
 
-- The reply is a single turn with no tool calls — it **is** the deliverable.
+- The reply is a single turn with no tool calls: it **is** the deliverable.
 - The user asks for a full reasoning trace or "show every step".
 - An active skill HARD-mandates immediate disclosure (e.g. a security stop or
-  audit trace) for the section in question — that mandate wins over one-token
+  audit trace) for the section in question: that mandate wins over one-token
   suppression for the traced section.
 
 ## Operating principles
 
-1. **One token visible** — an intermediate turn emits exactly one status
+1. **One token visible**: an intermediate turn emits exactly one status
    token; nothing else reaches the user.
-2. **Agent understanding intact** — internal reasoning is never reduced; only
+2. **Agent understanding intact**: internal reasoning is never reduced; only
    output is suppressed.
-3. **Deferred disclosure** — every path, error, decision, and risk is held and
+3. **Deferred disclosure**: every path, error, decision, and risk is held and
    emitted in the final turn, verbatim where required.
-4. **Safety outranks suppression** — a hard mandate to disclose forces a full
+4. **Safety outranks suppression**: a hard mandate to disclose forces a full
    turn; strict mode never licenses hiding a mandated fact mid-run.
-5. **Final turn full prose** — identical to lean-turns: full, readable,
+5. **Final turn full prose**: identical to lean-turns: full, readable,
    structured as any active specialist skill requires.
 
 ## Visible dialect (intermediate turns)
@@ -63,7 +63,7 @@ Only one of these reaches the user, per turn:
 | `F:`  | finalizing         |
 
 Pick the token that matches the current step. No prose, no symbols, no
-abbreviations — just the single token. The step's real content lives in the
+abbreviations: just the single token. The step's real content lives in the
 agent's context, not in the turn.
 
 ## Final turn (full prose)
@@ -71,15 +71,15 @@ agent's context, not in the turn.
 Write the closing/deliverable turn in normal, readable prose:
 
 - Surface everything deferred during the run: what was done, the result,
-  verification evidence, decisions, and risks — with paths, errors, and
+  verification evidence, decisions, and risks: with paths, errors, and
   identifiers verbatim.
 - Follow any active specialist skill's output format (e.g. a structured
   Status/Action/Finding/Next block).
-- No symbol shorthand, no telegraphic dialect — except inside actual code
+- No symbol shorthand, no telegraphic dialect: except inside actual code
   blocks.
 
-Written artifacts — PR descriptions, commit messages, doc files, release
-notes — are deliverables: full prose, never compressed.
+Written artifacts: PR descriptions, commit messages, doc files, release
+notes: are deliverables: full prose, never compressed.
 
 ## Precedence
 
@@ -103,6 +103,6 @@ notes — are deliverables: full prose, never compressed.
 - Renaming identifiers to save tokens.
 - Dropping a load-bearing fact, path, decision, or risk from the final turn.
 - Compressing the final turn or written artifacts.
-- Stripping a warning or hard constraint — defer it to the final turn, don't
+- Stripping a warning or hard constraint: defer it to the final turn, don't
   delete it.
 - Letting suppression reduce the agent's own reasoning or verification.

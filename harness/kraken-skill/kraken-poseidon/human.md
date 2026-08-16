@@ -1,4 +1,4 @@
-# kraken-poseidon — Human Guide
+# kraken-poseidon: Human Guide
 
 This skill analyzes a request before you plan it. It surfaces requirements,
 boundaries, and hidden ambiguities. It outputs a structured specification

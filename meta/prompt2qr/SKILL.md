@@ -5,11 +5,11 @@ description: "Compress a prompt and encode it as binary QR PNGs."
 
 # Prompt to QR
 
-Gzip-compresses text and splits it across a sequence of QR codes (PNG). Lossless: the receiving agent decodes and gunzips to recover the exact original text. For long prompts — compare the zero text-token cost (QR images are scanned by the receiving agent) versus raw text-token count.
+Gzip-compresses text and splits it across a sequence of QR codes (PNG). Lossless: the receiving agent decodes and gunzips to recover the exact original text. For long prompts: compare the zero text-token cost (QR images are scanned by the receiving agent) versus raw text-token count.
 
 ## When to Use
 
-- Compress a text prompt with gzip and encode it as a sequence of lossless binary QR codes (PNG). Use when the user says "prompt to QR", "encode this prompt as QR", "make a QR sequence", "lossless prompt compression", or wants to transmit a prompt via QR codes without any token cost. Differentiator: lossless gzip+binary-QR — exact byte-for-byte reconstruction, unlike the OCR-based prompt2image. Encode-only on this side.
+- Compress a text prompt with gzip and encode it as a sequence of lossless binary QR codes (PNG). Use when the user says "prompt to QR", "encode this prompt as QR", "make a QR sequence", "lossless prompt compression", or wants to transmit a prompt via QR codes without any token cost. Differentiator: lossless gzip+binary-QR: exact byte-for-byte reconstruction, unlike the OCR-based prompt2image. Encode-only on this side.
 - decoding documented in references/decoding.md.
 ## Prerequisites
 
@@ -49,7 +49,7 @@ Do NOT just print the directory and stop. Surface the QR codes for the user:
 ## Workflow
 
 1. Write the prompt to a file or pipe via stdin.
-2. Run the script — it gzips the text and writes a sequence of QR PNGs.
+2. Run the script: it gzips the text and writes a sequence of QR PNGs.
 3. Send the PNG files to the receiving agent (or share them physically).
 4. The receiving agent follows `references/decoding.md` to reconstruct the original text.
 
@@ -74,6 +74,6 @@ count=$(ls <out_dir>/qr_*.png | wc -l)
 
 ## Limitations
 
-- Max 255 QR codes per sequence (1-byte position field) — sufficient for ~500KB of compressed text.
+- Max 255 QR codes per sequence (1-byte position field): sufficient for ~500KB of compressed text.
 - Receiving agent needs a QR decoder (pyzbar or zbarimg).
-- QR codes use error correction M — less tolerant of damage than H, but holds more data per code.
+- QR codes use error correction M: less tolerant of damage than H, but holds more data per code.

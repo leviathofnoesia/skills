@@ -1,4 +1,4 @@
-# gauntlet-loop — Human Guide
+# gauntlet-loop: Human Guide
 
 This skill runs a build-critic-rebuild loop. The loop drives an output toward
 a real quality bar. It stops when the output wins or ties against that bar.
@@ -51,14 +51,14 @@ all, the loop has nothing to converge on. Stop.
 
 ## The round protocol
 
-1. **BUILD** — the builder makes real, runnable output. Not a plan. Not a
+1. **BUILD**: the builder makes real, runnable output. Not a plan. Not a
    summary. The actual artifact.
-2. **CRITIQUE** — the critic opens the bar and the output side by side,
+2. **CRITIQUE**: the critic opens the bar and the output side by side,
    blind. It names the single biggest gap. That gap becomes the next build
    prompt, word for word.
-3. **COMPARE** — the critic gives a verdict per axis: win, tie, or lose.
+3. **COMPARE**: the critic gives a verdict per axis: win, tie, or lose.
    Tie counts as a win.
-4. **LOOP** — repeat until every axis wins or ties.
+4. **LOOP**: repeat until every axis wins or ties.
 
 ## The verdicts
 
@@ -97,11 +97,11 @@ verdict, biggest gap, round. The page is the record of the run.
 
 ## Words used
 
-- **bar** — the reference artifact the output is judged against.
-- **axis** — one property the critic scores, such as speed or clarity.
-- **critic** — the separate agent that judges output against the bar, blind.
-- **verdict** — win, tie, or lose on one axis.
-- **progress page** — the live file that records every round.
+- **bar**: the reference artifact the output is judged against.
+- **axis**: one property the critic scores, such as speed or clarity.
+- **critic**: the separate agent that judges output against the bar, blind.
+- **verdict**: win, tie, or lose on one axis.
+- **progress page**: the live file that records every round.
 
 ## Measured impact
 
@@ -123,6 +123,6 @@ reproduce these results.
 
 ## See also
 
-- `references/bar.md` — the bar template and the comparison sentence.
-- `references/prompt.md` — the copy-pasteable agent prompt.
-- `kraken-gauntlet-loop` — the Kraken version with PDSA and plan-audit gates.
+- `references/bar.md`: the bar template and the comparison sentence.
+- `references/prompt.md`: the copy-pasteable agent prompt.
+- `kraken-gauntlet-loop`: the Kraken version with PDSA and plan-audit gates.

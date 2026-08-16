@@ -1,4 +1,4 @@
-# deepsec-codex-luna — Human Guide
+# deepsec-codex-luna: Human Guide
 
 This skill runs two security scanners on one target. Both scanners use the Luna model. The results are merged into one summary.
 

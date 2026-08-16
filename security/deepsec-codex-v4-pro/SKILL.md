@@ -3,10 +3,10 @@ name: deepsec-codex-v4-pro
 description: "Dual-scan deepsec+Codex on V4 Pro; ask harness/api."
 ---
 
-# DeepSec + Codex Security — DeepSeek V4 Pro
+# DeepSec + Codex Security: DeepSeek V4 Pro
 
 Run **both** scanners on the same target, both on **DeepSeek V4 Pro**. The
-harness and API are **never hardcoded** — ask the user first, separately for
+harness and API are **never hardcoded**: ask the user first, separately for
 each tool.
 
 ## When to Use
@@ -29,11 +29,11 @@ flowchart TD
 
 Collect, in this shape:
 
-1. **target** — one absolute path, fixed for the whole run.
-2. **model id** — exact DeepSeek V4 Pro identifier for their endpoint.
-3. **deepsec harness** — `pi` or `codex`.
-4. **deepsec api** — base URL + key env var name.
-5. **Codex Security provider + api** — how Codex Security reaches DeepSeek:
+1. **target**: one absolute path, fixed for the whole run.
+2. **model id**: exact DeepSeek V4 Pro identifier for their endpoint.
+3. **deepsec harness**: `pi` or `codex`.
+4. **deepsec api**: base URL + key env var name.
+5. **Codex Security provider + api**: how Codex Security reaches DeepSeek:
    - `openrouter` (hosts DeepSeek models) → `OPENROUTER_API_KEY` + a
      `deepseek/...` model id, or
    - a custom OpenAI-compatible endpoint via `--codex` override → base URL +

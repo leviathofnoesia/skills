@@ -1,4 +1,4 @@
-# kraken-git-verify — Human Guide
+# kraken-git-verify: Human Guide
 
 This skill prevents silent git failures. A command can look correct but land
 on the wrong repo, branch, or remote. The skill makes you verify the chain

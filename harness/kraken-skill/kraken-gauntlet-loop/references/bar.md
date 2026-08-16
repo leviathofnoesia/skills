@@ -7,9 +7,9 @@ evaluating its own work.
 
 ## The canonical comparison sentence (Claude-of-Duty precedent)
 
-> The bar is a real, in-production reference artifact — a shipped comparable
+> The bar is a real, in-production reference artifact: a shipped comparable
 > product for functional quality, a published spec/RFC for correctness, or a
-> public benchmark leaderboard for performance — that the critic inspects
+> public benchmark leaderboard for performance: that the critic inspects
 > side-by-side with the agent's real output, blind, and judges on the same axes
 > until the agent wins or ties, or the run is stopped.
 
@@ -25,8 +25,8 @@ open and judge blind. The bar must be something a completely fresh set of eyes
    look at directly (a live URL, a real screenshot, a published document, a public
    leaderboard row).
 2. **Define the axes of comparison up front.** Functional parity? Visual
-   fidelity? Output size? Latency? Correctness vs spec? Name 1–3 axes and lock
-   them — the critic judges only on these.
+   fidelity? Output size? Latency? Correctness vs spec? Name 1-3 axes and lock
+   them: the critic judges only on these.
 3. **If no comparable real artifact exists, the bar is wrong.** Fall back to a
    **measurable property** any critic can check without judgment:
    - File size, line count, token count.
@@ -35,7 +35,7 @@ open and judge blind. The bar must be something a completely fresh set of eyes
    - Test pass rate against spec example vectors.
    - Round-trip fidelity (encode → decode → diff against original).
 4. **When the reference is a design/trade-off decision** (vs a shipped product),
-   it is not yet an inspectable bar — adopt `kraken-architect` to turn it into one
+   it is not yet an inspectable bar: adopt `kraken-architect` to turn it into one
    (a design doc, a reference implementation, a benchmark) before naming it the bar.
 
 ## What the critic does with the bar
@@ -44,7 +44,7 @@ open and judge blind. The bar must be something a completely fresh set of eyes
   labels where the bar supports it).
 - Names the **single biggest remaining gap** on the locked axes.
 - States the verdict on each axis as **win / tie / lose** (tie = win).
-- "Improved" is a non-verdict — send back and re-run the round.
+- "Improved" is a non-verdict: send back and re-run the round.
 
 ## Anti-patterns
 

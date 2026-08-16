@@ -1,7 +1,7 @@
 # Codebase Search (Nautilus method)
 
 Systematic search with cross-validation and structured results. Goal: make the
-requester successful with minimal follow-up — comprehensive, validated,
+requester successful with minimal follow-up: comprehensive, validated,
 actionable results beat fast but incomplete ones.
 
 ## Search Strategy Framework

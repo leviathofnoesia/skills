@@ -66,16 +66,16 @@ unless you verify with `git rev-parse --show-toplevel` *after* the cd.
 ## How to disambiguate (ordered, most reliable first)
 
 1. **Explicit `cd` at the start of every command chain.** A leading `cd /path/to/repo`
-   resolves consistently in bash. Do **not** rely on `cwd`/`-C` params for git —
+   resolves consistently in bash. Do **not** rely on `cwd`/`-C` params for git:
    they diverge between the terminal harness and direct file tools.
-2. **`git rev-parse --show-toplevel`** immediately after the cd — confirms the
+2. **`git rev-parse --show-toplevel`** immediately after the cd: confirms the
    canonical path git resolved.
-3. **`git config remote.origin.url`** — confirms which remote "origin" maps to
+3. **`git config remote.origin.url`**: confirms which remote "origin" maps to
    in the resolved repo (the outer hermes-agent repo's origin is
    `NousResearch/hermes-agent.git`; the skills repo's origin is
    `github.com/leviathofnoesia/skills.git`). These differ; a mismatch means
    you're in the wrong repo.
-4. **`git ls-files --error-unmatch <file>`** — confirms a file lives in this
+4. **`git ls-files --error-unmatch <file>`**: confirms a file lives in this
    repo's index. (If a `read_file`/`write_file`/terminal command referenced a
    file that `git ls-files` cannot find, the file is outside git's view and the
    commit will not include it.)
@@ -108,6 +108,6 @@ underlying commits survive elsewhere (e.g., via a merged PR reference).
 
 ## See also
 
-- `kraken-engineer` — the PDSA process this git discipline serves.
-- `references/repo-ambiguity-cheatsheet.md` — quick one-page reminder of the
+- `kraken-engineer`: the PDSA process this git discipline serves.
+- `references/repo-ambiguity-cheatsheet.md`: quick one-page reminder of the
   disambiguation commands above.

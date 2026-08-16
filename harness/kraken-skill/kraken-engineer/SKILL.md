@@ -5,11 +5,11 @@ description: "Engineering: verifiable steps, TDD, evidence gates."
 
 # Kraken Engineer
 
-A portable engineering method distilled from the Kraken Code plugin — one
+A portable engineering method distilled from the Kraken Code plugin: one
 method, many mindsets. It is **not** a plugin: no subagents, no hooks, no
 runtime. It is a set of working disciplines you (the agent) adopt directly.
 When a task calls for a specialist perspective, **adopt that mindset** by
-following the matching reference file — you do the work yourself, you just
+following the matching reference file: you do the work yourself, you just
 think like the specialist. When a dedicated specialist skill is also active,
 its strict rules govern the *technique*; kraken-engineer governs the
 *process* (plan → TDD → verify). Load kraken-engineer alongside specialists,
@@ -20,7 +20,7 @@ syntax. Run code, don't just read it. Admit uncertainty instead of guessing.
 
 ## When to Use
 
-- Universal software-engineering methodology distilled from the Kraken Code plugin: plan with verifiable steps, enforce TDD and evidence-gated completion, delegate by adopting specialist mindsets, and verify by running code. A method overlay, not a capability — load alongside specialist skills (rust-best-practices, tauri-v2, playwright-best-practices, web-design-guidelines, and the like), not as a replacement: kraken-engineer supplies the process, the specialist supplies the technique. Use for any non-trivial implementation, refactoring, bug-fix, planning, architecture, codebase-search, external-research, visual/UI, documentation, or test-coverage task — and to self-audit a work plan or structure a quantitative/constrained-optimization problem.
+- Universal software-engineering methodology distilled from the Kraken Code plugin: plan with verifiable steps, enforce TDD and evidence-gated completion, delegate by adopting specialist mindsets, and verify by running code. A method overlay, not a capability: load alongside specialist skills (rust-best-practices, tauri-v2, playwright-best-practices, web-design-guidelines, and the like), not as a replacement: kraken-engineer supplies the process, the specialist supplies the technique. Use for any non-trivial implementation, refactoring, bug-fix, planning, architecture, codebase-search, external-research, visual/UI, documentation, or test-coverage task: and to self-audit a work plan or structure a quantitative/constrained-optimization problem.
 ## Orchestration Framework (PDSA)
 
 Iterate in four phases. Do not skip phases on non-trivial work.
@@ -29,19 +29,19 @@ Iterate in four phases. Do not skip phases on non-trivial work.
 
 Before any significant action, classify intent, then extract constraints.
 
-**Phase 1 — Intent Classification (mandatory first step).** This decides your
+**Phase 1: Intent Classification (mandatory first step).** This decides your
 whole strategy.
 
-Classify intent first — see `references/constraints.md#phase-1-intent-classification` for the 5-intent table and extraction steps.
+Classify intent first: see `references/constraints.md#phase-1-intent-classification` for the 5-intent table and extraction steps.
 
 Apply Phase 2 only if intent is complex, OR the request is ambiguous, OR
 multiple conflicting interpretations exist.
 
-**Phase 2 — Constraint Extraction.** For the classified intent, extract:
-- **Functional** — what MUST be accomplished; required behaviors; expected outputs.
-- **Non-functional** — performance, reliability, security.
-- **Boundary** — what is explicitly OUT OF SCOPE / must NOT change / limitations.
-- **Resource** — dependencies to use, existing patterns to follow.
+**Phase 2: Constraint Extraction.** For the classified intent, extract:
+- **Functional**: what MUST be accomplished; required behaviors; expected outputs.
+- **Non-functional**: performance, reliability, security.
+- **Boundary**: what is explicitly OUT OF SCOPE / must NOT change / limitations.
+- **Resource**: dependencies to use, existing patterns to follow.
 
 Use constraint analysis to inform planning, shape delegation, and prevent scope
 creep. For the full pre-planning checklist see `references/constraints.md`.
@@ -57,7 +57,7 @@ creep. For the full pre-planning checklist see `references/constraints.md`.
 - Make parallel calls where independent.
 - Track progress visibly.
 
-### Study (validate — run code, don't just read it)
+### Study (validate: run code, don't just read it)
 - Execute the code/tests; confirm behavior, don't infer it.
 - Check changes don't break existing functionality.
 - Verify you solved the actual problem, not a proxy.
@@ -68,16 +68,16 @@ creep. For the full pre-planning checklist see `references/constraints.md`.
 
 ## Tool & Method Priority
 
-**Specialists first for technique** — if a specialist skill matches the task's technique, invoke it before anything else; kraken-engineer governs the overall method.
+**Specialists first for technique**: if a specialist skill matches the task's technique, invoke it before anything else; kraken-engineer governs the overall method.
 
-**Direct tools next** — when native tools suffice, use them directly:
+**Direct tools next**: when native tools suffice, use them directly:
 - `grep`, `glob` for search
 - `read`, `write`, `edit` for files
 - `bash` for shell
 - `lsp_*` for code navigation (definitions, references, symbols)
 - `ast_grep` for structural patterns
 
-**Methodologies last** — when the task warrants a specialist perspective, adopt
+**Methodologies last**: when the task warrants a specialist perspective, adopt
 it by following the matching reference. Do not spawn subagents; think like the
 specialist and do the work.
 
@@ -112,15 +112,15 @@ Before claiming anything works:
 - Never leave code in a broken state.
 - Never speculate about code you haven't read.
 - For visual/frontend changes, adopt the visual-design methodology
-  (`references/visual-design.md`) — don't improvise styling.
+  (`references/visual-design.md`): don't improvise styling.
 
 ## Response Structure
 
 Keep responses clean and scannable:
-1. **Status** — planning / executing / validating.
-2. **Action** — what you're doing now.
-3. **Finding** — what you discovered.
-4. **Next** — where you're going.
+1. **Status**: planning / executing / validating.
+2. **Action**: what you're doing now.
+3. **Finding**: what you discovered.
+4. **Next**: where you're going.
 
 Avoid excessive headers and nested bullets; get to the point.
 
@@ -136,16 +136,16 @@ Avoid excessive headers and nested bullets; get to the point.
 
 ## Reference Index (load on demand)
 
-Read a reference only when the task needs it — progressive disclosure keeps this
+Read a reference only when the task needs it: progressive disclosure keeps this
 skill lean:
-- `references/planning.md` — Cartographer's 4-phase planning + Quantitative Rigor module. Read when producing any non-trivial plan or a budget/resource-constrained optimization.
-- `references/constraints.md` — Poseidon's pre-planning constraint analysis. Read before planning ambiguous or complex requests.
-- `references/architecture.md` — Atlas/Maelstrom/Leviathan: decision matrices + structural audit. Read for architecture or design decisions.
-- `references/codebase-search.md` — Nautilus: search strategy + tool-selection matrix. Read for multi-angle codebase search.
-- `references/research.md` — Abyssal: external research with permanent citations. Read for questions about external libraries/frameworks.
-- `references/visual-design.md` — Coral: design-system visual changes. Read for UI/visual work.
-- `references/documentation.md` — Siren: docs framework. Read when writing docs.
-- `references/plan-qa.md` — Scylla: SOLID + measurable-criteria plan audit. Read to self-review a plan before execution.
-- `references/multimedia.md` — Pearl: extract structured info from PDF/image/diagram. Read when given media to interpret.
-- `references/blitzkrieg-tdd.md` — test-plan-first, TDD, evidence-gated completion, planner constraints. Read on any implementation task.
-- `references/learning.md` — the learning-memory practice. Read after finishing a task worth remembering.
+- `references/planning.md`: Cartographer's 4-phase planning + Quantitative Rigor module. Read when producing any non-trivial plan or a budget/resource-constrained optimization.
+- `references/constraints.md`: Poseidon's pre-planning constraint analysis. Read before planning ambiguous or complex requests.
+- `references/architecture.md`: Atlas/Maelstrom/Leviathan: decision matrices + structural audit. Read for architecture or design decisions.
+- `references/codebase-search.md`: Nautilus: search strategy + tool-selection matrix. Read for multi-angle codebase search.
+- `references/research.md`: Abyssal: external research with permanent citations. Read for questions about external libraries/frameworks.
+- `references/visual-design.md`: Coral: design-system visual changes. Read for UI/visual work.
+- `references/documentation.md`: Siren: docs framework. Read when writing docs.
+- `references/plan-qa.md`: Scylla: SOLID + measurable-criteria plan audit. Read to self-review a plan before execution.
+- `references/multimedia.md`: Pearl: extract structured info from PDF/image/diagram. Read when given media to interpret.
+- `references/blitzkrieg-tdd.md`: test-plan-first, TDD, evidence-gated completion, planner constraints. Read on any implementation task.
+- `references/learning.md`: the learning-memory practice. Read after finishing a task worth remembering.

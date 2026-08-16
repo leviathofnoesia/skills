@@ -1,4 +1,4 @@
-# prompt2qr — Human Guide
+# prompt2qr: Human Guide
 
 This skill compresses a prompt with gzip and encodes it as a sequence of
 binary QR PNG images. The decode is lossless. The receiver gets the exact

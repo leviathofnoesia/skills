@@ -1,4 +1,4 @@
-# auto-impeccable — Human Guide
+# auto-impeccable: Human Guide
 
 This skill runs a guided tour of a UI project with the full impeccable
 command list. The impeccable skill does the work. This skill sets the order.

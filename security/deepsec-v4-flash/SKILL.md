@@ -3,11 +3,11 @@ name: deepsec-v4-flash
 description: "Scan with deepsec on DeepSeek V4 Flash; ask harness/api."
 ---
 
-# DeepSec — DeepSeek V4 Flash
+# DeepSec: DeepSeek V4 Flash
 
 Run deepsec (the Vercel Labs AI vulnerability scanner) with the **DeepSeek V4
 Flash** model. The harness (`--agent` backend) and API (endpoint + key) are
-**never hardcoded** — you must ask the user for them before running anything.
+**never hardcoded**: you must ask the user for them before running anything.
 
 ## When to Use
 
@@ -25,16 +25,16 @@ flowchart LR
 
 > **For humans:** read `human.md` for a full guide with diagrams.
 
-## 1. Ask the user (MANDATORY — stop and ask before any command)
+## 1. Ask the user (MANDATORY: stop and ask before any command)
 
 DeepSeek is not a first-class deepsec backend, and model ids differ by
 endpoint. Collect all four before running, in this shape:
 
-1. **target** — absolute path to the codebase (the deepsec project `root`, or cwd).
-2. **model id** — the exact DeepSeek V4 Flash identifier for *their* endpoint
+1. **target**: absolute path to the codebase (the deepsec project `root`, or cwd).
+2. **model id**: the exact DeepSeek V4 Flash identifier for *their* endpoint
    (e.g. `deepseek-chat`, `deepseek-ai/DeepSeek-V4-Flash-0731`, or a gateway id).
-3. **harness** — which deepsec backend reaches DeepSeek: `pi` or `codex`.
-4. **api** — base URL + the env var name holding the key (e.g.
+3. **harness**: which deepsec backend reaches DeepSeek: `pi` or `codex`.
+4. **api**: base URL + the env var name holding the key (e.g.
    `https://api.deepseek.com/v1` + `DEEPSEEK_API_KEY`).
 
 If any of the four is missing, ask again. Never assume a base URL, a key env,
@@ -46,7 +46,7 @@ From the deepsec workspace (`.deepsec/`, where `deepsec.config.ts` and `pnpm`
 live). Substitute the user's values for `<id>`, `<model-id>`, `<base-url>`,
 `<KEY_ENV>`.
 
-- **Harness = `pi`** (generic OpenAI-compatible provider override — the
+- **Harness = `pi`** (generic OpenAI-compatible provider override: the
   documented path for arbitrary endpoints):
 
   ```bash

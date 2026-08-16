@@ -1,4 +1,4 @@
-# kraken-nautilus — Human Guide
+# kraken-nautilus: Human Guide
 
 This skill guides codebase search. It picks the right tool for each
 question, runs searches in parallel, and cross-validates the results. The

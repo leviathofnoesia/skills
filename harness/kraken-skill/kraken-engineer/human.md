@@ -1,4 +1,4 @@
-# kraken-engineer — Human Guide
+# kraken-engineer: Human Guide
 
 This skill is a general engineering method. It makes the agent plan first,
 test first, and prove work with evidence before it claims done.
@@ -11,7 +11,7 @@ functional, non-functional, boundary, and resource.
 
 Plan defines subtasks, dependencies, and a Definition of Done. Do executes
 with full context and parallel calls where safe. Study runs the code and the
-tests — it does not only read them. Act fixes issues and records what was
+tests: it does not only read them. Act fixes issues and records what was
 learned. For specialist work, the skill points to a reference file per task
 type: planning, architecture, codebase search, research, visual design,
 documentation, and more.
@@ -30,7 +30,7 @@ technique.
 ## When not to use
 
 Do not use this skill for a question with a direct answer. Do not use it as a
-replacement for a specialist skill — it is an overlay, not a capability. Do
+replacement for a specialist skill: it is an overlay, not a capability. Do
 not use its full process for a one-line change.
 
 ## How the skill works

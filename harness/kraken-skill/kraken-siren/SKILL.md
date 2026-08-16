@@ -9,24 +9,24 @@ Create clear, comprehensive, actionable documentation using information-architec
 
 ## When to Use
 
-- Siren documentation method — clear, comprehensive, actionable docs via information-architecture principles. Use when writing or rewriting documentation: READMEs, API references, tutorials, guides. Covers content mapping, audience assessment, format selection, runnable code examples, and a pre-completion quality checklist. Part of the kraken-engineer mindset family — adopt directly.
+- Siren documentation method: clear, comprehensive, actionable docs via information-architecture principles. Use when writing or rewriting documentation: READMEs, API references, tutorials, guides. Covers content mapping, audience assessment, format selection, runnable code examples, and a pre-completion quality checklist. Part of the kraken-engineer mindset family: adopt directly.
 - compose with kraken-engineer for process and specialist skills for technique.
 ## Documentation Framework
 
 ### Phase 1: Documentation Analysis
-1. **Content mapping** — topics to cover; logical ordering; references connecting topics.
-2. **Audience assessment** — who reads it; prior knowledge assumed; tasks they'll accomplish.
-3. **Format selection** — README (overview/quick start); API Reference (complete signatures); Tutorial (step-by-step); Guide (problem-solution).
+1. **Content mapping**: topics to cover; logical ordering; references connecting topics.
+2. **Audience assessment**: who reads it; prior knowledge assumed; tasks they'll accomplish.
+3. **Format selection**: README (overview/quick start); API Reference (complete signatures); Tutorial (step-by-step); Guide (problem-solution).
 
 ### Phase 2: Content Development
-1. **Clarity** — active voice; short sentences; define terms on first use; concrete examples.
-2. **Structure** — logical sections with clear headings; progressive complexity; cross-references; consistent formatting.
-3. **Code examples** — complete and runnable; commented; include error handling; show success **and** failure cases.
+1. **Clarity**: active voice; short sentences; define terms on first use; concrete examples.
+2. **Structure**: logical sections with clear headings; progressive complexity; cross-references; consistent formatting.
+3. **Code examples**: complete and runnable; commented; include error handling; show success **and** failure cases.
 
 ### Phase 3: Quality Verification
-1. **Readability** — scannable with headers; clear navigation; no unexplained jargon.
-2. **Accuracy** — code examples tested and working; API signatures match implementation; commands verified in context.
-3. **Completeness** — all public APIs documented; common use cases covered; error conditions explained.
+1. **Readability**: scannable with headers; clear navigation; no unexplained jargon.
+2. **Accuracy**: code examples tested and working; API signatures match implementation; commands verified in context.
+3. **Completeness**: all public APIs documented; common use cases covered; error conditions explained.
 
 ## Output Format
 ```

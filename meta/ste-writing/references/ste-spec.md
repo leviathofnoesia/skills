@@ -6,27 +6,27 @@ substitute for the specification itself.
 
 ## Two-part structure of ASD-STE100
 
-1. **Writing rules** — grammar and style rules. Issue 9 (Jan 2025) has **53
+1. **Writing rules**: grammar and style rules. Issue 9 (Jan 2025) has **53
    rules**. The rules separate two text types: *procedures* (instructions) and
    *descriptions* (explanatory text). Some limits differ by type (see below).
-2. **Dictionary** — approximately **900 approved words**, each permitted only
+2. **Dictionary**: approximately **900 approved words**, each permitted only
    as a specific part of speech and meaning.
 
 ## The dictionary: four columns
 
 Per entry (from the spec's example table):
 
-- **Word (part of speech)** — the word and its allowed part of speech.
+- **Word (part of speech)**: the word and its allowed part of speech.
   Principle: *"one word, one part of speech, one meaning."* Approved words are
   written UPPERCASE; unapproved words are lowercase with suggested UPPERCASE
   alternatives.
-- **Approved meaning / alternatives** — the approved definition. If a meaning is
+- **Approved meaning / alternatives**: the approved definition. If a meaning is
   not in the dictionary, you cannot use the word in that meaning; use an
   alternative. For unapproved words, gives suggested replacements (usually the
   first suggestion keeps the same part of speech).
-- **STE example** — shows one way to use the approved word/alternative. Wording
+- **STE example**: shows one way to use the approved word/alternative. Wording
   is *not mandatory*; other approved constructions may keep the same meaning.
-- **Non-STE example** — how the unapproved word is often used in standard
+- **Non-STE example**: how the unapproved word is often used in standard
   technical writing, to illustrate the approved alternative. Empty for approved
   words unless a help symbol flags other meanings/restrictions.
 
@@ -45,7 +45,7 @@ Do **not** build complex tenses with auxiliary verbs (e.g. "is being",
 ## Technical nouns and verbs NOT in the dictionary
 
 Per the spec's Word section (writing rules 1.5 and 1.12), terms needed to
-describe the subject are approved even if absent from the dictionary — e.g.
+describe the subject are approved even if absent from the dictionary: e.g.
 "grease", "discoloration", "propeller", "aural warning system", "overhead
 panel", "to ream", "to drill". These are technical nouns/verbs, not general
 vocabulary.
@@ -73,7 +73,7 @@ fool-proof. The author decides.
 
 Free official copy of the current issue (Issue 9, Jan 2025) from
 **asd-ste100.org** via its online form / download page. Copyright and trademark
-of ASD, Brussels — the dictionary content must not be redistributed; this skill
+of ASD, Brussels: the dictionary content must not be redistributed; this skill
 therefore links to the source rather than bundling it.
 
 ## Sentence limits (rule summary)

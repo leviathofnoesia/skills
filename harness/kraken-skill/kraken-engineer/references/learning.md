@@ -2,7 +2,7 @@
 
 Kraken persisted learning in a SQLite-backed knowledge system (experience store,
 knowledge graph, pattern detection, spaced repetition). That implementation is
-runtime-bound and not portable — but the **habit** is. After finishing a
+runtime-bound and not portable: but the **habit** is. After finishing a
 non-trivial task, spend a moment on these four practices. They compound.
 
 ## 1. Experience store
@@ -27,5 +27,5 @@ future work so they actually inform new tasks.
 
 ## Practical form
 You don't need a database. A notes file, a markdown log, or your memory tool
-suffices — as long as it is (a) written down, (b) linked, (c) tagged with
+suffices: as long as it is (a) written down, (b) linked, (c) tagged with
 confidence, and (d) revisited. The point is to stop re-learning the same lesson.

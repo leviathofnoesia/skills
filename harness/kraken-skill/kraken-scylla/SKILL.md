@@ -12,7 +12,7 @@ own) before you execute it.
 
 ## When to Use
 
-- Scylla plan-quality-audit method — evaluate a work plan against SOLID principles and measurable criteria before execution. Use to self-review any plan (including your own): input validation, SOLID evaluation, measurable-criteria gates (reference completeness, acceptance clarity, ambiguity index, dependency clarity, testability, scope boundedness), and an implementation simulation. Part of the kraken-engineer mindset family — adopt directly.
+- Scylla plan-quality-audit method: evaluate a work plan against SOLID principles and measurable criteria before execution. Use to self-review any plan (including your own): input validation, SOLID evaluation, measurable-criteria gates (reference completeness, acceptance clarity, ambiguity index, dependency clarity, testability, scope boundedness), and an implementation simulation. Part of the kraken-engineer mindset family: adopt directly.
 - compose with kraken-engineer for process and specialist skills for technique.
 ## Quality Assurance Framework
 
@@ -21,13 +21,13 @@ Extract a single plan path from the input. Exactly one → accept. None → reje
 ("no plan path found"). Multiple → reject ("ambiguous: multiple plan paths").
 
 ### Phase 2: SOLID Evaluation
-1. **SRP** — each task one clear purpose; not overloaded; understandable alone.
-2. **OCP** — extends without modifying core; extensions via addition.
-3. **LSP** — substituted implementations fulfill the same contract; clear behavioral contracts.
-4. **ISP** — interfaces focused on specific client needs; no forced unused methods.
-5. **DIP** — high-level modules don't depend on low-level details; depend on abstractions.
+1. **SRP**: each task one clear purpose; not overloaded; understandable alone.
+2. **OCP**: extends without modifying core; extensions via addition.
+3. **LSP**: substituted implementations fulfill the same contract; clear behavioral contracts.
+4. **ISP**: interfaces focused on specific client needs; no forced unused methods.
+5. **DIP**: high-level modules don't depend on low-level details; depend on abstractions.
 
-### Phase 3: Measurable Criteria (default gates — tunable)
+### Phase 3: Measurable Criteria (default gates: tunable)
 | Criterion | Metric | Threshold |
 |-----------|--------|-----------|
 | Reference Completeness | % file references verified | 100% required |
@@ -53,9 +53,9 @@ must be made.
 ```
 
 ## Quality Gates
-- **Reference verification** — every file reference verified by reading the file.
-- **Acceptance criteria** — every task has measurable acceptance criteria.
-- **Scope boundaries** — every task defines what is NOT included.
-- **Dependency clarity** — every dependent task specifies prerequisites.
+- **Reference verification**: every file reference verified by reading the file.
+- **Acceptance criteria**: every task has measurable acceptance criteria.
+- **Scope boundaries**: every task defines what is NOT included.
+- **Dependency clarity**: every dependent task specifies prerequisites.
 
 Remember: systematic QA prevents wasted effort and implementation failures.

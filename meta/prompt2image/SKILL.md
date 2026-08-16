@@ -5,11 +5,11 @@ description: "Render a text prompt as a compact monospace PNG image."
 
 # Prompt to Image
 
-Renders text as a PNG a vision model can OCR for token savings. For long prompts — compare your provider's image-tile cost to the raw text-token count to decide if it's worth it.
+Renders text as a PNG a vision model can OCR for token savings. For long prompts: compare your provider's image-tile cost to the raw text-token count to decide if it's worth it.
 
 ## When to Use
 
-- Render a text prompt as a compact monospace PNG image that a vision-capable agent can read for far fewer tokens than the raw text. Use when the user says "prompt to image", "turn this prompt into an image", "make this prompt token-cheap", "compress this prompt visually", or wants to send a long prompt to a vision model without paying full text-token cost. Differentiator: lossless visual encoding via OCR-readable monospace render — no QR decoder needed on the receiving side.
+- Render a text prompt as a compact monospace PNG image that a vision-capable agent can read for far fewer tokens than the raw text. Use when the user says "prompt to image", "turn this prompt into an image", "make this prompt token-cheap", "compress this prompt visually", or wants to send a long prompt to a vision model without paying full text-token cost. Differentiator: lossless visual encoding via OCR-readable monospace render: no QR decoder needed on the receiving side.
 ## Prerequisites
 
 Pillow must be installed. Check first, install only if missing:
@@ -49,7 +49,7 @@ Do NOT just print the path and stop. Surface the image for the user:
 1. Write the prompt to a file or pipe via stdin.
 2. Run the script; it renders the text as a monospace PNG.
 3. Attach or send the resulting PNG to a vision-capable agent.
-4. The vision model reads the image — token cost depends on image dimensions per your provider's image-token formula, not character count.
+4. The vision model reads the image: token cost depends on image dimensions per your provider's image-token formula, not character count.
 
 ## Failure handling
 
@@ -60,5 +60,5 @@ Do NOT just print the path and stop. Surface the image for the user:
 ## Limitations
 
 - OCR accuracy depends on the receiving model's vision capability.
-- Very long prompts produce very tall images — some providers cap image dimensions.
+- Very long prompts produce very tall images: some providers cap image dimensions.
 - Not lossless: OCR can introduce minor transcription errors. For exact transmission, use `prompt2qr` instead.

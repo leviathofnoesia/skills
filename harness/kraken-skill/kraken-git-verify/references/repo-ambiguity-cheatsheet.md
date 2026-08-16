@@ -1,4 +1,4 @@
-# Repo-Ambiguity Disambiguation — Quick Reference
+# Repo-Ambiguity Disambiguation: Quick Reference
 
 When `git` and `write_file`/`read_file` disagree on where files live (common
 with nested checkouts like `hermes-agent` containing a `skills` repo, or any

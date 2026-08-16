@@ -1,4 +1,4 @@
-# kraken-siren — Human Guide
+# kraken-siren: Human Guide
 
 This skill writes clear, complete, actionable documentation. It gives a
 three-phase method: analyze, develop, verify.
@@ -21,7 +21,7 @@ specialist skills for technique.
 
 Do not use this skill for marketing copy or release notes. Do not use it
 when a docs generator produces the reference from code. Do not use it as a
-full style guide — it gives structure and checks, not prose style rules.
+full style guide: it gives structure and checks, not prose style rules.
 
 ## How the skill works
 
@@ -42,11 +42,11 @@ flowchart LR
 
 ## Phase 1: Analysis
 
-1. **Content mapping** — list the topics to cover, their order, and the
+1. **Content mapping**: list the topics to cover, their order, and the
    cross-references between them.
-2. **Audience assessment** — who reads this, what they already know, what
+2. **Audience assessment**: who reads this, what they already know, what
    tasks they must finish.
-3. **Format selection** — pick one form:
+3. **Format selection**: pick one form:
 
 | Format | Use for |
 |---|---|
@@ -57,20 +57,20 @@ flowchart LR
 
 ## Phase 2: Development
 
-- **Clarity** — active voice, short sentences, terms defined on first use,
+- **Clarity**: active voice, short sentences, terms defined on first use,
   concrete examples.
-- **Structure** — logical sections, clear headings, progressive complexity,
+- **Structure**: logical sections, clear headings, progressive complexity,
   cross-references, consistent formatting.
-- **Code examples** — complete and runnable, commented, with error
+- **Code examples**: complete and runnable, commented, with error
   handling. Show success and failure cases.
 
 ## Phase 3: Verification
 
-1. **Readability** — scannable with headers, clear navigation, no
+1. **Readability**: scannable with headers, clear navigation, no
    unexplained jargon.
-2. **Accuracy** — examples tested, signatures match the implementation,
+2. **Accuracy**: examples tested, signatures match the implementation,
    commands verified in context.
-3. **Completeness** — all public APIs documented, common use cases covered,
+3. **Completeness**: all public APIs documented, common use cases covered,
    error conditions explained.
 
 ## The quality checklist
@@ -85,10 +85,10 @@ Before the task is done:
 
 ## Words used
 
-- **content map** — the topic list, its order, and its cross-references.
-- **format** — README, API reference, tutorial, or guide.
-- **runnable example** — code a reader can copy, run, and see work.
-- **quality checklist** — the five boxes ticked before completion.
+- **content map**: the topic list, its order, and its cross-references.
+- **format**: README, API reference, tutorial, or guide.
+- **runnable example**: code a reader can copy, run, and see work.
+- **quality checklist**: the five boxes ticked before completion.
 
 ## Measured impact
 
@@ -105,7 +105,7 @@ arm three times.
 ![Benchmark: with vs without skill](./assets/bench.svg)
 
 This result is negative, and that is honest. The benchmark task did not bind
-to the skill's specific rules — the base model already writes solid
+to the skill's specific rules: the base model already writes solid
 documentation for the tested prompt, so the skill's structure added no
 measurable score on that task.
 
@@ -115,5 +115,5 @@ reproduce these results.
 
 ## See also
 
-- `kraken-engineer` — the process overlay this skill composes with.
-- `ste-writing` — ASD-STE100 rule checks for controlled technical English.
+- `kraken-engineer`: the process overlay this skill composes with.
+- `ste-writing`: ASD-STE100 rule checks for controlled technical English.

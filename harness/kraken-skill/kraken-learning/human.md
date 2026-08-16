@@ -1,4 +1,4 @@
-# kraken-learning — Human Guide
+# kraken-learning: Human Guide
 
 This skill saves what you learn after meaningful work. It turns one-off
 lessons into knowledge you reuse. You do not need a database for it.

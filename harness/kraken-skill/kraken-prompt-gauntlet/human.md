@@ -1,4 +1,4 @@
-# kraken-prompt-gauntlet — Human Guide
+# kraken-prompt-gauntlet: Human Guide
 
 This skill upgrades a raw brief into a build-grade prompt. It runs a
 critic-rebuild loop until the prompt meets a fixed quality bar. The output

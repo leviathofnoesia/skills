@@ -1,4 +1,4 @@
-# clean-code-series — Human Guide
+# clean-code-series: Human Guide
 
 This skill is a knowledge base distilled from Robert C. Martin's four Clean
 books. It holds frameworks, decision rules, and anti-patterns with chapter

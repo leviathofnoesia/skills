@@ -17,10 +17,10 @@ content is partial or unclear.
 | Chart/Graph | bar/line/pie | Data points, trends, comparisons, legends |
 
 ### Phase 2: Extraction Strategy
-1. **PDF** — text by section; tables → markdown; figures + captions; page numbers; metadata.
-2. **Image** — visual composition; in-image text (OCR); colors/shapes/patterns; spatial relationships; UI elements.
-3. **Diagram** — component relationships; flow direction; hierarchy; legends; architectural patterns.
-4. **Screenshot** — UI components (buttons, inputs, nav); layout; interactive elements; state; visual hierarchy.
+1. **PDF**: text by section; tables → markdown; figures + captions; page numbers; metadata.
+2. **Image**: visual composition; in-image text (OCR); colors/shapes/patterns; spatial relationships; UI elements.
+3. **Diagram**: component relationships; flow direction; hierarchy; legends; architectural patterns.
+4. **Screenshot**: UI components (buttons, inputs, nav); layout; interactive elements; state; visual hierarchy.
 
 ### Phase 3: Structured Output
 ```
@@ -39,14 +39,14 @@ Type / File (absolute path) / Confidence
 ```
 
 ## Quality Standards
-- **Completeness** — all visible text extracted; all visual elements described; relationships captured; metadata included.
-- **Accuracy** — no invented content; confidence stated; limitations acknowledged; ambiguities noted.
-- **Actionability** — output enables immediate use; key info highlighted; context preserved.
+- **Completeness**: all visible text extracted; all visual elements described; relationships captured; metadata included.
+- **Accuracy**: no invented content; confidence stated; limitations acknowledged; ambiguities noted.
+- **Actionability**: output enables immediate use; key info highlighted; context preserved.
 
 ## Constraint Enforcement
-- **No interpretation beyond evidence** — describe, don't speculate.
-- **Complete extraction** — don't skip content, even if seemingly irrelevant.
-- **Preserve context** — note where content is partial or unclear.
-- **Structured output** — follow the template for parseability.
+- **No interpretation beyond evidence**: describe, don't speculate.
+- **Complete extraction**: don't skip content, even if seemingly irrelevant.
+- **Preserve context**: note where content is partial or unclear.
+- **Structured output**: follow the template for parseability.
 
 Remember: transform visual content into actionable, structured information.

@@ -11,8 +11,8 @@ metadata:
 # ASD-STE100 Technical Writing
 
 Apply the ASD-STE100 Simplified Technical English (STE) writing rules when you
-draft or revise technical documentation — procedures, descriptions, warnings,
-and instructions — especially for audiences that include non-native English
+draft or revise technical documentation: procedures, descriptions, warnings,
+and instructions: especially for audiences that include non-native English
 readers. This skill encodes the rule set and a stdlib-only structural linter;
 it does NOT ship the copyrighted approved-word dictionary (~900 words) and does
 NOT auto-convert text. STE compliance still requires the official specification
@@ -28,7 +28,7 @@ plus human judgement.
 
 ## Prerequisites
 
-- Python 3 (for the optional structural linter). No pip installs — stdlib only.
+- Python 3 (for the optional structural linter). No pip installs: stdlib only.
 - The official spec is free from **asd-ste100.org** (Issue 9, Jan 2025: 53
   writing rules + ~900-word dictionary). Download it for authoritative
   dictionary lookups; this skill cannot redistribute the dictionary.
@@ -47,7 +47,7 @@ cat doc.md | python3 <skill_dir>/scripts/ste_check.py
 ```
 
 Substitute `<skill_dir>` with this skill's resolved path (e.g.
-`meta/ste-writing`). The linter is advisory only — it cannot check dictionary
+`meta/ste-writing`). The linter is advisory only: it cannot check dictionary
 compliance.
 
 ## Quick Reference
@@ -100,12 +100,12 @@ lowercase with suggested UPPERCASE alternatives.
    (use -ing only as a technical noun, e.g. "drilling", or as a noun modifier).
 7. **Replace unapproved words with dictionary alternatives.** If a word is not
    in the dictionary, use the suggested approved alternative or a different
-   approved word — never invent a meaning for an approved word.
+   approved word: never invent a meaning for an approved word.
 8. **Keep technical nouns/verbs.** Terms not in the dictionary but needed to
    describe the subject (e.g. "grease", "propeller", "to drill", "overhead
    panel") are permitted as technical nouns/verbs per the spec's Word section.
 9. **Lead safety/cautions with a command or condition.** "TO PREVENT
-   ACCIDENTS, INSTALL THE PINS." not "Accidents can be prevented by…"
+   ACCIDENTS, INSTALL THE PINS." not "Accidents can be prevented by..."
 10. **Run the linter** (`terminal`) for length/voice/-ing/long-noun flags, then
     fix and re-read for dictionary compliance against the official spec.
 
@@ -114,11 +114,11 @@ lowercase with suggested UPPERCASE alternatives.
 - **Dictionary is not included.** This skill guides rules; approved-word
   lookup needs the free official download. Never guess an approved meaning.
 - **Checkers don't convert.** No tool (including this linter) turns non-STE into
-  STE or guarantees grammar — it only flags likely mechanical violations.
+  STE or guarantees grammar: it only flags likely mechanical violations.
 - **Active vs passive.** Passive is allowed in *descriptions* only when the
   agent is unknown; in procedures, always active.
 - **Sentence limits differ by type.** 20 words for procedures, 25 for
-  descriptive text — don't apply one limit blindly.
+  descriptive text: don't apply one limit blindly.
 - **One word, one meaning.** "close" (v) means move-together OR operate-a-
   breaker, never "close a meeting/business" (use END/FINISH). Adjective "close"
   → NEAR.
@@ -130,7 +130,7 @@ lowercase with suggested UPPERCASE alternatives.
 
 ## References
 
-- `references/ste-spec.md` — condensed sourced notes on the two-part structure,
+- `references/ste-spec.md`: condensed sourced notes on the two-part structure,
   the dictionary's four columns, approved verb forms, technical-noun exceptions,
   the "STE is an aid" caveat, and where to download the free official spec.
 

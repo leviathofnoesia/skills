@@ -1,4 +1,4 @@
-# ste-writing — Human Guide
+# ste-writing: Human Guide
 
 This skill rewrites and checks technical text against the ASD-STE100 rules.
 It ships the rule set and a stdlib-only structural linter. It does not ship

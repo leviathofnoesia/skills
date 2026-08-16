@@ -1,4 +1,4 @@
-# deepsec-orchestrator — Human Guide
+# deepsec-orchestrator: Human Guide
 
 This skill runs deepsec and Codex Security side by side. It joins their
 findings. Then an advisor agent judges the findings. The skill applies the
@@ -86,12 +86,12 @@ The pass verdict has three values:
 
 Before the run, the user gives these settings:
 
-- **target** — one path.
-- **sets** — a list of scanner settings. Each set has a model, a harness, and
+- **target**: one path.
+- **sets**: a list of scanner settings. Each set has a model, a harness, and
   an API. You may run many sets in one run.
-- **judge config** — the judge's own model and harness.
-- **apply policy** — `auto`, `hybrid`, or `manual`.
-- **stop criteria** — the loop limit and the convergence rule.
+- **judge config**: the judge's own model and harness.
+- **apply policy**: `auto`, `hybrid`, or `manual`.
+- **stop criteria**: the loop limit and the convergence rule.
 
 ## The apply policy
 
@@ -171,7 +171,7 @@ reproduce these results.
 
 ## See also
 
-- `references/judge-prompt.md` — the advisor prompt template.
-- `references/graph.md` — the full node and edge reference.
-- `deepsec-v4-flash` and `deepsec-v4-pro` — the single scanners.
-- `deepsec-codex-v4-flash` and `deepsec-codex-v4-pro` — the dual scanners.
+- `references/judge-prompt.md`: the advisor prompt template.
+- `references/graph.md`: the full node and edge reference.
+- `deepsec-v4-flash` and `deepsec-v4-pro`: the single scanners.
+- `deepsec-codex-v4-flash` and `deepsec-codex-v4-pro`: the dual scanners.

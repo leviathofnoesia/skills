@@ -1,4 +1,4 @@
-# deepsec-luna — Human Guide
+# deepsec-luna: Human Guide
 
 This skill runs the deepsec security scanner with every AI step pinned to
 the Luna model.
@@ -9,7 +9,7 @@ The skill adds one flag to deepsec AI commands: `--model gpt-5.6-luna`. This
 applies to `process`, `revalidate`, and `triage`, including under `sandbox`.
 The skill leaves `--agent` unset so deepsec keeps its default backend.
 
-Non-AI commands — `scan`, `export`, `report`, `status`, `metrics`, `enrich` —
+Non-AI commands: `scan`, `export`, `report`, `status`, `metrics`, `enrich`:
 need no model flags.
 
 ## Why use this skill
@@ -68,9 +68,9 @@ Every AI deepsec command in the turn includes `--model gpt-5.6-luna` and no
 
 ## Words used
 
-- **Luna** — the model `gpt-5.6-luna`.
-- **pin** — always pass the model flag on AI commands.
-- **AI command** — `process`, `revalidate`, `triage` (including under
+- **Luna**: the model `gpt-5.6-luna`.
+- **pin**: always pass the model flag on AI commands.
+- **AI command**: `process`, `revalidate`, `triage` (including under
   `sandbox`).
 
 ## Measured impact
@@ -93,6 +93,6 @@ reproduce these results.
 
 ## See also
 
-- `deepsec-codex-luna` — adds the Codex Security scanner, also on Luna.
-- `deepsec-v4-flash` and `deepsec-v4-pro` — DeepSeek V4 model scans.
-- `deepsec-orchestrator` — runs both scanners in a loop with a judge.
+- `deepsec-codex-luna`: adds the Codex Security scanner, also on Luna.
+- `deepsec-v4-flash` and `deepsec-v4-pro`: DeepSeek V4 model scans.
+- `deepsec-orchestrator`: runs both scanners in a loop with a judge.

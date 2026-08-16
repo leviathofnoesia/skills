@@ -10,7 +10,7 @@ PNG. Short lines pass through unchanged; only lines physically wider than
 `--width` are word-wrapped (at a space boundary, no continuation indent). A
 single token wider than `--width` is hard-broken.
 
-This is **not lossless** — OCR can introduce minor transcription errors. For
+This is **not lossless**: OCR can introduce minor transcription errors. For
 exact byte-for-byte transmission, use `prompt2qr`.
 
 ## Usage

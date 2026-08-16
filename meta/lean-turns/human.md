@@ -1,7 +1,7 @@
-# lean-turns — Human Guide
+# lean-turns: Human Guide
 
 This skill saves tokens on long, tool-heavy runs. It compresses the
-intermediate turns — the play-by-play the user mostly does not read — and
+intermediate turns: the play-by-play the user mostly does not read: and
 reserves full prose for the final deliverable.
 
 ## What this skill does
@@ -37,7 +37,7 @@ flowchart LR
 ## Intermediate turns
 
 You cannot see the future, so decide per turn. If the work is not handed off
-yet — still exploring, calling tools, verifying — the turn is intermediate.
+yet: still exploring, calling tools, verifying: the turn is intermediate.
 Write it lean.
 
 The lean style:
@@ -72,17 +72,17 @@ doc files, and release notes are full prose, never compressed.
 ## Precedence rules
 
 - Hard constraints of any active skill win over compression.
-- A skill that mandates a visible section keeps that section — its content
+- A skill that mandates a visible section keeps that section: its content
   goes lean, the section does not disappear.
 - A skill that demands a full reasoning trace wins for the traced sections.
 - The user's own messages are never rewritten.
 
 ## Words used
 
-- **intermediate turn** — any turn before the deliverable.
-- **final turn** — the deliverable turn, full prose.
-- **lean** — telegraphic style, fewer connective words, same structure.
-- **filler** — words that carry no information.
+- **intermediate turn**: any turn before the deliverable.
+- **final turn**: the deliverable turn, full prose.
+- **lean**: telegraphic style, fewer connective words, same structure.
+- **filler**: words that carry no information.
 
 ## Measured impact
 
@@ -104,5 +104,5 @@ reproduce these results.
 
 ## See also
 
-- `lean-turns-strict` — the stricter sibling: one status token per
+- `lean-turns-strict`: the stricter sibling: one status token per
   intermediate turn.

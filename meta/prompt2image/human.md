@@ -1,4 +1,4 @@
-# prompt2image — Human Guide
+# prompt2image: Human Guide
 
 This skill renders a text prompt as a compact monospace PNG image. A
 vision-capable agent reads the image for fewer tokens than the raw text.

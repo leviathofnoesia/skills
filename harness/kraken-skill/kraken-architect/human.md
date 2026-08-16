@@ -1,4 +1,4 @@
-# kraken-architect — Human Guide
+# kraken-architect: Human Guide
 
 This skill analyzes architecture and design questions. It gives evidence-backed recommendations. It does not write the implementation.
 

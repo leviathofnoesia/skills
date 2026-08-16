@@ -2,7 +2,7 @@
 
 Gzip-compress a text prompt and encode it as a sequence of **lossless** binary
 QR codes (PNG). The receiving agent decodes and gunzips to recover the exact
-original text — no token cost for the text itself.
+original text: no token cost for the text itself.
 
 ## What it does
 

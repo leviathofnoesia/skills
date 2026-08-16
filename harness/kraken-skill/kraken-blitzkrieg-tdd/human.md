@@ -1,4 +1,4 @@
-# kraken-blitzkrieg-tdd — Human Guide
+# kraken-blitzkrieg-tdd: Human Guide
 
 This skill enforces test-driven development with completion gates. A task counts as done only when real test evidence exists.
 

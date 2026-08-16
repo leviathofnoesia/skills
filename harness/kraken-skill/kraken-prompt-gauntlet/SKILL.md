@@ -33,16 +33,16 @@ on the Solar Glide → "Solar Glide: Aurora" 404-minigame prompt (2026-08-14).
 - **Ground in the real target**: read the actual codebase/target BEFORE
   drafting v1 (module list, constants, entry points, test pattern, repo
   AGENTS.md). The prompt's "executability" axis is judged against the real
-  tree — never invent file names or quote constants you didn't read.
+  tree: never invent file names or quote constants you didn't read.
 - List ambiguities; note them for the critic.
 
 ### 2. Define the Bar (before any drafting)
 Five axes, each scored 0-10 by the critic:
-1. COMPLETENESS — every intent of the original brief present, nothing diluted.
-2. SPECIFICITY — every pacing/mechanic constant is a VALUE, not a name.
-3. EXECUTABILITY — maps onto real modules/files/constraints; TDD-shaped tests.
-4. COHERENCE — the loop(s) compose into ONE design; no axis fights another.
-5. LOW AMBIGUITY — builder can start without asking questions.
+1. COMPLETENESS: every intent of the original brief present, nothing diluted.
+2. SPECIFICITY: every pacing/mechanic constant is a VALUE, not a name.
+3. EXECUTABILITY: maps onto real modules/files/constraints; TDD-shaped tests.
+4. COHERENCE: the loop(s) compose into ONE design; no axis fights another.
+5. LOW AMBIGUITY: builder can start without asking questions.
 Win = all axes ≥ 8 with no placeholder; tie = gap structurally closed but some
 axis < 8 or an internal contradiction; lose = a named gap blocks building.
 
@@ -62,22 +62,22 @@ grounding claims against the real tree.
 ### 5. Phase 4 Arithmetic Pass (MANDATORY, before/after every rebuild)
 Recompute every claim from the constants table yourself:
 - Reachability: can the player actually reach the new layer (equilibrium math
-  vs engine constants — e.g. thermal equilibrium vs ceiling sink)?
+  vs engine constants: e.g. thermal equilibrium vs ceiling sink)?
 - Economy: do earn rates and costs support the stated pacing promises (first
   upgrade by run N, meta goal by run M)? Sum every cost column.
 - Time: does the run length match the intended cadence (flight time =
   distance / speed, not vibes)?
-- Cross-check prose against the table after ANY constant change — stale prose
+- Cross-check prose against the table after ANY constant change: stale prose
   numbers are the #1 source of "tie" verdicts.
 Pitfall: a critic's suggested numbers may themselves be unverified (e.g. a
-30km gate at 5.4 u/s = 92 min of flight) — re-derive, don't copy.
+30km gate at 5.4 u/s = 92 min of flight): re-derive, don't copy.
 
 ### 6. Rebuild → Confirm
 Apply the critic's fix verbatim + your Phase 4 corrections. Then dispatch a
 CONFIRMATION critic (fresh context) that must re-derive the arithmetic
 independently and declare win/tie/lose with PASS/FAIL per check. On tie:
 apply its prescribed closing fix, re-verify, declare win. Stop only on
-win/tie — never a timer; escalate (stalemate) only if the same gap persists
+win/tie: never a timer; escalate (stalemate) only if the same gap persists
 two rounds.
 
 ### 7. Deliver
@@ -86,14 +86,14 @@ two rounds.
   copy/paste when the user asks.
 
 ## Pitfalls
-- Never trust your own prose after changing a constant — recompute every
+- Never trust your own prose after changing a constant: recompute every
   dependent number (net per cycle, ride count, run length, totals).
 - Verify terrain/physics facts against the code comments, not your memory
   (e.g. terrain height range).
 - Scan the constants table for placeholders: "tune", "small", "~", "etc",
-  "adjust" — every one is a builder decision in disguise.
+  "adjust": every one is a builder decision in disguise.
 - Make the spine mechanic an explicit, testable rule set (regimes, spawn
-  bands, gates, handoffs) — vagueness there is what loses rounds.
+  bands, gates, handoffs): vagueness there is what loses rounds.
 - Keep 404/surface constraints hard requirements, not suggestions.
 - Economic promises need mechanical levers (a hangar upgrade that shortens
   the story path), not hopes ("3-5 runs" must follow from the numbers).

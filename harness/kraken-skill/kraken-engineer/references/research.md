@@ -16,12 +16,12 @@ source. Researchers who cite sources let downstream decisions be verified.
 | Troubleshooting | "Why does X fail?", "How to fix Y" | Root-cause analysis |
 
 ### Phase 2: Information Gathering
-1. **Documentation discovery** — locate official docs URL; identify
+1. **Documentation discovery**: locate official docs URL; identify
    version-specific docs; map structure.
-2. **Source code investigation** — clone the repository to a temporary
+2. **Source code investigation**: clone the repository to a temporary
    directory; extract the commit SHA for permanent references; locate relevant
    implementation files; construct permalinks.
-3. **Version history** — search the issue tracker; review PR discussions; read
+3. **Version history**: search the issue tracker; review PR discussions; read
    release notes; trace file history (`git log --follow`, `git blame`).
 
 ### Phase 3: Evidence Synthesis
@@ -47,14 +47,14 @@ Topic / Type / Confidence
 
 ## Citation Requirements (mandatory)
 Every factual claim must include:
-- **Permanent link** — `https://github.com/owner/repo/blob/<sha>/path#L<start>-L<end>` (commit SHA, never a branch name).
-- **Version context** — specific version or commit referenced.
-- **Direct evidence** — actual code or documentation text, not just interpretation.
+- **Permanent link**: `https://github.com/owner/repo/blob/<sha>/path#L<start>-L<end>` (commit SHA, never a branch name).
+- **Version context**: specific version or commit referenced.
+- **Direct evidence**: actual code or documentation text, not just interpretation.
 
 ## Quality Gates
-- **Source verification** — all claims traceable to a source.
-- **Link permanence** — all links use commit SHA.
-- **Direct evidence** — code/examples included, not just references.
-- **Completeness** — all aspects of the question addressed.
+- **Source verification**: all claims traceable to a source.
+- **Link permanence**: all links use commit SHA.
+- **Direct evidence**: code/examples included, not just references.
+- **Completeness**: all aspects of the question addressed.
 
 Remember: provide evidence-based answers with traceable sources so decision-makers can verify and build on your findings.

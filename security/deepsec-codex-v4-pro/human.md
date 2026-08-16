@@ -1,4 +1,4 @@
-# deepsec-codex-v4-pro — Human Guide
+# deepsec-codex-v4-pro: Human Guide
 
 This skill runs two security scanners on one codebase. The scanners are
 deepsec and Codex Security. Both scans use the DeepSeek V4 Pro model. The
@@ -144,6 +144,6 @@ reproduce these results.
 
 ## See also
 
-- `deepsec-codex-v4-flash` — the same skill with the Flash model.
-- `deepsec-v4-pro` — the deepsec-only scan.
-- `deepsec-orchestrator` — runs both scanners in a loop and applies fixes.
+- `deepsec-codex-v4-flash`: the same skill with the Flash model.
+- `deepsec-v4-pro`: the deepsec-only scan.
+- `deepsec-orchestrator`: runs both scanners in a loop and applies fixes.

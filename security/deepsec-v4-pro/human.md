@@ -1,4 +1,4 @@
-# deepsec-v4-pro — Human Guide
+# deepsec-v4-pro: Human Guide
 
 This skill runs the deepsec security scanner. The scan uses the DeepSeek V4
 Pro model. The skill does not set the harness or the API. You set these two
@@ -108,9 +108,9 @@ pnpm deepsec export --format md-dir --out ./findings
 
 ## Words used
 
-- **harness** — the deepsec backend. The values are `pi` or `codex`.
-- **api** — the base URL plus the key.
-- **model id** — the exact model name for your endpoint.
+- **harness**: the deepsec backend. The values are `pi` or `codex`.
+- **api**: the base URL plus the key.
+- **model id**: the exact model name for your endpoint.
 
 ## Measured impact
 
@@ -132,6 +132,6 @@ reproduce these results.
 
 ## See also
 
-- `deepsec-v4-flash` — the same skill with the Flash model.
-- `deepsec-codex-v4-pro` — adds the Codex Security scanner.
-- `deepsec-orchestrator` — runs both scanners in a loop.
+- `deepsec-v4-flash`: the same skill with the Flash model.
+- `deepsec-codex-v4-pro`: adds the Codex Security scanner.
+- `deepsec-orchestrator`: runs both scanners in a loop.

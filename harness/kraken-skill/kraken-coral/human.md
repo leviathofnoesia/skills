@@ -1,4 +1,4 @@
-# kraken-coral — Human Guide
+# kraken-coral: Human Guide
 
 This skill changes the visual layer of a user interface. It makes the
 interface accessible and consistent with the design system. It never touches
@@ -25,7 +25,7 @@ must be respected.
 ## When not to use
 
 Do not use this skill for business logic, data fetching, or state changes.
-Handle those directly. Do not use it for code correctness — use
+Handle those directly. Do not use it for code correctness: use
 `kraken-blitzkrieg-tdd`.
 
 ## How the skill works

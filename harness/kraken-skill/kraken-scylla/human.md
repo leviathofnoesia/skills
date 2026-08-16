@@ -1,4 +1,4 @@
-# kraken-scylla — Human Guide
+# kraken-scylla: Human Guide
 
 This skill audits a work plan before you run it. It checks the plan against
 SOLID principles and measurable quality gates.
@@ -51,5 +51,5 @@ reproduce these results.
 
 ## See also
 
-- `kraken-cartographer` — writes the plan this skill audits.
-- `kraken-engineer` — the wider engineering method.
+- `kraken-cartographer`: writes the plan this skill audits.
+- `kraken-engineer`: the wider engineering method.

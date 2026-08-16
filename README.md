@@ -13,13 +13,13 @@ Maintained by [leviathofnoesia](https://github.com/leviathofnoesia).
 
 ---
 
-## 📚 Featured — Clean Code Series
+## 📚 Featured: Clean Code Series
 
 <p align="center">
   <img src="./assets/clean-code-series.png" alt="clean-code-series knowledge base" width="70%">
 </p>
 
-The four Clean books distilled into a load-on-demand knowledge base — the
+The four Clean books distilled into a load-on-demand knowledge base: the
 methodology, not the text. Per-book references with chapter maps and decision
 rules.
 
@@ -37,7 +37,7 @@ skill lives at `TOPIC/SKILL-NAME/` and is a self-contained package
 
 ### ⚙️ Kraken
 
-Engineering methodology family. A process overlay — load alongside
+Engineering methodology family. A process overlay: load alongside
 specialists, not instead. `kraken-engineer` is the universal method; the rest
 are specialists (architecture, planning, search, research, design, docs,
 constraints, audit, TDD, multimedia analysis, learning-memory).
@@ -62,7 +62,7 @@ constraints, audit, TDD, multimedia analysis, learning-memory).
 
 ### 🧭 Meta
 
-Prompt utilities and token economy — keep intermediate turns cheap and move
+Prompt utilities and token economy: keep intermediate turns cheap and move
 long prompts onto cheaper transports.
 
 | Skill | Description |
@@ -76,7 +76,7 @@ long prompts onto cheaper transports.
 
 ### 🔐 Security
 
-Deepsec and Codex Security scanning — Luna pins, DeepSeek V4 model variants, and a judge-advised auto-apply orchestrator.
+Deepsec and Codex Security scanning: Luna pins, DeepSeek V4 model variants, and a judge-advised auto-apply orchestrator.
 
 | Skill | Description |
 |-------|-------------|
@@ -111,16 +111,16 @@ plain language and diagrams.
 
 ### Which skill?
 
-| You want to… | Use |
+| You want to... | Use |
 |---|---|
 | Scan one codebase with deepsec on DeepSeek V4 Flash | [deepsec-v4-flash](./security/deepsec-v4-flash/) |
 | Scan one codebase with deepsec on DeepSeek V4 Pro | [deepsec-v4-pro](./security/deepsec-v4-pro/) |
 | Scan with deepsec **and** Codex Security on V4 Flash | [deepsec-codex-v4-flash](./security/deepsec-codex-v4-flash/) |
 | Scan with deepsec **and** Codex Security on V4 Pro | [deepsec-codex-v4-pro](./security/deepsec-codex-v4-pro/) |
-| Automate the whole loop — scan → judge → fix → repeat | [deepsec-orchestrator](./security/deepsec-orchestrator/) |
+| Automate the whole loop: scan → judge → fix → repeat | [deepsec-orchestrator](./security/deepsec-orchestrator/) |
 | Run deepsec pinned to the Luna model (gpt-5.6-luna) | [deepsec-luna](./security/deepsec-luna/) / [deepsec-codex-luna](./security/deepsec-codex-luna/) |
 
-The four DeepSeek skills share one rule: they never hardcode a harness or API —
+The four DeepSeek skills share one rule: they never hardcode a harness or API:
 they ask you first. The orchestrator wraps the scanners in a loop with an
 advisor agent that consolidates and auto-applies findings.
 
@@ -176,7 +176,7 @@ with/without A/B, deterministic rubric grading) is described in each
 
 ### 🎨 Creative
 
-Design and UI quality workflows — guided tours and loops that drive a surface
+Design and UI quality workflows: guided tours and loops that drive a surface
 toward a committed visual bar.
 
 | Skill | Description |
