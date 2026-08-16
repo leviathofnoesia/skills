@@ -126,26 +126,53 @@ advisor agent that consolidates and auto-applies findings.
 
 ### Measured impact
 
-Each skill was benchmarked with/without on a clean base agent (no skills,
-base tools; deterministic rubric: correct commands, ask-first protocol,
-safety rails; n=3 per arm). Full per-skill charts live in each skill's
-`human.md`.
+Every skill in this repo was benchmarked with/without on a clean base agent
+(no skills, no tools; deterministic per-skill rubric; n=3 per arm). Full
+per-skill charts live in each skill's `human.md`.
 
-![Security skills benchmark](./assets/security-skills-bench.svg)
+![All skills benchmark](./assets/all-skills-bench.svg)
 
 | Skill | Without | With | Δ |
 |---|---|---|---|
-| deepsec-v4-flash | 0.64 | 0.94 | +0.30 |
-| deepsec-v4-pro | 0.70 | 0.94 | +0.24 |
-| deepsec-codex-v4-flash | 0.27 | 0.87 | +0.60 |
-| deepsec-codex-v4-pro | 0.67 | 0.90 | +0.23 |
-| deepsec-orchestrator | 0.61 | 0.98 | +0.37 |
+| kraken-blitzkrieg-tdd | 0.17 | 0.88 | +0.71 |
+| deepsec-v4-flash | 0.12 | 0.79 | +0.67 |
+| deepsec-luna | 0.24 | 0.86 | +0.62 |
+| kraken-poseidon | 0.19 | 0.81 | +0.62 |
+| deepsec-orchestrator | 0.41 | 0.98 | +0.57 |
+| auto-impeccable | 0.17 | 0.73 | +0.57 |
+| prompt2image | 0.22 | 0.72 | +0.50 |
+| kraken-gauntlet-loop | 0.43 | 0.90 | +0.48 |
+| kraken-scylla | 0.57 | 1.00 | +0.43 |
+| kraken-pearl | 0.56 | 0.94 | +0.39 |
+| deepsec-v4-pro | 0.21 | 0.58 | +0.36 |
+| clean-code-series | 0.47 | 0.80 | +0.33 |
+| gauntlet-loop | 0.28 | 0.61 | +0.33 |
+| kraken-learning | 0.67 | 1.00 | +0.33 |
+| kraken-engineer | 0.39 | 0.72 | +0.33 |
+| lean-turns | 0.00 | 0.33 | +0.33 |
+| kraken-architect | 0.33 | 0.67 | +0.33 |
+| deepsec-codex-v4-flash | 0.27 | 0.60 | +0.33 |
+| deepsec-codex-v4-pro | 0.27 | 0.57 | +0.30 |
+| ste-writing | 0.57 | 0.86 | +0.29 |
+| deepsec-codex-luna | 0.53 | 0.80 | +0.27 |
+| prompt2qr | 0.67 | 0.93 | +0.27 |
+| kraken-git-verify | 0.27 | 0.47 | +0.20 |
+| kraken-prompt-gauntlet | 0.72 | 0.89 | +0.17 |
+| kraken-coral | 0.75 | 0.92 | +0.17 |
+| kraken-abyssal | 0.58 | 0.75 | +0.17 |
+| kraken-cartographer | 0.56 | 0.67 | +0.11 |
+| kraken-nautilus | 0.87 | 0.87 | +0.00 |
+| kraken-siren | 0.50 | 0.44 | −0.06 |
+| lean-turns-strict | 0.50 | 0.42 | −0.08 |
+
+Mean delta +0.33 across 30 skills; 27 of 30 positive. The three flat/negative
+results are honest: `kraken-nautilus` (the base model already does systematic
+code search well), `kraken-siren` and `lean-turns-strict` (the task did not
+bind to the skill's specific rules).
 
 Benchmarks run with internal tooling; the methodology (SkillsBench-style
 with/without A/B, deterministic rubric grading) is described in each
-`human.md`. One caveat: deepsec is installed on the benchmark machine, so the
-baseline agent could sometimes discover it on disk — true cold-machine
-baselines would be lower, making the deltas conservative.
+`human.md`.
 
 ### 🎨 Creative
 
