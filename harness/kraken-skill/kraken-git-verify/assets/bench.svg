@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="262" height="336" font-family="Segoe UI, Arial, sans-serif">
 <rect width="100%" height="100%" fill="#0f172a"/>
 <text x="24" y="30" fill="#e2e8f0" font-size="17" font-weight="bold">Skill benchmark — mean rubric score (n=3 reps)</text>
-<rect x="-68" y="16" width="12" height="12" rx="2" fill="#64748b"/>
-<text x="-50" y="26" fill="#94a3b8" font-size="12">without skill</text>
-<rect x="52" y="16" width="12" height="12" rx="2" fill="#22c55e"/>
-<text x="70" y="26" fill="#94a3b8" font-size="12">with skill</text>
+<rect x="24" y="44" width="12" height="12" rx="2" fill="#64748b"/>
+<text x="42" y="54" fill="#94a3b8" font-size="12">without skill</text>
+<rect x="120" y="44" width="12" height="12" rx="2" fill="#22c55e"/>
+<text x="138" y="54" fill="#94a3b8" font-size="12">with skill</text>
 <text x="24" y="164" fill="#cbd5e1" font-size="13" font-weight="600">upstage/solar-pro4:free</text>
 <line x1="110" y1="264.0" x2="222" y2="264.0" stroke="#1e293b" stroke-width="1"/>
 <text x="100" y="268.0" fill="#64748b" font-size="11" text-anchor="end">0</text>
@@ -17,10 +17,10 @@
 <line x1="110" y1="64.0" x2="222" y2="64.0" stroke="#1e293b" stroke-width="1"/>
 <text x="100" y="68.0" fill="#64748b" font-size="11" text-anchor="end">1.00</text>
 <line x1="110" y1="264" x2="222" y2="264" stroke="#475569" stroke-width="1.5"/>
-<rect x="110" y="210.7" width="52" height="53.3" rx="3" fill="#64748b"/>
-<text x="136.0" y="204.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.27</text>
-<rect x="170" y="170.7" width="52" height="93.3" rx="3" fill="#22c55e"/>
-<text x="196.0" y="164.7" fill="#e2e8f0" font-size="12" text-anchor="middle">0.47</text>
+<rect x="110" y="210.0" width="52" height="54.0" rx="3" fill="#64748b"/>
+<text x="136" y="204.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.27</text>
+<rect x="170" y="170.0" width="52" height="94.0" rx="3" fill="#22c55e"/>
+<text x="196" y="164.0" fill="#e2e8f0" font-size="12" text-anchor="middle">0.47</text>
 <text x="166.0" y="282" fill="#facc15" font-size="12" font-weight="600" text-anchor="middle">+0.20</text>
 <text x="166.0" y="300" fill="#94a3b8" font-size="12" text-anchor="middle">kraken-git-verify</text>
 </svg>
