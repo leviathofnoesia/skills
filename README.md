@@ -69,6 +69,8 @@ long prompts onto cheaper transports.
 |-------|-------------|
 | [lean-turns](./meta/lean-turns/) | Lean turns: summary-only intermediates, final full prose. |
 | [lean-turns-strict](./meta/lean-turns/lean-turns-strict/) | Ultra-lean turns: summary-only until the final deliverable. |
+| [context-budget](./meta/context-budget/) | Plan long agent tasks around the context window: checkpoint, reload, compact. |
+| [log-mining](./meta/log-mining/) | Extract signal from large logs: triage, window around errors, correlate. |
 | [prompt2image](./meta/prompt2image/) | Render a text prompt as a compact monospace PNG image. |
 | [prompt2qr](./meta/prompt2qr/) | Compress a prompt and encode it as binary QR PNGs. |
 | [ste-writing](./meta/ste-writing/) | Rewrite and check technical text against ASD-STE100 rules. |
@@ -190,6 +192,12 @@ Knowledge bases and methodology references for working software engineers.
 | Skill | Description |
 |-------|-------------|
 | [clean-code-series](./software-development/clean-code-series/) | Use when writing clean code or designing architecture. |
+| [agent-sanctuary](./software-development/agent-sanctuary/) | Install and apply engineering-lifecycle skills from Agent Sanctuary. |
+| [diff-explain](./software-development/diff-explain/) | Explain diffs/PRs as layered summaries for reviewers. |
+| [api-contract-diff](./software-development/api-contract-diff/) | Detect breaking changes between API versions. |
+| [dep-upgrade-audit](./software-development/dep-upgrade-audit/) | Upgrade a dependency safely with changelog audit and staged bump. |
+| [flaky-test-triage](./software-development/flaky-test-triage/) | Diagnose flaky tests: ordering, timing, environment causes. |
+| [env-repro](./software-development/env-repro/) | Reproduce environment-specific bugs by diffing OS/version/config. |
 
 ---
 
