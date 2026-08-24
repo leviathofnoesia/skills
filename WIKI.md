@@ -174,3 +174,38 @@ fixed by hand, only by re-running the compiler.
    with your new skill.
 5. Regression check: `python tests/check_skill_frontmatter.py` verifies the
    `skills` CLI discovers all skills from their frontmatter.
+
+---
+
+## hermes
+
+Profile-authored skills promoted to the public set:
+
+  - [abyss-bench-probe](./hermes/abyss-bench-probe/) — Dry-run bench probe for Abyss observability instrumentation.
+  - [abyss-fix-fallback-provider-chain](./hermes/abyss-fix-fallback-provider-chain/) — Fixes fallback chain when config stores it as YAML string.
+  - [abyss-fix-read_file-error-handling](./hermes/abyss-fix-read_file-error-handling/) — Fixes read_file errors with clear not-found and IO guidance.
+  - [abyss-fix-terminal-none-command](./hermes/abyss-fix-terminal-none-command/) — Fixes terminal errors when command arg is null/non-string.
+  - [abyss-fix-web-extract-backend](./hermes/abyss-fix-web-extract-backend/) — Fixes web extract falling through to ddgs search-only.
+  - [abyss-raindrop-observability](./hermes/abyss-raindrop-observability/) — Raindrop.ai-style observability plugin for Hermes agents.
+  - [hermes-abyss-observability](./hermes/hermes-abyss-observability/) — Agent observability with Raindrop-style tracing for Hermes.
+  - [hermes-buzz-multi-profile-setup](./hermes/hermes-buzz-multi-profile-setup/) — Set up the native Buzz (Nostr) gateway platform for multiple Hermes profiles under gateway multiplexing, so each profile connects to a Buzz community with its own identity (nsec). Use when (re)configuring Buzz on Hermes, migrating off the old buzz-acp/relay-bridge workaround, or adding Buzz to several profiles.
+  - [hermes-desktop-plugin-development](./hermes/hermes-desktop-plugin-development/) — Build desktop UI plugins for the Hermes Agent desktop app.
+  - [hermes-profile-audit](./hermes/hermes-profile-audit/) — Use when a Hermes profile must be audited for role clarity, authority boundaries, configuration fit, skills, memory posture, credential scope, handoffs, and recurring operational failures.
+  - [hermes-token-audit](./hermes/hermes-token-audit/) — Use when Hermes token usage, cost attribution, runaway sessions, cron consumption, or billing discrepancies must be investigated using privacy-preserving, schema-aware evidence.
+
+
+## kraken
+
+Profile-authored skills promoted to the public set:
+
+  - [kraken-blitzkrieg-tdd](./kraken/kraken-blitzkrieg-tdd/) — >-
+  - [kraken-cartographer](./kraken/kraken-cartographer/) — >-
+  - [kraken-engineer](./kraken/kraken-engineer/) — >-
+
+
+## meta
+
+Profile-authored skills promoted to the public set:
+
+  - [interview-me](./meta/interview-me/) — Use when the user says Interview me before you start as a standalone command, explicitly asks to be questioned before work begins, or needs an adaptive, consent-based interview because goals, constraints, preferences, tradeoffs, or success criteria are genuinely unclear.
+  - [provider-research-and-selection](./meta/provider-research-and-selection/) — Research and select the best API provider for any model.

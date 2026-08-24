@@ -74,6 +74,22 @@ long prompts onto cheaper transports.
 | [prompt2image](./meta/prompt2image/) | Render a text prompt as a compact monospace PNG image. |
 | [prompt2qr](./meta/prompt2qr/) | Compress a prompt and encode it as binary QR PNGs. |
 | [ste-writing](./meta/ste-writing/) | Rewrite and check technical text against ASD-STE100 rules. |
+| [abyss-bench-probe](./hermes/abyss-bench-probe/) | Dry-run bench probe for Abyss observability instrumentation. | hermes |
+| [abyss-fix-fallback-provider-chain](./hermes/abyss-fix-fallback-provider-chain/) | Fixes fallback chain when config stores it as YAML string. | hermes |
+| [abyss-fix-read_file-error-handling](./hermes/abyss-fix-read_file-error-handling/) | Fixes read_file errors with clear not-found and IO guidance. | hermes |
+| [abyss-fix-terminal-none-command](./hermes/abyss-fix-terminal-none-command/) | Fixes terminal errors when command arg is null/non-string. | hermes |
+| [abyss-fix-web-extract-backend](./hermes/abyss-fix-web-extract-backend/) | Fixes web extract falling through to ddgs search-only. | hermes |
+| [abyss-raindrop-observability](./hermes/abyss-raindrop-observability/) | Raindrop.ai-style observability plugin for Hermes agents. | hermes |
+| [hermes-abyss-observability](./hermes/hermes-abyss-observability/) | Agent observability with Raindrop-style tracing for Hermes. | hermes |
+| [hermes-buzz-multi-profile-setup](./hermes/hermes-buzz-multi-profile-setup/) | Set up the native Buzz (Nostr) gateway platform for multiple Hermes profiles under gateway multiplexing, so each profile connects to a Buzz community with its own identity (nsec). Use when (re)configuring Buzz on Hermes, migrating off the old buzz-acp/relay-bridge workaround, or adding Buzz to several profiles. | hermes |
+| [hermes-desktop-plugin-development](./hermes/hermes-desktop-plugin-development/) | Build desktop UI plugins for the Hermes Agent desktop app. | hermes |
+| [hermes-profile-audit](./hermes/hermes-profile-audit/) | Use when a Hermes profile must be audited for role clarity, authority boundaries, configuration fit, skills, memory posture, credential scope, handoffs, and recurring operational failures. | hermes |
+| [hermes-token-audit](./hermes/hermes-token-audit/) | Use when Hermes token usage, cost attribution, runaway sessions, cron consumption, or billing discrepancies must be investigated using privacy-preserving, schema-aware evidence. | hermes |
+| [kraken-blitzkrieg-tdd](./kraken/kraken-blitzkrieg-tdd/) | >- | kraken |
+| [kraken-cartographer](./kraken/kraken-cartographer/) | >- | kraken |
+| [kraken-engineer](./kraken/kraken-engineer/) | >- | kraken |
+| [interview-me](./meta/interview-me/) | Use when the user says Interview me before you start as a standalone command, explicitly asks to be questioned before work begins, or needs an adaptive, consent-based interview because goals, constraints, preferences, tradeoffs, or success criteria are genuinely unclear. | meta |
+| [provider-research-and-selection](./meta/provider-research-and-selection/) | Research and select the best API provider for any model. | meta |
 | [gauntlet-loop](./meta/gauntlet-loop/) | Build, blind-critic, rebuild until the output wins or ties. |
 
 ### 🔐 Security
