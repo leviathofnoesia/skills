@@ -270,3 +270,591 @@
 |FULL: ./meta/ste-writing/SKILL.md
 
 <!-- END SKILL-COMPILER MANAGED SECTION -->
+
+[dead-code-sweep Skill]|source:leviathofnoesia/skills
+|path:software-development/dead-code-sweep
+|Find and safely remove dead code with call-graph evidence.
+|Find and safely remove dead code with call-graph evidence.....
+|FULL: ./software-development/dead-code-sweep/SKILL.md
+
+[error-taxonomy-design Skill]|source:leviathofnoesia/skills
+|path:software-development/error-taxonomy-design
+|Design consistent error types and codes across a codebase.
+|Design consistent error types and codes across a codebase.....
+|FULL: ./software-development/error-taxonomy-design/SKILL.md
+
+[contract-test-bootstrap Skill]|source:leviathofnoesia/skills
+|path:software-development/contract-test-bootstrap
+|Stand up consumer-driven contract tests between two services.
+|Stand up consumer-driven contract tests between two services.....
+|FULL: ./software-development/contract-test-bootstrap/SKILL.md
+
+[perf-budget-guardian Skill]|source:leviathofnoesia/skills
+|path:software-development/perf-budget-guardian
+|Set and enforce performance budgets in CI with regression alerts.
+|Set and enforce performance budgets in CI with regression alerts.....
+|FULL: ./software-development/perf-budget-guardian/SKILL.md
+
+[feature-flag-lifecycle Skill]|source:leviathofnoesia/skills
+|path:software-development/feature-flag-lifecycle
+|Manage feature flags: naming, expiry, cleanup, kill switches.
+|Manage feature flags: naming, expiry, cleanup, kill switches.....
+|FULL: ./software-development/feature-flag-lifecycle/SKILL.md
+
+[migration-planner Skill]|source:leviathofnoesia/skills
+|path:software-development/migration-planner
+|Plan zero-downtime schema migrations with reversible steps.
+|Plan zero-downtime schema migrations with reversible steps.....
+|FULL: ./software-development/migration-planner/SKILL.md
+
+[api-versioning-strategy Skill]|source:leviathofnoesia/skills
+|path:software-development/api-versioning-strategy
+|Choose and implement an API versioning scheme that ages well.
+|Choose and implement an API versioning scheme that ages well.....
+|FULL: ./software-development/api-versioning-strategy/SKILL.md
+
+[code-archaeology Skill]|source:leviathofnoesia/skills
+|path:software-development/code-archaeology
+|Reconstruct why legacy code exists using git history and docs.
+|Reconstruct why legacy code exists using git history and docs.....
+|FULL: ./software-development/code-archaeology/SKILL.md
+
+[refactor-safe-extract Skill]|source:leviathofnoesia/skills
+|path:software-development/refactor-safe-extract
+|Extract functions/classes behaviorally with seam-first testing.
+|Extract functions/classes behaviorally with seam-first testing.....
+|FULL: ./software-development/refactor-safe-extract/SKILL.md
+
+[test-data-builder-pattern Skill]|source:leviathofnoesia/skills
+|path:software-development/test-data-builder-pattern
+|Replace brittle test fixtures with composable builder factories.
+|Replace brittle test fixtures with composable builder factories.....
+|FULL: ./software-development/test-data-builder-pattern/SKILL.md
+
+[chaos-drill-lite Skill]|source:leviathofnoesia/skills
+|path:software-development/chaos-drill-lite
+|Run small controlled failure drills against your own service.
+|Run small controlled failure drills against your own service.....
+|FULL: ./software-development/chaos-drill-lite/SKILL.md
+
+[observability-checklist Skill]|source:leviathofnoesia/skills
+|path:software-development/observability-checklist
+|Audit a service for metrics, logs, traces before it ships.
+|Audit a service for metrics, logs, traces before it ships.....
+|FULL: ./software-development/observability-checklist/SKILL.md
+
+[dependency-license-audit Skill]|source:leviathofnoesia/skills
+|path:software-development/dependency-license-audit
+|Inventory dependency licenses and flag copyleft/commercial risk.
+|Inventory dependency licenses and flag copyleft/commercial risk.....
+|FULL: ./software-development/dependency-license-audit/SKILL.md
+
+[monorepo-split-plan Skill]|source:leviathofnoesia/skills
+|path:software-development/monorepo-split-plan
+|Plan extracting a package from a monorepo without breaking CI.
+|Plan extracting a package from a monorepo without breaking CI.....
+|FULL: ./software-development/monorepo-split-plan/SKILL.md
+
+[sdk-design-review Skill]|source:leviathofnoesia/skills
+|path:software-development/sdk-design-review
+|Review a public SDK/API surface for ergonomics and stability.
+|Review a public SDK/API surface for ergonomics and stability.....
+|FULL: ./software-development/sdk-design-review/SKILL.md
+
+[incident-postmortem-writer Skill]|source:leviathofnoesia/skills
+|path:software-development/incident-postmortem-writer
+|Write blameless postmortems with timelines and action items.
+|Write blameless postmortems with timelines and action items.....
+|FULL: ./software-development/incident-postmortem-writer/SKILL.md
+
+[backlog-triage-grooming Skill]|source:leviathofnoesia/skills
+|path:software-development/backlog-triage-grooming
+|Turn a stale issue backlog into a ranked, actionable queue.
+|Turn a stale issue backlog into a ranked, actionable queue.....
+|FULL: ./software-development/backlog-triage-grooming/SKILL.md
+
+[pr-description-forge Skill]|source:leviathofnoesia/skills
+|path:software-development/pr-description-forge
+|Write PR descriptions reviewers actually need: intent, risk, test.
+|Write PR descriptions reviewers actually need: intent, risk, test.....
+|FULL: ./software-development/pr-description-forge/SKILL.md
+
+[type-boundary-hardening Skill]|source:leviathofnoesia/skills
+|path:software-development/type-boundary-hardening
+|Introduce strict types at module boundaries incrementally.
+|Introduce strict types at module boundaries incrementally.....
+|FULL: ./software-development/type-boundary-hardening/SKILL.md
+
+[load-test-from-logs Skill]|source:leviathofnoesia/skills
+|path:software-development/load-test-from-logs
+|Build realistic load profiles by replaying production traffic shapes.
+|Build realistic load profiles by replaying production traffic shapes.....
+|FULL: ./software-development/load-test-from-logs/SKILL.md
+
+[prompt-contract-authoring Skill]|source:leviathofnoesia/skills
+|path:meta/prompt-contract-authoring
+|Write explicit input/output contracts for reusable prompts.
+|Write explicit input/output contracts for reusable prompts.....
+|FULL: ./meta/prompt-contract-authoring/SKILL.md
+
+[context-pruning-pass Skill]|source:leviathofnoesia/skills
+|path:meta/context-pruning-pass
+|Drop stale conversation context before long tasks to save budget.
+|Drop stale conversation context before long tasks to save budget.....
+|FULL: ./meta/context-pruning-pass/SKILL.md
+
+[tool-choice-arbiter Skill]|source:leviathofnoesia/skills
+|path:meta/tool-choice-arbiter
+|Pick the cheapest sufficient tool for each subtask step.
+|Pick the cheapest sufficient tool for each subtask step.....
+|FULL: ./meta/tool-choice-arbiter/SKILL.md
+
+[verification-chain-builder Skill]|source:leviathofnoesia/skills
+|path:meta/verification-chain-builder
+|Chain claims to checks: every assertion gets a verification step.
+|Chain claims to checks: every assertion gets a verification step.....
+|FULL: ./meta/verification-chain-builder/SKILL.md
+
+[assumption-ledger Skill]|source:leviathofnoesia/skills
+|path:meta/assumption-ledger
+|Track assumptions explicitly and revisit them before shipping.
+|Track assumptions explicitly and revisit them before shipping.....
+|FULL: ./meta/assumption-ledger/SKILL.md
+
+[scope-fence Skill]|source:leviathofnoesia/skills
+|path:meta/scope-fence
+|Detect and stop scope creep mid-task with a written fence.
+|Detect and stop scope creep mid-task with a written fence.....
+|FULL: ./meta/scope-fence/SKILL.md
+
+[failure-mode-catalog Skill]|source:leviathofnoesia/skills
+|path:meta/failure-mode-catalog
+|Enumerate how this task can fail before starting it.
+|Enumerate how this task can fail before starting it.....
+|FULL: ./meta/failure-mode-catalog/SKILL.md
+
+[progress-heartbeat Skill]|source:leviathofnoesia/skills
+|path:meta/progress-heartbeat
+|Emit structured progress notes during long autonomous runs.
+|Emit structured progress notes during long autonomous runs.....
+|FULL: ./meta/progress-heartbeat/SKILL.md
+
+[self-critique-loop Skill]|source:leviathofnoesia/skills
+|path:meta/self-critique-loop
+|Adversarially review own output against the original ask.
+|Adversarially review own output against the original ask.....
+|FULL: ./meta/self-critique-loop/SKILL.md
+
+[instruction-decompiler Skill]|source:leviathofnoesia/skills
+|path:meta/instruction-decompiler
+|Rewrite vague requests into explicit, checkable instructions.
+|Rewrite vague requests into explicit, checkable instructions.....
+|FULL: ./meta/instruction-decompiler/SKILL.md
+
+[artifact-lineage Skill]|source:leviathofnoesia/skills
+|path:meta/artifact-lineage
+|Record which files/artifacts produced which outputs and why.
+|Record which files/artifacts produced which outputs and why.....
+|FULL: ./meta/artifact-lineage/SKILL.md
+
+[decision-record-mini Skill]|source:leviathofnoesia/skills
+|path:meta/decision-record-mini
+|Lightweight ADRs: decision, options considered, why, revert path.
+|Lightweight ADRs: decision, options considered, why, revert path.....
+|FULL: ./meta/decision-record-mini/SKILL.md
+
+[token-budget-forecast Skill]|source:leviathofnoesia/skills
+|path:meta/token-budget-forecast
+|Estimate token cost of a plan before executing it.
+|Estimate token cost of a plan before executing it.....
+|FULL: ./meta/token-budget-forecast/SKILL.md
+
+[retry-policy-designer Skill]|source:leviathofnoesia/skills
+|path:meta/retry-policy-designer
+|Choose retry/backoff/timeout policies per external dependency.
+|Choose retry/backoff/timeout policies per external dependency.....
+|FULL: ./meta/retry-policy-designer/SKILL.md
+
+[checklist-compiler Skill]|source:leviathofnoesia/skills
+|path:meta/checklist-compiler
+|Compile recurring workflows into executable checklists.
+|Compile recurring workflows into executable checklists.....
+|FULL: ./meta/checklist-compiler/SKILL.md
+
+[source-triangulation Skill]|source:leviathofnoesia/skills
+|path:research/source-triangulation
+|Verify a claim against three independent source classes.
+|Verify a claim against three independent source classes.....
+|FULL: ./research/source-triangulation/SKILL.md
+
+[literature-scan Skill]|source:leviathofnoesia/skills
+|path:research/literature-scan
+|Rapid structured scan of a field: key papers, authors, debates.
+|Rapid structured scan of a field: key papers, authors, debates.....
+|FULL: ./research/literature-scan/SKILL.md
+
+[claim-decay-checker Skill]|source:leviathofnoesia/skills
+|path:research/claim-decay-checker
+|Check if a cited fact is superseded or retracted.
+|Check if a cited fact is superseded or retracted.....
+|FULL: ./research/claim-decay-checker/SKILL.md
+
+[competitive-teardown Skill]|source:leviathofnoesia/skills
+|path:research/competitive-teardown
+|Systematic product teardown: positioning, pricing, moat, gaps.
+|Systematic product teardown: positioning, pricing, moat, gaps.....
+|FULL: ./research/competitive-teardown/SKILL.md
+
+[primary-source-hunter Skill]|source:leviathofnoesia/skills
+|path:research/primary-source-hunter
+|Trace claims back to primary sources instead of aggregators.
+|Trace claims back to primary sources instead of aggregators.....
+|FULL: ./research/primary-source-hunter/SKILL.md
+
+[survey-question-design Skill]|source:leviathofnoesia/skills
+|path:research/survey-question-design
+|Design survey questions that avoid bias and leading frames.
+|Design survey questions that avoid bias and leading frames.....
+|FULL: ./research/survey-question-design/SKILL.md
+
+[dataset-provenance Skill]|source:leviathofnoesia/skills
+|path:research/dataset-provenance
+|Document where data came from and what licenses apply.
+|Document where data came from and what licenses apply.....
+|FULL: ./research/dataset-provenance/SKILL.md
+
+[experiment-power-check Skill]|source:leviathofnoesia/skills
+|path:research/experiment-power-check
+|Sanity-check sample size and effect size before running tests.
+|Sanity-check sample size and effect size before running tests.....
+|FULL: ./research/experiment-power-check/SKILL.md
+
+[citation-graph-walk Skill]|source:leviathofnoesia/skills
+|path:research/citation-graph-walk
+|Follow citation chains forward/backward to map a topic's core.
+|Follow citation chains forward/backward to map a topic's core.....
+|FULL: ./research/citation-graph-walk/SKILL.md
+
+[expert-interview-prep Skill]|source:leviathofnoesia/skills
+|path:research/expert-interview-prep
+|Prepare interview scripts with open questions and probes.
+|Prepare interview scripts with open questions and probes.....
+|FULL: ./research/expert-interview-prep/SKILL.md
+
+[market-sizing-sanity Skill]|source:leviathofnoesia/skills
+|path:research/market-sizing-sanity
+|TAM/SAM/SOM estimates with stated assumptions and ranges.
+|TAM/SAM/SOM estimates with stated assumptions and ranges.....
+|FULL: ./research/market-sizing-sanity/SKILL.md
+
+[patent-landscape-lite Skill]|source:leviathofnoesia/skills
+|path:research/patent-landscape-lite
+|Sketch the patent landscape around a mechanism or domain.
+|Sketch the patent landscape around a mechanism or domain.....
+|FULL: ./research/patent-landscape-lite/SKILL.md
+
+[reproducibility-audit Skill]|source:leviathofnoesia/skills
+|path:research/reproducibility-audit
+|Check whether published results can be reproduced from artifacts.
+|Check whether published results can be reproduced from artifacts.....
+|FULL: ./research/reproducibility-audit/SKILL.md
+
+[synthesis-matrix Skill]|source:leviathofnoesia/skills
+|path:research/synthesis-matrix
+|Merge many sources into a claim-by-source evidence matrix.
+|Merge many sources into a claim-by-source evidence matrix.....
+|FULL: ./research/synthesis-matrix/SKILL.md
+
+[unknown-unknowns-scan Skill]|source:leviathofnoesia/skills
+|path:research/unknown-unknowns-scan
+|List what the research plan is NOT covering and why that matters.
+|List what the research plan is NOT covering and why that matters.....
+|FULL: ./research/unknown-unknowns-scan/SKILL.md
+
+[style-guide-distiller Skill]|source:leviathofnoesia/skills
+|path:writing/style-guide-distiller
+|Extract a project's voice rules from existing copy samples.
+|Extract a project's voice rules from existing copy samples.....
+|FULL: ./writing/style-guide-distiller/SKILL.md
+
+[changelog-narrator Skill]|source:leviathofnoesia/skills
+|path:writing/changelog-narrator
+|Turn diff sets into user-facing changelog entries.
+|Turn diff sets into user-facing changelog entries.....
+|FULL: ./writing/changelog-narrator/SKILL.md
+
+[api-doc-sketcher Skill]|source:leviathofnoesia/skills
+|path:writing/api-doc-sketcher
+|Draft reference docs from real signatures and call sites.
+|Draft reference docs from real signatures and call sites.....
+|FULL: ./writing/api-doc-sketcher/SKILL.md
+
+[tutorial-scaffolder Skill]|source:leviathofnoesia/skills
+|path:writing/tutorial-scaffolder
+|Structure tutorials: promise, steps, checkpoints, payoff.
+|Structure tutorials: promise, steps, checkpoints, payoff.....
+|FULL: ./writing/tutorial-scaffolder/SKILL.md
+
+[release-note-editor Skill]|source:leviathofnoesia/skills
+|path:writing/release-note-editor
+|Edit raw notes into scannable release communications.
+|Edit raw notes into scannable release communications.....
+|FULL: ./writing/release-note-editor/SKILL.md
+
+[blog-post-outline Skill]|source:leviathofnoesia/skills
+|path:writing/blog-post-outline
+|Outline posts with argument flow and evidence slots.
+|Outline posts with argument flow and evidence slots.....
+|FULL: ./writing/blog-post-outline/SKILL.md
+
+[email-brevity-pass Skill]|source:leviathofnoesia/skills
+|path:writing/email-brevity-pass
+|Compress professional email while keeping asks explicit.
+|Compress professional email while keeping asks explicit.....
+|FULL: ./writing/email-brevity-pass/SKILL.md
+
+[onboarding-doc-audit Skill]|source:leviathofnoesia/skills
+|path:writing/onboarding-doc-audit
+|Audit onboarding docs against a newcomer's actual first day.
+|Audit onboarding docs against a newcomer's actual first day.....
+|FULL: ./writing/onboarding-doc-audit/SKILL.md
+
+[terminology-consistency Skill]|source:leviathofnoesia/skills
+|path:writing/terminology-consistency
+|Enforce one term per concept across a doc set.
+|Enforce one term per concept across a doc set.....
+|FULL: ./writing/terminology-consistency/SKILL.md
+
+[readme-doctor Skill]|source:leviathofnoesia/skills
+|path:writing/readme-doctor
+|Diagnose READMEs: missing promise, install friction, stale bits.
+|Diagnose READMEs: missing promise, install friction, stale bits.....
+|FULL: ./writing/readme-doctor/SKILL.md
+
+[interview-story-framer Skill]|source:leviathofnoesia/skills
+|path:writing/interview-story-framer
+|Shape experience into STAR-format stories with metrics.
+|Shape experience into STAR-format stories with metrics.....
+|FULL: ./writing/interview-story-framer/SKILL.md
+
+[translation-handoff-kit Skill]|source:leviathofnoesia/skills
+|path:writing/translation-handoff-kit
+|Package copy for translators: context, glossary, constraints.
+|Package copy for translators: context, glossary, constraints.....
+|FULL: ./writing/translation-handoff-kit/SKILL.md
+
+[schema-drift-detector Skill]|source:leviathofnoesia/skills
+|path:data/schema-drift-detector
+|Detect silent schema drift between environments or snapshots.
+|Detect silent schema drift between environments or snapshots.....
+|FULL: ./data/schema-drift-detector/SKILL.md
+
+[null-pandemic-audit Skill]|source:leviathofnoesia/skills
+|path:data/null-pandemic-audit
+|Quantify and root-cause null inflation across tables/columns.
+|Quantify and root-cause null inflation across tables/columns.....
+|FULL: ./data/null-pandemic-audit/SKILL.md
+
+[join-cardinality-check Skill]|source:leviathofnoesia/skills
+|path:data/join-cardinality-check
+|Verify expected row counts before/after joins to catch fan-out.
+|Verify expected row counts before/after joins to catch fan-out.....
+|FULL: ./data/join-cardinality-check/SKILL.md
+
+[timezone-normalizer Skill]|source:leviathofnoesia/skills
+|path:data/timezone-normalizer
+|Find and fix mixed timezone storage and rendering bugs.
+|Find and fix mixed timezone storage and rendering bugs.....
+|FULL: ./data/timezone-normalizer/SKILL.md
+
+[pii-scanner Skill]|source:leviathofnoesia/skills
+|path:data/pii-scanner
+|Locate PII leaking into logs, fixtures, and exports.
+|Locate PII leaking into logs, fixtures, and exports.....
+|FULL: ./data/pii-scanner/SKILL.md
+
+[backfill-planner Skill]|source:leviathofnoesia/skills
+|path:data/backfill-planner
+|Plan safe historical backfills with idempotent batches.
+|Plan safe historical backfills with idempotent batches.....
+|FULL: ./data/backfill-planner/SKILL.md
+
+[metric-definition-sheet Skill]|source:leviathofnoesia/skills
+|path:data/metric-definition-sheet
+|One canonical definition per metric with formula and owner.
+|One canonical definition per metric with formula and owner.....
+|FULL: ./data/metric-definition-sheet/SKILL.md
+
+[dashboard-critique Skill]|source:leviathofnoesia/skills
+|path:data/dashboard-critique
+|Review dashboards: question first, chart honesty, load speed.
+|Review dashboards: question first, chart honesty, load speed.....
+|FULL: ./data/dashboard-critique/SKILL.md
+
+[csv-hygiene Skill]|source:leviathofnoesia/skills
+|path:data/csv-hygiene
+|Repair encoding, quoting, and type-coercion issues in CSVs.
+|Repair encoding, quoting, and type-coercion issues in CSVs.....
+|FULL: ./data/csv-hygiene/SKILL.md
+
+[sample-before-model Skill]|source:leviathofnoesia/skills
+|path:data/sample-before-model
+|Profile distributions and leakage before any modeling.
+|Profile distributions and leakage before any modeling.....
+|FULL: ./data/sample-before-model/SKILL.md
+
+[event-schema-versioning Skill]|source:leviathofnoesia/skills
+|path:data/event-schema-versioning
+|Version analytics events so downstream queries never break.
+|Version analytics events so downstream queries never break.....
+|FULL: ./data/event-schema-versioning/SKILL.md
+
+[anomaly-context-pack Skill]|source:leviathofnoesia/skills
+|path:data/anomaly-context-pack
+|Pair each anomaly alert with the context needed to triage it.
+|Pair each anomaly alert with the context needed to triage it.....
+|FULL: ./data/anomaly-context-pack/SKILL.md
+
+[runbook-author Skill]|source:leviathofnoesia/skills
+|path:devops/runbook-author
+|Write runnable runbooks: symptoms, checks, actions, rollback.
+|Write runnable runbooks: symptoms, checks, actions, rollback.....
+|FULL: ./devops/runbook-author/SKILL.md
+
+[ci-flake-quarantine Skill]|source:leviathofnoesia/skills
+|path:devops/ci-flake-quarantine
+|Quarantine flaky CI jobs without losing signal.
+|Quarantine flaky CI jobs without losing signal.....
+|FULL: ./devops/ci-flake-quarantine/SKILL.md
+
+[env-parity-audit Skill]|source:leviathofnoesia/skills
+|path:devops/env-parity-audit
+|Diff dev/staging/prod config and surface drift.
+|Diff dev/staging/prod config and surface drift.....
+|FULL: ./devops/env-parity-audit/SKILL.md
+
+[secret-rotation-playbook Skill]|source:leviathofnoesia/skills
+|path:devops/secret-rotation-playbook
+|Rotate credentials with zero downtime and verified cutover.
+|Rotate credentials with zero downtime and verified cutover.....
+|FULL: ./devops/secret-rotation-playbook/SKILL.md
+
+[cost-anomaly-hunt Skill]|source:leviathofnoesia/skills
+|path:devops/cost-anomaly-hunt
+|Trace cloud bill spikes to specific services and causes.
+|Trace cloud bill spikes to specific services and causes.....
+|FULL: ./devops/cost-anomaly-hunt/SKILL.md
+
+[deploy-freeze-discipline Skill]|source:leviathofnoesia/skills
+|path:devops/deploy-freeze-discipline
+|Implement freeze windows with exception tracking.
+|Implement freeze windows with exception tracking.....
+|FULL: ./devops/deploy-freeze-discipline/SKILL.md
+
+[log-retention-tuner Skill]|source:leviathofnoesia/skills
+|path:devops/log-retention-tuner
+|Right-size log retention vs cost vs debugging need.
+|Right-size log retention vs cost vs debugging need.....
+|FULL: ./devops/log-retention-tuner/SKILL.md
+
+[health-endpoint-design Skill]|source:leviathofnoesia/skills
+|path:devops/health-endpoint-design
+|Design liveness/readiness endpoints that tell the truth.
+|Design liveness/readiness endpoints that tell the truth.....
+|FULL: ./devops/health-endpoint-design/SKILL.md
+
+[capacity-headroom-check Skill]|source:leviathofnoesia/skills
+|path:devops/capacity-headroom-check
+|Measure headroom before traffic events; set scaling triggers.
+|Measure headroom before traffic events; set scaling triggers.....
+|FULL: ./devops/capacity-headroom-check/SKILL.md
+
+[backup-restore-drill Skill]|source:leviathofnoesia/skills
+|path:devops/backup-restore-drill
+|Actually restore from backup and time it; prove RTO/RPO.
+|Actually restore from backup and time it; prove RTO/RPO.....
+|FULL: ./devops/backup-restore-drill/SKILL.md
+
+[infra-tagging-standard Skill]|source:leviathofnoesia/skills
+|path:devops/infra-tagging-standard
+|Enforce resource tagging for ownership and cost allocation.
+|Enforce resource tagging for ownership and cost allocation.....
+|FULL: ./devops/infra-tagging-standard/SKILL.md
+
+[oncall-transition-kit Skill]|source:leviathofnoesia/skills
+|path:devops/oncall-transition-kit
+|Structured handoffs: open incidents, risks, quiet wins.
+|Structured handoffs: open incidents, risks, quiet wins.....
+|FULL: ./devops/oncall-transition-kit/SKILL.md
+
+[config-change-journal Skill]|source:leviathofnoesia/skills
+|path:devops/config-change-journal
+|Journal every manual infra change with who/why/revert.
+|Journal every manual infra change with who/why/revert.....
+|FULL: ./devops/config-change-journal/SKILL.md
+
+[local-dev-bootstrap Skill]|source:leviathofnoesia/skills
+|path:devops/local-dev-bootstrap
+|Make 'clone to running' under 10 minutes with one command.
+|Make 'clone to running' under 10 minutes with one command.....
+|FULL: ./devops/local-dev-bootstrap/SKILL.md
+
+[meeting-decision-capture Skill]|source:leviathofnoesia/skills
+|path:productivity/meeting-decision-capture
+|Capture meeting decisions with owners before memories diverge.
+|FULL: ./productivity/meeting-decision-capture/SKILL.md
+
+[calendar-priority-audit Skill]|source:leviathofnoesia/skills
+|path:productivity/calendar-priority-audit
+|Compare actual calendar hours against claimed priorities.
+|FULL: ./productivity/calendar-priority-audit/SKILL.md
+
+[weekly-review-loop Skill]|source:leviathofnoesia/skills
+|path:productivity/weekly-review-loop
+|Fixed weekly ritual: wins, misses, one process experiment.
+|FULL: ./productivity/weekly-review-loop/SKILL.md
+
+[delegation-brief-writer Skill]|source:leviathofnoesia/skills
+|path:productivity/delegation-brief-writer
+|Write delegation briefs with done-states and acceptance criteria.
+|FULL: ./productivity/delegation-brief-writer/SKILL.md
+
+[focus-block-architect Skill]|source:leviathofnoesia/skills
+|path:productivity/focus-block-architect
+|Build defended deep-work blocks around real energy peaks.
+|FULL: ./productivity/focus-block-architect/SKILL.md
+
+[negotiation-prep-sheet Skill]|source:leviathofnoesia/skills
+|path:productivity/negotiation-prep-sheet
+|One-page negotiation prep: targets, BATIMA, tradeables.
+|FULL: ./productivity/negotiation-prep-sheet/SKILL.md
+
+[priority-tradeoff-matrix Skill]|source:leviathofnoesia/skills
+|path:productivity/priority-tradeoff-matrix
+|Weighted prioritization with axes agreed before scoring.
+|FULL: ./productivity/priority-tradeoff-matrix/SKILL.md
+
+[stat-claim-decoder Skill]|source:leviathofnoesia/skills
+|path:productivity/stat-claim-decoder
+|Decode headline statistics into their honest strength.
+|FULL: ./productivity/stat-claim-decoder/SKILL.md
+
+[threat-model-lite Skill]|source:leviathofnoesia/skills
+|path:security/threat-model-lite
+|Lightweight STRIDE threat modeling sized to project stakes.
+|FULL: ./security/threat-model-lite/SKILL.md
+
+[incident-comms-drafter Skill]|source:leviathofnoesia/skills
+|path:security/incident-comms-drafter
+|Incident communications: fast ack, kept cadence, facts only.
+|FULL: ./security/incident-comms-drafter/SKILL.md
+
+[database-index-tuner Skill]|source:leviathofnoesia/skills
+|path:security/database-index-tuner
+|Rank and tune indexes by measured impact minus write tax.
+|FULL: ./security/database-index-tuner/SKILL.md
+
+[concurrency-race-hunter Skill]|source:leviathofnoesia/skills
+|path:security/concurrency-race-hunter
+|Reproduce and fix races via invariants plus forced interleavings.
+|FULL: ./security/concurrency-race-hunter/SKILL.md
