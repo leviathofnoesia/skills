@@ -312,3 +312,21 @@ Operating production: runbooks, capacity, cost, recovery drills.
 - [config-change-journal](./devops/config-change-journal/) — Journal every manual infra change with who/why/revert.
 - [local-dev-bootstrap](./devops/local-dev-bootstrap/) — Make 'clone to running' under 10 minutes with one command.
 
+## Productivity (`productivity/`)
+
+Personal operating system: meetings that produce decisions, calendars that
+match priorities, delegation that lands, negotiations that prepare.
+
+- [meeting-decision-capture](./productivity/meeting-decision-capture/) — Capture meeting decisions with owners before memories diverge.
+- [calendar-priority-audit](./productivity/calendar-priority-audit/) — Compare actual calendar hours against claimed priorities.
+- [weekly-review-loop](./productivity/weekly-review-loop/) — Fixed weekly ritual: wins, misses, one process experiment.
+- [delegation-brief-writer](./productivity/delegation-brief-writer/) — Write delegation briefs with done-states and acceptance criteria.
+- [focus-block-architect](./productivity/focus-block-architect/) — Build defended deep-work blocks around real energy peaks.
+- [negotiation-prep-sheet](./productivity/negotiation-prep-sheet/) — One-page negotiation prep: targets, BATIMA, tradeables.
+- [priority-tradeoff-matrix](./productivity/priority-tradeoff-matrix/) — Weighted prioritization with axes agreed before scoring.
+- [stat-claim-decoder](./productivity/stat-claim-decoder/) — Decode headline statistics into their honest strength.
+
+Plus four late additions: threat-model-lite and incident-comms-drafter
+(security/), database-index-tuner and concurrency-race-hunter
+(performance engineering, housed in security/).
+

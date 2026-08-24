@@ -798,3 +798,63 @@
 |Make 'clone to running' under 10 minutes with one command.
 |Make 'clone to running' under 10 minutes with one command.....
 |FULL: ./devops/local-dev-bootstrap/SKILL.md
+
+[meeting-decision-capture Skill]|source:leviathofnoesia/skills
+|path:productivity/meeting-decision-capture
+|Capture meeting decisions with owners before memories diverge.
+|FULL: ./productivity/meeting-decision-capture/SKILL.md
+
+[calendar-priority-audit Skill]|source:leviathofnoesia/skills
+|path:productivity/calendar-priority-audit
+|Compare actual calendar hours against claimed priorities.
+|FULL: ./productivity/calendar-priority-audit/SKILL.md
+
+[weekly-review-loop Skill]|source:leviathofnoesia/skills
+|path:productivity/weekly-review-loop
+|Fixed weekly ritual: wins, misses, one process experiment.
+|FULL: ./productivity/weekly-review-loop/SKILL.md
+
+[delegation-brief-writer Skill]|source:leviathofnoesia/skills
+|path:productivity/delegation-brief-writer
+|Write delegation briefs with done-states and acceptance criteria.
+|FULL: ./productivity/delegation-brief-writer/SKILL.md
+
+[focus-block-architect Skill]|source:leviathofnoesia/skills
+|path:productivity/focus-block-architect
+|Build defended deep-work blocks around real energy peaks.
+|FULL: ./productivity/focus-block-architect/SKILL.md
+
+[negotiation-prep-sheet Skill]|source:leviathofnoesia/skills
+|path:productivity/negotiation-prep-sheet
+|One-page negotiation prep: targets, BATIMA, tradeables.
+|FULL: ./productivity/negotiation-prep-sheet/SKILL.md
+
+[priority-tradeoff-matrix Skill]|source:leviathofnoesia/skills
+|path:productivity/priority-tradeoff-matrix
+|Weighted prioritization with axes agreed before scoring.
+|FULL: ./productivity/priority-tradeoff-matrix/SKILL.md
+
+[stat-claim-decoder Skill]|source:leviathofnoesia/skills
+|path:productivity/stat-claim-decoder
+|Decode headline statistics into their honest strength.
+|FULL: ./productivity/stat-claim-decoder/SKILL.md
+
+[threat-model-lite Skill]|source:leviathofnoesia/skills
+|path:security/threat-model-lite
+|Lightweight STRIDE threat modeling sized to project stakes.
+|FULL: ./security/threat-model-lite/SKILL.md
+
+[incident-comms-drafter Skill]|source:leviathofnoesia/skills
+|path:security/incident-comms-drafter
+|Incident communications: fast ack, kept cadence, facts only.
+|FULL: ./security/incident-comms-drafter/SKILL.md
+
+[database-index-tuner Skill]|source:leviathofnoesia/skills
+|path:security/database-index-tuner
+|Rank and tune indexes by measured impact minus write tax.
+|FULL: ./security/database-index-tuner/SKILL.md
+
+[concurrency-race-hunter Skill]|source:leviathofnoesia/skills
+|path:security/concurrency-race-hunter
+|Reproduce and fix races via invariants plus forced interleavings.
+|FULL: ./security/concurrency-race-hunter/SKILL.md

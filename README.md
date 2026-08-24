@@ -378,3 +378,19 @@ coding agents. Attribution appreciated.
 | [oncall-transition-kit](./devops/oncall-transition-kit/) | Structured handoffs: open incidents, risks, quiet wins. |
 | [config-change-journal](./devops/config-change-journal/) | Journal every manual infra change with who/why/revert. |
 | [local-dev-bootstrap](./devops/local-dev-bootstrap/) | Make 'clone to running' under 10 minutes with one command. |
+
+### Productivity (`productivity/`)
+
+| Skill | Description |
+|-------|-------------|
+| [meeting-decision-capture](./productivity/meeting-decision-capture/) | Capture meeting decisions with owners before memories diverge. |
+| [calendar-priority-audit](./productivity/calendar-priority-audit/) | Compare actual calendar hours against claimed priorities. |
+| [weekly-review-loop](./productivity/weekly-review-loop/) | Fixed weekly ritual: wins, misses, one process experiment. |
+| [delegation-brief-writer](./productivity/delegation-brief-writer/) | Write delegation briefs with done-states and acceptance criteria. |
+| [focus-block-architect](./productivity/focus-block-architect/) | Build defended deep-work blocks around real energy peaks. |
+| [negotiation-prep-sheet](./productivity/negotiation-prep-sheet/) | One-page negotiation prep: targets, BATIMA, tradeables. |
+| [priority-tradeoff-matrix](./productivity/priority-tradeoff-matrix/) | Weighted prioritization with axes agreed before scoring. |
+| [stat-claim-decoder](./productivity/stat-claim-decoder/) | Decode headline statistics into their honest strength. |
+
+**Also new:** [threat-model-lite](./security/threat-model-lite/) and [incident-comms-drafter](./security/incident-comms-drafter/) join `security/`; [database-index-tuner](./security/database-index-tuner/) and [concurrency-race-hunter](./security/concurrency-race-hunter/) complete the set.
+
