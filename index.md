@@ -5,269 +5,555 @@
 
 [agent-sanctuary Skill]|source:leviathofnoesia/skills
 |path:software-development/agent-sanctuary
-|Use when installing, browsing, or applying engineering-lifecycle skills from Agent Sanctuary (LivingLimes/agent-sanctuary) — spec, plan, build, test, review, ship workflows.
-|What Sanctuary is (research findings): - A Claude Code plugin marketplace (`marketplace.json` nam...
-|Workflow: 1. **Resolve what the user needs.** Map their task to a phase:
 |FULL: ./software-development/agent-sanctuary/SKILL.md
+
+[anomaly-context-pack Skill]|source:leviathofnoesia/skills
+|path:data/anomaly-context-pack
+|FULL: ./data/anomaly-context-pack/SKILL.md
 
 [api-contract-diff Skill]|source:leviathofnoesia/skills
 |path:software-development/api-contract-diff
-|Detect breaking changes between two versions of a public HTTP/API surface.
-|When to Use: - Before tagging a release, after refactoring routes/handlers, when a spec
-|Workflow: 1. **Extract both contracts.** From each side collect: routes (method +
 |FULL: ./software-development/api-contract-diff/SKILL.md
+
+[api-doc-sketcher Skill]|source:leviathofnoesia/skills
+|path:writing/api-doc-sketcher
+|FULL: ./writing/api-doc-sketcher/SKILL.md
+
+[api-versioning-strategy Skill]|source:leviathofnoesia/skills
+|path:software-development/api-versioning-strategy
+|FULL: ./software-development/api-versioning-strategy/SKILL.md
+
+[artifact-lineage Skill]|source:leviathofnoesia/skills
+|path:meta/artifact-lineage
+|FULL: ./meta/artifact-lineage/SKILL.md
+
+[assumption-ledger Skill]|source:leviathofnoesia/skills
+|path:meta/assumption-ledger
+|FULL: ./meta/assumption-ledger/SKILL.md
 
 [auto-impeccable Skill]|source:leviathofnoesia/skills
 |path:creative/auto-impeccable
-|Use when running an auto-impeccable tour of a UI project.
-|When to Use: - User asks to "run the full impeccable tour", "auto-impeccable", "guided tour
-|Setup: 1. **Resolve impeccable's base dir once** and reuse the resolved path (below,
 |FULL: ./creative/auto-impeccable/SKILL.md
+
+[backfill-planner Skill]|source:leviathofnoesia/skills
+|path:data/backfill-planner
+|FULL: ./data/backfill-planner/SKILL.md
+
+[backlog-triage-grooming Skill]|source:leviathofnoesia/skills
+|path:software-development/backlog-triage-grooming
+|FULL: ./software-development/backlog-triage-grooming/SKILL.md
+
+[backup-restore-drill Skill]|source:leviathofnoesia/skills
+|path:devops/backup-restore-drill
+|FULL: ./devops/backup-restore-drill/SKILL.md
+
+[blog-post-outline Skill]|source:leviathofnoesia/skills
+|path:writing/blog-post-outline
+|FULL: ./writing/blog-post-outline/SKILL.md
+
+[calendar-priority-audit Skill]|source:leviathofnoesia/skills
+|path:productivity/calendar-priority-audit
+|FULL: ./productivity/calendar-priority-audit/SKILL.md
+
+[capacity-headroom-check Skill]|source:leviathofnoesia/skills
+|path:devops/capacity-headroom-check
+|FULL: ./devops/capacity-headroom-check/SKILL.md
+
+[changelog-narrator Skill]|source:leviathofnoesia/skills
+|path:writing/changelog-narrator
+|FULL: ./writing/changelog-narrator/SKILL.md
+
+[chaos-drill-lite Skill]|source:leviathofnoesia/skills
+|path:software-development/chaos-drill-lite
+|FULL: ./software-development/chaos-drill-lite/SKILL.md
+
+[checklist-compiler Skill]|source:leviathofnoesia/skills
+|path:meta/checklist-compiler
+|FULL: ./meta/checklist-compiler/SKILL.md
+
+[ci-flake-quarantine Skill]|source:leviathofnoesia/skills
+|path:devops/ci-flake-quarantine
+|FULL: ./devops/ci-flake-quarantine/SKILL.md
+
+[citation-graph-walk Skill]|source:leviathofnoesia/skills
+|path:research/citation-graph-walk
+|FULL: ./research/citation-graph-walk/SKILL.md
+
+[claim-decay-checker Skill]|source:leviathofnoesia/skills
+|path:research/claim-decay-checker
+|FULL: ./research/claim-decay-checker/SKILL.md
 
 [clean-code-series Skill]|source:leviathofnoesia/skills
 |path:software-development/clean-code-series
-|Use when writing clean code or designing architecture.
-|When to Use: - Reviewing or writing code and need the Clean Code rules (naming,
-|Process
 |FULL: ./software-development/clean-code-series/SKILL.md
+
+[code-archaeology Skill]|source:leviathofnoesia/skills
+|path:software-development/code-archaeology
+|FULL: ./software-development/code-archaeology/SKILL.md
+
+[competitive-teardown Skill]|source:leviathofnoesia/skills
+|path:research/competitive-teardown
+|FULL: ./research/competitive-teardown/SKILL.md
+
+[concurrency-race-hunter Skill]|source:leviathofnoesia/skills
+|path:security/concurrency-race-hunter
+|FULL: ./security/concurrency-race-hunter/SKILL.md
+
+[config-change-journal Skill]|source:leviathofnoesia/skills
+|path:devops/config-change-journal
+|FULL: ./devops/config-change-journal/SKILL.md
 
 [context-budget Skill]|source:leviathofnoesia/skills
 |path:meta/context-budget
-|Plan long agent tasks around the context window: checkpoint, reload, compact.
-|When to Use: - Any task expected to exceed ~10 tool-heavy steps: large refactors, big
-|Workflow: 1. **Budget at plan time.** After forming the task plan, estimate phases
 |FULL: ./meta/context-budget/SKILL.md
+
+[context-pruning-pass Skill]|source:leviathofnoesia/skills
+|path:meta/context-pruning-pass
+|FULL: ./meta/context-pruning-pass/SKILL.md
+
+[contract-test-bootstrap Skill]|source:leviathofnoesia/skills
+|path:software-development/contract-test-bootstrap
+|FULL: ./software-development/contract-test-bootstrap/SKILL.md
+
+[cost-anomaly-hunt Skill]|source:leviathofnoesia/skills
+|path:devops/cost-anomaly-hunt
+|FULL: ./devops/cost-anomaly-hunt/SKILL.md
+
+[csv-hygiene Skill]|source:leviathofnoesia/skills
+|path:data/csv-hygiene
+|FULL: ./data/csv-hygiene/SKILL.md
+
+[dashboard-critique Skill]|source:leviathofnoesia/skills
+|path:data/dashboard-critique
+|FULL: ./data/dashboard-critique/SKILL.md
+
+[database-index-tuner Skill]|source:leviathofnoesia/skills
+|path:security/database-index-tuner
+|FULL: ./security/database-index-tuner/SKILL.md
+
+[dataset-provenance Skill]|source:leviathofnoesia/skills
+|path:research/dataset-provenance
+|FULL: ./research/dataset-provenance/SKILL.md
+
+[dead-code-sweep Skill]|source:leviathofnoesia/skills
+|path:software-development/dead-code-sweep
+|FULL: ./software-development/dead-code-sweep/SKILL.md
+
+[decision-record-mini Skill]|source:leviathofnoesia/skills
+|path:meta/decision-record-mini
+|FULL: ./meta/decision-record-mini/SKILL.md
 
 [deepsec-codex-luna Skill]|source:leviathofnoesia/skills
 |path:security/deepsec-codex-luna
-|Dual-scan with deepsec and Codex Security on Luna.
-|When to Use: - Dual-scan with deepsec and Codex Security on Luna. Use when combining deepsec with...
-|Luna pin: | Tool | Flag |
 |FULL: ./security/deepsec-codex-luna/SKILL.md
 
 [deepsec-codex-v4-flash Skill]|source:leviathofnoesia/skills
 |path:security/deepsec-codex-v4-flash
-|Dual-scan deepsec+Codex on V4 Flash; ask harness/api.
-|When to Use: - Dual-scan with deepsec and Codex Security on DeepSeek V4 Flash.
-|1. Ask the user (MANDATORY): Collect, in this shape:
 |FULL: ./security/deepsec-codex-v4-flash/SKILL.md
 
 [deepsec-codex-v4-pro Skill]|source:leviathofnoesia/skills
 |path:security/deepsec-codex-v4-pro
-|Dual-scan deepsec+Codex on V4 Pro; ask harness/api.
-|When to Use: - Dual-scan with deepsec and Codex Security on DeepSeek V4 Pro.
-|1. Ask the user (MANDATORY): Collect, in this shape:
 |FULL: ./security/deepsec-codex-v4-pro/SKILL.md
 
 [deepsec-luna Skill]|source:leviathofnoesia/skills
 |path:security/deepsec-luna
-|Pin deepsec AI runs to Luna for scanning and triage.
-|When to Use: - Pin deepsec AI runs to Luna. Use when running deepsec process, revalidate, triage,...
-|Pin: On `process`, `revalidate`, and `triage` (including under `sandbox`), always pass:
 |FULL: ./security/deepsec-luna/SKILL.md
 
 [deepsec-orchestrator Skill]|source:leviathofnoesia/skills
 |path:security/deepsec-orchestrator
-|Loop deepsec+Codex via judge; consolidate and auto-apply.
-|When to Use: - Advanced security workflow automation with fine control over models, harnesses, an...
-|1. Configure (MANDATORY — collect the full set list before anything runs): Refuse to start until ...
 |FULL: ./security/deepsec-orchestrator/SKILL.md
 
 [deepsec-v4-flash Skill]|source:leviathofnoesia/skills
 |path:security/deepsec-v4-flash
-|Scan with deepsec on DeepSeek V4 Flash; ask harness/api.
-|When to Use: - Run a deepsec `process` / `revalidate` / `triage` with DeepSeek V4 Flash.
-|1. Ask the user (MANDATORY — stop and ask before any command): DeepSeek is not a first-class deep...
 |FULL: ./security/deepsec-v4-flash/SKILL.md
 
 [deepsec-v4-pro Skill]|source:leviathofnoesia/skills
 |path:security/deepsec-v4-pro
-|Scan with deepsec on DeepSeek V4 Pro; ask harness/api.
-|When to Use: - Run a deepsec `process` / `revalidate` / `triage` with DeepSeek V4 Pro.
-|1. Ask the user (MANDATORY — stop and ask before any command): DeepSeek is not a first-class deep...
 |FULL: ./security/deepsec-v4-pro/SKILL.md
+
+[delegation-brief-writer Skill]|source:leviathofnoesia/skills
+|path:productivity/delegation-brief-writer
+|FULL: ./productivity/delegation-brief-writer/SKILL.md
 
 [dep-upgrade-audit Skill]|source:leviathofnoesia/skills
 |path:software-development/dep-upgrade-audit
-|Upgrade a dependency safely: changelog, breaking-change audit, staged bump.
-|When to Use: - Bumping any direct dependency past a minor boundary, or anything that
-|Workflow: 1. **Inventory usage first.** Find every import/reference of the package in
 |FULL: ./software-development/dep-upgrade-audit/SKILL.md
+
+[dependency-license-audit Skill]|source:leviathofnoesia/skills
+|path:software-development/dependency-license-audit
+|FULL: ./software-development/dependency-license-audit/SKILL.md
+
+[deploy-freeze-discipline Skill]|source:leviathofnoesia/skills
+|path:devops/deploy-freeze-discipline
+|FULL: ./devops/deploy-freeze-discipline/SKILL.md
 
 [diff-explain Skill]|source:leviathofnoesia/skills
 |path:software-development/diff-explain
-|Explain a git diff or PR change as layered summaries for different readers.
-|When to Use: - "Explain this diff", "what does this PR do", "summarize the changes",
-|The three layers: Produce all three, in order, in your final response:
 |FULL: ./software-development/diff-explain/SKILL.md
+
+[email-brevity-pass Skill]|source:leviathofnoesia/skills
+|path:writing/email-brevity-pass
+|FULL: ./writing/email-brevity-pass/SKILL.md
+
+[env-parity-audit Skill]|source:leviathofnoesia/skills
+|path:devops/env-parity-audit
+|FULL: ./devops/env-parity-audit/SKILL.md
 
 [env-repro Skill]|source:leviathofnoesia/skills
 |path:software-development/env-repro
-|Reproduce an environment-specific bug by isolating OS, version, and config diffs.
-|When to Use: - A bug reproduces in one environment but not another: dev vs CI, Windows
-|Workflow: 1. **Capture both environments** (failing + working), per dimension:
 |FULL: ./software-development/env-repro/SKILL.md
+
+[error-taxonomy-design Skill]|source:leviathofnoesia/skills
+|path:software-development/error-taxonomy-design
+|FULL: ./software-development/error-taxonomy-design/SKILL.md
+
+[event-schema-versioning Skill]|source:leviathofnoesia/skills
+|path:data/event-schema-versioning
+|FULL: ./data/event-schema-versioning/SKILL.md
+
+[experiment-power-check Skill]|source:leviathofnoesia/skills
+|path:research/experiment-power-check
+|FULL: ./research/experiment-power-check/SKILL.md
+
+[expert-interview-prep Skill]|source:leviathofnoesia/skills
+|path:research/expert-interview-prep
+|FULL: ./research/expert-interview-prep/SKILL.md
+
+[failure-mode-catalog Skill]|source:leviathofnoesia/skills
+|path:meta/failure-mode-catalog
+|FULL: ./meta/failure-mode-catalog/SKILL.md
+
+[feature-flag-lifecycle Skill]|source:leviathofnoesia/skills
+|path:software-development/feature-flag-lifecycle
+|FULL: ./software-development/feature-flag-lifecycle/SKILL.md
 
 [flaky-test-triage Skill]|source:leviathofnoesia/skills
 |path:software-development/flaky-test-triage
-|Diagnose flaky tests: isolate ordering, timing, and environment causes.
-|When to Use: - A test passes locally but fails CI, fails alone but passes in a suite,
-|Workflow: 1. **Reproduce deterministically before theorizing.** Run the failing test
 |FULL: ./software-development/flaky-test-triage/SKILL.md
+
+[focus-block-architect Skill]|source:leviathofnoesia/skills
+|path:productivity/focus-block-architect
+|FULL: ./productivity/focus-block-architect/SKILL.md
 
 [gauntlet-loop Skill]|source:leviathofnoesia/skills
 |path:meta/gauntlet-loop
-|Build, blind-critic, rebuild until the output wins or ties.
-|When to Use: - The original Gauntlet Loop — a self-contained build→critic→rebuild loop that drive...
-|Core rule: pick the bar before the builders fire
 |FULL: ./meta/gauntlet-loop/SKILL.md
+
+[health-endpoint-design Skill]|source:leviathofnoesia/skills
+|path:devops/health-endpoint-design
+|FULL: ./devops/health-endpoint-design/SKILL.md
+
+[incident-comms-drafter Skill]|source:leviathofnoesia/skills
+|path:security/incident-comms-drafter
+|FULL: ./security/incident-comms-drafter/SKILL.md
+
+[incident-postmortem-writer Skill]|source:leviathofnoesia/skills
+|path:software-development/incident-postmortem-writer
+|FULL: ./software-development/incident-postmortem-writer/SKILL.md
+
+[infra-tagging-standard Skill]|source:leviathofnoesia/skills
+|path:devops/infra-tagging-standard
+|FULL: ./devops/infra-tagging-standard/SKILL.md
+
+[instruction-decompiler Skill]|source:leviathofnoesia/skills
+|path:meta/instruction-decompiler
+|FULL: ./meta/instruction-decompiler/SKILL.md
+
+[interview-story-framer Skill]|source:leviathofnoesia/skills
+|path:writing/interview-story-framer
+|FULL: ./writing/interview-story-framer/SKILL.md
+
+[join-cardinality-check Skill]|source:leviathofnoesia/skills
+|path:data/join-cardinality-check
+|FULL: ./data/join-cardinality-check/SKILL.md
 
 [kraken-abyssal Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-abyssal
-|External research with every claim version-pinned and cited.
-|When to Use: - Abyssal external-research method — evidence-based answers about external libraries...
-|Research Framework
 |FULL: ./harness/kraken-skill/kraken-abyssal/SKILL.md
 
 [kraken-architect Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-architect
-|Architecture: first-principles analysis, evidence audits.
-|When to Use: - Atlas/Maelstrom/Leviathan architecture method — strategic first-principles analysi...
-|Mode 1: Strategic Analysis (first-principles)
 |FULL: ./harness/kraken-skill/kraken-architect/SKILL.md
 
 [kraken-blitzkrieg-tdd Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-blitzkrieg-tdd
-|TDD with evidence-gated completion and red-green-refactor.
-|When to Use: - Blitzkrieg TDD & evidence-gated-completion discipline — self-enforced engineering ...
-|1. Test plan before implementation: Before writing implementation code, write a test plan:
 |FULL: ./harness/kraken-skill/kraken-blitzkrieg-tdd/SKILL.md
 
 [kraken-cartographer Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-cartographer
-|Planning with correct, complete, verifiable steps.
-|When to Use: - Cartographer planning method — produce plans that are correct, complete, and verif...
-|Planning Methodology (four phases — do not skip, do not reorder)
 |FULL: ./harness/kraken-skill/kraken-cartographer/SKILL.md
 
 [kraken-coral Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-coral
-|UI design: accessible, design-system-compliant.
-|When to Use: - Coral visual/UI-design method — transform functional requirements into accessible,...
-|Design Framework
 |FULL: ./harness/kraken-skill/kraken-coral/SKILL.md
 
 [kraken-engineer Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-engineer
-|Engineering: verifiable steps, TDD, evidence gates.
-|When to Use: - Universal software-engineering methodology distilled from the Kraken Code plugin: ...
-|Orchestration Framework (PDSA): Iterate in four phases. Do not skip phases on non-trivial work.
 |FULL: ./harness/kraken-skill/kraken-engineer/SKILL.md
 
 [kraken-gauntlet-loop Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-gauntlet-loop
-|Quality loop: build, blind-critic, rebuild until it wins.
-|When to Use: - Gauntlet Loop method — the quality-iteration loop that runs inside kraken-engineer...
-|How it sits inside kraken-engineer's PDSA: kraken-engineer runs four phases. The Gauntlet Loop is...
 |FULL: ./harness/kraken-skill/kraken-gauntlet-loop/SKILL.md
 
 [kraken-git-verify Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-git-verify
-|Verify repo, branch, remote before any git write.
-|When this skill fires: - A `git checkout`/`git push` created a branch on the wrong remote.
-|The rule: **Always confirm the repo → branch → remote → file path chain before acting,
 |FULL: ./harness/kraken-skill/kraken-git-verify/SKILL.md
 
 [kraken-learning Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-learning
-|Persist and compound learnings after meaningful work.
-|When to Use: - Kraken learning-memory habit — persist and compound what you learn after non-trivi...
-|1. Experience store: Record: the decision you made, its outcome, and any reusable pattern. One or...
 |FULL: ./harness/kraken-skill/kraken-learning/SKILL.md
 
 [kraken-nautilus Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-nautilus
-|Codebase search: systematic, cross-validated exploration.
-|When to Use: - Nautilus codebase-search method — systematic, cross-validated codebase exploration...
-|Search Strategy Framework
 |FULL: ./harness/kraken-skill/kraken-nautilus/SKILL.md
 
 [kraken-pearl Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-pearl
-|Multimedia analysis: structured evidence-bound extraction.
-|When to Use: - Pearl multimedia-analysis method — extract structured, evidence-bound information ...
-|Analysis Framework
 |FULL: ./harness/kraken-skill/kraken-pearl/SKILL.md
 
 [kraken-poseidon Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-poseidon
-|Pre-planning constraints: surface requirements, boundaries.
-|When to Use: - Poseidon pre-planning constraint method — apply formal constraint satisfaction bef...
-|Constraint Satisfaction Framework
 |FULL: ./harness/kraken-skill/kraken-poseidon/SKILL.md
 
 [kraken-prompt-gauntlet Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-prompt-gauntlet
-|Use when upgrading a raw brief into a build-grade prompt.
-|When to Use: - User asks to "upgrade/overhaul this prompt", "make this brief build-ready",
-|Workflow (PDSA + gauntlet)
 |FULL: ./harness/kraken-skill/kraken-prompt-gauntlet/SKILL.md
 
 [kraken-scylla Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-scylla
-|Plan audit: SOLID and measurable gates before execution.
-|When to Use: - Scylla plan-quality-audit method — evaluate a work plan against SOLID principles a...
-|Quality Assurance Framework
 |FULL: ./harness/kraken-skill/kraken-scylla/SKILL.md
 
 [kraken-siren Skill]|source:leviathofnoesia/skills
 |path:harness/kraken-skill/kraken-siren
-|Documentation: clear, actionable, quality-checked.
-|When to Use: - Siren documentation method — clear, comprehensive, actionable docs via information...
-|Documentation Framework
 |FULL: ./harness/kraken-skill/kraken-siren/SKILL.md
 
 [lean-turns Skill]|source:leviathofnoesia/skills
 |path:meta/lean-turns
-|Lean turns: summary-only intermediates, final full prose.
-|When to Use: - Token-optimized conversational turns for multi-step prompt runs — write every inte...
-|When this skill fires: - Multi-step prompt runs (more than one tool call / multi-turn work).
 |FULL: ./meta/lean-turns/SKILL.md
 
 [lean-turns-strict Skill]|source:leviathofnoesia/skills
 |path:meta/lean-turns/lean-turns-strict
-|Ultra-lean turns: summary-only until the final deliverable.
-|When to Use: - Token-suppressed intermediate turns for multi-step prompt runs — an ultra-lean ove...
-|When this skill fires: - Explicit asks: "strict mode", "ultra lean", "one token per turn",
 |FULL: ./meta/lean-turns/lean-turns-strict/SKILL.md
+
+[literature-scan Skill]|source:leviathofnoesia/skills
+|path:research/literature-scan
+|FULL: ./research/literature-scan/SKILL.md
+
+[load-test-from-logs Skill]|source:leviathofnoesia/skills
+|path:software-development/load-test-from-logs
+|FULL: ./software-development/load-test-from-logs/SKILL.md
+
+[local-dev-bootstrap Skill]|source:leviathofnoesia/skills
+|path:devops/local-dev-bootstrap
+|FULL: ./devops/local-dev-bootstrap/SKILL.md
 
 [log-mining Skill]|source:leviathofnoesia/skills
 |path:meta/log-mining
-|Extract signal from large logs: triage, window around errors, correlate.
-|When to Use: - "Why did the build/CI/server fail", "find errors since X", "what happened
-|Workflow: 1. **Shape first.** Determine format (plain/JSON lines/syslog), timestamp
 |FULL: ./meta/log-mining/SKILL.md
+
+[log-retention-tuner Skill]|source:leviathofnoesia/skills
+|path:devops/log-retention-tuner
+|FULL: ./devops/log-retention-tuner/SKILL.md
+
+[market-sizing-sanity Skill]|source:leviathofnoesia/skills
+|path:research/market-sizing-sanity
+|FULL: ./research/market-sizing-sanity/SKILL.md
+
+[meeting-decision-capture Skill]|source:leviathofnoesia/skills
+|path:productivity/meeting-decision-capture
+|FULL: ./productivity/meeting-decision-capture/SKILL.md
+
+[metric-definition-sheet Skill]|source:leviathofnoesia/skills
+|path:data/metric-definition-sheet
+|FULL: ./data/metric-definition-sheet/SKILL.md
+
+[migration-planner Skill]|source:leviathofnoesia/skills
+|path:software-development/migration-planner
+|FULL: ./software-development/migration-planner/SKILL.md
+
+[monorepo-split-plan Skill]|source:leviathofnoesia/skills
+|path:software-development/monorepo-split-plan
+|FULL: ./software-development/monorepo-split-plan/SKILL.md
+
+[negotiation-prep-sheet Skill]|source:leviathofnoesia/skills
+|path:productivity/negotiation-prep-sheet
+|FULL: ./productivity/negotiation-prep-sheet/SKILL.md
+
+[null-pandemic-audit Skill]|source:leviathofnoesia/skills
+|path:data/null-pandemic-audit
+|FULL: ./data/null-pandemic-audit/SKILL.md
+
+[observability-checklist Skill]|source:leviathofnoesia/skills
+|path:software-development/observability-checklist
+|FULL: ./software-development/observability-checklist/SKILL.md
+
+[onboarding-doc-audit Skill]|source:leviathofnoesia/skills
+|path:writing/onboarding-doc-audit
+|FULL: ./writing/onboarding-doc-audit/SKILL.md
+
+[oncall-transition-kit Skill]|source:leviathofnoesia/skills
+|path:devops/oncall-transition-kit
+|FULL: ./devops/oncall-transition-kit/SKILL.md
+
+[patent-landscape-lite Skill]|source:leviathofnoesia/skills
+|path:research/patent-landscape-lite
+|FULL: ./research/patent-landscape-lite/SKILL.md
+
+[perf-budget-guardian Skill]|source:leviathofnoesia/skills
+|path:software-development/perf-budget-guardian
+|FULL: ./software-development/perf-budget-guardian/SKILL.md
+
+[pii-scanner Skill]|source:leviathofnoesia/skills
+|path:data/pii-scanner
+|FULL: ./data/pii-scanner/SKILL.md
+
+[pr-description-forge Skill]|source:leviathofnoesia/skills
+|path:software-development/pr-description-forge
+|FULL: ./software-development/pr-description-forge/SKILL.md
+
+[primary-source-hunter Skill]|source:leviathofnoesia/skills
+|path:research/primary-source-hunter
+|FULL: ./research/primary-source-hunter/SKILL.md
+
+[priority-tradeoff-matrix Skill]|source:leviathofnoesia/skills
+|path:productivity/priority-tradeoff-matrix
+|FULL: ./productivity/priority-tradeoff-matrix/SKILL.md
+
+[progress-heartbeat Skill]|source:leviathofnoesia/skills
+|path:meta/progress-heartbeat
+|FULL: ./meta/progress-heartbeat/SKILL.md
+
+[prompt-contract-authoring Skill]|source:leviathofnoesia/skills
+|path:meta/prompt-contract-authoring
+|FULL: ./meta/prompt-contract-authoring/SKILL.md
 
 [prompt2image Skill]|source:leviathofnoesia/skills
 |path:meta/prompt2image
-|Render a text prompt as a compact monospace PNG image.
-|When to Use: - Render a text prompt as a compact monospace PNG image that a vision-capable agent ...
-|Prerequisites: Pillow must be installed. Check first, install only if missing:
 |FULL: ./meta/prompt2image/SKILL.md
 
 [prompt2qr Skill]|source:leviathofnoesia/skills
 |path:meta/prompt2qr
-|Compress a prompt and encode it as binary QR PNGs.
-|When to Use: - Compress a text prompt with gzip and encode it as a sequence of lossless binary QR...
-|Prerequisites: segno must be installed. Check first, install only if missing:
 |FULL: ./meta/prompt2qr/SKILL.md
+
+[readme-doctor Skill]|source:leviathofnoesia/skills
+|path:writing/readme-doctor
+|FULL: ./writing/readme-doctor/SKILL.md
+
+[refactor-safe-extract Skill]|source:leviathofnoesia/skills
+|path:software-development/refactor-safe-extract
+|FULL: ./software-development/refactor-safe-extract/SKILL.md
+
+[release-note-editor Skill]|source:leviathofnoesia/skills
+|path:writing/release-note-editor
+|FULL: ./writing/release-note-editor/SKILL.md
+
+[reproducibility-audit Skill]|source:leviathofnoesia/skills
+|path:research/reproducibility-audit
+|FULL: ./research/reproducibility-audit/SKILL.md
+
+[retry-policy-designer Skill]|source:leviathofnoesia/skills
+|path:meta/retry-policy-designer
+|FULL: ./meta/retry-policy-designer/SKILL.md
+
+[runbook-author Skill]|source:leviathofnoesia/skills
+|path:devops/runbook-author
+|FULL: ./devops/runbook-author/SKILL.md
+
+[sample-before-model Skill]|source:leviathofnoesia/skills
+|path:data/sample-before-model
+|FULL: ./data/sample-before-model/SKILL.md
+
+[schema-drift-detector Skill]|source:leviathofnoesia/skills
+|path:data/schema-drift-detector
+|FULL: ./data/schema-drift-detector/SKILL.md
+
+[scope-fence Skill]|source:leviathofnoesia/skills
+|path:meta/scope-fence
+|FULL: ./meta/scope-fence/SKILL.md
+
+[sdk-design-review Skill]|source:leviathofnoesia/skills
+|path:software-development/sdk-design-review
+|FULL: ./software-development/sdk-design-review/SKILL.md
+
+[secret-rotation-playbook Skill]|source:leviathofnoesia/skills
+|path:devops/secret-rotation-playbook
+|FULL: ./devops/secret-rotation-playbook/SKILL.md
+
+[self-critique-loop Skill]|source:leviathofnoesia/skills
+|path:meta/self-critique-loop
+|FULL: ./meta/self-critique-loop/SKILL.md
+
+[source-triangulation Skill]|source:leviathofnoesia/skills
+|path:research/source-triangulation
+|FULL: ./research/source-triangulation/SKILL.md
+
+[stat-claim-decoder Skill]|source:leviathofnoesia/skills
+|path:productivity/stat-claim-decoder
+|FULL: ./productivity/stat-claim-decoder/SKILL.md
 
 [ste-writing Skill]|source:leviathofnoesia/skills
 |path:meta/ste-writing
-|Rewrite and check technical text against ASD-STE100 rules.
-|When to Use: - "Write this in STE" / "make this ASD-STE100 compliant"
-|Prerequisites: - Python 3 (for the optional structural linter). No pip installs — stdlib only.
 |FULL: ./meta/ste-writing/SKILL.md
+
+[style-guide-distiller Skill]|source:leviathofnoesia/skills
+|path:writing/style-guide-distiller
+|FULL: ./writing/style-guide-distiller/SKILL.md
+
+[survey-question-design Skill]|source:leviathofnoesia/skills
+|path:research/survey-question-design
+|FULL: ./research/survey-question-design/SKILL.md
+
+[synthesis-matrix Skill]|source:leviathofnoesia/skills
+|path:research/synthesis-matrix
+|FULL: ./research/synthesis-matrix/SKILL.md
+
+[terminology-consistency Skill]|source:leviathofnoesia/skills
+|path:writing/terminology-consistency
+|FULL: ./writing/terminology-consistency/SKILL.md
+
+[test-data-builder-pattern Skill]|source:leviathofnoesia/skills
+|path:software-development/test-data-builder-pattern
+|FULL: ./software-development/test-data-builder-pattern/SKILL.md
+
+[threat-model-lite Skill]|source:leviathofnoesia/skills
+|path:security/threat-model-lite
+|FULL: ./security/threat-model-lite/SKILL.md
+
+[timezone-normalizer Skill]|source:leviathofnoesia/skills
+|path:data/timezone-normalizer
+|FULL: ./data/timezone-normalizer/SKILL.md
+
+[token-budget-forecast Skill]|source:leviathofnoesia/skills
+|path:meta/token-budget-forecast
+|FULL: ./meta/token-budget-forecast/SKILL.md
+
+[tool-choice-arbiter Skill]|source:leviathofnoesia/skills
+|path:meta/tool-choice-arbiter
+|FULL: ./meta/tool-choice-arbiter/SKILL.md
+
+[translation-handoff-kit Skill]|source:leviathofnoesia/skills
+|path:writing/translation-handoff-kit
+|FULL: ./writing/translation-handoff-kit/SKILL.md
+
+[tutorial-scaffolder Skill]|source:leviathofnoesia/skills
+|path:writing/tutorial-scaffolder
+|FULL: ./writing/tutorial-scaffolder/SKILL.md
+
+[type-boundary-hardening Skill]|source:leviathofnoesia/skills
+|path:software-development/type-boundary-hardening
+|FULL: ./software-development/type-boundary-hardening/SKILL.md
+
+[unknown-unknowns-scan Skill]|source:leviathofnoesia/skills
+|path:research/unknown-unknowns-scan
+|FULL: ./research/unknown-unknowns-scan/SKILL.md
+
+[verification-chain-builder Skill]|source:leviathofnoesia/skills
+|path:meta/verification-chain-builder
+|FULL: ./meta/verification-chain-builder/SKILL.md
+
+[weekly-review-loop Skill]|source:leviathofnoesia/skills
+|path:productivity/weekly-review-loop
+|FULL: ./productivity/weekly-review-loop/SKILL.md
 
 <!-- END SKILL-COMPILER MANAGED SECTION -->
 
